@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+@import './mixin';
+
+//UI
+@import '../components/UI/row-title';
+@import '../components/UI/row-main';
+
+//components
+@import '../components/Rows/row-wrapper';
+@import '../components/Rows/row-main-wrapper';
+
+//pages
+@import './pages/home';
