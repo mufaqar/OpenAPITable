@@ -13,6 +13,7 @@ export const transformToValues = (data) => {
         apiName: `${document_number} ${api_name}`,
         apiDescription: removeHtmlTags(api_description),
         key: elementKey,
+        document_number,
       };
     })
     .reduce((prev, curr) => {
