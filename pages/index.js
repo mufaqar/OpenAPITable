@@ -11,6 +11,7 @@ import Box from '@mui/material/Box';
 
 const Home = () => {
   const data = transformToValues(API_TABLE);
+
   return (
     <Box className="home">
       <MarketAndSales data={data.MarketingSales} />
