@@ -1,11 +1,24 @@
-import { Typography } from '@mui/material';
+import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { useRouter } from 'next/router';
+import { API_TABLE } from '../../API_TABLE';
+import { transformToValues } from '../../helpers/transformToValues';
 
 const DocumentNumber = () => {
   const {
     query: { documentNumber },
   } = useRouter();
+
+  const data = transformToValues(API_TABLE);
+
+  const apiDetails = Object.values(data).reduce((acc, curr) => {
+    curr.forEach((item) => {
+      if (item?.documentNumber === documentNumber) {
+        return Object.assign(acc, item);
+      }
+    });
+    return acc;
+  }, {});
 
   return (
     <>
@@ -20,26 +33,18 @@ const DocumentNumber = () => {
         <Box className="documentNumber__secound">
           <Box className="documentNumber__secound__inside">
             <Box className="documentNumber__secound__inside__left">
-              <Typography variant="h1" component="h1">
-                {documentNumber}
+              <Typography> Block Name: {apiDetails.key}</Typography>
+              <Typography>
+                {' '}
+                Document Number: {apiDetails.documentNumber}
               </Typography>
+              <Typography> Api Name: {apiDetails.apiName}</Typography>
+              <Typography> Version Info: {apiDetails.versionInfo}</Typography>
+              <Typography> Release Info: {apiDetails.releaseInfo}</Typography>
             </Box>
             <Box className="documentNumber__secound__inside__right">
               <Typography>Api description</Typography>
-              <Typography>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Maecenas facilisis sapien nisi, non mattis purus consequat eu.
-                Pellentesque lacinia massa eu erat feugiat suscipit. Aenean
-                porttitor. Consectetur adipiscing elit. Maecenas facilisis
-                sapien nisi, non mattis purus consequat eu. Pellentesque lacinia
-                massa eu erat feugiat suscipit. Aenean porttitor. consectetur
-                adipiscing elit. Maecenas facilisis sapien nisi, non mattis
-                purus consequat eu. Pellentesque lacinia massa eu erat feugiat
-                suscipit. Aenean porttitor. Non mattis purus consequat eu.
-                Pellentesque lacinia massa eu erat feugiat suscipit. Aenean
-                porttitor. Purus consequat eu. Pellentesque lacinia massa eu
-                erat feugiat suscipit. Aenean porttitor.
-              </Typography>
+              <Typography>{apiDetails.apiDescription}</Typography>
             </Box>
           </Box>
         </Box>
