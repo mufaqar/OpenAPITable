@@ -4,6 +4,8 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import Image from 'next/image';
 import Link from 'next/link';
+import Button from '@mui/material/Button';
+import Box from '@mui/system/Box';
 
 const Navigation = () => {
   return (
@@ -33,9 +35,18 @@ const Navigation = () => {
             </a>
           </Link>
         </IconButton>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Open Api Map
-        </Typography>
+        <Box>
+          <Button sx={{ color: 'white' }}>
+            <Typography variant="h6">
+              <Link href="/">Home</Link>
+            </Typography>
+          </Button>
+          <Button sx={{ color: 'white' }}>
+            <Typography variant="h6">
+              <Link href="map">Map</Link>
+            </Typography>
+          </Button>
+        </Box>
       </Toolbar>
     </AppBar>
   );
