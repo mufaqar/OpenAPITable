@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const RowMain = (props) => {
-  const { subtitle, children, colorLight, document_number } = props;
+  const { subtitle, children, colorLight, documentNumber } = props;
   const images = [
     {
       src: 'https://projects.tmforum.org/wiki/download/thumbnails/84575796/swaggerGreenApache.png',
@@ -36,11 +36,13 @@ const RowMain = (props) => {
     },
   ];
   return (
-    <Link href={`apis/${document_number}`}>
+    <Link href={`apis/${documentNumber}`}>
       <div className="row-main" style={{ backgroundColor: colorLight }}>
         <div className="row-main__wrapper">
           <div>
-            <h3 style={{ paddingBottom: '0.5rem' }}>{subtitle}</h3>
+            <h3 style={{ paddingBottom: '0.5rem' }}>
+              {documentNumber} {subtitle}
+            </h3>
             <div
               style={{
                 fontFamily: 'Arial, Helvetica, sans-serif',

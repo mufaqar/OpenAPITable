@@ -11,12 +11,12 @@ const MarketAndSales = (props) => {
     <Box className="row-wrapper">
       <RowTitle color={color}>Market / Sales</RowTitle>
       <Box className="row-main-wrapper" style={{ backgroundColor: color }}>
-        {data?.map(({ apiName, apiDescription, document_number }) => (
+        {data?.map(({ apiName, apiDescription, documentNumber }) => (
           <RowMain
             key={apiName}
             subtitle={apiName}
             colorLight={colorLight}
-            document_number={document_number}
+            documentNumber={documentNumber}
           >
             {apiDescription}
           </RowMain>
