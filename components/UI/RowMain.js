@@ -1,3 +1,4 @@
+import Box from '@mui/material/Box';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -36,14 +37,14 @@ const RowMain = (props) => {
     },
   ];
   return (
-    <Link href={`apis/${documentNumber}`}>
-      <div className="row-main" style={{ backgroundColor: colorLight }}>
-        <div className="row-main__wrapper">
-          <div>
+    <Box className="row-main" style={{ backgroundColor: colorLight }}>
+      <Box className="row-main__wrapper">
+        <Link href={`apis/${documentNumber}`}>
+          <Box sx={{ cursor: 'pointer' }}>
             <h3 style={{ paddingBottom: '0.5rem' }}>
               {documentNumber} {subtitle}
             </h3>
-            <div
+            <Box
               style={{
                 fontFamily: 'Arial, Helvetica, sans-serif',
                 lineHeight: 1.4,
@@ -51,22 +52,22 @@ const RowMain = (props) => {
               }}
             >
               {children}
-            </div>
-          </div>
-          <div className="row-main__images">
-            {images.map(({ src, width, height, alt }) => (
-              <Image
-                src={src}
-                width={width}
-                height={height}
-                alt={alt}
-                key={alt}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
-    </Link>
+            </Box>
+          </Box>
+        </Link>
+        <Box className="row-main__images">
+          {images.map(({ src, width, height, alt }) => (
+            <Image
+              src={src}
+              width={width}
+              height={height}
+              alt={alt}
+              key={alt}
+            />
+          ))}
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

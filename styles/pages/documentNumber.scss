@@ -5,6 +5,7 @@
 }
 
 .documentNumber__first {
+  @include flexCenter;
   flex: 0.5;
   background-color: $footer-bg;
 

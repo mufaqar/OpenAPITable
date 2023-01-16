@@ -1,26 +1,28 @@
+import { Typography } from '@mui/material';
+import Box from '@mui/material/Box';
 import Image from 'next/image';
 import Link from 'next/link';
 
 const Footer = () => {
   return (
     <footer>
-      <div className="footer__wrapper">
+      <Box className="footer__wrapper">
         <Image
           src="/images/logos/tmforum_logo.png"
           alt="tmforum logo"
           width={150}
           height={36}
         />
-        <div className="footer">
-          <div>
-            <h3 className="widget-title">Explore TMForum</h3>
+        <Box className="footer">
+          <Box>
+            <Typography className="widget-title">Explore TMForum</Typography>
             <ul className="footer__list">
               <li>
                 <Link
                   href="https://www.tmforum.org/about-tm-forum/"
                   target="_blank"
                 >
-                  About the Forum
+                  <Typography>About the Forum</Typography>
                 </Link>
               </li>
               <li>
@@ -28,12 +30,12 @@ const Footer = () => {
                   href="https://www.tmforum.org/about-tm-forum/careers-with-tm-forum/"
                   target="_blank"
                 >
-                  Careers with TM Forum
+                  <Typography>Careers with TM Forum</Typography>
                 </Link>
               </li>
               <li>
                 <Link href="https://inform.tmforum.org/" target="_blank">
-                  News &amp; Insights
+                  <Typography>News &amp; Insights</Typography>
                 </Link>
               </li>
               <li>
@@ -41,7 +43,7 @@ const Footer = () => {
                   href="https://www.tmforum.org/about-tm-forum/legal-branding/website-privacy-policy/"
                   target="_blank"
                 >
-                  Privacy &amp; Policy
+                  <Typography>Privacy &amp; Policy</Typography>
                 </Link>
               </li>
               <li>
@@ -49,7 +51,7 @@ const Footer = () => {
                   href="https://www.tmforum.org/about-tm-forum/legal-branding/website-terms-and-conditions/"
                   target="_blank"
                 >
-                  Website T&amp;Cs and Cookies
+                  <Typography> Website T&amp;Cs and Cookies</Typography>
                 </Link>
               </li>
               <li>
@@ -57,7 +59,7 @@ const Footer = () => {
                   href="https://www.tmforum.org/about-tm-forum/contact-us/frequently-asked-questions/"
                   target="_blank"
                 >
-                  Help &amp; FAQ
+                  <Typography>Help &amp; FAQ</Typography>
                 </Link>
               </li>
               <li>
@@ -65,43 +67,45 @@ const Footer = () => {
                   href="https://www.tmforum.org/contact-us/"
                   target="_blank"
                 >
-                  Contact
+                  <Typography>Contact</Typography>
                 </Link>
               </li>
             </ul>
-          </div>
-          <div>
-            <h3 className="widget-title">Contact us</h3>
+          </Box>
+          <Box>
+            <Typography className="widget-title">Contact us</Typography>
             <ul className="footer__list__contact">
               <li>
-                <strong>General Inquiries:</strong> <br />
-                <Link href="mailto:info@tmforum.org">info@tmforum.org</Link>
+                <Typography>General Inquiries:</Typography>
+                <Link href="mailto:info@tmforum.org">
+                  <Typography>info@tmforum.org</Typography>
+                </Link>
               </li>
               <li>
-                <strong>Member Services:</strong> <br />
+                <Typography>Member Services:</Typography>
                 <Link href="mailto:memberservices@tmforum.org">
-                  memberservices@tmforum.org
+                  <Typography>memberservices@tmforum.org</Typography>
                 </Link>
               </li>
               <li>
-                <strong>Interested in Joining?</strong> <br />
+                <Typography>Interested in Joining?</Typography>
                 <Link href="mailto:newmembers@tmforum.org">
-                  newmembers@tmforum.org
+                  <Typography>newmembers@tmforum.org</Typography>
                 </Link>
               </li>
               <li>
-                <strong>Press Inquiries:</strong> <br />
+                <Typography> Press Inquiries:</Typography>
                 <Link href="mailto:tmforum@championcomms.com">
-                  tmforum@championcomms.com
+                  <Typography>tmforum@championcomms.com</Typography>
                 </Link>
               </li>
             </ul>
-          </div>
-          <div>
-            <h3 className="widget-title">Stay Connected</h3>
-            <div className="footer__links">
+          </Box>
+          <Box>
+            <Typography className="widget-title">Stay Connected</Typography>
+            <Box className="footer__links">
               <Link href="https://www.facebook.com/tmforum" target="_blank">
-                <div>
+                <Box>
                   <Image
                     className="footer__links__icon"
                     src="/images/social/facebook.svg"
@@ -109,10 +113,10 @@ const Footer = () => {
                     width={24}
                     height={24}
                   />
-                </div>
+                </Box>
               </Link>
               <Link href="https://twitter.com/tmforumorg" target="_blank">
-                <div>
+                <Box>
                   <Image
                     className="footer__links__icon"
                     src="/images/social/twitter.svg"
@@ -120,13 +124,13 @@ const Footer = () => {
                     width={24}
                     height={24}
                   />
-                </div>
+                </Box>
               </Link>
               <Link
                 href="https://www.linkedin.com/company/tm-forum"
                 target="_blank"
               >
-                <div>
+                <Box>
                   <Image
                     className="footer__links__icon"
                     src="/images/social/linkedin.svg"
@@ -134,13 +138,13 @@ const Footer = () => {
                     width={24}
                     height={24}
                   />
-                </div>
+                </Box>
               </Link>
               <Link
                 href="https://www.youtube.com/channel/UCLKFQ99UR0KRtF3BTQzurOw"
                 target="_blank"
               >
-                <div>
+                <Box>
                   <Image
                     className="footer__links__icon"
                     src="/images/social/youtube.svg"
@@ -148,12 +152,12 @@ const Footer = () => {
                     width={24}
                     height={24}
                   />
-                </div>
+                </Box>
               </Link>
-            </div>
-          </div>
-        </div>
-      </div>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
     </footer>
   );
 };
