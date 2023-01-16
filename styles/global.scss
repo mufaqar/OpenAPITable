@@ -18,6 +18,9 @@ a {
 //components
 @import '../components/Rows/row-wrapper';
 @import '../components/Rows/row-main-wrapper';
+@import '../components/Footer/footer';
 
 //pages
 @import './pages/home';
+@import './pages/documentNumber';
+@import './pages/map';
