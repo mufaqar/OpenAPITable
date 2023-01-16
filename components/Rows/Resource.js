@@ -1,3 +1,4 @@
+import Box from '@mui/material/Box';
 import RowMain from '../UI/RowMain';
 import RowTitle from '../UI/RowTitle';
 
@@ -7,16 +8,21 @@ const Resource = (props) => {
   const colorLight = '#c5e8ef';
 
   return (
-    <div className="row-wrapper">
+    <Box className="row-wrapper">
       <RowTitle color={color}>Resource</RowTitle>
-      <div className="row-main-wrapper" style={{ backgroundColor: color }}>
-        {data?.map(({ apiName, apiDescription }) => (
-          <RowMain key={apiName} subtitle={apiName} colorLight={colorLight}>
+      <Box className="row-main-wrapper" style={{ backgroundColor: color }}>
+        {data?.map(({ apiName, apiDescription, documentNumber }) => (
+          <RowMain
+            key={apiName}
+            subtitle={apiName}
+            colorLight={colorLight}
+            documentNumber={documentNumber}
+          >
             {apiDescription}
           </RowMain>
         ))}
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };
 

@@ -7,12 +7,13 @@ import Resource from '../components/Rows/Resource';
 import Service from '../components/Rows/Service';
 import { API_TABLE } from '../API_TABLE';
 import { transformToValues } from '../helpers/transformToValues';
+import Box from '@mui/material/Box';
 
 const Home = () => {
   const data = transformToValues(API_TABLE);
 
   return (
-    <div className="home">
+    <Box className="home">
       <MarketAndSales data={data.MarketingSales} />
       <Customer data={data.Customer} />
       <Product data={data.Product} />
@@ -20,7 +21,7 @@ const Home = () => {
       <Resource data={data.Resource} />
       <BusinessPartner data={data['Business Partner']} />
       <CommonBusinessEntities data={data.Common} />
-    </div>
+    </Box>
   );
 };
 
