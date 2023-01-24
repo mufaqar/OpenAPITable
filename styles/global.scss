@@ -9,18 +9,20 @@ a {
   color: inherit;
 }
 
+//mixins
 @import './mixin';
 
+//variables
+@import '../styles/variables';
+
 //UI
-@import '../components/UI/row-title';
-@import '../components/UI/row-main';
 
 //components
-@import '../components/Rows/row-wrapper';
-@import '../components/Rows/row-main-wrapper';
 @import '../components/Footer/footer';
+@import '../components/Navigation/navigation';
+@import '../components/Navigation/subNavigation';
+@import '../components/Banner/banner';
+@import '../components/Hero/hero';
 
 //pages
 @import './pages/home';
-@import './pages/documentNumber';
-@import './pages/map';

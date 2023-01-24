@@ -1,0 +1,39 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px;
+  max-width: 1512px;
+  height: 96px;
+  background: #ffffff;
+  margin: auto;
+
+  &__links {
+    display: flex;
+    align-items: flex-start;
+    gap: 33px;
+    max-width: 885px;
+  }
+
+  &__link {
+    height: 16px;
+    font-family: 'Gotham';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #0d2548;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+
+  &__icons {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 12px;
+    width: 76px;
+  }
+}
