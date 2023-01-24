@@ -1,0 +1,29 @@
+.subNavigation {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 32px;
+  gap: 32px;
+  height: 36px;
+  background: rgba(239, 239, 239, 0.75);
+  backdrop-filter: blur(18px);
+
+  &__item {
+    font-family: 'Gotham';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    /* identical to box height, or 114% */
+
+    letter-spacing: 0.01em;
+    text-transform: capitalize;
+
+    /* Primary/Blue/Blue (700) */
+
+    color: #0f202e;
+
+    mix-blend-mode: hard-light;
+  }
+}

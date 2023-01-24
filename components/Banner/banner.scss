@@ -1,0 +1,32 @@
+.bannerWrapper {
+  background-color: #102338;
+  height: 550px;
+}
+
+.banner {
+  max-width: 1550px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 100px;
+  height: 100%;
+
+  &__left {
+    flex: 0.5;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 50px;
+    padding-top: 20px;
+    color: white;
+
+    & span {
+      color: #dc6526;
+    }
+  }
+
+  &__right {
+    flex: 0.5;
+  }
+}
