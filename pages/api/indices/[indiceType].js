@@ -5,24 +5,33 @@ export default async function handler(req, res) {
     const indiceType = req.query.indiceType;
     console.log(axios({
         method: "get",
-        url: `https://api.github.com/repos/tmforum-rand/api_table_docs/contents/table_generator/data/indexes/${indiceType}_description_index.json`,
+        url: `https://api.github.com/repos/tmforum-rand/api_table_docs/contents/index.json`,
         headers: {
             Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
             "Content-Type": "application/json"
         },
         })
         .then(r => {
-            r.data.content = JSON.parse(Buffer.from(r.data.content, 'base64').toString('ascii'));
-            console.log(r.data)
-            res.status(200).json(r.data)
+            let response = process_github_index(indiceType, r.data.content)
+            res.status(200).json(response)
         })
         .catch(err => {
-            res.status(200).json(err);
+            res.status(500).json(err);
         }));
     
-    //res.status(200).json({ name: 'John Doe' })
 }
 
+
+function process_github_index(table, index){
+    let index_json = JSON.parse(Buffer.from(index, 'base64').toString('ascii'))
+    let table_index = index_json[table]
+    let flat_index = []
+    Object.values(table_index).forEach((api) => {
+        api.forEach(entry => flat_index.push(entry))
+    })
+
+    return flat_index
+}
 
 // import APIListController from '../../../utils/APIListController'
 // import CertificationsController from '../../../utils/APIListController';
