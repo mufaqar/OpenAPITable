@@ -8,7 +8,7 @@ const Footer = () => {
     <footer>
       <Box className="footer__wrapper">
         <Image
-          src="/images/logos/tmforum_logo.png"
+          src="/images/tmf-logo.svg"
           alt="tmforum logo"
           width={150}
           height={36}
