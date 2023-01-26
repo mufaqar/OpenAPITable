@@ -13,7 +13,8 @@ export const API_TABLE = {
       context: 'Business Partner, Customer',
       release_status: '',
       notes: '',
-      published_date: '',
+      published_date: ''
+      
     },
   ],
   TMF651: [
