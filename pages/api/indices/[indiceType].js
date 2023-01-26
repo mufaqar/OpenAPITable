@@ -27,7 +27,11 @@ function process_github_index(table, index){
     let table_index = index_json[table]
     let flat_index = []
     Object.values(table_index).forEach((api) => {
-        api.forEach(entry => flat_index.push(entry))
+        api.forEach(entry => {
+            let description = entry.api_description
+            delete entry.api_description
+            flat_index.push({...description,...entry})
+        })
     })
 
     return flat_index
