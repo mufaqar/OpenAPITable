@@ -1,72 +1,120 @@
+import { useState } from 'react';
 import {
   Box,
+  Button,
   Collapse,
   IconButton,
   Table,
   TableBody,
   TableCell,
-  TableHead,
   TableRow,
   Typography,
 } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import { useState } from 'react';
+import Link from 'next/link';
+import { removeHtmlTags } from '../../helpers/removeHtmlTags';
 
 const Row = (props) => {
-  const { row } = props;
+  const { row, historic } = props;
   const [open, setOpen] = useState(false);
+
+  const collapseRowBgColor = (i) => {
+    if (historic) {
+      return {
+        backgroundColor: i % 2 ? '#FFEFEF' : '#FFF8F8',
+      };
+    }
+
+    return {
+      backgroundColor: i % 2 ? '#F2F4F4' : '#F8F9F9',
+    };
+  };
+
+  const rowBgColor = () => {
+    if (historic) {
+      return;
+    }
+  };
 
   return (
     <>
-      <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
+      <TableRow
+        id={`${row.document_number}-${row.version_info}`}
+        style={{
+          border: '4px solid #FFF8F8',
+          borderRadius: 5,
+          margin: '10px 0',
+        }}
+      >
         <TableCell>
           <IconButton
             aria-label="expand row"
             size="small"
             onClick={() => setOpen(!open)}
+            sx={{
+              borderTopLeftRadius: '10px',
+              borderBottomLeftRadius: '10px',
+            }}
           >
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
         </TableCell>
         <TableCell component="th" scope="row">
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            <Box>{row.name}</Box>
-            <Box>{row.description}</Box>
+            <Box sx={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+              <Typography variant="h6">{row.api_name} </Typography>
+              {historic && (
+                <Typography
+                  variant="body1"
+                  color="error"
+                  sx={{ fontWeight: 'bold', fontStyle: 'italic' }}
+                >
+                  [Historic]
+                </Typography>
+              )}
+            </Box>
+            <Box>
+              <Typography>{removeHtmlTags(row.api_description)}</Typography>
+            </Box>
           </Box>
         </TableCell>
-        <TableCell>{row.documentNumber}</TableCell>
-        <TableCell>{row.release}</TableCell>
-        <TableCell>{row.swaggerVersion}</TableCell>
-        <TableCell>{row.publicationDate}</TableCell>
-        <TableCell>{row.odaDomain}</TableCell>
+        <TableCell>
+          <Typography>{row.document_number}</Typography>
+        </TableCell>
+        <TableCell>
+          <Typography>{row.release_info}</Typography>
+        </TableCell>
+        <TableCell>
+          <Typography>{row.version_info}</Typography>
+        </TableCell>
+        <TableCell>
+          <Typography>{row.published_date}</Typography>
+        </TableCell>
+        <TableCell>
+          <Typography>{row.context}</Typography>
+        </TableCell>
       </TableRow>
       <TableRow>
-        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+        <TableCell sx={{ padding: 0 }} colSpan={7}>
           <Collapse in={open} timeout="auto" unmountOnExit>
-            <Box sx={{ margin: 1 }}>
-              <Typography variant="h6" gutterBottom component="div">
-                History
-              </Typography>
-              <Table size="small" aria-label="purchases">
-                <TableHead>
-                  <TableRow>
-                    <TableCell>Icon</TableCell>
-                    <TableCell>Name</TableCell>
-                    <TableCell>Version</TableCell>
-                    <TableCell>Download?</TableCell>
-                  </TableRow>
-                </TableHead>
+            <Box>
+              <Table>
                 <TableBody>
                   {row.options?.map((historyRow, i) => (
-                    <TableRow key={i}>
-                      <TableCell component="th" scope="row">
-                        {historyRow.icon}
-                      </TableCell>
+                    <TableRow key={i} sx={collapseRowBgColor(i)}>
+                      <TableCell>{historyRow.icon}</TableCell>
+                      <TableCell>{historyRow.type}</TableCell>
                       <TableCell>{historyRow.name}</TableCell>
                       <TableCell>{historyRow.version}</TableCell>
                       <TableCell>
-                        {historyRow.download === true ? 'Yes' : 'N/A'}
+                        <Link
+                          href={historyRow.download}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button variant="contained">Download</Button>
+                        </Link>
                       </TableCell>
                     </TableRow>
                   ))}
