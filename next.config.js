@@ -3,6 +3,10 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['projects.tmforum.org'],
+    remotePatterns: [
+      {
+        hostname: 'd300zch48kanqv.cloudfront.net', //images from inform.tmforum.org
+      },
+    ],
   },
 };
