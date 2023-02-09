@@ -4,10 +4,10 @@ import Link from 'next/link';
 import Banner from '../components/Banner/Banner';
 import Hero from '../components/Hero/Hero';
 import SortTable from '../components/Table/SortTable';
-import { fetchHistoricTableData } from '../services/TableData/api';
+import { fetchBetaTableData } from '../services/TableData/api';
 
-const Historic = (props) => {
-  const { historicTableData } = props;
+const Beta = (props) => {
+  const { betaTableData } = props;
 
   return (
     <Box>
@@ -27,34 +27,33 @@ const Historic = (props) => {
             <Link href="/">
               <Button variant="outlined">Production</Button>
             </Link>
-            <Link href="/historic">
-              <Button
-                variant="contained"
-                color="error"
-                sx={{ marginLeft: '16px' }}
-              >
-                Historic
-              </Button>
-            </Link>
+
+            <Button
+              variant="contained"
+              color="error"
+              sx={{ marginLeft: '16px' }}
+            >
+              Pre-Production
+            </Button>
           </Box>
         </Box>
         <Alert severity="warning" sx={{ maxWidth: '1550px', margin: '0 auto' }}>
-          You are on Historic page — check it out!
+          You are on Pre-Production / Beta page — check it out!
         </Alert>
-        <SortTable data={historicTableData} historic />
+        <SortTable data={betaTableData} />
       </Box>
     </Box>
   );
 };
 
-export default Historic;
+export default Beta;
 
 export async function getServerSideProps() {
-  const historicTableData = await fetchHistoricTableData();
+  const betaTableData = await fetchBetaTableData();
 
   return {
     props: {
-      historicTableData,
+      betaTableData,
     },
   };
 }

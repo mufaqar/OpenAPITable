@@ -11,6 +11,8 @@ const Home = (props) => {
   const { productionTableData } = props;
   const [showList, setShowList] = useState(false);
 
+  console.log('productionTableData', productionTableData);
+
   const handleButtonClick = () => {
     setShowList(!showList);
   };
@@ -54,7 +56,9 @@ const Home = (props) => {
                       Historic
                     </Button>
                   </Link>
-                  <Button variant="outlined">Pre-Production</Button>
+                  <Link href="/pre-production">
+                    <Button variant="outlined">Pre-Production</Button>
+                  </Link>
                 </Stack>
               </Paper>
             </Collapse>

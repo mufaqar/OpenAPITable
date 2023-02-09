@@ -14,6 +14,8 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import Link from 'next/link';
 import { removeHtmlTags } from '../../helpers/removeHtmlTags';
+import { transformToFullName } from '../../helpers/transformToFullName';
+import Image from 'next/image';
 
 const Row = (props) => {
   const { row, historic } = props;
@@ -29,12 +31,6 @@ const Row = (props) => {
     return {
       backgroundColor: i % 2 ? '#F2F4F4' : '#F8F9F9',
     };
-  };
-
-  const rowBgColor = () => {
-    if (historic) {
-      return;
-    }
   };
 
   return (
@@ -103,8 +99,18 @@ const Row = (props) => {
                 <TableBody>
                   {row.options?.map((historyRow, i) => (
                     <TableRow key={i} sx={collapseRowBgColor(i)}>
-                      <TableCell>{historyRow.icon}</TableCell>
-                      <TableCell>{historyRow.type}</TableCell>
+                      <TableCell>
+                        <Image
+                          src={`/images/options/${historyRow.type}.jpg`}
+                          width={24}
+                          height={24}
+                          alt="logo"
+                          style={{ objectFit: 'cover' }}
+                        />
+                      </TableCell>
+                      <TableCell>
+                        {transformToFullName(historyRow.type)}
+                      </TableCell>
                       <TableCell>{historyRow.name}</TableCell>
                       <TableCell>{historyRow.version}</TableCell>
                       <TableCell>
@@ -118,6 +124,11 @@ const Row = (props) => {
                       </TableCell>
                     </TableRow>
                   ))}
+                  {/* <TableRow>
+                    <TableCell align="center" colSpan={5}>
+                      <Button variant="contained">Download all</Button>
+                    </TableCell>
+                  </TableRow> */}
                 </TableBody>
               </Table>
             </Box>
