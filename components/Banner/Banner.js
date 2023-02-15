@@ -1,6 +1,8 @@
 import { Box, Button, Typography } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
+import { gothamFont } from '../../helpers/gothamFont';
+import { scrollToTable } from '../../helpers/scrollToTable';
 
 const Banner = () => {
   return (
@@ -10,13 +12,33 @@ const Banner = () => {
           <Typography variant="h6">
             Home {'>'} Code + framework {'>'} Open APIs
           </Typography>
-          <Typography variant="h2">
+          <Typography
+            className={gothamFont.className}
+            sx={{
+              fontStyle: 'normal',
+              fontWeight: '700',
+              fontSize: '64px',
+              lineHeight: '108%',
+            }}
+          >
             <span>Open</span> API Table
           </Typography>
-          <Typography variant="h5">
+          <Typography
+            className={gothamFont.className}
+            sx={{
+              fontStyle: 'normal',
+              fontWeight: '400',
+              fontSize: '24px',
+              lineHeight: '150%',
+            }}
+          >
             60+ REST-based Open Apis tried, tested and de-risked
           </Typography>
-          <Button variant="contained" sx={{ width: '150px' }}>
+          <Button
+            variant="contained"
+            sx={{ width: '150px' }}
+            onClick={scrollToTable}
+          >
             View Table
           </Button>
         </Box>

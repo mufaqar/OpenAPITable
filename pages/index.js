@@ -1,17 +1,25 @@
 import { useState } from 'react';
-import { Button, Collapse, Paper, Stack, TextField } from '@mui/material';
+import {
+  Button,
+  Collapse,
+  InputAdornment,
+  Paper,
+  Stack,
+  TextField,
+} from '@mui/material';
 import Box from '@mui/material/Box';
 import Banner from '../components/Banner/Banner';
 import Hero from '../components/Hero/Hero';
 import SortTable from '../components/Table/SortTable';
 import { fetchProductionTableData } from '../services/TableData/api';
 import Link from 'next/link';
+import { searchTable } from '../helpers/searchTable';
+import SearchIcon from '@mui/icons-material/Search';
 
 const Home = (props) => {
   const { productionTableData } = props;
   const [showList, setShowList] = useState(false);
-
-  console.log('productionTableData', productionTableData);
+  const [query, setQuery] = useState('');
 
   const handleButtonClick = () => {
     setShowList(!showList);
@@ -23,6 +31,7 @@ const Home = (props) => {
       <Box className="home">
         <Hero />
         <Box
+          id="search"
           sx={{
             maxWidth: '1550px',
             margin: '20px auto',
@@ -30,7 +39,17 @@ const Home = (props) => {
             justifyContent: 'space-between',
           }}
         >
-          <TextField placeholder="Search for API" />
+          <TextField
+            placeholder="Search for API"
+            onChange={(e) => setQuery(e.target.value)}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon />
+                </InputAdornment>
+              ),
+            }}
+          />
           <Box>
             <Link href="/">
               <Button variant="contained">Production</Button>
@@ -64,7 +83,7 @@ const Home = (props) => {
             </Collapse>
           </Box>
         </Box>
-        <SortTable data={productionTableData} />
+        <SortTable data={searchTable(productionTableData, query)} />
       </Box>
     </Box>
   );

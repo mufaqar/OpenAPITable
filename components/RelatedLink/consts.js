@@ -1,12 +1,21 @@
 import moment from 'moment';
 export const settings = {
   dots: true,
-  infinite: false,
+  infinite: true,
   speed: 500,
   slidesToShow: 4.5,
-  slidesToScroll: 3,
+  slidesToScroll: 2,
   initialSlide: 0,
   responsive: [
+    {
+      breakpoint: 1290,
+      settings: {
+        slidesToShow: 3.5,
+        slidesToScroll: 2,
+        infinite: true,
+        dots: true,
+      },
+    },
     {
       breakpoint: 1024,
       settings: {
@@ -17,10 +26,10 @@ export const settings = {
       },
     },
     {
-      breakpoint: 600,
+      breakpoint: 580,
       settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2,
+        slidesToShow: 1,
+        slidesToScroll: 1,
         initialSlide: 2,
       },
     },

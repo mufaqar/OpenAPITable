@@ -46,7 +46,6 @@ export default function SortTable(props) {
   const [orderBy, setOrderBy] = useState('api_name');
 
   const handleRequestSort = (property) => {
-    console.log('property', property);
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
     setOrderBy(property);

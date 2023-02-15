@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import Image from 'next/image';
 import AllInclusiveIcon from '@mui/icons-material/AllInclusive';
 import { fetchRelatedContent } from '../../services/relatedContent/api';
-import { displayDateAndAuthor, settings } from './consts';
+import { displayDateAndAuthor, displayTopics, settings } from './consts';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
 import VideocamIcon from '@mui/icons-material/Videocam';
@@ -15,6 +15,7 @@ import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import Skeleton from '@mui/material/Skeleton';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { gothamFont } from '../../helpers/gothamFont';
 
 const RelatedLink = () => {
   const [relatedContentData, setRelatedContentData] = useState([]);
@@ -68,7 +69,7 @@ const RelatedLink = () => {
     <Box
       sx={{
         backgroundColor: '#0D2548',
-        height: '550px',
+        height: '620px',
         width: '100%',
       }}
     >
@@ -149,8 +150,8 @@ const RelatedLink = () => {
         <Slider {...settings}>
           {relatedContentData.map((post, i) =>
             !isLoading ? (
-              <article>
-                <Box key={i} sx={{ maxWidth: '280px' }}>
+              <article key={i}>
+                <Box sx={{ maxWidth: '280px' }}>
                   <Link href={post.full_url}>
                     <Image
                       src={post.thumbnail_url}
@@ -160,9 +161,69 @@ const RelatedLink = () => {
                       style={{ objectFit: 'cover' }}
                     />
                   </Link>
-                  <Typography color="white">{post.content_type}</Typography>
-                  <Typography color="white">{post.title}</Typography>
-                  <Typography color="gray">
+                  <Box sx={{ marginTop: '0.5rem' }}>
+                    <Typography color="white">
+                      <span
+                        style={{
+                          fontStyle: 'normal',
+                          fontWeight: 500,
+                          fontSize: '12px',
+                          lineHeight: '140%',
+                          textTransform: 'uppercase',
+                        }}
+                      >
+                        {post.content_type}
+                      </span>
+                      {' | '}
+                      <span
+                        className={gothamFont.className}
+                        style={{
+                          fontStyle: 'normal',
+                          fontWeight: 600,
+                          fontSize: '12px',
+                          lineHeight: '140%',
+                          textTransform: 'uppercase',
+                          color: '#B71A5D',
+                        }}
+                      >
+                        {post.topics[0]?.topic_name}
+                      </span>
+                      {post.topics[1]?.topic_name && ' | '}
+                      <span
+                        className={gothamFont.className}
+                        style={{
+                          fontStyle: 'normal',
+                          fontWeight: 600,
+                          fontSize: '12px',
+                          lineHeight: '140%',
+                          textTransform: 'uppercase',
+                          color: '#B71A5D',
+                        }}
+                      >
+                        {post.topics[1]?.topic_name}
+                      </span>
+                    </Typography>
+                  </Box>
+                  <Link href={post.full_url}>
+                    <Typography
+                      color="white"
+                      className={gothamFont.className}
+                      sx={{
+                        fontStyle: 'notmal',
+                        fontWeight: 800,
+                        fontSize: '20px',
+                        lineHeight: '125%',
+                        marginTop: '7px',
+                      }}
+                    >
+                      {post.title}
+                    </Typography>
+                  </Link>
+                  <Typography
+                    color="gray"
+                    className={gothamFont.className}
+                    sx={{ marginTop: '7px' }}
+                  >
                     {displayDateAndAuthor(post.first_published, post.authors)}
                   </Typography>
                 </Box>
@@ -170,10 +231,11 @@ const RelatedLink = () => {
             ) : (
               <Box key={i} sx={{ maxWidth: '280px' }}>
                 <Skeleton variant="rectangular" width={280} height={157} />
-                <Skeleton width={100} />
-                <Skeleton width={280} />
+                <Skeleton width={260} />
                 <Skeleton width={140} />
+                <Skeleton width={280} />
                 <Skeleton width={210} />
+                <Skeleton width={140} />
               </Box>
             )
           )}

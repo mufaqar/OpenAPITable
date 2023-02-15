@@ -1,13 +1,17 @@
-import { Alert, Button, TextField } from '@mui/material';
+import { Alert, Button, InputAdornment, TextField } from '@mui/material';
 import { Box } from '@mui/system';
 import Link from 'next/link';
+import { useState } from 'react';
 import Banner from '../components/Banner/Banner';
 import Hero from '../components/Hero/Hero';
 import SortTable from '../components/Table/SortTable';
+import { searchTable } from '../helpers/searchTable';
 import { fetchHistoricTableData } from '../services/TableData/api';
+import SearchIcon from '@mui/icons-material/Search';
 
 const Historic = (props) => {
   const { historicTableData } = props;
+  const [query, setQuery] = useState('');
 
   return (
     <Box>
@@ -15,6 +19,7 @@ const Historic = (props) => {
       <Box className="home">
         <Hero />
         <Box
+          id="search"
           sx={{
             maxWidth: '1550px',
             margin: '20px auto',
@@ -22,7 +27,17 @@ const Historic = (props) => {
             justifyContent: 'space-between',
           }}
         >
-          <TextField placeholder="Search for API" />
+          <TextField
+            placeholder="Search for API"
+            onChange={(e) => setQuery(e.target.value)}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <SearchIcon />
+                </InputAdornment>
+              ),
+            }}
+          />
           <Box>
             <Link href="/">
               <Button variant="outlined">Production</Button>
@@ -41,7 +56,7 @@ const Historic = (props) => {
         <Alert severity="warning" sx={{ maxWidth: '1550px', margin: '0 auto' }}>
           You are on Historic page — check it out!
         </Alert>
-        <SortTable data={historicTableData} historic />
+        <SortTable data={searchTable(historicTableData, query)} historic />
       </Box>
     </Box>
   );

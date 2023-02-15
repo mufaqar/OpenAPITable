@@ -1,27 +1,25 @@
 import axios from 'axios';
 
-
 export default async function handler(req, res) {
-    console.log(axios({
-        method: "get",
-        url: `https://api.github.com/repos/tmforum-rand/api_table_docs/contents/table_generator/data/indexes/Beta_description_index.json`,
-        headers: {
-            Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-            "Content-Type": "application/json"
-        },
-        })
-        .then(r => {
-            r.data.content = JSON.parse(Buffer.from(r.data.content, 'base64').toString('ascii'));
-            console.log(r.data)
-            res.status(200).json(r.data)
-        })
-        .catch(err => {
-            res.status(200).json(err);
-        }));
-    
-    //res.status(200).json({ name: 'John Doe' })
+  axios({
+    method: 'get',
+    url: `https://api.github.com/repos/tmforum-rand/api_table_docs/contents/table_generator/data/indexes/Beta_description_index.json`,
+    headers: {
+      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((r) => {
+      r.data.content = JSON.parse(
+        Buffer.from(r.data.content, 'base64').toString('ascii')
+      );
+      console.log(r.data);
+      res.status(200).json(r.data);
+    })
+    .catch((err) => {
+      res.status(200).json(err);
+    });
 }
-
 
 // import APIListController from '../../../utils/APIListController'
 // import CertificationsController from '../../../utils/APIListController';
@@ -34,12 +32,10 @@ export default async function handler(req, res) {
 
 // const vendorController = new VendorController({})
 
-
 // export default async function handler(req, res) {
 //     const routeHandler = router[req.method]
 //     return routeHandler(req, res)
 // }
-
 
 // async function handleGet(req, res) {
 //     const queryObject = url.parse(req.url, true).query;
@@ -58,10 +54,8 @@ export default async function handler(req, res) {
 //                     //console.log(vendorCertifications)
 //                     vendor.certifications = vendorCertifications.map((cert) => cert.PRODUCTNAME)
 
-
 //                 })
 //             }
-
 
 //             res.status(200).json(data)
 //         }
@@ -83,7 +77,6 @@ export default async function handler(req, res) {
 //                 //console.log(vendorCertifications)
 //                 vendor.certifications = vendorCertifications.map((cert) => cert.PRODUCTNAME)
 
-
 //             })
 //             res.status(200).json(data)
 //         }
@@ -104,8 +97,7 @@ export default async function handler(req, res) {
 //                 let vendorCertifications = certifications.filter((cert => cert.ACCOUNTID == vendor.salesForceId))
 //                 //console.log(vendorCertifications)
 //                 vendor.certifications = vendorCertifications.map((cert) => cert.PRODUCTNAME)
-    
-    
+
 //             })
 //             res.status(200).json(data)
 //         }
@@ -115,7 +107,6 @@ export default async function handler(req, res) {
 //         }
 //         return;
 //     }
-
 
 // }
 
@@ -130,7 +121,3 @@ export default async function handler(req, res) {
 //     }
 
 // }
-
-
-
-

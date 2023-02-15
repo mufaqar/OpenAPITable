@@ -1,40 +1,37 @@
 import axios from 'axios';
 
-
 export default async function handler(req, res) {
-    const indiceType = req.query.indiceType;
-    console.log(axios({
-        method: "get",
-        url: `https://api.github.com/repos/tmforum-rand/api_table_docs/contents/index.json`,
-        headers: {
-            Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-            "Content-Type": "application/json"
-        },
-        })
-        .then(r => {
-            let response = process_github_index(indiceType, r.data.content)
-            res.status(200).json(response)
-        })
-        .catch(err => {
-            res.status(500).json(err);
-        }));
-    
+  const indiceType = req.query.indiceType;
+  axios({
+    method: 'get',
+    url: `https://api.github.com/repos/tmforum-rand/api_table_docs/contents/index.json`,
+    headers: {
+      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((r) => {
+      let response = process_github_index(indiceType, r.data.content);
+      res.status(200).json(response);
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
 }
 
+function process_github_index(table, index) {
+  let index_json = JSON.parse(Buffer.from(index, 'base64').toString('ascii'));
+  let table_index = index_json[table];
+  let flat_index = [];
+  Object.values(table_index).forEach((api) => {
+    api.forEach((entry) => {
+      let description = entry.api_description;
+      delete entry.api_description;
+      flat_index.push({ ...description, ...entry });
+    });
+  });
 
-function process_github_index(table, index){
-    let index_json = JSON.parse(Buffer.from(index, 'base64').toString('ascii'))
-    let table_index = index_json[table]
-    let flat_index = []
-    Object.values(table_index).forEach((api) => {
-        api.forEach(entry => {
-            let description = entry.api_description
-            delete entry.api_description
-            flat_index.push({...description,...entry})
-        })
-    })
-
-    return flat_index
+  return flat_index;
 }
 
 // import APIListController from '../../../utils/APIListController'
@@ -48,12 +45,10 @@ function process_github_index(table, index){
 
 // const vendorController = new VendorController({})
 
-
 // export default async function handler(req, res) {
 //     const routeHandler = router[req.method]
 //     return routeHandler(req, res)
 // }
-
 
 // async function handleGet(req, res) {
 //     const queryObject = url.parse(req.url, true).query;
@@ -72,10 +67,8 @@ function process_github_index(table, index){
 //                     //console.log(vendorCertifications)
 //                     vendor.certifications = vendorCertifications.map((cert) => cert.PRODUCTNAME)
 
-
 //                 })
 //             }
-
 
 //             res.status(200).json(data)
 //         }
@@ -97,7 +90,6 @@ function process_github_index(table, index){
 //                 //console.log(vendorCertifications)
 //                 vendor.certifications = vendorCertifications.map((cert) => cert.PRODUCTNAME)
 
-
 //             })
 //             res.status(200).json(data)
 //         }
@@ -118,8 +110,7 @@ function process_github_index(table, index){
 //                 let vendorCertifications = certifications.filter((cert => cert.ACCOUNTID == vendor.salesForceId))
 //                 //console.log(vendorCertifications)
 //                 vendor.certifications = vendorCertifications.map((cert) => cert.PRODUCTNAME)
-    
-    
+
 //             })
 //             res.status(200).json(data)
 //         }
@@ -129,7 +120,6 @@ function process_github_index(table, index){
 //         }
 //         return;
 //     }
-
 
 // }
 
@@ -144,7 +134,3 @@ function process_github_index(table, index){
 //     }
 
 // }
-
-
-
-
