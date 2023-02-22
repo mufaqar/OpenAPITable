@@ -16,6 +16,7 @@ import Link from 'next/link';
 import { removeHtmlTags } from '../../helpers/removeHtmlTags';
 import { transformToFullName } from '../../helpers/transformToFullName';
 import Image from 'next/image';
+import { gothamFont } from '../../helpers/gothamFont';
 
 const Row = (props) => {
   const { row, historic } = props;
@@ -59,7 +60,23 @@ const Row = (props) => {
         <TableCell component="th" scope="row">
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <Box sx={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-              <Typography variant="h6">{row.api_name} </Typography>
+              <Link
+                href={{
+                  pathname: `apis/${row.document_number}`,
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  className={gothamFont.className}
+                  color="#1A2746"
+                  sx={{
+                    fontStyle: 'normal',
+                    fontWeight: '600',
+                  }}
+                >
+                  {row.api_name}
+                </Typography>
+              </Link>
               {historic && (
                 <Typography
                   variant="body1"
@@ -71,24 +88,42 @@ const Row = (props) => {
               )}
             </Box>
             <Box>
-              <Typography>{removeHtmlTags(row.api_description)}</Typography>
+              <Typography
+                className={gothamFont.className}
+                sx={{
+                  fontStyle: 'normal',
+                  fontWeight: '400',
+                }}
+              >
+                {removeHtmlTags(row.api_description)}
+              </Typography>
             </Box>
           </Box>
         </TableCell>
         <TableCell>
-          <Typography>{row.document_number}</Typography>
+          <Typography className={gothamFont.className}>
+            {row.document_number}
+          </Typography>
         </TableCell>
         <TableCell>
-          <Typography>{row.release_info}</Typography>
+          <Typography className={gothamFont.className}>
+            {row.release_info}
+          </Typography>
         </TableCell>
         <TableCell>
-          <Typography>{row.version_info}</Typography>
+          <Typography className={gothamFont.className}>
+            {row.version_info}
+          </Typography>
         </TableCell>
         <TableCell>
-          <Typography>{row.published_date}</Typography>
+          <Typography className={gothamFont.className}>
+            {row.published_date}
+          </Typography>
         </TableCell>
         <TableCell>
-          <Typography>{row.context}</Typography>
+          <Typography className={gothamFont.className}>
+            {row.context}
+          </Typography>
         </TableCell>
       </TableRow>
       <TableRow>
@@ -109,10 +144,20 @@ const Row = (props) => {
                         />
                       </TableCell>
                       <TableCell>
-                        {transformToFullName(historyRow.type)}
+                        <Typography>
+                          {transformToFullName(historyRow.type)}
+                        </Typography>
                       </TableCell>
-                      <TableCell>{historyRow.name}</TableCell>
-                      <TableCell>{historyRow.version}</TableCell>
+                      <TableCell>
+                        <Typography className={gothamFont.className}>
+                          {historyRow.name}
+                        </Typography>
+                      </TableCell>
+                      <TableCell>
+                        <Typography className={gothamFont.className}>
+                          {historyRow.version}
+                        </Typography>
+                      </TableCell>
                       <TableCell>
                         <Link
                           href={historyRow.download}

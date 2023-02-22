@@ -11,6 +11,8 @@ import Paper from '@mui/material/Paper';
 import { visuallyHidden } from '@mui/utils';
 import Row from './Row';
 import { headCells } from './consts';
+import { Typography } from '@mui/material';
+import { gothamFont } from '../../helpers/gothamFont';
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -75,7 +77,12 @@ export default function SortTable(props) {
                       direction={orderBy === headCell.id ? order : 'asc'}
                       onClick={() => handleRequestSort(headCell.id)}
                     >
-                      {headCell.label}
+                      <Typography
+                        className={gothamFont.className}
+                        sx={{ fontStyle: 'normal', fontWeight: '600' }}
+                      >
+                        {headCell.label}
+                      </Typography>
                       {orderBy === headCell.id ? (
                         <Box component="span" sx={visuallyHidden}>
                           {order === 'desc'
