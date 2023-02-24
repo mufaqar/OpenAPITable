@@ -4,7 +4,6 @@ import Slider from 'react-slick';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Image from 'next/image';
-import AllInclusiveIcon from '@mui/icons-material/AllInclusive';
 import { fetchRelatedContent } from '../../services/relatedContent/api';
 import { displayDateAndAuthor, settings } from './consts';
 import Skeleton from '@mui/material/Skeleton';
@@ -20,7 +19,7 @@ const RelatedLink = () => {
   const filterButtons = [
     {
       name: '',
-      src: '/images/relatedLink/All.svg',
+      src: '/images/relatedLink/all.svg',
       backgroundColor: '#3577DA',
       borderColor: '#1D52A2',
     },
