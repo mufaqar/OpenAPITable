@@ -11,7 +11,7 @@ import {
   Typography,
 } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import Link from 'next/link';
 import { removeHtmlTags } from '../../helpers/removeHtmlTags';
 import { transformToFullName } from '../../helpers/transformToFullName';
@@ -44,7 +44,7 @@ const Row = (props) => {
           margin: '10px 0',
         }}
       >
-        <TableCell>
+        <TableCell sx={{ verticalAlign: 'top' }}>
           <IconButton
             aria-label="expand row"
             size="small"
@@ -54,7 +54,7 @@ const Row = (props) => {
               borderBottomLeftRadius: '10px',
             }}
           >
-            {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+            {open ? <KeyboardArrowDownIcon /> : <KeyboardArrowRightIcon />}
           </IconButton>
         </TableCell>
         <TableCell component="th" scope="row">
