@@ -2,16 +2,11 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Slider from 'react-slick';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Image from 'next/image';
 import AllInclusiveIcon from '@mui/icons-material/AllInclusive';
 import { fetchRelatedContent } from '../../services/relatedContent/api';
-import { displayDateAndAuthor, displayTopics, settings } from './consts';
-import AcUnitIcon from '@mui/icons-material/AcUnit';
-import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
-import VideocamIcon from '@mui/icons-material/Videocam';
-import VolumeUpIcon from '@mui/icons-material/VolumeUp';
+import { displayDateAndAuthor, settings } from './consts';
 import Skeleton from '@mui/material/Skeleton';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -21,28 +16,42 @@ const RelatedLink = () => {
   const [relatedContentData, setRelatedContentData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [category, setCategory] = useState('');
+
   const filterButtons = [
     {
       name: '',
-      icon: <AcUnitIcon sx={{ color: 'white' }} fontSize={'large'} />,
+      src: '/images/relatedLink/All.svg',
+      backgroundColor: '#3577DA',
+      borderColor: '#1D52A2',
     },
     {
       name: 'Article',
-      icon: <InsertDriveFileIcon sx={{ color: 'white' }} fontSize={'large'} />,
+      src: '/images/relatedLink/article.svg',
+      backgroundColor: '#B71A5D',
+      borderColor: '#5C0E2F',
     },
     {
       name: 'Video',
-      icon: <VideocamIcon sx={{ color: 'white' }} fontSize={'large'} />,
+      src: '/images/relatedLink/video.svg',
+      backgroundColor: '#B32EB6',
+      borderColor: '#7A1D7C',
     },
     {
       name: 'Webinar',
-      icon: <VolumeUpIcon sx={{ color: 'white' }} fontSize={'large'} />,
+      src: '/images/relatedLink/webinar.svg',
+      backgroundColor: '#98BD29',
+      borderColor: '#657E1B',
     },
   ];
 
+  const getImagePath = (content_type) => {
+    const found = filterButtons.find(({ name }) => name === content_type);
+    return found ? found.src : '/images/relatedLink/article.svg';
+  };
+
   const handleCategoryChange = async (name) => {
-    setIsLoading(true);
     setCategory(name);
+    setIsLoading(true);
     try {
       const { results } = await fetchRelatedContent(name);
       setRelatedContentData(results);
@@ -97,17 +106,21 @@ const RelatedLink = () => {
           }}
         >
           <Typography
-            variant="h6"
+            className={gothamFont.className}
             sx={{
               textTransform: 'uppercase',
               color: 'white',
-              letterSpacing: 1,
+              letterSpacing: 2,
+              fontWeight: 600,
             }}
           >
             Related Content
           </Typography>
-          <AllInclusiveIcon
-            sx={{ color: 'white', transform: 'rotate(-45deg)' }}
+          <Image
+            src="/images/relatedLink/title.svg"
+            alt="icon"
+            width={24}
+            height={24}
           />
         </Box>
       </Box>
@@ -118,26 +131,30 @@ const RelatedLink = () => {
           marginTop: '50px',
           height: '50px',
           display: 'flex',
-          justifyContent: 'space-between',
+          justifyContent: 'center',
           alignItems: 'center',
+          gap: '10px',
         }}
       >
-        {filterButtons.map(({ name, icon }) => (
-          <Button
+        {filterButtons.map(({ name, src, borderColor, backgroundColor }) => (
+          <Box
             key={name}
             name={name}
-            variant={category === name ? 'contained' : 'outlined'}
             onClick={() => handleCategoryChange(name)}
             sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
               borderRadius: '50%',
-              padding: 0,
-              width: 58,
-              height: 58,
-              border: '2px solid #1D52A2',
+              width: 50,
+              height: 50,
+              backgroundColor: category === name && backgroundColor,
+              border: `3px solid ${borderColor}`,
+              cursor: 'pointer',
             }}
           >
-            {icon}
-          </Button>
+            <Image src={src} alt="icon" width={24} height={24} />
+          </Box>
         ))}
       </Box>
       <Box
@@ -152,6 +169,26 @@ const RelatedLink = () => {
             !isLoading ? (
               <article key={i}>
                 <Box sx={{ maxWidth: '280px' }}>
+                  <Box
+                    sx={{
+                      width: '48px',
+                      height: '48px',
+                      backgroundColor: '#B71A5D',
+                      position: 'absolute',
+                      boxShadow: '0px 0px 24px -4px rgba(0, 0, 0, 0.25)',
+                      borderRadius: '0px 0px 16px 0px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    <Image
+                      src={getImagePath(post.content_type)}
+                      alt="icon"
+                      width={20}
+                      height={20}
+                    />
+                  </Box>
                   <Link href={post.full_url}>
                     <Image
                       src={post.thumbnail_url}
