@@ -1,12 +1,21 @@
 import React from 'react';
 import { Box, Button, Typography } from '@mui/material';
 import LaunchIcon from '@mui/icons-material/Launch';
+import { gothamFont } from '../../helpers/gothamFont';
 
 const Hero = () => {
   return (
     <Box className="heroWrapper">
       <Box className="hero__left">
-        <Typography variant="h3" sx={{ color: '#1A2746' }}>
+        <Typography
+          className={gothamFont.className}
+          sx={{
+            color: '#1A2746',
+            fontStyle: 'normal',
+            fontWeight: 700,
+            fontSize: '24px',
+          }}
+        >
           Open API Table
         </Typography>
         <Typography variant="h6">
