@@ -6,16 +6,16 @@ export const headCells = [
     label: 'TM Forum Open APIs',
   },
   {
+    id: 'context',
+    numeric: true,
+    disablePadding: false,
+    label: 'ODA domain',
+  },
+  {
     id: 'document_number',
     numeric: true,
     disablePadding: false,
     label: 'Document number',
-  },
-  {
-    id: 'release_info',
-    numeric: true,
-    disablePadding: false,
-    label: 'Release',
   },
   {
     id: 'version_info',
@@ -28,11 +28,5 @@ export const headCells = [
     numeric: true,
     disablePadding: false,
     label: 'Publication date',
-  },
-  {
-    id: 'context',
-    numeric: true,
-    disablePadding: false,
-    label: 'ODA domain',
   },
 ];

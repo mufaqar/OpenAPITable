@@ -107,7 +107,7 @@ const Row = (props) => {
         </TableCell>
         <TableCell>
           <Typography className={gothamFont.className}>
-            {row.release_info}
+            {row.context}
           </Typography>
         </TableCell>
         <TableCell>
@@ -118,11 +118,6 @@ const Row = (props) => {
         <TableCell>
           <Typography className={gothamFont.className}>
             {row.published_date}
-          </Typography>
-        </TableCell>
-        <TableCell>
-          <Typography className={gothamFont.className}>
-            {row.context}
           </Typography>
         </TableCell>
       </TableRow>
