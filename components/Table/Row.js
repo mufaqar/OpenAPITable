@@ -100,14 +100,15 @@ const Row = (props) => {
             </Box>
           </Box>
         </TableCell>
+
         <TableCell>
           <Typography className={gothamFont.className}>
-            {row.document_number}
+            {row.context}
           </Typography>
         </TableCell>
         <TableCell>
           <Typography className={gothamFont.className}>
-            {row.context}
+            {row.document_number}
           </Typography>
         </TableCell>
         <TableCell>
