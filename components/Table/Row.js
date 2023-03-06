@@ -129,7 +129,7 @@ const Row = (props) => {
                 <TableBody>
                   {row.options?.map((historyRow, i) => (
                     <TableRow key={i} sx={collapseRowBgColor(i)}>
-                      <TableCell align="center">
+                      <TableCell align="right" sx={{ padding: 0 }}>
                         <Image
                           src={`/images/apiOptions/${historyRow.type}.svg`}
                           width={24}
