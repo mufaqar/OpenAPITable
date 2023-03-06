@@ -100,7 +100,6 @@ const Row = (props) => {
             </Box>
           </Box>
         </TableCell>
-
         <TableCell>
           <Typography className={gothamFont.className}>
             {row.context}
@@ -130,9 +129,9 @@ const Row = (props) => {
                 <TableBody>
                   {row.options?.map((historyRow, i) => (
                     <TableRow key={i} sx={collapseRowBgColor(i)}>
-                      <TableCell>
+                      <TableCell align="center">
                         <Image
-                          src={`/images/options/${historyRow.type}.jpg`}
+                          src={`/images/apiOptions/${historyRow.type}.svg`}
                           width={24}
                           height={24}
                           alt="logo"
@@ -140,27 +139,37 @@ const Row = (props) => {
                         />
                       </TableCell>
                       <TableCell>
-                        <Typography>
+                        <Typography
+                          className={gothamFont.className}
+                          sx={{
+                            fontWeight: 600,
+                            fontSize: '16px',
+                            lineHeight: '24px',
+                          }}
+                        >
                           {transformToFullName(historyRow.type)}
                         </Typography>
                       </TableCell>
-                      <TableCell>
-                        <Typography className={gothamFont.className}>
-                          {historyRow.name}
-                        </Typography>
-                      </TableCell>
-                      <TableCell>
-                        <Typography className={gothamFont.className}>
-                          {historyRow.version}
-                        </Typography>
-                      </TableCell>
-                      <TableCell>
+                      <TableCell align="right">
                         <Link
                           href={historyRow.download}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <Button variant="contained">Download</Button>
+                          <Button
+                            variant="contained"
+                            startIcon={
+                              <Image
+                                src="/images/download.svg"
+                                alt="download icon"
+                                width={18}
+                                height={18}
+                                style={{ color: 'red' }}
+                              />
+                            }
+                          >
+                            Download
+                          </Button>
                         </Link>
                       </TableCell>
                     </TableRow>

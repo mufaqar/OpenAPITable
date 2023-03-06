@@ -29,4 +29,10 @@ export const headCells = [
     disablePadding: false,
     label: 'Publication date',
   },
+  {
+    id: 'notes',
+    numeric: true,
+    disablePadding: false,
+    label: 'Notes',
+  },
 ];
