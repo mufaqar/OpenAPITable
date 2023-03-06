@@ -57,12 +57,7 @@ export default function SortTable(props) {
     <Box sx={{ maxWidth: '1550px', margin: '0 auto', marginTop: '40px' }}>
       <Paper sx={{ width: '100%', mb: 2 }}>
         <TableContainer>
-          <Table
-            sx={{
-              minWidth: 400,
-            }}
-            aria-labelledby="tableTitle"
-          >
+          <Table aria-labelledby="tableTitle">
             <TableHead>
               <TableRow>
                 <TableCell></TableCell>

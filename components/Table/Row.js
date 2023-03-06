@@ -120,6 +120,15 @@ const Row = (props) => {
             {row.published_date}
           </Typography>
         </TableCell>
+        <TableCell>
+          <Typography className={gothamFont.className}>
+            {row.notes ? (
+              row.notes
+            ) : (
+              <span style={{ color: '#00000066' }}>No Notes</span>
+            )}
+          </Typography>
+        </TableCell>
       </TableRow>
       <TableRow>
         <TableCell sx={{ padding: 0 }} colSpan={7}>
