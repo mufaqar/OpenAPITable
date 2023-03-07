@@ -1,38 +1,38 @@
 export const headCells = [
   {
     id: 'api_name',
-    numeric: false,
     disablePadding: true,
     label: 'TM Forum Open APIs',
+    align: 'left',
   },
   {
     id: 'context',
-    numeric: true,
     disablePadding: false,
     label: 'ODA domain',
+    align: 'center',
   },
   {
     id: 'document_number',
-    numeric: true,
     disablePadding: false,
     label: 'Document number',
+    align: 'center',
   },
   {
     id: 'version_info',
-    numeric: true,
     disablePadding: false,
-    label: 'Swagger ver.',
+    label: 'Version',
+    align: 'center',
   },
   {
     id: 'published_date',
-    numeric: true,
     disablePadding: false,
     label: 'Publication date',
+    align: 'center',
   },
   {
     id: 'notes',
-    numeric: true,
     disablePadding: false,
     label: 'Notes',
+    align: 'center',
   },
 ];
