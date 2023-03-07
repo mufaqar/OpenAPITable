@@ -44,7 +44,7 @@ const Row = (props) => {
           margin: '10px 0',
         }}
       >
-        <TableCell sx={{ verticalAlign: 'top' }}>
+        <TableCell sx={{ verticalAlign: 'top', maxWidth: 50 }}>
           <IconButton
             aria-label="expand row"
             size="small"
@@ -54,10 +54,14 @@ const Row = (props) => {
               borderBottomLeftRadius: '10px',
             }}
           >
-            {open ? <KeyboardArrowDownIcon /> : <KeyboardArrowRightIcon />}
+            {open ? (
+              <KeyboardArrowDownIcon sx={{ color: '#1A2746' }} />
+            ) : (
+              <KeyboardArrowRightIcon sx={{ color: '#1A2746' }} />
+            )}
           </IconButton>
         </TableCell>
-        <TableCell component="th" scope="row">
+        <TableCell sx={{ maxWidth: 1000 }}>
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <Box sx={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
               <Link
@@ -72,6 +76,7 @@ const Row = (props) => {
                   sx={{
                     fontStyle: 'normal',
                     fontWeight: '600',
+                    marginBottom: '10px',
                   }}
                 >
                   {row.api_name}
@@ -93,6 +98,7 @@ const Row = (props) => {
                 sx={{
                   fontStyle: 'normal',
                   fontWeight: '400',
+                  color: '#000000',
                 }}
               >
                 {removeHtmlTags(row.api_description)}
@@ -100,27 +106,27 @@ const Row = (props) => {
             </Box>
           </Box>
         </TableCell>
-        <TableCell>
+        <TableCell align="center">
           <Typography className={gothamFont.className}>
             {row.context}
           </Typography>
         </TableCell>
-        <TableCell>
+        <TableCell align="center" sx={{ minWidth: 236 }}>
           <Typography className={gothamFont.className}>
             {row.document_number}
           </Typography>
         </TableCell>
-        <TableCell>
+        <TableCell align="center">
           <Typography className={gothamFont.className}>
             {row.version_info}
           </Typography>
         </TableCell>
-        <TableCell>
+        <TableCell align="center" sx={{ minWidth: 217 }}>
           <Typography className={gothamFont.className}>
             {row.published_date}
           </Typography>
         </TableCell>
-        <TableCell>
+        <TableCell sx={{ minWidth: 110 }} align="center">
           <Typography className={gothamFont.className}>
             {row.notes ? (
               row.notes

@@ -60,12 +60,14 @@ export default function SortTable(props) {
           <Table aria-labelledby="tableTitle">
             <TableHead>
               <TableRow>
-                <TableCell></TableCell>
+                <TableCell />
                 {headCells.map((headCell) => (
                   <TableCell
                     key={headCell.id}
                     padding={headCell.disablePadding ? 'none' : 'normal'}
                     sortDirection={orderBy === headCell.id ? order : false}
+                    align={headCell.align}
+                    sx={{ textAlign: headCell.align, margin: 'auto' }}
                   >
                     <TableSortLabel
                       active={orderBy === headCell.id}
@@ -74,7 +76,11 @@ export default function SortTable(props) {
                     >
                       <Typography
                         className={gothamFont.className}
-                        sx={{ fontStyle: 'normal', fontWeight: '600' }}
+                        sx={{
+                          fontStyle: 'normal',
+                          fontWeight: '600',
+                          marginLeft: '25px',
+                        }}
                       >
                         {headCell.label}
                       </Typography>

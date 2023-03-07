@@ -22,7 +22,7 @@ const Home = (props) => {
   const [query, setQuery] = useState('');
 
   const handleButtonClick = () => {
-    setShowList(!showList);
+    setShowList((oldState) => !oldState);
   };
 
   return (
@@ -34,7 +34,7 @@ const Home = (props) => {
           id="search"
           sx={{
             maxWidth: '1550px',
-            margin: '20px auto',
+            margin: '70px auto 0 auto',
             display: 'flex',
             justifyContent: 'space-between',
           }}
@@ -49,6 +49,7 @@ const Home = (props) => {
                 </InputAdornment>
               ),
             }}
+            sx={{ width: '360px' }}
           />
           <Box>
             <Link href="/">
