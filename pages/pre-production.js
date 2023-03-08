@@ -1,5 +1,13 @@
 import { useState } from 'react';
-import { Alert, Button, InputAdornment, TextField } from '@mui/material';
+import {
+  Alert,
+  Button,
+  Collapse,
+  InputAdornment,
+  Paper,
+  Stack,
+  TextField,
+} from '@mui/material';
 import { Box } from '@mui/system';
 import Link from 'next/link';
 import Banner from '../components/Banner/Banner';
@@ -11,7 +19,12 @@ import { searchTable } from '../helpers/searchTable';
 
 const Beta = (props) => {
   const { betaTableData } = props;
+  const [showList, setShowList] = useState(false);
   const [query, setQuery] = useState('');
+
+  const handleButtonClick = () => {
+    setShowList((oldState) => !oldState);
+  };
 
   return (
     <Box>
@@ -22,7 +35,7 @@ const Beta = (props) => {
           id="search"
           sx={{
             maxWidth: '1550px',
-            margin: '70px auto 0 auto',
+            margin: '70px auto 20px auto',
             display: 'flex',
             justifyContent: 'space-between',
           }}
@@ -40,17 +53,40 @@ const Beta = (props) => {
             sx={{ width: '360px' }}
           />
           <Box>
-            <Link href="/">
-              <Button variant="outlined">Production</Button>
+            <Link href="/pre-production">
+              <Button color="error" variant="contained">
+                Pre-Production
+              </Button>
             </Link>
-
             <Button
-              variant="contained"
-              color="error"
-              sx={{ marginLeft: '16px' }}
+              onClick={handleButtonClick}
+              sx={{ marginLeft: '20px' }}
+              variant="outlined"
             >
-              Pre-Production
+              Other Tables
             </Button>
+            <Collapse in={showList}>
+              <Paper
+                sx={{
+                  marginTop: '20px',
+                  width: '200px',
+                  padding: '16px',
+                }}
+              >
+                <Stack gap="16px">
+                  <Link href="/">
+                    <Button fullWidth variant="outlined">
+                      Production
+                    </Button>
+                  </Link>
+                  <Link href="/historic">
+                    <Button fullWidth variant="outlined">
+                      Historic
+                    </Button>
+                  </Link>
+                </Stack>
+              </Paper>
+            </Collapse>
           </Box>
         </Box>
         <Alert severity="warning" sx={{ maxWidth: '1550px', margin: '0 auto' }}>

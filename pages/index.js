@@ -34,7 +34,7 @@ const Home = (props) => {
           id="search"
           sx={{
             maxWidth: '1550px',
-            margin: '70px auto 0 auto',
+            margin: '70px auto 20px auto',
             display: 'flex',
             justifyContent: 'space-between',
           }}

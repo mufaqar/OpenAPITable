@@ -63,7 +63,15 @@ const Row = (props) => {
         </TableCell>
         <TableCell sx={{ maxWidth: 1000 }}>
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-            <Box sx={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+            <Box
+              sx={{
+                display: 'flex',
+                gap: '7px',
+                alignItems: 'center',
+                marginBottom: '10px',
+                flex: 0,
+              }}
+            >
               <Link
                 href={{
                   pathname: `apis/${row.document_number}`,
@@ -76,20 +84,33 @@ const Row = (props) => {
                   sx={{
                     fontStyle: 'normal',
                     fontWeight: '600',
-                    marginBottom: '10px',
                   }}
                 >
                   {row.api_name}
                 </Typography>
               </Link>
               {historic && (
-                <Typography
-                  variant="body1"
-                  color="error"
-                  sx={{ fontWeight: 'bold', fontStyle: 'italic' }}
-                >
-                  [Historic]
-                </Typography>
+                <>
+                  <Typography
+                    className={gothamFont.className}
+                    variant="body1"
+                    color="error"
+                    sx={{ fontWeight: 'bold', fontStyle: 'italic' }}
+                  >
+                    [Historic]
+                  </Typography>
+                  <Typography
+                    className={gothamFont.className}
+                    variant="body1"
+                    color="#929292"
+                    sx={{
+                      fontWeight: 600,
+                      fontStyle: 'italic',
+                    }}
+                  >
+                    [Depracated]
+                  </Typography>
+                </>
               )}
             </Box>
             <Box>
@@ -99,6 +120,7 @@ const Row = (props) => {
                   fontStyle: 'normal',
                   fontWeight: '400',
                   color: '#000000',
+                  wordBreak: 'break-word',
                 }}
               >
                 {removeHtmlTags(row.api_description)}
@@ -106,7 +128,7 @@ const Row = (props) => {
             </Box>
           </Box>
         </TableCell>
-        <TableCell align="center">
+        <TableCell align="center" sx={{ minWidth: 188 }}>
           <Typography className={gothamFont.className}>
             {row.context}
           </Typography>
