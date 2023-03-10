@@ -71,13 +71,13 @@ const Home = (props) => {
                 }}
               >
                 <Stack gap="16px">
+                  <Link href="/pre-production">
+                    <Button variant="outlined">Pre-Production</Button>
+                  </Link>
                   <Link href="/historic">
                     <Button fullWidth variant="outlined">
                       Historic
                     </Button>
-                  </Link>
-                  <Link href="/pre-production">
-                    <Button variant="outlined">Pre-Production</Button>
                   </Link>
                 </Stack>
               </Paper>
