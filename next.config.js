@@ -9,4 +9,5 @@ module.exports = {
       },
     ],
   },
+  basePath: '/api-table',
 };
