@@ -74,35 +74,8 @@ const Home = (props) => {
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Link href="/">
               <button className="blue-btn">Production</button>
-              {/* <Button
-                variant="contained"
-                sx={{
-                  backgroundColor: '#3577DA',
-                  textTransform: 'capitalize',
-                  letterSpacing: '0.5px',
-                }}
-              >
-                {console.log('gothamFont', gothamFont)}
-                <span className={(gothamFont.className, 'abc')}>
-                  Production
-                </span>
-              </Button> */}
             </Link>
-            <button
-              onClick={handleButtonClick}
-              style={{
-                marginLeft: '18px',
-                backgroundColor: '#DBDBDB',
-                textTransform: 'capitalize',
-                border: 'none',
-                color: 'black',
-                height: '38px',
-                borderRadius: '6px',
-                padding: '8px 12px',
-                cursor: 'pointer',
-              }}
-              variant="contained"
-            >
+            <button className="gray-btn" onClick={handleButtonClick}>
               <span
                 className={gothamFont.className}
                 style={{ color: '#000000', fontWeight: 600 }}
