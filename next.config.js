@@ -10,4 +10,5 @@ module.exports = {
     ],
   },
   basePath: '/api-table',
+  // redirects: [{ source: '/', destination: '/api-table/', permanent: true }],
 };
