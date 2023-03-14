@@ -10,5 +10,14 @@ module.exports = {
     ],
   },
   basePath: '/api-table',
-  // redirects: [{ source: '/', destination: '/api-table/', permanent: true }],
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/api-table',
+        basePath: false,
+        permanent: false,
+      },
+    ];
+  },
 };
