@@ -33,9 +33,14 @@ const Hero = () => {
             </span>
           </Link>
           . For APIs in early adoption or still in development please click{' '}
-          <span style={{ color: '#266ED9', fontWeight: 600 }}>here</span>. For
-          previous versions which are no longer supported please click{' '}
-          <span style={{ color: '#266ED9', fontWeight: 600 }}>here</span>.
+          <Link href="/pre-production">
+            <span style={{ color: '#266ED9', fontWeight: 600 }}>here</span>
+          </Link>
+          . For previous versions which are no longer supported please click{' '}
+          <Link href="/historic">
+            <span style={{ color: '#266ED9', fontWeight: 600 }}>here</span>
+          </Link>
+          .
         </Typography>
         <Typography className={gothamFont.className} variant="h6">
           If you have any questions regarding the content of the Open API Table

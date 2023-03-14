@@ -29,7 +29,7 @@ const Banner = () => {
                 lineHeight: '108%',
               }}
             >
-              <span>Open</span> API Table
+              <span style={{ color: '#266ed9' }}>Open</span> API Table
             </Typography>
             <Typography
               className={gothamFont.className}
@@ -44,10 +44,20 @@ const Banner = () => {
             </Typography>
             <Button
               variant="contained"
-              sx={{ width: '150px' }}
+              sx={{
+                width: '150px',
+                backgroundColor: '#3577DA',
+                textTransform: 'capitalize',
+                borderRadius: '10px 0px',
+              }}
               onClick={scrollToTable}
             >
-              View Table
+              <span
+                className={(gothamFont.className, 'btn-text')}
+                style={{ fontSize: '16px' }}
+              >
+                View Table
+              </span>
             </Button>
           </Box>
         </Box>
@@ -61,40 +71,3 @@ const Banner = () => {
 };
 
 export default Banner;
-
-{
-  /* <Box className="banner__left">
-<Typography variant="h6">
-  Home {'>'} Code + framework {'>'} Open APIs
-</Typography>
-<Typography
-  className={gothamFont.className}
-  sx={{
-    fontStyle: 'normal',
-    fontWeight: '700',
-    fontSize: '64px',
-    lineHeight: '108%',
-  }}
->
-  <span>Open</span> API Table
-</Typography>
-<Typography
-  className={gothamFont.className}
-  sx={{
-    fontStyle: 'normal',
-    fontWeight: '400',
-    fontSize: '24px',
-    lineHeight: '150%',
-  }}
->
-  60+ REST-based Open Apis tried, tested and de-risked
-</Typography>
-<Button
-  variant="contained"
-  sx={{ width: '150px' }}
-  onClick={scrollToTable}
->
-  View Table
-</Button>
-</Box> */
-}

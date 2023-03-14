@@ -99,7 +99,7 @@ const Row = (props) => {
                   >
                     [Historic]
                   </Typography>
-                  <Typography
+                  {/* <Typography
                     className={gothamFont.className}
                     variant="body1"
                     color="#929292"
@@ -109,7 +109,7 @@ const Row = (props) => {
                     }}
                   >
                     [Depracated]
-                  </Typography>
+                  </Typography> */}
                 </>
               )}
             </Box>
