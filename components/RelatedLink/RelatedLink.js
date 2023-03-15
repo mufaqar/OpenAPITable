@@ -83,7 +83,7 @@ const RelatedLink = () => {
     >
       <Box
         sx={{
-          width: 600,
+          maxWidth: 600,
           backgroundColor: '#1d52a2',
           margin: '0 auto',
           padding: '10px',

@@ -87,7 +87,14 @@ const Hero = () => {
               <LaunchIcon />
             </Box>
           </Link>
-          <Button>View More</Button>
+          <Button sx={{ textTransform: 'capitalize' }}>
+            <Typography
+              sx={{ fontWeight: 600 }}
+              className={gothamFont.className}
+            >
+              View More
+            </Typography>
+          </Button>
         </Box>
       </Box>
     </Box>
