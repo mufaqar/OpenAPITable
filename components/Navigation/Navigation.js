@@ -18,7 +18,7 @@ const Navigation = () => {
   return (
     <Box className="navigation">
       <Image
-        src="/images/tmf-logo.svg"
+        src="/oda/open-apis/table/images/tmf-logo.svg"
         alt="TM Forum logo"
         width={136}
         height={28.4}
@@ -34,13 +34,13 @@ const Navigation = () => {
       </Box>
       <Box className="navigation__icons">
         <Image
-          src="/images/tmf-search-icon.svg"
+          src="/oda/open-apis/table/images/tmf-search-icon.svg"
           alt="TM Forum logo"
           width={24}
           height={24}
         />
         <Image
-          src="/images/tmf-user-icon.svg"
+          src="/oda/open-apis/table/images/tmf-user-icon.svg"
           alt="TM Forum logo"
           width={24}
           height={24}
