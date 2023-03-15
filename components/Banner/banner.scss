@@ -1,15 +1,4 @@
-.bannerWrapper {
-  background-color: #102338;
-  height: 550px;
-}
-
 .banner {
-  max-width: 1550px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  height: 100%;
-
   &__left {
     display: flex;
     flex-direction: column;

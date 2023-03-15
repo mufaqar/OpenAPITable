@@ -6,7 +6,7 @@ export const fetchProductionTableData = async () => {
   }
   try {
     const res = await fetch(
-      current_url + `/api-table/api/indices/OpenApiTable`
+      current_url + `/oda/open-apis/table/api/indices/OpenApiTable`
     );
     const data = await res.json();
     return data;
@@ -22,7 +22,9 @@ export const fetchHistoricTableData = async () => {
     current_url = 'https://' + current_url;
   }
   try {
-    const res = await fetch(current_url + `/api-table/api/indices/Historic`);
+    const res = await fetch(
+      current_url + `/oda/open-apis/table/api/indices/Historic`
+    );
     const data = await res.json();
     return data;
   } catch (error) {
@@ -37,7 +39,9 @@ export const fetchBetaTableData = async () => {
     current_url = 'https://' + current_url;
   }
   try {
-    const res = await fetch(current_url + `/api-table/api/indices/Beta`);
+    const res = await fetch(
+      current_url + `/oda/open-apis/table/api/indices/Beta`
+    );
     const data = await res.json();
     return data;
   } catch (error) {

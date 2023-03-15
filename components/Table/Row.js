@@ -168,7 +168,7 @@ const Row = (props) => {
                     <TableRow key={i} sx={collapseRowBgColor(i)}>
                       <TableCell align="right" sx={{ padding: 0 }}>
                         <Image
-                          src={`/images/apiOptions/${historyRow.type}.svg`}
+                          src={`/oda/open-apis/table/images/apiOptions/${historyRow.type}.svg`}
                           width={24}
                           height={24}
                           alt="logo"
@@ -197,7 +197,7 @@ const Row = (props) => {
                             variant="contained"
                             startIcon={
                               <Image
-                                src="/images/download.svg"
+                                src="/oda/open-apis/table/images/download.svg"
                                 alt="download icon"
                                 width={18}
                                 height={18}

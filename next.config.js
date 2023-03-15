@@ -9,12 +9,12 @@ module.exports = {
       },
     ],
   },
-  basePath: '/api-table',
+  basePath: '/oda/open-apis/table',
   async redirects() {
     return [
       {
         source: '/',
-        destination: '/api-table',
+        destination: '/oda/open-apis/table',
         basePath: false,
         permanent: false,
       },
