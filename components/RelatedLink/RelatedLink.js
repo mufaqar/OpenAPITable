@@ -19,25 +19,25 @@ const RelatedLink = () => {
   const filterButtons = [
     {
       name: '',
-      src: '/images/relatedLink/all.svg',
+      src: '/oda/open-apis/table/images/relatedLink/all.svg',
       backgroundColor: '#3577DA',
       borderColor: '#1D52A2',
     },
     {
       name: 'Article',
-      src: '/images/relatedLink/article.svg',
+      src: '/oda/open-apis/table/images/relatedLink/article.svg',
       backgroundColor: '#B71A5D',
       borderColor: '#5C0E2F',
     },
     {
       name: 'Video',
-      src: '/images/relatedLink/video.svg',
+      src: '/oda/open-apis/table/images/relatedLink/video.svg',
       backgroundColor: '#B32EB6',
       borderColor: '#7A1D7C',
     },
     {
       name: 'Webinar',
-      src: '/images/relatedLink/webinar.svg',
+      src: '/oda/open-apis/table/images/relatedLink/webinar.svg',
       backgroundColor: '#98BD29',
       borderColor: '#657E1B',
     },
@@ -116,7 +116,7 @@ const RelatedLink = () => {
             Related Content
           </Typography>
           <Image
-            src="/images/relatedLink/title.svg"
+            src="/oda/open-apis/table/images/relatedLink/title.svg"
             alt="icon"
             width={24}
             height={24}
