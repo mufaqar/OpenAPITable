@@ -1,13 +1,5 @@
 import { useState } from 'react';
-import {
-  Button,
-  Collapse,
-  InputAdornment,
-  Paper,
-  Stack,
-  TextField,
-  Typography,
-} from '@mui/material';
+import { InputAdornment, Paper, TextField, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Banner from '../components/Banner/Banner';
 import Hero from '../components/Hero/Hero';
