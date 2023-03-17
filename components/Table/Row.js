@@ -189,7 +189,11 @@ const Row = (props) => {
                       </TableCell>
                       <TableCell align="right">
                         <Link
-                          href={historyRow.download}
+                          href={
+                            historyRow.download.startsWith('http')
+                              ? historyRow.download
+                              : `https:${historyRow.download}`
+                          }
                           target="_blank"
                           rel="noopener noreferrer"
                         >
