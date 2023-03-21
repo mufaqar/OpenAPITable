@@ -153,7 +153,7 @@ const Row = (props) => {
             {row.notes ? (
               row.notes
             ) : (
-              <span style={{ color: '#00000066' }}>No Notes</span>
+              <span style={{ color: '#00000066' }}>No notes</span>
             )}
           </Typography>
         </TableCell>

@@ -13,6 +13,7 @@ import Row from './Row';
 import { headCells } from './consts';
 import { Typography } from '@mui/material';
 import { gothamFont } from '../../helpers/gothamFont';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -59,7 +60,7 @@ export default function SortTable(props) {
         <TableContainer>
           <Table aria-labelledby="tableTitle">
             <TableHead>
-              <TableRow>
+              <TableRow sx={{ background: '#F8F9F9' }}>
                 <TableCell />
                 {headCells.map((headCell) => (
                   <TableCell
@@ -73,12 +74,13 @@ export default function SortTable(props) {
                       active={orderBy === headCell.id}
                       direction={orderBy === headCell.id ? order : 'asc'}
                       onClick={() => handleRequestSort(headCell.id)}
+                      IconComponent={ExpandMoreIcon}
                     >
                       <Typography
                         className={gothamFont.className}
                         sx={{
                           fontStyle: 'normal',
-                          fontWeight: '600',
+                          fontWeight: headCell.fontWeight,
                           marginLeft: '25px',
                         }}
                       >

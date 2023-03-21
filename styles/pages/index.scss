@@ -8,14 +8,14 @@
 
 .table-menu {
   max-width: 1550px;
-  margin: 70px auto 20px auto;
+  margin: 55px auto 20px auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: relative;
 
   &__search {
-    width: 383px;
+    width: 470px;
     background-color: #f5f6f7;
   }
 
@@ -78,7 +78,7 @@
   }
 }
 
-@media (max-width: 715px) {
+@media (max-width: 800px) {
   .table-menu {
     flex-direction: column;
     justify-content: unset;
@@ -87,7 +87,7 @@
 
     &__search {
       width: unset;
-      max-width: 383px;
+      max-width: 400px;
     }
 
     &__btns {
