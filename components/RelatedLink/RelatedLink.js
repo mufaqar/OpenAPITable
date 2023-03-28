@@ -7,9 +7,9 @@ import Image from 'next/image';
 import { fetchRelatedContent } from '../../services/relatedContent/api';
 import { displayDateAndAuthor, settings } from './consts';
 import Skeleton from '@mui/material/Skeleton';
+import { gothamFont } from '../../helpers/gothamFont';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { gothamFont } from '../../helpers/gothamFont';
 
 const RelatedLink = () => {
   const [relatedContentData, setRelatedContentData] = useState([]);
@@ -74,47 +74,10 @@ const RelatedLink = () => {
   }, []);
 
   return (
-    <Box
-      sx={{
-        backgroundColor: '#0D2548',
-        height: '620px',
-        width: '100%',
-      }}
-    >
-      <Box
-        sx={{
-          maxWidth: 600,
-          backgroundColor: '#1d52a2',
-          margin: '0 auto',
-          padding: '10px',
-          borderRadius: '6px',
-          display: 'flex',
-          justifyContent: 'center',
-        }}
-      >
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '10px',
-            backgroundColor: '#3577DA',
-            padding: '5px',
-            width: '270px',
-            borderRadius: '6px',
-          }}
-        >
-          <Typography
-            className={gothamFont.className}
-            sx={{
-              textTransform: 'uppercase',
-              color: 'white',
-              letterSpacing: 2,
-              fontWeight: 600,
-            }}
-          >
-            Related Content
-          </Typography>
+    <Box className="related-link">
+      <Box className="related-link__title">
+        <Box className="related-link__title__inside">
+          <h1 className={gothamFont.className}>Related Content</h1>
           <Image
             src="/oda/open-apis/table/images/relatedLink/title.svg"
             alt="icon"
@@ -123,18 +86,7 @@ const RelatedLink = () => {
           />
         </Box>
       </Box>
-      <Box
-        sx={{
-          maxWidth: '350px',
-          margin: '0 auto',
-          marginTop: '50px',
-          height: '50px',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          gap: '10px',
-        }}
-      >
+      <Box className="related-link__icons">
         {filterButtons.map(({ name, src, borderColor, backgroundColor }) => (
           <Box
             key={name}

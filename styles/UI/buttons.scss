@@ -55,3 +55,35 @@
   text-transform: capitalize;
   color: #ffffff;
 }
+
+.download-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+
+  width: 116px;
+  height: 44px;
+  border: none;
+  cursor: pointer;
+
+  /* Primary/Mono/White */
+
+  background: #ffffff;
+  border-radius: 4px;
+  color: #3577da;
+
+  span {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    /* identical to box height, or 114% */
+
+    /* Primary/Blue/Blue (300) */
+
+    color: #3577da;
+  }
+}

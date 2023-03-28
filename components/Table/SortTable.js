@@ -54,6 +54,10 @@ export default function SortTable(props) {
     setOrderBy(property);
   };
 
+  const SortIcon = () => {
+    <ExpandMoreIcon fontSize="large" />;
+  };
+
   return (
     <Box sx={{ maxWidth: '1550px', margin: '0 auto', marginTop: '40px' }}>
       <Paper sx={{ width: '100%', mb: 2 }}>
@@ -68,7 +72,10 @@ export default function SortTable(props) {
                     padding={headCell.disablePadding ? 'none' : 'normal'}
                     sortDirection={orderBy === headCell.id ? order : false}
                     align={headCell.align}
-                    sx={{ textAlign: headCell.align, margin: 'auto' }}
+                    sx={{
+                      textAlign: headCell.align,
+                      margin: 'auto',
+                    }}
                   >
                     <TableSortLabel
                       active={orderBy === headCell.id}
@@ -76,16 +83,17 @@ export default function SortTable(props) {
                       onClick={() => handleRequestSort(headCell.id)}
                       IconComponent={ExpandMoreIcon}
                     >
-                      <Typography
+                      <span
                         className={gothamFont.className}
-                        sx={{
+                        style={{
                           fontStyle: 'normal',
                           fontWeight: headCell.fontWeight,
                           marginLeft: '25px',
+                          fontSize: headCell.fontSize,
                         }}
                       >
                         {headCell.label}
-                      </Typography>
+                      </span>
                       {orderBy === headCell.id ? (
                         <Box component="span" sx={visuallyHidden}>
                           {order === 'desc'
