@@ -10,6 +10,7 @@ import Skeleton from '@mui/material/Skeleton';
 import { gothamFont } from '../../helpers/gothamFont';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import moment from 'moment';
 
 const RelatedLink = () => {
   const [relatedContentData, setRelatedContentData] = useState([]);
@@ -119,20 +120,8 @@ const RelatedLink = () => {
           {relatedContentData.map((post, i) =>
             !isLoading ? (
               <article key={i}>
-                <Box sx={{ maxWidth: '280px' }}>
-                  <Box
-                    sx={{
-                      width: '48px',
-                      height: '48px',
-                      backgroundColor: '#B71A5D',
-                      position: 'absolute',
-                      boxShadow: '0px 0px 24px -4px rgba(0, 0, 0, 0.25)',
-                      borderRadius: '0px 0px 16px 0px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}
-                  >
+                <Box className="article-wrapper">
+                  <Box className="article-icon">
                     <Image
                       src={getImagePath(post.content_type)}
                       alt="icon"
@@ -153,8 +142,8 @@ const RelatedLink = () => {
                     <Typography color="white">
                       <span
                         style={{
-                          fontStyle: 'normal',
-                          fontWeight: 500,
+                          fontStyle: 'italic',
+                          fontWeight: 600,
                           fontSize: '12px',
                           lineHeight: '140%',
                           textTransform: 'uppercase',
@@ -166,7 +155,7 @@ const RelatedLink = () => {
                       <span
                         className={gothamFont.className}
                         style={{
-                          fontStyle: 'normal',
+                          fontStyle: 'italic',
                           fontWeight: 600,
                           fontSize: '12px',
                           lineHeight: '140%',
@@ -180,7 +169,7 @@ const RelatedLink = () => {
                       <span
                         className={gothamFont.className}
                         style={{
-                          fontStyle: 'normal',
+                          fontStyle: 'italic',
                           fontWeight: 600,
                           fontSize: '12px',
                           lineHeight: '140%',
@@ -193,27 +182,65 @@ const RelatedLink = () => {
                     </Typography>
                   </Box>
                   <Link href={post.full_url}>
-                    <Typography
-                      color="white"
+                    <Box sx={{ marginTop: '7px' }}>
+                      <span
+                        className={gothamFont.className}
+                        style={{
+                          fontStyle: 'normal',
+                          fontWeight: 700,
+                          fontSize: '20px',
+                          lineHeight: '125%',
+                          color: '#FFFFFF',
+                        }}
+                      >
+                        {post.title}
+                      </span>
+                    </Box>
+                  </Link>
+                  <Box style={{ marginTop: '7px' }}>
+                    <span
                       className={gothamFont.className}
-                      sx={{
-                        fontStyle: 'notmal',
-                        fontWeight: 800,
-                        fontSize: '20px',
-                        lineHeight: '125%',
-                        marginTop: '7px',
+                      style={{
+                        fontStyle: 'italic',
+                        fontWeight: 500,
+                        fontSize: '12px',
+                        color: '#9DA6AB',
+                        textTransform: 'uppercase',
                       }}
                     >
-                      {post.title}
-                    </Typography>
-                  </Link>
-                  <Typography
-                    color="gray"
-                    className={gothamFont.className}
-                    sx={{ marginTop: '7px' }}
-                  >
-                    {displayDateAndAuthor(post.first_published, post.authors)}
-                  </Typography>
+                      {moment(post.first_published).format('MMMM YYYY')} &nbsp;
+                    </span>
+                    <>
+                      <span>
+                        {post.authors.length > 0 && (
+                          <>
+                            <span
+                              style={{
+                                fontWeight: 600,
+
+                                color: '#9DA6AB',
+                                textTransform: 'uppercase',
+                              }}
+                            >
+                              {`|`}&nbsp;
+                            </span>
+                            <span
+                              className={gothamFont.className}
+                              style={{
+                                fontStyle: 'italic',
+                                fontWeight: 500,
+                                fontSize: '12px',
+                                color: '#9DA6AB',
+                                textTransform: 'uppercase',
+                              }}
+                            >
+                              by {post.authors[0].author_display_name}
+                            </span>
+                          </>
+                        )}
+                      </span>
+                    </>
+                  </Box>
                 </Box>
               </article>
             ) : (
