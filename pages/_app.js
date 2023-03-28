@@ -2,11 +2,27 @@ import Layout from '../components/Layout';
 import '../styles/global.scss';
 import { Provider } from 'react-redux';
 import { store } from '../redux/store/store';
+import Script from 'next/script';
+import { useEffect, useState } from 'react';
 
 function MyApp({ Component, pageProps }) {
+  const [formsLoaded, setFormsLoaded] = useState(false);
+
+  useEffect(() => {
+    if (formsLoaded) {
+      MktoForms2.loadForm('//app-ab16.marketo.com', '718-GIV-198', 4156);
+    }
+  }, [formsLoaded]);
+
   return (
     <Provider store={store}>
       <Layout>
+        <Script
+          src="//app-ab16.marketo.com/js/forms2/js/forms2.min.js"
+          strategy="afterInteractive"
+          onLoad={() => setFormsLoaded(true)}
+        />
+        <form id="mktoForm_4156"></form>
         <Component {...pageProps} />
       </Layout>
     </Provider>
