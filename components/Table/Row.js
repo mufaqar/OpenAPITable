@@ -21,12 +21,7 @@ import { gothamFont } from '../../helpers/gothamFont';
 const Row = (props) => {
   const { row, historic } = props;
   const [open, setOpen] = useState(false);
-
-  const handleClick = (e, href) => {
-    console.log('href: ', href);
-    e.preventDefault();
-    window.open(href, '_blank');
-  };
+  console.log('row', row);
 
   const collapseRowBgColor = (i) => {
     if (historic) {
@@ -194,11 +189,8 @@ const Row = (props) => {
                         </Typography>
                       </TableCell>
                       <TableCell align="right">
-                        {/* q: when i deploy to vercel it doesn't work */}
-
-                        <Link
+                        <a
                           href={historyRow.download}
-                          as={historyRow.download}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
@@ -216,7 +208,14 @@ const Row = (props) => {
                           >
                             Download
                           </Button>
-                        </Link>
+                        </a>
+                        <a
+                          href={historyRow.download}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Download 2
+                        </a>
                       </TableCell>
                     </TableRow>
                   ))}
