@@ -188,7 +188,7 @@ const Row = (props) => {
                         </Typography>
                       </TableCell>
                       <TableCell align="right">
-                        <Link
+                        <a
                           href={historyRow.download}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -208,7 +208,7 @@ const Row = (props) => {
                           >
                             Download
                           </Button>
-                        </Link>
+                        </a>
                       </TableCell>
                     </TableRow>
                   ))}
