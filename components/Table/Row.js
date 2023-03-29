@@ -23,6 +23,7 @@ const Row = (props) => {
   const [open, setOpen] = useState(false);
 
   const handleClick = (e, href) => {
+    console.log('href: ', href);
     e.preventDefault();
     window.open(href, '_blank');
   };
