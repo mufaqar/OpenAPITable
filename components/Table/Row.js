@@ -22,6 +22,11 @@ const Row = (props) => {
   const { row, historic } = props;
   const [open, setOpen] = useState(false);
 
+  const handleClick = (e, href) => {
+    e.preventDefault();
+    window.open(href, '_blank');
+  };
+
   const collapseRowBgColor = (i) => {
     if (historic) {
       return {
@@ -188,13 +193,14 @@ const Row = (props) => {
                         </Typography>
                       </TableCell>
                       <TableCell align="right">
-                        <a
+                        <Link
                           href={historyRow.download}
                           target="_blank"
                           rel="noopener noreferrer"
                           passHref
                         >
                           <Button
+                            onClick={(e) => handleClick(e, historyRow.download)}
                             variant="contained"
                             startIcon={
                               <Image
@@ -208,7 +214,7 @@ const Row = (props) => {
                           >
                             Download
                           </Button>
-                        </a>
+                        </Link>
                       </TableCell>
                     </TableRow>
                   ))}
