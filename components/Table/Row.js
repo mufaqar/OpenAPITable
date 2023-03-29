@@ -194,28 +194,21 @@ const Row = (props) => {
                         </Typography>
                       </TableCell>
                       <TableCell align="right">
-                        <Link
-                          href={historyRow.download}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          passHref
+                        <Button
+                          onClick={(e) => handleClick(e, historyRow.download)}
+                          variant="contained"
+                          startIcon={
+                            <Image
+                              src="/oda/open-apis/table/images/download.svg"
+                              alt="download icon"
+                              width={18}
+                              height={18}
+                              style={{ color: 'red' }}
+                            />
+                          }
                         >
-                          <Button
-                            onClick={(e) => handleClick(e, historyRow.download)}
-                            variant="contained"
-                            startIcon={
-                              <Image
-                                src="/oda/open-apis/table/images/download.svg"
-                                alt="download icon"
-                                width={18}
-                                height={18}
-                                style={{ color: 'red' }}
-                              />
-                            }
-                          >
-                            Download
-                          </Button>
-                        </Link>
+                          Download
+                        </Button>
                       </TableCell>
                     </TableRow>
                   ))}
