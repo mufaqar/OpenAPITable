@@ -194,21 +194,29 @@ const Row = (props) => {
                         </Typography>
                       </TableCell>
                       <TableCell align="right">
-                        <Button
-                          onClick={(e) => handleClick(e, historyRow.download)}
-                          variant="contained"
-                          startIcon={
-                            <Image
-                              src="/oda/open-apis/table/images/download.svg"
-                              alt="download icon"
-                              width={18}
-                              height={18}
-                              style={{ color: 'red' }}
-                            />
-                          }
+                        {/* q: when i deploy to vercel it doesn't work */}
+
+                        <Link
+                          href={historyRow.download}
+                          as={historyRow.download}
+                          target="_blank"
+                          rel="noopener noreferrer"
                         >
-                          Download
-                        </Button>
+                          <Button
+                            variant="contained"
+                            startIcon={
+                              <Image
+                                src="/oda/open-apis/table/images/download.svg"
+                                alt="download icon"
+                                width={18}
+                                height={18}
+                                style={{ color: 'red' }}
+                              />
+                            }
+                          >
+                            Download
+                          </Button>
+                        </Link>
                       </TableCell>
                     </TableRow>
                   ))}
