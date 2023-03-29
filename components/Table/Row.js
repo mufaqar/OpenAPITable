@@ -21,7 +21,6 @@ import { gothamFont } from '../../helpers/gothamFont';
 const Row = (props) => {
   const { row, historic } = props;
   const [open, setOpen] = useState(false);
-  console.log('row', row);
 
   const collapseRowBgColor = (i) => {
     if (historic) {
@@ -33,6 +32,13 @@ const Row = (props) => {
     return {
       backgroundColor: i % 2 ? '#F2F4F4' : '#F8F9F9',
     };
+  };
+
+  const addSlash = (url) => {
+    if (url.charAt(7) !== '/') {
+      return url.slice(0, 7) + '/' + url.slice(7);
+    }
+    return url;
   };
 
   return (
@@ -189,8 +195,8 @@ const Row = (props) => {
                         </Typography>
                       </TableCell>
                       <TableCell align="right">
-                        <a
-                          href={historyRow.download}
+                        <Link
+                          href={addSlash(historyRow.download)}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
@@ -208,7 +214,7 @@ const Row = (props) => {
                           >
                             Download
                           </Button>
-                        </a>
+                        </Link>
                         <a
                           href={historyRow.download}
                           target="_blank"
