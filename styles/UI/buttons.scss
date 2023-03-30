@@ -55,3 +55,47 @@
   text-transform: capitalize;
   color: #ffffff;
 }
+
+.download-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+
+  width: 116px;
+  height: 44px;
+  border: none;
+  cursor: pointer;
+
+  background: #ffffff;
+  border-radius: 4px;
+  color: #3577da;
+
+  span {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    color: #3577da;
+  }
+}
+
+.red-btn {
+  padding: 4px 12px;
+  gap: 6px;
+  background: #e9242c;
+  border-radius: 6px;
+  width: 86px;
+  height: 30px;
+  border: none;
+  color: #ffffff;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+
+  text-align: center;
+  text-transform: capitalize;
+  cursor: pointer;
+}

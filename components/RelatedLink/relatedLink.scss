@@ -1,3 +1,71 @@
+.related-link {
+  background-color: #0d2548;
+  height: 620px;
+  width: 1512px;
+  margin: 0 auto;
+  padding: 0 50px;
+  border-top-left-radius: 151px;
+
+  &__title {
+    max-width: 600px;
+    background-color: #1d52a2;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+
+    &__inside {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background-color: #3577da;
+      padding: 5px;
+      width: 270px;
+      border-radius: 6px;
+
+      h1 {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 140%;
+        text-align: center;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #ffffff;
+      }
+    }
+  }
+
+  &__icons {
+    max-width: 350px;
+    margin: 0 auto;
+    margin-top: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .article-wrapper {
+    max-width: 280px;
+
+    .article-icon {
+      width: 48px;
+      height: 48px;
+      background-color: #b71a5d;
+      position: absolute;
+      box-shadow: 0px 0px 24px -4px rgba(0, 0, 0, 0.25);
+      border-radius: 0px 0px 16px 0px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
 .slick-dots li button:before {
   width: 6px;
   height: 6px;

@@ -1,50 +1,50 @@
 import moment from 'moment';
 export const settings = {
   dots: true,
+  arrows: false,
   infinite: true,
-  speed: 500,
-  slidesToShow: 3.5,
-  slidesToScroll: 1,
-  initialSlide: 0,
+  speed: 2000, //milliseconds
+  slidesToShow: 4.5,
+  slidesToScroll: 4,
   autoplay: true,
-  autoplaySpeed: 3000,
-  centerMode: true,
-  centerPadding: '174px',
-  responsive: [
-    {
-      breakpoint: 1372,
-      settings: {
-        slidesToShow: 2.5,
-        slidesToScroll: 1,
-        infinite: true,
-        dots: true,
-      },
-    },
-    {
-      breakpoint: 1110,
-      settings: {
-        slidesToShow: 1.5,
-        slidesToScroll: 1,
-        infinite: true,
-        dots: true,
-      },
-    },
-    {
-      breakpoint: 800,
-      settings: {
-        slidesToShow: 0.5,
-        slidesToScroll: 1,
-        initialSlide: 2,
-      },
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-      },
-    },
-  ],
+  autoplaySpeed: 10_000, //milliseconds
+
+  // @bpavlicTMF TODO: Fix responsive settings
+  // responsive: [
+  //   {
+  //     breakpoint: 1372,
+  //     settings: {
+  //       slidesToShow: 2.5,
+  //       slidesToScroll: 1,
+  //       infinite: true,
+  //       dots: true,
+  //     },
+  //   },
+  //   {
+  //     breakpoint: 1110,
+  //     settings: {
+  //       slidesToShow: 1.5,
+  //       slidesToScroll: 1,
+  //       infinite: true,
+  //       dots: true,
+  //     },
+  //   },
+  //   {
+  //     breakpoint: 800,
+  //     settings: {
+  //       slidesToShow: 0.5,
+  //       slidesToScroll: 1,
+  //       initialSlide: 2,
+  //     },
+  //   },
+  //   {
+  //     breakpoint: 480,
+  //     settings: {
+  //       slidesToShow: 1,
+  //       slidesToScroll: 1,
+  //     },
+  //   },
+  // ],
 };
 
 export const displayDateAndAuthor = (date, authors) => {

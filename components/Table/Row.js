@@ -10,7 +10,7 @@ import {
   TableRow,
   Typography,
 } from '@mui/material';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import Link from 'next/link';
 import { removeHtmlTags } from '../../helpers/removeHtmlTags';
@@ -51,20 +51,15 @@ const Row = (props) => {
           margin: '10px 0',
         }}
       >
-        <TableCell sx={{ verticalAlign: 'top', maxWidth: 50 }}>
-          <IconButton
-            aria-label="expand row"
-            size="small"
-            onClick={() => setOpen(!open)}
-            sx={{
-              borderTopLeftRadius: '10px',
-              borderBottomLeftRadius: '10px',
-            }}
-          >
+        <TableCell sx={{ verticalAlign: 'top', maxWidth: 40, padding: '11px' }}>
+          <IconButton size="small" onClick={() => setOpen(!open)}>
             {open ? (
-              <KeyboardArrowDownIcon sx={{ color: '#1A2746' }} />
+              <KeyboardArrowUpIcon sx={{ color: '#1A2746' }} fontSize="small" />
             ) : (
-              <KeyboardArrowRightIcon sx={{ color: '#1A2746' }} />
+              <KeyboardArrowRightIcon
+                sx={{ color: '#1A2746' }}
+                fontSize="small"
+              />
             )}
           </IconButton>
         </TableCell>
@@ -84,83 +79,56 @@ const Row = (props) => {
                   pathname: `apis/${row.document_number}`,
                 }}
               >
-                <Typography
-                  variant="h6"
-                  className={gothamFont.className}
-                  color="#1A2746"
-                  sx={{
-                    fontStyle: 'normal',
-                    fontWeight: '600',
-                  }}
-                >
+                <h2 variant="h6" className={`${gothamFont.className} api-name`}>
                   {row.api_name}
-                </Typography>
+                </h2>
               </Link>
               {historic && (
-                <>
-                  <Typography
-                    className={gothamFont.className}
-                    variant="body1"
-                    color="error"
-                    sx={{ fontWeight: 'bold', fontStyle: 'italic' }}
-                  >
-                    [Historic]
-                  </Typography>
-                  {/* <Typography
-                    className={gothamFont.className}
-                    variant="body1"
-                    color="#929292"
-                    sx={{
-                      fontWeight: 600,
-                      fontStyle: 'italic',
-                    }}
-                  >
-                    [Depracated]
-                  </Typography> */}
-                </>
+                <Typography
+                  className={gothamFont.className}
+                  variant="body1"
+                  color="error"
+                  sx={{ fontWeight: 'bold', fontStyle: 'italic' }}
+                >
+                  [Historic]
+                </Typography>
               )}
             </Box>
             <Box>
-              <Typography
-                className={gothamFont.className}
-                sx={{
-                  fontStyle: 'normal',
-                  fontWeight: '400',
-                  color: '#000000',
-                  wordBreak: 'break-word',
-                }}
-              >
+              <p className={`${gothamFont.className} api-table-text`}>
                 {removeHtmlTags(row.api_description)}
-              </Typography>
+              </p>
             </Box>
           </Box>
         </TableCell>
-        <TableCell align="center" sx={{ minWidth: 188 }}>
-          <Typography className={gothamFont.className}>
+        <TableCell align="center">
+          <span className={`${gothamFont.className} api-table-text`}>
             {row.context}
-          </Typography>
+          </span>
         </TableCell>
-        <TableCell align="center" sx={{ minWidth: 236 }}>
-          <Typography className={gothamFont.className}>
+        <TableCell align="center" sx={{ minWidth: 207 }}>
+          <span className={`${gothamFont.className} api-table-text`}>
             {row.document_number}
-          </Typography>
+          </span>
         </TableCell>
         <TableCell align="center">
-          <Typography className={gothamFont.className}>
+          <span className={`${gothamFont.className} api-table-text`}>
             {row.version_info}
-          </Typography>
+          </span>
         </TableCell>
-        <TableCell align="center" sx={{ minWidth: 217 }}>
-          <Typography className={gothamFont.className}>
+        <TableCell align="center" sx={{ minWidth: 192 }}>
+          <span className={`${gothamFont.className} api-table-text`}>
             {row.published_date}
-          </Typography>
+          </span>
         </TableCell>
-        <TableCell sx={{ minWidth: 110 }} align="center">
+        <TableCell align="center">
           <Typography className={gothamFont.className}>
             {row.notes ? (
               row.notes
             ) : (
-              <span style={{ color: '#00000066' }}>No Notes</span>
+              <span className={`${gothamFont.className} table-notes-text`}>
+                No notes
+              </span>
             )}
           </Typography>
         </TableCell>
@@ -194,26 +162,21 @@ const Row = (props) => {
                           {transformToFullName(historyRow.type)}
                         </Typography>
                       </TableCell>
-                      <TableCell align="right">
+                      <TableCell align="right" sx={{ width: '12%' }}>
                         <Link
                           href={addSlash(historyRow.download)}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <Button
-                            variant="contained"
-                            startIcon={
-                              <Image
-                                src="/oda/open-apis/table/images/download.svg"
-                                alt="download icon"
-                                width={18}
-                                height={18}
-                                style={{ color: 'red' }}
-                              />
-                            }
-                          >
-                            Download
-                          </Button>
+                          <button className="download-btn">
+                            <Image
+                              src="/oda/open-apis/table/images/download.svg"
+                              alt="download icon"
+                              width={18}
+                              height={18}
+                            />
+                            <span>Download</span>
+                          </button>
                         </Link>
                       </TableCell>
                     </TableRow>

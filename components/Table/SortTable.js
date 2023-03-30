@@ -13,6 +13,7 @@ import Row from './Row';
 import { headCells } from './consts';
 import { Typography } from '@mui/material';
 import { gothamFont } from '../../helpers/gothamFont';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -53,13 +54,17 @@ export default function SortTable(props) {
     setOrderBy(property);
   };
 
+  const SortIcon = () => {
+    <ExpandMoreIcon fontSize="large" />;
+  };
+
   return (
     <Box sx={{ maxWidth: '1550px', margin: '0 auto', marginTop: '40px' }}>
       <Paper sx={{ width: '100%', mb: 2 }}>
         <TableContainer>
           <Table aria-labelledby="tableTitle">
             <TableHead>
-              <TableRow>
+              <TableRow sx={{ background: '#F8F9F9' }}>
                 <TableCell />
                 {headCells.map((headCell) => (
                   <TableCell
@@ -67,23 +72,28 @@ export default function SortTable(props) {
                     padding={headCell.disablePadding ? 'none' : 'normal'}
                     sortDirection={orderBy === headCell.id ? order : false}
                     align={headCell.align}
-                    sx={{ textAlign: headCell.align, margin: 'auto' }}
+                    sx={{
+                      textAlign: headCell.align,
+                      margin: 'auto',
+                    }}
                   >
                     <TableSortLabel
                       active={orderBy === headCell.id}
                       direction={orderBy === headCell.id ? order : 'asc'}
                       onClick={() => handleRequestSort(headCell.id)}
+                      IconComponent={ExpandMoreIcon}
                     >
-                      <Typography
+                      <span
                         className={gothamFont.className}
-                        sx={{
+                        style={{
                           fontStyle: 'normal',
-                          fontWeight: '600',
+                          fontWeight: headCell.fontWeight,
                           marginLeft: '25px',
+                          fontSize: headCell.fontSize,
                         }}
                       >
                         {headCell.label}
-                      </Typography>
+                      </span>
                       {orderBy === headCell.id ? (
                         <Box component="span" sx={visuallyHidden}>
                           {order === 'desc'
