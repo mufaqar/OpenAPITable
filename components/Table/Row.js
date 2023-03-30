@@ -77,27 +77,14 @@ const Row = (props) => {
                 </h2>
               </Link>
               {historic && (
-                <>
-                  <Typography
-                    className={gothamFont.className}
-                    variant="body1"
-                    color="error"
-                    sx={{ fontWeight: 'bold', fontStyle: 'italic' }}
-                  >
-                    [Historic]
-                  </Typography>
-                  {/* <Typography
-                    className={gothamFont.className}
-                    variant="body1"
-                    color="#929292"
-                    sx={{
-                      fontWeight: 600,
-                      fontStyle: 'italic',
-                    }}
-                  >
-                    [Depracated]
-                  </Typography> */}
-                </>
+                <Typography
+                  className={gothamFont.className}
+                  variant="body1"
+                  color="error"
+                  sx={{ fontWeight: 'bold', fontStyle: 'italic' }}
+                >
+                  [Historic]
+                </Typography>
               )}
             </Box>
             <Box>

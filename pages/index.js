@@ -78,9 +78,9 @@ const Home = (props) => {
                       </Typography>
                     </Link>
                     <Link href="/historic">
-                      <Typography
+                      <span
                         className={gothamFont.className}
-                        sx={{
+                        style={{
                           fontWeight: 600,
                           fontSize: '16px',
                           lineHeight: '140%',
@@ -88,7 +88,7 @@ const Home = (props) => {
                         }}
                       >
                         Historic
-                      </Typography>
+                      </span>
                     </Link>
                   </Box>
                 </Paper>

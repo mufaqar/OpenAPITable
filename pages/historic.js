@@ -18,10 +18,12 @@ import { searchTable } from '../helpers/searchTable';
 import { fetchHistoricTableData } from '../services/TableData/api';
 import SearchIcon from '@mui/icons-material/Search';
 import { gothamFont } from '../helpers/gothamFont';
+import Image from 'next/image';
 
 const Historic = (props) => {
   const { historicTableData } = props;
   const [showList, setShowList] = useState(false);
+  const [showInfo, setShowInfo] = useState(false);
   const [query, setQuery] = useState('');
 
   const handleButtonClick = () => {
@@ -33,16 +35,9 @@ const Historic = (props) => {
       <Banner />
       <Box className="home">
         <Hero />
-        <Box
-          id="search"
-          sx={{
-            maxWidth: '1550px',
-            margin: '70px auto 20px auto',
-            display: 'flex',
-            justifyContent: 'space-between',
-          }}
-        >
+        <Box id="search" className="table-menu">
           <TextField
+            className="table-menu__search"
             placeholder="Search for API"
             onChange={(e) => setQuery(e.target.value)}
             InputProps={{
@@ -52,48 +47,100 @@ const Historic = (props) => {
                 </InputAdornment>
               ),
             }}
-            sx={{ width: '360px' }}
+            size="small"
+            sx={{
+              input: {
+                '::placeholder': {
+                  color: '#A9ADB1',
+                  opacity: 1,
+                  fontWeight: 600,
+                  letterSpacing: '0.6px',
+                },
+              },
+            }}
           />
-          <Box>
+          <Box className="table-menu__btns">
+            <Image
+              src="/oda/open-apis/table/images/info_icon.svg"
+              alt="info icon"
+              width={20}
+              height={20}
+              onMouseEnter={() => setShowInfo(true)}
+              onMouseLeave={() => setShowInfo(false)}
+            />
             <Link href="/">
-              <Button color="error" variant="contained">
-                Historic
-              </Button>
+              <button className="red-btn">
+                <span className={gothamFont.className}>Historic</span>
+              </button>
             </Link>
-            <Button
+            <button
+              className={showList ? 'gray-btn-active' : 'gray-btn'}
               onClick={handleButtonClick}
-              sx={{ marginLeft: '20px' }}
-              variant="outlined"
             >
-              Other Tables
-            </Button>
-            <Collapse in={showList}>
-              <Paper
-                sx={{
-                  marginTop: '20px',
-                  width: '200px',
-                  padding: '16px',
-                }}
-              >
-                <Stack gap="16px">
-                  <Link href="/">
-                    <Button fullWidth variant="outlined">
-                      Production
-                    </Button>
-                  </Link>
-                  <Link href="/pre-production">
-                    <Button variant="outlined">Pre-Production</Button>
-                  </Link>
-                </Stack>
-              </Paper>
-            </Collapse>
+              <span className={gothamFont.className}>Other Tables</span>
+            </button>
           </Box>
+          {showInfo && (
+            <Box
+              sx={{
+                position: 'absolute',
+                padding: '10px 12px',
+                gap: '10px',
+                width: '262px',
+                top: ' 10px',
+                background: '#102338',
+                borderRadius: '5px',
+                color: '#FFFFFF',
+                zIndex: 1,
+                right: 125,
+                top: -150,
+              }}
+            >
+              <p className={gothamFont.className}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+                cursus, ante condimentum ultricies vehicula, ex massa tincidunt
+                libero, vel suscipit massa neque ac mi.
+              </p>
+            </Box>
+          )}
+          {showList && (
+            <>
+              <Box className="show-list-wrapper">
+                <Paper className="show-list">
+                  <Box className="show-list-btns">
+                    <Link href="/pre-production">
+                      <Typography
+                        className={gothamFont.className}
+                        sx={{
+                          fontWeight: 600,
+                          fontSize: '16px',
+                          lineHeight: '140%',
+                          color: 'black',
+                        }}
+                      >
+                        Production
+                      </Typography>
+                    </Link>
+                    <Link href="/historic">
+                      <Typography
+                        className={gothamFont.className}
+                        sx={{
+                          fontWeight: 600,
+                          fontSize: '16px',
+                          lineHeight: '140%',
+                          color: 'black',
+                        }}
+                      >
+                        Historic
+                      </Typography>
+                    </Link>
+                  </Box>
+                </Paper>
+              </Box>
+              <Box className="show-list-arrow" />
+            </>
+          )}
         </Box>
-        <Alert severity="warning" sx={{ maxWidth: '1550px', margin: '0 auto' }}>
-          <Typography className={gothamFont.className}>
-            You are on Historic page!
-          </Typography>
-        </Alert>
         <SortTable
           data={searchTable(historicTableData, query)}
           historic={true}

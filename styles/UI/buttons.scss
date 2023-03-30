@@ -69,8 +69,6 @@
   border: none;
   cursor: pointer;
 
-  /* Primary/Mono/White */
-
   background: #ffffff;
   border-radius: 4px;
   color: #3577da;
@@ -80,10 +78,24 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 16px;
-    /* identical to box height, or 114% */
-
-    /* Primary/Blue/Blue (300) */
-
     color: #3577da;
   }
+}
+
+.red-btn {
+  padding: 4px 12px;
+  gap: 6px;
+  background: #e9242c;
+  border-radius: 6px;
+  width: 86px;
+  height: 30px;
+  border: none;
+  color: #ffffff;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+
+  text-align: center;
+  text-transform: capitalize;
+  cursor: pointer;
 }
