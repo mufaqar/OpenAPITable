@@ -175,7 +175,9 @@ const Row = (props) => {
                               width={18}
                               height={18}
                             />
-                            <span>Download</span>
+                            <span className={gothamFont.className}>
+                              Download
+                            </span>
                           </button>
                         </Link>
                       </TableCell>
