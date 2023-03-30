@@ -2,17 +2,29 @@ import Layout from '../components/Layout';
 import '../styles/global.scss';
 import { Provider } from 'react-redux';
 import { store } from '../redux/store/store';
-import { theme } from '../theme/theme';
-import { ThemeProvider } from '@mui/material';
+import Script from 'next/script';
+import { useEffect, useState } from 'react';
 
 function MyApp({ Component, pageProps }) {
+  const [formsLoaded, setFormsLoaded] = useState(false);
+
+  useEffect(() => {
+    if (formsLoaded) {
+      MktoForms2.loadForm('//app-ab16.marketo.com', '021-WLD-815', 4156);
+    }
+  }, [formsLoaded]);
+
   return (
     <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ThemeProvider>
+      <Layout>
+        <Script
+          src="//app-ab16.marketo.com/js/forms2/js/forms2.min.js"
+          strategy="afterInteractive"
+          onLoad={() => setFormsLoaded(true)}
+        />
+        <form id="mktoForm_4156" style={{ display: 'none' }}></form>
+        <Component {...pageProps} />
+      </Layout>
     </Provider>
   );
 }
