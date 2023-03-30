@@ -34,13 +34,6 @@ const Row = (props) => {
     };
   };
 
-  const addSlash = (url) => {
-    if (url.charAt(7) !== '/') {
-      return url.slice(0, 7) + '/' + url.slice(7);
-    }
-    return url;
-  };
-
   return (
     <>
       <TableRow
@@ -164,7 +157,7 @@ const Row = (props) => {
                       </TableCell>
                       <TableCell align="right" sx={{ width: '12%' }}>
                         <Link
-                          href={addSlash(historyRow.download)}
+                          href={historyRow.download}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
