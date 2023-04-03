@@ -1,9 +1,9 @@
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { gothamFont } from '../../helpers/gothamFont';
 import Link from 'next/link';
 import Image from 'next/image';
 
-const Hero = () => {
+const HeroProduction = () => {
   return (
     <Box className="heroWrapper">
       <Box className="hero__left">
@@ -78,4 +78,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default HeroProduction;
