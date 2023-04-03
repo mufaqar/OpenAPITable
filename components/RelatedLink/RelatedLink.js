@@ -138,48 +138,65 @@ const RelatedLink = () => {
                       style={{ objectFit: 'cover' }}
                     />
                   </Link>
-                  <Box sx={{ marginTop: '0.5rem' }}>
-                    <Typography color="white">
-                      <span
-                        style={{
-                          fontStyle: 'italic',
-                          fontWeight: 600,
-                          fontSize: '12px',
-                          lineHeight: '140%',
-                          textTransform: 'uppercase',
-                        }}
-                      >
-                        {post.content_type}
-                      </span>
+                  <Box sx={{ marginTop: '0.5rem', color: '#CD1A5D' }}>
+                    <span
+                      className={gothamFont.className}
+                      style={{
+                        color: '#FFFFFF',
+                        fontWeight: 600,
+                        fontSize: '12px',
+                        lineHeight: '140%',
+                        textTransform: 'uppercase',
+                      }}
+                    >
+                      {post.content_type}
+                    </span>
+                    <span
+                      style={{
+                        color: '#FFFFFF',
+                        fontWeight: 600,
+                      }}
+                    >
                       {' | '}
-                      <span
-                        className={gothamFont.className}
-                        style={{
-                          fontStyle: 'italic',
-                          fontWeight: 600,
-                          fontSize: '12px',
-                          lineHeight: '140%',
-                          textTransform: 'uppercase',
-                          color: '#B71A5D',
-                        }}
-                      >
-                        {post.topics[0]?.topic_name}
-                      </span>
-                      {post.topics[1]?.topic_name && ' | '}
-                      <span
-                        className={gothamFont.className}
-                        style={{
-                          fontStyle: 'italic',
-                          fontWeight: 600,
-                          fontSize: '12px',
-                          lineHeight: '140%',
-                          textTransform: 'uppercase',
-                          color: '#B71A5D',
-                        }}
-                      >
-                        {post.topics[1]?.topic_name}
-                      </span>
-                    </Typography>
+                    </span>
+                    <span
+                      className={gothamFont.className}
+                      style={{
+                        fontWeight: 600,
+                        fontSize: '12px',
+                        lineHeight: '140%',
+                        textTransform: 'uppercase',
+                        color: '#CD1A5D',
+                      }}
+                    >
+                      {post.topics[0]?.topic_name}
+                    </span>
+                    {post.topics[1]?.topic_name && ', '}
+                    <span
+                      className={gothamFont.className}
+                      style={{
+                        fontWeight: 600,
+                        fontSize: '12px',
+                        lineHeight: '140%',
+                        textTransform: 'uppercase',
+                        color: '#CD1A5D',
+                      }}
+                    >
+                      {post.topics[1]?.topic_name}
+                    </span>
+                    <span
+                      className={gothamFont.className}
+                      style={{
+                        fontWeight: 600,
+                        fontSize: '12px',
+                        lineHeight: '140%',
+                        textTransform: 'uppercase',
+                        color: '#CD1A5D',
+                      }}
+                    >
+                      {post.topics.length > 2 &&
+                        ' + ' + (post.topics.length - 2) + ' more'}
+                    </span>
                   </Box>
                   <Link href={post.full_url}>
                     <Box sx={{ marginTop: '7px' }}>
@@ -201,7 +218,6 @@ const RelatedLink = () => {
                     <span
                       className={gothamFont.className}
                       style={{
-                        fontStyle: 'italic',
                         fontWeight: 500,
                         fontSize: '12px',
                         color: '#9DA6AB',
@@ -217,7 +233,6 @@ const RelatedLink = () => {
                             <span
                               style={{
                                 fontWeight: 600,
-
                                 color: '#9DA6AB',
                                 textTransform: 'uppercase',
                               }}
@@ -227,7 +242,6 @@ const RelatedLink = () => {
                             <span
                               className={gothamFont.className}
                               style={{
-                                fontStyle: 'italic',
                                 fontWeight: 500,
                                 fontSize: '12px',
                                 color: '#9DA6AB',
