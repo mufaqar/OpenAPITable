@@ -1,21 +1,14 @@
 import { useState } from 'react';
-import {
-  Alert,
-  Button,
-  Collapse,
-  InputAdornment,
-  Paper,
-  Stack,
-  TextField,
-} from '@mui/material';
+import { InputAdornment, Paper, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import Link from 'next/link';
 import Banner from '../components/Banner/Banner';
-import Hero from '../components/Hero/Hero';
 import SortTable from '../components/Table/SortTable';
 import { fetchBetaTableData } from '../services/TableData/api';
 import SearchIcon from '@mui/icons-material/Search';
 import { searchTable } from '../helpers/searchTable';
+import HeroPreProduction from '../components/Hero/HeroPreProduction';
+import { gothamFont } from '../helpers/gothamFont';
 
 const Beta = (props) => {
   const { betaTableData } = props;
@@ -30,17 +23,10 @@ const Beta = (props) => {
     <Box>
       <Banner />
       <Box className="home">
-        <Hero />
-        <Box
-          id="search"
-          sx={{
-            maxWidth: '1550px',
-            margin: '70px auto 20px auto',
-            display: 'flex',
-            justifyContent: 'space-between',
-          }}
-        >
+        <HeroPreProduction />
+        <Box id="search" className="table-menu">
           <TextField
+            className="table-menu__search"
             placeholder="Search for API"
             onChange={(e) => setQuery(e.target.value)}
             InputProps={{
@@ -50,48 +36,67 @@ const Beta = (props) => {
                 </InputAdornment>
               ),
             }}
-            sx={{ width: '360px' }}
+            size="small"
+            sx={{
+              input: {
+                '::placeholder': {
+                  color: '#A9ADB1',
+                  opacity: 1,
+                  fontWeight: 600,
+                  letterSpacing: '0.6px',
+                },
+              },
+            }}
           />
-          <Box>
-            <Link href="/pre-production">
-              <Button color="error" variant="contained">
-                Pre-Production
-              </Button>
-            </Link>
-            <Button
+          <Box className="table-menu__btns">
+            <button className="pre-production-btn">
+              <span className={gothamFont.className}>Pre-Production</span>
+            </button>
+            <button
+              className={showList ? 'gray-btn-active' : 'gray-btn'}
               onClick={handleButtonClick}
-              sx={{ marginLeft: '20px' }}
-              variant="outlined"
             >
-              Other Tables
-            </Button>
-            <Collapse in={showList}>
-              <Paper
-                sx={{
-                  marginTop: '20px',
-                  width: '200px',
-                  padding: '16px',
-                }}
-              >
-                <Stack gap="16px">
-                  <Link href="/">
-                    <Button fullWidth variant="outlined">
-                      Production
-                    </Button>
-                  </Link>
-                  <Link href="/historic">
-                    <Button fullWidth variant="outlined">
-                      Historic
-                    </Button>
-                  </Link>
-                </Stack>
-              </Paper>
-            </Collapse>
+              <span className={gothamFont.className}>Other Tables</span>
+            </button>
           </Box>
+          {showList && (
+            <>
+              <Box className="show-list-wrapper">
+                <Paper className="show-list">
+                  <Box className="show-list-btns">
+                    <Link href="/">
+                      <Typography
+                        className={gothamFont.className}
+                        sx={{
+                          fontWeight: 600,
+                          fontSize: '16px',
+                          lineHeight: '140%',
+                          color: 'black',
+                        }}
+                      >
+                        Production
+                      </Typography>
+                    </Link>
+                    <Link href="/historic">
+                      <span
+                        className={gothamFont.className}
+                        style={{
+                          fontWeight: 600,
+                          fontSize: '16px',
+                          lineHeight: '140%',
+                          color: 'black',
+                        }}
+                      >
+                        Historic
+                      </span>
+                    </Link>
+                  </Box>
+                </Paper>
+              </Box>
+              <Box className="show-list-arrow" />
+            </>
+          )}
         </Box>
-        <Alert severity="warning" sx={{ maxWidth: '1550px', margin: '0 auto' }}>
-          You are on Pre-Production / Beta page — check it out!
-        </Alert>
         <SortTable data={searchTable(betaTableData, query)} />
       </Box>
     </Box>

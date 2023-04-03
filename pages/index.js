@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { InputAdornment, Paper, TextField, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Banner from '../components/Banner/Banner';
-import Hero from '../components/Hero/Hero';
+import HeroProduction from '../components/Hero/HeroProduction';
 import SortTable from '../components/Table/SortTable';
 import { fetchProductionTableData } from '../services/TableData/api';
 import Link from 'next/link';
@@ -23,7 +23,7 @@ const Home = (props) => {
     <Box>
       <Banner />
       <Box className="home">
-        <Hero />
+        <HeroProduction />
         <Box id="search" className="table-menu">
           <TextField
             className="table-menu__search"
@@ -49,9 +49,9 @@ const Home = (props) => {
             }}
           />
           <Box className="table-menu__btns">
-            <Link href="/">
-              <button className="blue-btn">Production</button>
-            </Link>
+            <button className="blue-btn">
+              <span className={gothamFont.className}>Production</span>
+            </button>
             <button
               className={showList ? 'gray-btn-active' : 'gray-btn'}
               onClick={handleButtonClick}

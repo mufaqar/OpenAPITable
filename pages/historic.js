@@ -1,18 +1,9 @@
-import {
-  Alert,
-  Button,
-  Collapse,
-  InputAdornment,
-  Paper,
-  Stack,
-  TextField,
-  Typography,
-} from '@mui/material';
+import { InputAdornment, Paper, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import Link from 'next/link';
 import { useState } from 'react';
 import Banner from '../components/Banner/Banner';
-import Hero from '../components/Hero/Hero';
+import HeroHistoric from '../components/Hero/HeroHistoric';
 import SortTable from '../components/Table/SortTable';
 import { searchTable } from '../helpers/searchTable';
 import { fetchHistoricTableData } from '../services/TableData/api';
@@ -34,7 +25,7 @@ const Historic = (props) => {
     <Box>
       <Banner />
       <Box className="home">
-        <Hero />
+        <HeroHistoric />
         <Box id="search" className="table-menu">
           <TextField
             className="table-menu__search"
@@ -68,11 +59,9 @@ const Historic = (props) => {
               onMouseEnter={() => setShowInfo(true)}
               onMouseLeave={() => setShowInfo(false)}
             />
-            <Link href="/">
-              <button className="red-btn">
-                <span className={gothamFont.className}>Historic</span>
-              </button>
-            </Link>
+            <button className="red-btn">
+              <span className={gothamFont.className}>Historic</span>
+            </button>
             <button
               className={showList ? 'gray-btn-active' : 'gray-btn'}
               onClick={handleButtonClick}
@@ -93,7 +82,7 @@ const Historic = (props) => {
                 color: '#FFFFFF',
                 zIndex: 1,
                 right: 125,
-                top: -150,
+                top: -160,
               }}
             >
               <p className={gothamFont.className}>
@@ -108,7 +97,7 @@ const Historic = (props) => {
               <Box className="show-list-wrapper">
                 <Paper className="show-list">
                   <Box className="show-list-btns">
-                    <Link href="/pre-production">
+                    <Link href="/">
                       <Typography
                         className={gothamFont.className}
                         sx={{
@@ -121,7 +110,7 @@ const Historic = (props) => {
                         Production
                       </Typography>
                     </Link>
-                    <Link href="/historic">
+                    <Link href="/pre-production">
                       <Typography
                         className={gothamFont.className}
                         sx={{
@@ -131,7 +120,7 @@ const Historic = (props) => {
                           color: 'black',
                         }}
                       >
-                        Historic
+                        Pre-Production
                       </Typography>
                     </Link>
                   </Box>
