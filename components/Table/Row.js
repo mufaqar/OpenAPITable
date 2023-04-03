@@ -56,7 +56,7 @@ const Row = (props) => {
             )}
           </IconButton>
         </TableCell>
-        <TableCell sx={{ maxWidth: 1000 }}>
+        <TableCell sx={{ maxWidth: 520 }}>
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <Box
               sx={{
@@ -94,12 +94,12 @@ const Row = (props) => {
             </Box>
           </Box>
         </TableCell>
-        <TableCell align="center">
+        <TableCell align="center" sx={{ minWidth: 168 }}>
           <span className={`${gothamFont.className} api-table-text`}>
             {row.context}
           </span>
         </TableCell>
-        <TableCell align="center" sx={{ minWidth: 207 }}>
+        <TableCell align="center" sx={{ minWidth: 208 }}>
           <span className={`${gothamFont.className} api-table-text`}>
             {row.document_number}
           </span>
