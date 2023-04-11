@@ -84,3 +84,19 @@
   margin-top: 16px;
   position: static;
 }
+
+@media (max-width: 930px) {
+  .related-link {
+    border-top-left-radius: 0px;
+
+    &__title {
+      min-width: 142px;
+    }
+  }
+}
+
+@media (max-width: 570px) {
+  .article-wrapper {
+    margin: 0 auto;
+  }
+}

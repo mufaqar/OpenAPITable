@@ -23,30 +23,40 @@ const RelatedLink = () => {
       src: '/oda/open-apis/table/images/relatedLink/all.svg',
       backgroundColor: '#3577DA',
       borderColor: '#1D52A2',
+      hoverColor: '#1D52A2',
+      hoverBorder: '#2A5FAE',
     },
     {
       name: 'Article',
       src: '/oda/open-apis/table/images/relatedLink/article.svg',
       backgroundColor: '#B71A5D',
       borderColor: '#5C0E2F',
+      hoverColor: '#5C0E2F',
+      hoverBorder: '#4A0C26',
     },
     {
       name: 'Video',
       src: '/oda/open-apis/table/images/relatedLink/video.svg',
       backgroundColor: '#B32EB6',
       borderColor: '#7A1D7C',
+      hoverColor: '#7A1D7C',
+      hoverBorder: '#8F2592',
     },
     {
       name: 'Webinar',
       src: '/oda/open-apis/table/images/relatedLink/webinar.svg',
       backgroundColor: '#98BD29',
       borderColor: '#657E1B',
+      hoverColor: '#657E1B',
+      hoverBorder: '#789B21',
     },
   ];
 
   const getImagePath = (content_type) => {
     const found = filterButtons.find(({ name }) => name === content_type);
-    return found ? found.src : '/images/relatedLink/article.svg';
+    return found
+      ? found.src
+      : '/oda/open-apis/table/images/relatedLink/article.svg';
   };
 
   const handleCategoryChange = async (name) => {
@@ -88,29 +98,39 @@ const RelatedLink = () => {
         </Box>
       </Box>
       <Box className="related-link__icons">
-        {filterButtons.map(({ name, src, borderColor, backgroundColor }) => (
-          <Box
-            key={name}
-            name={name}
-            onClick={() => handleCategoryChange(name)}
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              borderRadius: '50%',
-              width: 50,
-              height: 50,
-              backgroundColor: category === name && backgroundColor,
-              border: `3px solid ${borderColor}`,
-              cursor: 'pointer',
-              '&:hover': {
-                backgroundColor,
-              },
-            }}
-          >
-            <Image src={src} alt="icon" width={24} height={24} />
-          </Box>
-        ))}
+        {filterButtons.map(
+          ({
+            name,
+            src,
+            borderColor,
+            backgroundColor,
+            hoverColor,
+            hoverBorder,
+          }) => (
+            <Box
+              key={name}
+              name={name}
+              onClick={() => handleCategoryChange(name)}
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderRadius: '50%',
+                width: 50,
+                height: 50,
+                backgroundColor: category === name && backgroundColor,
+                border: `3px solid ${borderColor}`,
+                cursor: 'pointer',
+                '&:hover': {
+                  backgroundColor: hoverColor,
+                  border: `3px solid ${hoverBorder}`,
+                },
+              }}
+            >
+              <Image src={src} alt="icon" width={24} height={24} />
+            </Box>
+          )
+        )}
       </Box>
       <Box
         sx={{
