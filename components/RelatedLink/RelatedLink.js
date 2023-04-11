@@ -103,6 +103,9 @@ const RelatedLink = () => {
               backgroundColor: category === name && backgroundColor,
               border: `3px solid ${borderColor}`,
               cursor: 'pointer',
+              '&:hover': {
+                backgroundColor,
+              },
             }}
           >
             <Image src={src} alt="icon" width={24} height={24} />
