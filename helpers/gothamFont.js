@@ -18,5 +18,9 @@ export const gothamFont = localFont({
       path: '../assets/fonts/gotham/Gotham-Medium.otf',
       weight: '600',
     },
+    {
+      path: '../assets/fonts/gotham/Gotham-Medium_Web.woff2',
+      weight: '500',
+    },
   ],
 });
