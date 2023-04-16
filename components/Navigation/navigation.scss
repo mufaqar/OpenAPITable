@@ -310,9 +310,62 @@ nav .main-link:hover {
 
   .main-link__active .fa-plus {
     margin-top: 16px;
+    transform: translateX(-8px);
   }
 
   .dropdown-a {
     margin-left: 50px;
+  }
+
+  .dropdown-li:hover .dropdown-arrow {
+    transition: unset;
+    transform: unset;
+  }
+
+  .dropdown-li {
+    position: relative;
+    display: block;
+  }
+
+  .sub-menu {
+    display: block;
+    width: 100vw;
+    position: relative;
+    right: 14px;
+    top: 13px;
+  }
+
+  .dropdown-li:hover .sub-menu {
+    display: initial;
+    flex-direction: initial;
+
+    min-width: initial;
+    background: initial;
+    box-shadow: initial;
+    z-index: initial;
+    position: relative;
+    top: 13px !important;
+    right: 14px !important;
+    left: initial;
+    bottom: initial;
+    transform: initial;
+  }
+
+  .sub-menu-li {
+    border-bottom: 1px solid #d2d4da;
+  }
+
+  .sub-menu-li:nth-child(1) {
+    border-top: 1px solid #d2d4da;
+  }
+
+  .dropdown-arrow {
+    position: absolute;
+    top: 15px;
+    right: 21px;
+  }
+
+  .sub-menu-a {
+    margin-left: 70px;
   }
 }
