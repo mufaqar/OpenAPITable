@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faChevronDown,
   faChevronRight,
+  faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 import { gothamFont } from '../../helpers/gothamFont';
 
@@ -11,7 +12,12 @@ const Navigation = (props) => {
   const { logoSrc, navigationLinks } = props;
 
   const [activeLink, setActiveLink] = useState('');
+  const [isNavOpen, setIsNavOpen] = useState(false);
   const navbarRef = useRef(null);
+
+  const handleNavClick = () => {
+    setIsNavOpen((prevState) => !prevState);
+  };
 
   const handleLinkClick = (link) => {
     if (activeLink === link) {
@@ -39,7 +45,11 @@ const Navigation = (props) => {
       <header>
         <Image src={logoSrc} alt="logo" width={135.99} height={28.472} />
         <nav ref={navbarRef}>
-          <ul className="main-list">
+          <ul
+            className={`main-list ${
+              isNavOpen ? 'main-list__opend' : 'main-list__closed'
+            }`}
+          >
             {navigationLinks.map((link) => (
               <div
                 key={link.name}
@@ -49,7 +59,7 @@ const Navigation = (props) => {
                 }
               >
                 <li className={`${gothamFont.className} main-li`}>
-                  {link.name}
+                  <a href="#">{link.name}</a>
                   {link.children.length > 0 && (
                     <ul
                       className={
@@ -92,32 +102,53 @@ const Navigation = (props) => {
                     </ul>
                   )}
                 </li>
-                <FontAwesomeIcon
-                  icon={faChevronDown}
-                  size="xs"
-                  className={
-                    activeLink === link.name
-                      ? 'arrow-rotate-up'
-                      : 'arrow-rotate-down'
-                  }
-                />
+                {isNavOpen ? (
+                  <FontAwesomeIcon
+                    icon={faPlus}
+                    size="xs"
+                    style={{ scale: '1.2' }}
+                    className="fa-plus"
+                  />
+                ) : (
+                  <FontAwesomeIcon
+                    icon={faChevronDown}
+                    size="xs"
+                    className={
+                      activeLink === link.name
+                        ? 'arrow-rotate-up'
+                        : 'arrow-rotate-down'
+                    }
+                  />
+                )}
               </div>
             ))}
           </ul>
         </nav>
         <div className="nav-icons">
-          <Image
-            src="/oda/open-apis/table/images/tmf-search-icon.svg"
-            alt="search icon"
-            width={24}
-            height={24}
-          />
-          <Image
-            src="/oda/open-apis/table/images/tmf-user-icon.svg"
-            alt="account icon"
-            width={24}
-            height={24}
-          />
+          <div className="nav-icons__search">
+            <Image
+              src="/oda/open-apis/table/images/tmf-search-icon.svg"
+              alt="search icon"
+              width={26}
+              height={26}
+            />
+          </div>
+          <div className={isNavOpen ? 'nav-icons__account' : 'display-none-mq'}>
+            <Image
+              src="/oda/open-apis/table/images/tmf-user-icon.svg"
+              alt="account icon"
+              width={26}
+              height={26}
+            />
+          </div>
+          <div
+            className={isNavOpen ? 'menu-open' : 'menu-hamburger'}
+            onClick={() => handleNavClick()}
+          >
+            <span className="menu-hamburger__line" />
+            <span className="menu-hamburger__line" />
+            <span className="menu-hamburger__line" />
+          </div>
         </div>
       </header>
     </div>
