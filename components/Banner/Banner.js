@@ -16,7 +16,7 @@ const Banner = () => {
               <span style={{ color: '#266ed9' }}>Open</span> API Table
             </h1>
             <h2 className={gothamFont.className}>
-              60+ REST-based Open APIs tried, tested and de-risked.
+              60+ Open Apis tried, tested and de-risked.
             </h2>
             <Button
               variant="contained"
