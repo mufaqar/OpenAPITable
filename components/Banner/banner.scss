@@ -6,7 +6,7 @@
 
 .banner-inside {
   display: flex;
-  gap: 100px;
+  // gap: 160px;
 }
 
 .banner {
@@ -21,10 +21,11 @@
     justify-content: flex-start;
     align-items: flex-start;
     gap: 37px;
-    padding: 37px 60px 0 60px;
+    padding: 37px 60px 0 20px;
     color: white;
     width: 700px;
     background-color: #102338;
+    margin-right: 80px;
 
     #breadcrumbs {
       font-size: 14px;
@@ -80,6 +81,7 @@
     width: unset;
     padding: 20px;
     flex: 1;
+    margin-right: 0px;
   }
 
   .banner__left h1 {
@@ -103,6 +105,18 @@
 
   #breadcrumbs {
     margin-bottom: 12px;
+  }
+}
+
+@media only screen and (min-width: 816px) and (max-width: 1317px) {
+  .banner__right {
+    background-position: unset;
+  }
+}
+
+@media (max-width: 493px) {
+  .banner__right {
+    margin-top: 35px;
   }
 }
 
