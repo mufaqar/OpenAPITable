@@ -12,7 +12,8 @@ function MyApp({ Component, pageProps }) {
   const oidcConfig = {
     authority: 'https://tmforumhubdev.mvine.com/idp/oidc',
     client_id: 'cc45d352-67aa-4af7-8478-4b0cc76c381e',
-    redirect_uri: 'https://devbeta.ipsphere.net/oda/open-apis/table/',
+    redirect_uri:
+      'https://devbeta.ipsphere.net/oda/open-apis/table/oauth2/callback',
   };
 
   useEffect(() => {
