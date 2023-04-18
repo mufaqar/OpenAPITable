@@ -7,6 +7,7 @@ import {
   faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 import { gothamFont } from '../../helpers/gothamFont';
+import Link from 'next/link';
 
 const Navigation = (props) => {
   const { logoSrc, navigationLinks } = props;
@@ -50,12 +51,12 @@ const Navigation = (props) => {
     };
   }, [navbarRef]);
 
-  console.log('activeChild', activeChild);
-
   return (
     <div className="header-wrapper">
       <header>
-        <Image src={logoSrc} alt="logo" width={135.99} height={28.472} />
+        <Link href="https://www.tmforum.org/">
+          <Image src={logoSrc} alt="logo" width={135.99} height={28.472} />
+        </Link>
         <nav ref={navbarRef}>
           <ul
             className={`main-list ${
