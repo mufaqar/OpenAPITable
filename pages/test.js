@@ -4,6 +4,8 @@ import { useAuth } from 'react-oidc-context';
 function Test() {
   const auth = useAuth();
 
+  console.log('auth', auth);
+
   switch (auth.activeNavigator) {
     case 'signinSilent':
       return <div style={{ margin: '200px' }}>Signing you in...</div>;
