@@ -10,11 +10,10 @@ function MyApp({ Component, pageProps }) {
   const [formsLoaded, setFormsLoaded] = useState(false);
 
   const oidcConfig = {
-    authority: 'https://staging-idp.tmforum.org/idp/oidc',
+    authority: 'https://tmforumportaldev.mvine.com/idp/oidc',
     client_id: 'cc45d352-67aa-4af7-8478-4b0cc76c381e',
     redirect_uri:
       'https://devbeta.ipsphere.net/oda/open-apis/table/oauth2/callback',
-    client_secret: 'a42535d3-b36f-42aa-9038-f556b6121bff',
   };
 
   useEffect(() => {
