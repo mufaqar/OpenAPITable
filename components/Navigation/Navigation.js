@@ -4,20 +4,37 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faChevronDown,
   faChevronRight,
+  faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 import { gothamFont } from '../../helpers/gothamFont';
+import Link from 'next/link';
 
 const Navigation = (props) => {
   const { logoSrc, navigationLinks } = props;
 
   const [activeLink, setActiveLink] = useState('');
+  const [activeChild, setActiveChild] = useState('');
+  const [isNavOpen, setIsNavOpen] = useState(false);
   const navbarRef = useRef(null);
+
+  const handleNavClick = () => {
+    setIsNavOpen((prevState) => !prevState);
+  };
 
   const handleLinkClick = (link) => {
     if (activeLink === link) {
       setActiveLink('');
     } else {
       setActiveLink(link);
+    }
+  };
+
+  const handleChildClick = (link, e) => {
+    e.stopPropagation();
+    if (activeChild === link) {
+      setActiveChild('');
+    } else {
+      setActiveChild(link);
     }
   };
 
@@ -37,9 +54,15 @@ const Navigation = (props) => {
   return (
     <div className="header-wrapper">
       <header>
-        <Image src={logoSrc} alt="logo" width={135.99} height={28.472} />
+        <Link href="https://www.tmforum.org/">
+          <Image src={logoSrc} alt="logo" width={135.99} height={28.472} />
+        </Link>
         <nav ref={navbarRef}>
-          <ul className="main-list">
+          <ul
+            className={`main-list ${
+              isNavOpen ? 'main-list__opend' : 'main-list__closed'
+            }`}
+          >
             {navigationLinks.map((link) => (
               <div
                 key={link.name}
@@ -49,7 +72,7 @@ const Navigation = (props) => {
                 }
               >
                 <li className={`${gothamFont.className} main-li`}>
-                  {link.name}
+                  <a href="#">{link.name}</a>
                   {link.children.length > 0 && (
                     <ul
                       className={
@@ -59,7 +82,11 @@ const Navigation = (props) => {
                       }
                     >
                       {link.children.map(({ name, children, href }) => (
-                        <li key={name} className="dropdown-li">
+                        <li
+                          key={name}
+                          className="dropdown-li"
+                          onClick={(e) => handleChildClick(name, e)}
+                        >
                           <a
                             href={href}
                             className={`${gothamFont.className} dropdown-a`}
@@ -68,12 +95,13 @@ const Navigation = (props) => {
                           </a>
                           {children?.length > 0 && (
                             <>
-                              <FontAwesomeIcon
-                                icon={faChevronRight}
-                                size="xs"
-                                className="dropdown-arrow"
-                              />
-                              <ul className="sub-menu">
+                              <ul
+                                className={`${
+                                  activeChild === name
+                                    ? 'sub-menu'
+                                    : 'display-none'
+                                } ${!isNavOpen && 'sub-menu'}`}
+                              >
                                 {children?.map(({ name, href }) => (
                                   <li key={name} className="sub-menu-li">
                                     <a
@@ -85,6 +113,11 @@ const Navigation = (props) => {
                                   </li>
                                 ))}
                               </ul>
+                              <FontAwesomeIcon
+                                icon={faChevronRight}
+                                size="xs"
+                                className="dropdown-arrow"
+                              />
                             </>
                           )}
                         </li>
@@ -92,32 +125,90 @@ const Navigation = (props) => {
                     </ul>
                   )}
                 </li>
-                <FontAwesomeIcon
-                  icon={faChevronDown}
-                  size="xs"
-                  className={
-                    activeLink === link.name
-                      ? 'arrow-rotate-up'
-                      : 'arrow-rotate-down'
-                  }
-                />
+                {isNavOpen ? (
+                  <FontAwesomeIcon
+                    icon={faPlus}
+                    size="xs"
+                    style={{ scale: '1.2' }}
+                    className="fa-plus"
+                  />
+                ) : (
+                  <FontAwesomeIcon
+                    icon={faChevronDown}
+                    size="xs"
+                    className={
+                      activeLink === link.name
+                        ? 'arrow-rotate-up'
+                        : 'arrow-rotate-down'
+                    }
+                  />
+                )}
               </div>
             ))}
           </ul>
+          {/* <ul
+            className={`main-list ${
+              isNavOpen ? 'main-list__opend' : 'main-list__closed'
+            }`}
+          >
+            {navigationLinks.map((link) => (
+              <li
+                key={link.name}
+                className={
+                  activeLink === link.name ? 'main-link__active' : 'main-link'
+                }
+              >
+                <div style={{ display: 'flex' }}>
+                  <a href="#">{link.name}</a>
+                  <p>x</p>
+                </div>
+                {link.children.length > 0 && (
+                  <ul>
+                    {link.children.map(({ name, children, href }) => (
+                      <li key={name}>
+                        <div>
+                          <a href={href}>{name}</a>
+                          <p>x</p>
+                        </div>
+                        {children?.length > 0 &&
+                          children.map(({ name, href }) => (
+                            <li key={name}>
+                              <p>abc</p>
+                            </li>
+                          ))}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </li>
+            ))}
+          </ul> */}
         </nav>
         <div className="nav-icons">
-          <Image
-            src="/oda/open-apis/table/images/tmf-search-icon.svg"
-            alt="search icon"
-            width={24}
-            height={24}
-          />
-          <Image
-            src="/oda/open-apis/table/images/tmf-user-icon.svg"
-            alt="account icon"
-            width={24}
-            height={24}
-          />
+          <div className="nav-icons__search">
+            <Image
+              src="/oda/open-apis/table/images/tmf-search-icon.svg"
+              alt="search icon"
+              width={26}
+              height={26}
+            />
+          </div>
+          <div className={isNavOpen ? 'nav-icons__account' : 'display-none-mq'}>
+            <Image
+              src="/oda/open-apis/table/images/tmf-user-icon.svg"
+              alt="account icon"
+              width={26}
+              height={26}
+            />
+          </div>
+          <div
+            className={isNavOpen ? 'menu-open' : 'menu-hamburger'}
+            onClick={() => handleNavClick()}
+          >
+            <span className="menu-hamburger__line" />
+            <span className="menu-hamburger__line" />
+            <span className="menu-hamburger__line" />
+          </div>
         </div>
       </header>
     </div>

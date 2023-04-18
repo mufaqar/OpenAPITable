@@ -85,7 +85,7 @@ const Layout = ({ children }) => {
         },
         {
           name: 'Global Architecture Forum (GAF)',
-          href: 'https://myaccount.tmforum.org/joinproject',
+          href: 'https://www.tmforum.org/global-architecture-forum/',
           children: [],
         },
       ],
@@ -104,7 +104,7 @@ const Layout = ({ children }) => {
           children: [
             {
               name: 'Member resources',
-              href: 'https://www.tmforum.org/opendigitalframework/member-resources/',
+              href: 'https://www.tmforum.org/resources/',
             },
             {
               name: 'Member toolkits',
