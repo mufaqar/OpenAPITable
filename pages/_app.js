@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }) {
   const [formsLoaded, setFormsLoaded] = useState(false);
 
   const oidcConfig = {
-    authority: 'https://staging-idp.tmforum.org/',
+    authority: 'https://staging-idp.tmforum.org/idp/oidc',
     client_id: 'cc45d352-67aa-4af7-8478-4b0cc76c381e',
     redirect_uri:
       'https://devbeta.ipsphere.net/oda/open-apis/table/oauth2/callback',
