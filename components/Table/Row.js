@@ -56,7 +56,7 @@ const Row = (props) => {
             )}
           </IconButton>
         </TableCell>
-        <TableCell sx={{ maxWidth: 520 }}>
+        <TableCell sx={{ maxWidth: 350 }}>
           <Box sx={{ display: 'flex', flexDirection: 'column' }}>
             <Box
               sx={{

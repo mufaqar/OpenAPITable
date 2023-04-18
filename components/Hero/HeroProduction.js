@@ -69,8 +69,8 @@ const HeroProduction = () => {
               />
             </Box>
           </Link>
-          <Button sx={{ textTransform: 'capitalize' }}>
-            <span className={gothamFont.className}>View More</span>
+          <Button sx={{ textTransform: 'inherit' }}>
+            <span className={gothamFont.className}>View more</span>
           </Button>
         </Box>
       </Box>

@@ -9,14 +9,14 @@ const Banner = () => {
         <Box className="banner">
           <Box className="banner__left">
             <p className={gothamFont.className} id="breadcrumbs">
-              <span>Home</span> {'>'} <span>Code + framework</span> {'>'} Open
+              <span>Home</span> {'>'} <span>Code + frameworks</span> {'>'} Open
               APIs
             </p>
             <h1 className={gothamFont.className}>
               <span style={{ color: '#266ed9' }}>Open</span> API Table
             </h1>
             <h2 className={gothamFont.className}>
-              60+ REST-based Open Apis tried, tested and de-risked.
+              60+ Open Apis tried, tested and de-risked.
             </h2>
             <Button
               variant="contained"

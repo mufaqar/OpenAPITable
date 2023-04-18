@@ -40,6 +40,7 @@ const Beta = (props) => {
             sx={{
               input: {
                 '::placeholder': {
+                  fontFamily: gothamFont.fontFamily,
                   color: '#A9ADB1',
                   opacity: 1,
                   fontWeight: 600,
@@ -68,7 +69,7 @@ const Beta = (props) => {
                       <Typography
                         className={gothamFont.className}
                         sx={{
-                          fontWeight: 600,
+                          fontWeight: 500,
                           fontSize: '16px',
                           lineHeight: '140%',
                           color: 'black',
@@ -81,7 +82,7 @@ const Beta = (props) => {
                       <span
                         className={gothamFont.className}
                         style={{
-                          fontWeight: 600,
+                          fontWeight: 500,
                           fontSize: '16px',
                           lineHeight: '140%',
                           color: 'black',

@@ -54,16 +54,12 @@ export default function SortTable(props) {
     setOrderBy(property);
   };
 
-  const SortIcon = () => {
-    <ExpandMoreIcon fontSize="large" />;
-  };
-
   return (
     <Box sx={{ maxWidth: '1550px', margin: '0 auto', marginTop: '40px' }}>
       <Paper sx={{ width: '100%', mb: 2 }}>
         <TableContainer>
-          <Table aria-labelledby="tableTitle">
-            <TableHead>
+          <Table>
+            <TableHead stickyHeader>
               <TableRow sx={{ background: '#F8F9F9' }}>
                 <TableCell />
                 {headCells.map((headCell) => (
