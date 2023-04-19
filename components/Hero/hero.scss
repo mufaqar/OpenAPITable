@@ -78,19 +78,13 @@
   }
 }
 
-@media (max-width: 1700px) {
-  .heroWrapper {
-    padding-left: 60px;
-  }
-}
-
 @media (max-width: 1255px) {
   .heroWrapper {
     gap: 20px;
   }
 }
 
-@media (max-width: 814px) {
+@media (max-width: 931px) {
   .heroWrapper {
     flex-direction: column;
     padding-left: 0px;

@@ -1,12 +1,12 @@
 .banner-wrapper {
   background-color: #102338;
   height: 570px;
-  margin-top: 62.438px; //equal to header height
+  margin-top: 25px; //equal to header height
 }
 
 .banner-inside {
   display: flex;
-  // gap: 160px;
+  padding-left: 156px;
 }
 
 .banner {
@@ -21,7 +21,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     gap: 37px;
-    padding: 37px 60px 0 20px;
+    padding: 37px 60px 0 0px;
     color: white;
     width: 700px;
     background-color: #102338;
@@ -63,6 +63,11 @@
     height: 425px;
   }
 }
+@media (max-width: 931px) {
+  .banner-inside {
+    padding-left: 20px;
+  }
+}
 
 @media (max-width: 814px) {
   .banner {
@@ -79,7 +84,7 @@
   .banner__left {
     gap: 12px;
     width: unset;
-    padding: 20px;
+
     flex: 1;
     margin-right: 0px;
   }
@@ -100,7 +105,7 @@
     background-size: contain !important;
     height: 167px;
     flex: unset;
-    margin-top: 59px;
+    margin-top: 61px;
   }
 
   #breadcrumbs {
@@ -108,26 +113,26 @@
   }
 }
 
-@media only screen and (min-width: 816px) and (max-width: 1317px) {
+@media only screen and (min-width: 816px) and (max-width: 1553px) {
   .banner__right {
     background-position: unset;
   }
 }
 
-@media (max-width: 493px) {
+@media (max-width: 443px) {
   .banner__right {
-    margin-top: 35px;
+    margin-top: 37px;
   }
 }
 
-@media (max-width: 493px) {
+@media (max-width: 345px) {
   .banner__right {
-    margin-top: 35px;
+    margin-top: 16px;
   }
 }
 
-@media (max-width: 333px) {
+@media (max-width: 389px) {
   .banner__right {
-    margin-top: 19px;
+    margin-top: 21px;
   }
 }

@@ -59,6 +59,12 @@ const RelatedLink = () => {
       : '/oda/open-apis/table/images/relatedLink/article.svg';
   };
 
+  const getBackgroundColor = (content_type) => {
+    const found = filterButtons.find(({ name }) => name === content_type);
+    console.log('found', found);
+    return found ? found.backgroundColor : '#B71A5D';
+  };
+
   const handleCategoryChange = async (name) => {
     setCategory(name);
     setIsLoading(true);
@@ -144,7 +150,12 @@ const RelatedLink = () => {
             !isLoading ? (
               <article key={i}>
                 <Box className="article-wrapper">
-                  <Box className="article-icon">
+                  <Box
+                    className="article-icon"
+                    sx={{
+                      backgroundColor: getBackgroundColor(post.content_type),
+                    }}
+                  >
                     <Image
                       src={getImagePath(post.content_type)}
                       alt="icon"

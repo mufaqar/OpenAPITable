@@ -3,7 +3,8 @@
   border-top-left-radius: 151px;
   position: relative;
   bottom: 145px;
-  padding: 0 20px;
+  padding-left: 156px;
+  padding-right: 20px;
 }
 
 .table-menu {
@@ -73,13 +74,12 @@
   border-bottom-color: #ffffff;
 }
 
-@media (max-width: 814px) {
+@media (max-width: 931px) {
   .home {
     border-top-left-radius: 0px;
+    padding-left: 20px;
   }
-}
 
-@media (max-width: 800px) {
   .table-menu {
     flex-direction: column;
     justify-content: unset;

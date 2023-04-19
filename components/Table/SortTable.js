@@ -59,7 +59,7 @@ export default function SortTable(props) {
       <Paper sx={{ width: '100%', mb: 2 }}>
         <TableContainer>
           <Table>
-            <TableHead stickyHeader>
+            <TableHead>
               <TableRow sx={{ background: '#F8F9F9' }}>
                 <TableCell />
                 {headCells.map((headCell) => (
