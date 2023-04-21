@@ -43,8 +43,9 @@ const Home = (props) => {
                   fontFamily: gothamFont.fontFamily,
                   color: '#A9ADB1',
                   opacity: 1,
-                  fontWeight: 600,
-                  letterSpacing: '0.6px',
+                  fontWeight: 500,
+                  height: '14px',
+                  lineHeight: '14px',
                 },
               },
             }}

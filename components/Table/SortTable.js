@@ -44,7 +44,7 @@ function stableSort(array, comparator) {
 }
 
 export default function SortTable(props) {
-  const { data, historic = false } = props;
+  const { data, historic = false, beta } = props;
   const [order, setOrder] = useState('asc');
   const [orderBy, setOrderBy] = useState('api_name');
 
@@ -104,7 +104,9 @@ export default function SortTable(props) {
             </TableHead>
             <TableBody>
               {stableSort(data, getComparator(order, orderBy)).map((row, i) => {
-                return <Row key={i} row={row} historic={historic} />;
+                return (
+                  <Row key={i} row={row} historic={historic} beta={beta} />
+                );
               })}
             </TableBody>
           </Table>

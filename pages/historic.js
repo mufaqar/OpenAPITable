@@ -58,7 +58,11 @@ const Historic = (props) => {
               width={20}
               height={20}
               onMouseEnter={() => setShowInfo(true)}
-              onMouseLeave={() => setShowInfo(false)}
+              onMouseLeave={() => {
+                setTimeout(() => {
+                  setShowInfo(false);
+                }, 100000);
+              }}
             />
             <button className="red-btn">
               <span className={gothamFont.className}>Historic</span>
@@ -75,22 +79,35 @@ const Historic = (props) => {
               sx={{
                 position: 'absolute',
                 padding: '10px 12px',
-                gap: '10px',
                 width: '262px',
-                top: ' 10px',
                 background: '#102338',
                 borderRadius: '5px',
                 color: '#FFFFFF',
                 zIndex: 1,
                 right: 125,
-                top: -160,
+                top: -132,
               }}
             >
               <p className={gothamFont.className}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-                cursus, ante condimentum ultricies vehicula, ex massa tincidunt
-                libero, vel suscipit massa neque ac mi.
+                The APIs shown on this table are not the latest APIs but are
+                supported. For previous unsupported versions please visit our
+                API archive{' '}
+                <Link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={
+                    'https://projects.tmforum.org/wiki/display/API/Open+API+Table+-+Previous+%28N-2%29+Versions'
+                  }
+                >
+                  <span
+                    style={{ cursor: 'pointer', textDecoration: 'underline' }}
+                  >
+                    here
+                  </span>
+                </Link>
+                .
               </p>
+              <Box className="info-arrow" />
             </Box>
           )}
           {showList && (

@@ -98,7 +98,7 @@ const Beta = (props) => {
             </>
           )}
         </Box>
-        <SortTable data={searchTable(betaTableData, query)} />
+        <SortTable data={searchTable(betaTableData, query)} beta={true} />
       </Box>
     </Box>
   );

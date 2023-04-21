@@ -19,7 +19,7 @@ import Image from 'next/image';
 import { gothamFont } from '../../helpers/gothamFont';
 
 const Row = (props) => {
-  const { row, historic } = props;
+  const { row, historic, beta = false } = props;
   const [open, setOpen] = useState(false);
 
   const collapseRowBgColor = (i) => {
@@ -134,13 +134,20 @@ const Row = (props) => {
                 <TableBody>
                   {row.options?.map((historyRow, i) => (
                     <TableRow key={i} sx={collapseRowBgColor(i)}>
-                      <TableCell align="right" sx={{ padding: 0 }}>
+                      <TableCell
+                        align="left"
+                        sx={{
+                          padding: 0,
+                          marginLeft: '20px',
+                          maxWidth: beta ? 7 : 26,
+                        }}
+                      >
                         <Image
                           src={`/oda/open-apis/table/images/apiOptions/${historyRow.type}.svg`}
                           width={24}
                           height={24}
                           alt="logo"
-                          style={{ objectFit: 'cover' }}
+                          style={{ objectFit: 'cover', marginLeft: '38px' }}
                         />
                       </TableCell>
                       <TableCell>
