@@ -61,7 +61,7 @@ const RelatedLink = () => {
 
   const getBackgroundColor = (content_type) => {
     const found = filterButtons.find(({ name }) => name === content_type);
-    console.log('found', found);
+
     return found ? found.backgroundColor : '#B71A5D';
   };
 
