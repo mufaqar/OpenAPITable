@@ -5,15 +5,18 @@ import { store } from '../redux/store/store';
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
 import { AuthProvider } from 'react-oidc-context';
+import { useRouter } from 'next/router';
 
 function MyApp({ Component, pageProps }) {
   const [formsLoaded, setFormsLoaded] = useState(false);
+  const router = useRouter();
+
+  console.log('router: ', router);
 
   const oidcConfig = {
     authority: 'https://tmforumhubdev.mvine.com/idp/oidc',
     client_id: 'cc45d352-67aa-4af7-8478-4b0cc76c381e',
-    redirect_uri:
-      'https://devbeta.ipsphere.net/oda/open-apis/table/test/oauth2/callback',
+    redirect_uri: `https://devbeta.ipsphere.net${router.basePath}${router.asPath}`,
   };
 
   useEffect(() => {
