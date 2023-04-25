@@ -7,7 +7,7 @@ const Callback = () => {
 
   useEffect(() => {
     if (auth.isAuthenticated) {
-      console.log('authCallback', auth);
+      localStorage.setItem('tmfUser', JSON.stringify(auth.user));
     }
   }, [auth]);
 
