@@ -11,7 +11,6 @@ import Paper from '@mui/material/Paper';
 import { visuallyHidden } from '@mui/utils';
 import Row from './Row';
 import { headCells } from './consts';
-import { Typography } from '@mui/material';
 import { gothamFont } from '../../helpers/gothamFont';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 

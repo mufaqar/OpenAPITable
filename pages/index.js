@@ -9,9 +9,12 @@ import Link from 'next/link';
 import { searchTable } from '../helpers/searchTable';
 import SearchIcon from '@mui/icons-material/Search';
 import { gothamFont } from '../helpers/gothamFont';
+import { useAuth } from 'react-oidc-context';
 
 const Home = (props) => {
   const { productionTableData } = props;
+  const auth = useAuth();
+  console.log('auth production', auth);
   const [showList, setShowList] = useState(false);
   const [query, setQuery] = useState('');
 

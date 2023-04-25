@@ -17,10 +17,13 @@ import { removeHtmlTags } from '../../helpers/removeHtmlTags';
 import { transformToFullName } from '../../helpers/transformToFullName';
 import Image from 'next/image';
 import { gothamFont } from '../../helpers/gothamFont';
+import { useAuth } from 'react-oidc-context';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
 const Row = (props) => {
   const { row, historic, beta = false } = props;
   const [open, setOpen] = useState(false);
+  const auth = useAuth();
 
   const collapseRowBgColor = (i) => {
     if (historic) {
@@ -163,23 +166,57 @@ const Row = (props) => {
                         </Typography>
                       </TableCell>
                       <TableCell align="right" sx={{ width: '12%' }}>
-                        <Link
-                          href={historyRow.download}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <button className="download-btn">
-                            <Image
-                              src="/oda/open-apis/table/images/download.svg"
-                              alt="download icon"
-                              width={18}
-                              height={18}
+                        {auth.isAuthenticated ? (
+                          <Link
+                            href={historyRow.download}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <button className="download-btn">
+                              <Image
+                                src="/oda/open-apis/table/images/download.svg"
+                                alt="download icon"
+                                width={18}
+                                height={18}
+                              />
+                              <span className={gothamFont.className}>
+                                Download
+                              </span>
+                            </button>
+                          </Link>
+                        ) : (
+                          <Box className="get-access">
+                            <LockOutlinedIcon
+                              fontSize="small"
+                              sx={{ color: '#3577DA' }}
                             />
-                            <span className={gothamFont.className}>
-                              Download
-                            </span>
-                          </button>
-                        </Link>
+                            <Box className="get-access__text">
+                              <p
+                                className={gothamFont.className}
+                                style={{
+                                  fontSize: '14px',
+                                  color: '#000000',
+                                  lineHeight: '16px',
+                                }}
+                              >
+                                For Forum Members
+                              </p>
+                              <p
+                                className={gothamFont.className}
+                                onClick={() => void auth.signinRedirect()}
+                                style={{
+                                  fontSize: '14px',
+                                  color: '#3577DA',
+                                  lineHeight: '16px',
+                                  textDecorationLine: 'underline',
+                                  cursor: 'pointer',
+                                }}
+                              >
+                                Get access
+                              </p>
+                            </Box>
+                          </Box>
+                        )}
                       </TableCell>
                     </TableRow>
                   ))}

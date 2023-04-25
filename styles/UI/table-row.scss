@@ -21,3 +21,22 @@
 
   color: rgba(0, 0, 0, 0.4);
 }
+
+.get-access {
+  background: #ffffff;
+  border-radius: 4px;
+  padding: 8px;
+  width: 220px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-right: 25px;
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

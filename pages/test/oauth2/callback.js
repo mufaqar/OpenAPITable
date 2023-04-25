@@ -1,7 +1,16 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useAuth } from 'react-oidc-context';
 
-const callback = () => {
+const Callback = () => {
+  const auth = useAuth();
+
+  useEffect(() => {
+    if (auth.isAuthenticated) {
+      console.log('authCallback', auth);
+    }
+  }, [auth]);
+
   return (
     <div style={{ margin: '200px' }}>
       <h1>successfully logged in</h1>
@@ -12,4 +21,4 @@ const callback = () => {
   );
 };
 
-export default callback;
+export default Callback;
