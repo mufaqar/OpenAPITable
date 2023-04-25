@@ -2,7 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import Banner from '../../components/Banner/Banner';
 import { Box } from '@mui/material';
-import Hero2 from '../../components/Testing/Hero2';
+// import Hero2 from '../../components/Testing/Hero2';
 
 const ApiName = () => {
   const router = useRouter();
@@ -15,7 +15,7 @@ const ApiName = () => {
         className="home"
         sx={{ backgroundColor: 'lightgray !important', height: '450px' }}
       >
-        <Hero2 />
+        {/* <Hero2 /> */}
       </Box>
     </div>
   );
