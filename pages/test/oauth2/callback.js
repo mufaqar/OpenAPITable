@@ -4,6 +4,7 @@ import { useAuth } from 'react-oidc-context';
 
 const Callback = () => {
   const auth = useAuth();
+  console.log('auth', auth);
 
   useEffect(() => {
     if (auth.isAuthenticated) {
