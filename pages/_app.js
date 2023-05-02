@@ -26,35 +26,23 @@ function MyApp({ Component, pageProps }) {
     <Provider store={store}>
       <AuthProvider {...oidcConfig}>
         <Layout>
-        <Head>
-            <script
-              type="text/javascript"
-              async
-              dangerouslySetInnerHTML={{
-                __html: `
-              (function(w, d, s, l, i) {
-                    w[l] = w[l] || []
-                    w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" })
-                    const f = d.getElementsByTagName(s)[0],
-                      j = d.createElement(s),
-                      dl = l != "dataLayer" ? "&l=" + l : ""
-                    j.async = true
-                    j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl
-                    f.parentNode.insertBefore(j, f)
-                  })(window,document,'script','dataLayer',"G-W21R8NVK4E")`,
-              }}
+          <div className="container">
+            <Script
+              src="https://www.googletagmanager.com/gtag/js?id=G-W21R8NVK4E"
+              strategy="afterInteractive"
             />
-        </Head>
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){window.dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-W21R8NVK4E');
+        `}
+            </Script>
+          </div>
           <Component {...pageProps} />
         </Layout>
-        <noscript>
-          <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=G-W21R8NVK4E`}
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          ></iframe>
-        </noscript>
       </AuthProvider>
     </Provider>
   );
