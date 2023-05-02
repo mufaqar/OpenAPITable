@@ -46,7 +46,7 @@ function MyApp({ Component, pageProps }) {
               onLoad={() => setFormsLoaded(true)}
             />
 
-            <form id="mktoForm_4156" style="display:none"></form>
+            <form id="mktoForm_4156" style={{display:"none"}}></form>
             <Script id="marketo-form-init" strategy="afterInteractive">
             {`
               MktoForms2.loadForm('//app-ab16.marketo.com', '021-WLD-815',
