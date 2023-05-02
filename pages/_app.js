@@ -71,7 +71,7 @@ redirect(url);
 }
 function redirect(url){
  window.open(url);
-}</script>`}
+}`}
           </Script>
         </Layout>
       </AuthProvider>
