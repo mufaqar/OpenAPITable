@@ -55,7 +55,7 @@ function MyApp({ Component, pageProps }) {
           </div>
           <Component {...pageProps} />
           <Script id="marketo-donwload" strategy="afterInteractive">
-            {`<script type='text/javascript'>function trackclick(url,type,api,email){
+            {`function trackclick(url,type,api,email){
  
  var myForm = MktoForms2.allForms()[0];
  myForm.addHiddenFields({
