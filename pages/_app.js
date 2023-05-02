@@ -16,11 +16,7 @@ function MyApp({ Component, pageProps }) {
     scope: 'openid profile email phone address tmf',
   };
 
-  useEffect(() => {
-    if (formsLoaded) {
-      MktoForms2.loadForm('//app-ab16.marketo.com', '021-WLD-815', 4156);
-    }
-  }, [formsLoaded]);
+
 
   return (
     <Provider store={store}>
