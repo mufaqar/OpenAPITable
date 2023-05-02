@@ -48,7 +48,7 @@ function MyApp({ Component, pageProps }) {
 
             <form id="mktoForm_4156" style="display:none"></form>
             <script>
-              MktoForms2.loadForm("//app-ab16.marketo.com", "021-WLD-815",
+              MktoForms2.loadForm('//app-ab16.marketo.com', '021-WLD-815',
               4156);
             </script>
           </div>
