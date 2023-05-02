@@ -40,6 +40,11 @@ function MyApp({ Component, pageProps }) {
           gtag('config', 'G-W21R8NVK4E');
         `}
             </Script>
+            <Script
+            src="//app-ab16.marketo.com/js/forms2/js/forms2.min.js"
+            strategy="afterInteractive"
+            onLoad={() => setFormsLoaded(true)}
+          />
           </div>
           <Component {...pageProps} />
         </Layout>
