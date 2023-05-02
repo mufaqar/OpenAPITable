@@ -41,12 +41,42 @@ function MyApp({ Component, pageProps }) {
         `}
             </Script>
             <Script
-            src="//app-ab16.marketo.com/js/forms2/js/forms2.min.js"
-            strategy="afterInteractive"
-            onLoad={() => setFormsLoaded(true)}
-          />
+              src="//app-ab16.marketo.com/js/forms2/js/forms2.min.js"
+              strategy="afterInteractive"
+              onLoad={() => setFormsLoaded(true)}
+            />
+
+            <form id="mktoForm_4156" style="display:none"></form>
+            <script>
+              MktoForms2.loadForm("//app-ab16.marketo.com", "021-WLD-815",
+              4156);
+            </script>
           </div>
           <Component {...pageProps} />
+          <Script id="marketo-donwload" strategy="afterInteractive">
+            {`<script type="text/javascript">function trackclick(url,type,api,email){
+ 
+ var myForm = MktoForms2.allForms()[0];
+ myForm.addHiddenFields({
+ //These are the values which will be submitted to Marketo
+ "document type": type,
+ title: api,
+ "strategic program": "Open API Program",
+ program: "API Project",
+ topic: "API",
+ app: "Open API Table - Staging",
+ permalink: url,
+ Email: email
+ });
+ myForm.submit();
+ 
+redirect(url);
+//alert("will redirect to " + url);
+}
+function redirect(url){
+ window.open(url);
+}</script>`}
+          </Script>
         </Layout>
       </AuthProvider>
     </Provider>
