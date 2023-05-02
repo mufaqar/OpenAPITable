@@ -59,19 +59,19 @@ function MyApp({ Component, pageProps }) {
  var myForm = MktoForms2.allForms()[0];
  myForm.addHiddenFields({
  //These are the values which will be submitted to Marketo
- "document type": type,
+ 'document type': type,
  title: api,
- "strategic program": "Open API Program",
- program: "API Project",
- topic: "API",
- app: "Open API Table - Staging",
+ 'strategic program': 'Open API Program',
+ program: 'API Project',
+ topic: 'API',
+ app: 'Open API Table - Staging',
  permalink: url,
  Email: email
  });
  myForm.submit();
  
 redirect(url);
-//alert("will redirect to " + url);
+//alert('will redirect to ' + url);
 }
 function redirect(url){
  window.open(url);
