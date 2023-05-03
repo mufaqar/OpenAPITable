@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import {
   Box,
-  Button,
   Collapse,
   IconButton,
   Table,
@@ -35,6 +34,59 @@ const Row = (props) => {
     return {
       backgroundColor: i % 2 ? '#F2F4F4' : '#F8F9F9',
     };
+  };
+
+  const displayDownloadBtn = (historyRow) => {
+    if (beta && !auth.isAuthenticated) {
+      return (
+        <Box className="get-access">
+          <LockOutlinedIcon fontSize="small" sx={{ color: '#3577DA' }} />
+          <Box className="get-access__text">
+            <p
+              className={gothamFont.className}
+              style={{
+                fontSize: '14px',
+                color: '#000000',
+                lineHeight: '16px',
+              }}
+            >
+              For Forum Members
+            </p>
+            <p
+              className={gothamFont.className}
+              onClick={() => void auth.signinRedirect()}
+              style={{
+                fontSize: '14px',
+                color: '#3577DA',
+                lineHeight: '16px',
+                textDecorationLine: 'underline',
+                cursor: 'pointer',
+              }}
+            >
+              Get access
+            </p>
+          </Box>
+        </Box>
+      );
+    } else {
+      return (
+        <Link
+          href={historyRow.download}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <button className="download-btn">
+            <Image
+              src="/oda/open-apis/table/images/download.svg"
+              alt="download icon"
+              width={18}
+              height={18}
+            />
+            <span className={gothamFont.className}>Download</span>
+          </button>
+        </Link>
+      );
+    }
   };
 
   return (
@@ -97,7 +149,7 @@ const Row = (props) => {
             </Box>
           </Box>
         </TableCell>
-        <TableCell align="center" sx={{ minWidth: 168 }}>
+        <TableCell align="center" sx={{ minWidth: 168, maxWidth: 100 }}>
           <span className={`${gothamFont.className} api-table-text`}>
             {row.context}
           </span>
@@ -166,25 +218,7 @@ const Row = (props) => {
                         </Typography>
                       </TableCell>
                       <TableCell align="right" sx={{ width: '12%' }}>
-                        {auth.isAuthenticated ? (
-                          <Link
-                            href={historyRow.download}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <button className="download-btn">
-                              <Image
-                                src="/oda/open-apis/table/images/download.svg"
-                                alt="download icon"
-                                width={18}
-                                height={18}
-                              />
-                              <span className={gothamFont.className}>
-                                Download
-                              </span>
-                            </button>
-                          </Link>
-                        ) : (
+                        {beta && !auth.isAuthenticated ? (
                           <Box className="get-access">
                             <LockOutlinedIcon
                               fontSize="small"
@@ -216,6 +250,24 @@ const Row = (props) => {
                               </p>
                             </Box>
                           </Box>
+                        ) : (
+                          <Link
+                            href={historyRow.download}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <button className="download-btn">
+                              <Image
+                                src="/oda/open-apis/table/images/download.svg"
+                                alt="download icon"
+                                width={18}
+                                height={18}
+                              />
+                              <span className={gothamFont.className}>
+                                Download
+                              </span>
+                            </button>
+                          </Link>
                         )}
                       </TableCell>
                     </TableRow>

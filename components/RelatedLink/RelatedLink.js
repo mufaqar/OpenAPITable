@@ -11,6 +11,7 @@ import { gothamFont } from '../../helpers/gothamFont';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import moment from 'moment';
+import { Tooltip } from '@mui/material';
 
 const RelatedLink = () => {
   const [relatedContentData, setRelatedContentData] = useState([]);
@@ -113,28 +114,40 @@ const RelatedLink = () => {
             hoverColor,
             hoverBorder,
           }) => (
-            <Box
+            <Tooltip
               key={name}
-              name={name}
-              onClick={() => handleCategoryChange(name)}
-              sx={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                borderRadius: '50%',
-                width: 50,
-                height: 50,
-                backgroundColor: category === name && backgroundColor,
-                border: `3px solid ${borderColor}`,
-                cursor: 'pointer',
-                '&:hover': {
-                  backgroundColor: hoverColor,
-                  border: `3px solid ${hoverBorder}`,
+              title={!name && 'SHOW ALL'}
+              placement="top"
+              componentsProps={{
+                tooltip: {
+                  sx: {
+                    bgcolor: '#102338',
+                  },
                 },
               }}
             >
-              <Image src={src} alt="icon" width={24} height={24} />
-            </Box>
+              <Box
+                name={name}
+                onClick={() => handleCategoryChange(name)}
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  borderRadius: '50%',
+                  width: 50,
+                  height: 50,
+                  backgroundColor: category === name && backgroundColor,
+                  border: `3px solid ${borderColor}`,
+                  cursor: 'pointer',
+                  '&:hover': {
+                    backgroundColor: hoverColor,
+                    border: `3px solid ${hoverBorder}`,
+                  },
+                }}
+              >
+                <Image src={src} alt="icon" width={24} height={24} />
+              </Box>
+            </Tooltip>
           )
         )}
       </Box>

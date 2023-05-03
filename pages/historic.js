@@ -45,8 +45,8 @@ const Historic = (props) => {
                   fontFamily: gothamFont.fontFamily,
                   color: '#A9ADB1',
                   opacity: 1,
-                  fontWeight: 600,
-                  letterSpacing: '0.6px',
+                  fontWeight: 500,
+                  lineHeight: '14px',
                 },
               },
             }}
@@ -116,9 +116,9 @@ const Historic = (props) => {
                 <Paper className="show-list">
                   <Box className="show-list-btns">
                     <Link href="/">
-                      <Typography
+                      <span
                         className={gothamFont.className}
-                        sx={{
+                        style={{
                           fontWeight: 500,
                           fontSize: '16px',
                           lineHeight: '140%',
@@ -126,12 +126,12 @@ const Historic = (props) => {
                         }}
                       >
                         Production
-                      </Typography>
+                      </span>
                     </Link>
                     <Link href="/pre-production">
-                      <Typography
+                      <span
                         className={gothamFont.className}
-                        sx={{
+                        style={{
                           fontWeight: 500,
                           fontSize: '16px',
                           lineHeight: '140%',
@@ -139,7 +139,7 @@ const Historic = (props) => {
                         }}
                       >
                         Pre-Production
-                      </Typography>
+                      </span>
                     </Link>
                   </Box>
                 </Paper>

@@ -47,7 +47,6 @@ const Home = (props) => {
                   color: '#A9ADB1',
                   opacity: 1,
                   fontWeight: 500,
-                  height: '14px',
                   lineHeight: '14px',
                 },
               },
@@ -70,9 +69,9 @@ const Home = (props) => {
                 <Paper className="show-list">
                   <Box className="show-list-btns">
                     <Link href="/pre-production">
-                      <Typography
+                      <span
                         className={gothamFont.className}
-                        sx={{
+                        style={{
                           fontWeight: 500,
                           fontSize: '16px',
                           lineHeight: '140%',
@@ -80,7 +79,7 @@ const Home = (props) => {
                         }}
                       >
                         Pre-Production
-                      </Typography>
+                      </span>
                     </Link>
                     <Link href="/historic">
                       <span
