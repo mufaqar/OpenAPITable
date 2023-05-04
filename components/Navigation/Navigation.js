@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -8,14 +8,21 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { gothamFont } from '../../helpers/gothamFont';
 import Link from 'next/link';
+import { useAuth } from 'react-oidc-context';
+import { fetchUserInfo } from '../../services/userInfo/api';
 
 const Navigation = (props) => {
   const { logoSrc, navigationLinks } = props;
 
   const [activeLink, setActiveLink] = useState('');
   const [activeChild, setActiveChild] = useState('');
+  const [accountInfo, setAccountInfo] = useState(false);
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [userData, setUserData] = useState({});
+
   const navbarRef = useRef(null);
+  const auth = useAuth();
+  console.log('nav auth', auth);
 
   const handleNavClick = () => {
     setIsNavOpen((prevState) => !prevState);
@@ -50,6 +57,17 @@ const Navigation = (props) => {
       document.removeEventListener('click', handleClickOutside);
     };
   }, [navbarRef]);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const result = await fetchUserInfo(auth?.user?.access_token);
+        setUserData(result);
+      } catch (error) {
+        console.error(error);
+      }
+    })();
+  }, [auth.user]);
 
   return (
     <div className="header-wrapper">
@@ -193,14 +211,29 @@ const Navigation = (props) => {
               height={26}
             />
           </div>
-          <div className={isNavOpen ? 'nav-icons__account' : 'display-none-mq'}>
+          <div
+            className={isNavOpen ? 'nav-icons__account' : 'display-none-mq'}
+            onClick={() => setAccountInfo((prevState) => !prevState)}
+          >
             <Image
               src="/oda/open-apis/table/images/tmf-user-icon.svg"
               alt="account icon"
               width={26}
               height={26}
+              style={{ cursor: 'pointer' }}
             />
           </div>
+          {accountInfo && (
+            <div className="account">
+              <p
+                className={gothamFont.className}
+                onClick={() => void auth.signinRedirect()}
+              >
+                Log in
+              </p>
+              <p className={gothamFont.className}>Register</p>
+            </div>
+          )}
           <div
             className={isNavOpen ? 'menu-open' : 'menu-hamburger'}
             onClick={() => handleNavClick()}

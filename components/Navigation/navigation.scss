@@ -72,6 +72,7 @@ nav .main-link:hover {
 .nav-icons {
   display: flex;
   gap: 20px;
+  position: relative;
 }
 
 .dropdown-list {
@@ -367,5 +368,22 @@ nav .main-link:hover {
 
   .sub-menu-a {
     margin-left: 70px;
+  }
+}
+
+.account {
+  display: flex;
+  flex-direction: column;
+  width: 232px;
+  background-color: white;
+  position: absolute;
+  top: 40px;
+  left: -50px;
+
+  p {
+    font-size: 14px;
+    padding: 12px;
+    cursor: pointer;
+    color: #1a2746;
   }
 }
