@@ -220,9 +220,9 @@ const Navigation = (props) => {
             <div className="account-authenticated">
               <div className="account-circle">
                 <p className={gothamFont.className}>
-                  {`${userData?.given_name.charAt(
+                  {`${userData?.given_name?.charAt(
                     0
-                  )} ${userData?.family_name.charAt(0)}`}
+                  )} ${userData?.family_name?.charAt(0)}`}
                 </p>
               </div>
               <span className={gothamFont.className}>
