@@ -9,7 +9,7 @@ import {
 import { gothamFont } from '../../helpers/gothamFont';
 import Link from 'next/link';
 import { useAuth } from 'react-oidc-context';
-import { fetchUserInfo } from '../../services/userInfo/api';
+import { fetchUserInfo, fetchUserInfo2 } from '../../services/userInfo/api';
 
 const Navigation = (props) => {
   const { logoSrc, navigationLinks } = props;
@@ -22,7 +22,7 @@ const Navigation = (props) => {
 
   const navbarRef = useRef(null);
   const auth = useAuth();
-  console.log('nav auth', auth);
+  // console.log('nav auth', auth);
 
   const handleNavClick = () => {
     setIsNavOpen((prevState) => !prevState);
@@ -59,15 +59,20 @@ const Navigation = (props) => {
   }, [navbarRef]);
 
   useEffect(() => {
+    const tmfUser = localStorage.getItem('tmfUser');
+
     (async () => {
       try {
-        const result = await fetchUserInfo(auth?.user?.access_token);
+        const result = await fetchUserInfo2(tmfUser);
+        console.log('result', result);
         setUserData(result);
       } catch (error) {
         console.error(error);
       }
     })();
   }, [auth.user]);
+
+  console.log('user data', userData);
 
   return (
     <div className="header-wrapper">
@@ -211,18 +216,33 @@ const Navigation = (props) => {
               height={26}
             />
           </div>
-          <div
-            className={isNavOpen ? 'nav-icons__account' : 'display-none-mq'}
-            onClick={() => setAccountInfo((prevState) => !prevState)}
-          >
-            <Image
-              src="/oda/open-apis/table/images/tmf-user-icon.svg"
-              alt="account icon"
-              width={26}
-              height={26}
-              style={{ cursor: 'pointer' }}
-            />
-          </div>
+          {auth.isAuthenticated ? (
+            <div className="account-authenticated">
+              <div className="account-circle">
+                <p className={gothamFont.className}>
+                  {`${userData?.given_name.charAt(
+                    0
+                  )} ${userData?.family_name.charAt(0)}`}
+                </p>
+              </div>
+              <span className={gothamFont.className}>
+                HI, {userData?.given_name}
+              </span>
+            </div>
+          ) : (
+            <div
+              className={isNavOpen ? 'nav-icons__account' : 'display-none-mq'}
+              onClick={() => setAccountInfo((prevState) => !prevState)}
+            >
+              <Image
+                src="/oda/open-apis/table/images/tmf-user-icon.svg"
+                alt="account icon"
+                width={26}
+                height={26}
+                style={{ cursor: 'pointer' }}
+              />
+            </div>
+          )}
           {accountInfo && (
             <div className="account">
               <p

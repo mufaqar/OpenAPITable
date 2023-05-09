@@ -12,6 +12,7 @@ function MyApp({ Component, pageProps }) {
   const oidcConfig = {
     authority: 'https://tmforumhubdev.mvine.com/idp/oidc',
     client_id: 'cc45d352-67aa-4af7-8478-4b0cc76c381e',
+    client_secret: 'a42535d3-b36f-42aa-9038-f556b6121bff',
     redirect_uri: `https://devbeta.ipsphere.net/oda/open-apis/table/test/oauth2/callback`,
     scope: 'openid profile email phone address tmf',
   };
@@ -46,7 +47,7 @@ function MyApp({ Component, pageProps }) {
               onLoad={() => setFormsLoaded(true)}
             />
 
-            <form id="mktoForm_4156" style={{display:"none"}}></form>
+            <form id="mktoForm_4156" style={{ display: 'none' }}></form>
           </div>
           <Component {...pageProps} />
           <Script id="marketo-donwload" strategy="afterInteractive">

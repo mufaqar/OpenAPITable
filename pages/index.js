@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { InputAdornment, Paper, TextField, Typography } from '@mui/material';
+import { InputAdornment, Paper, TextField } from '@mui/material';
 import Box from '@mui/material/Box';
 import Banner from '../components/Banner/Banner';
 import HeroProduction from '../components/Hero/HeroProduction';
