@@ -14,10 +14,8 @@ export const fetchUserInfo = async (token) => {
 };
 
 export const fetchUserInfo2 = async (tmfUser) => {
-  let current_url = process.env.BASE_URL;
-
   try {
-    const res = await fetch(current_url + `/api/user_info`, {
+    const res = await fetch(`${process.env.BASE_URL}/api/user_info`, {
       method: 'POST',
       body: tmfUser,
     });
