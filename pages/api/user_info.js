@@ -1,14 +1,14 @@
 import axios from 'axios';
 
 export default async function handler(req, res) {
-  let token = JSON.parse(req.body?.access_token);
+  let body = JSON.parse(req.body?.access_token);
 
-  if (req.method === 'POST' && token) {
+  if (req.method === 'POST' && body?.access_token) {
     axios({
       method: 'GET',
       url: `https://tmforumhubdev.mvine.com/idp/oidc/userinfo`,
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${body?.access_token}`,
       },
     })
       .then((r) => {
