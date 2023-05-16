@@ -256,7 +256,17 @@ const Row = (props) => {
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            <button className="download-btn">
+                            <button
+                              className="download-btn"
+                              onClick={() =>
+                                trackclick(
+                                  'https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF666-Account-v4.0.0.swagger.json',
+                                  'Swagger',
+                                  'Account Management API',
+                                  'bpavlic@tmforum.org'
+                                )
+                              }
+                            >
                               <Image
                                 src="/oda/open-apis/table/images/download.svg"
                                 alt="download icon"

@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import apiTableSlice from '../features/apiTableSlice';
+import userDataSlice from '../features/userDataSlice';
 
 export const store = configureStore({
   reducer: {
-    apiTable: apiTableSlice,
+    userData: userDataSlice,
   },
 });

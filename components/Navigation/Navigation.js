@@ -10,6 +10,8 @@ import { gothamFont } from '../../helpers/gothamFont';
 import Link from 'next/link';
 import { useAuth } from 'react-oidc-context';
 import { fetchUserInfo, fetchUserInfo2 } from '../../services/userInfo/api';
+import { useDispatch, useSelector } from 'react-redux';
+import { setUserData } from '../../redux/features/userDataSlice';
 
 const Navigation = (props) => {
   const { logoSrc, navigationLinks } = props;
@@ -17,11 +19,13 @@ const Navigation = (props) => {
   const [activeLink, setActiveLink] = useState('');
   const [activeChild, setActiveChild] = useState('');
   const [accountInfo, setAccountInfo] = useState(false);
+  const [logoutDiv, setLogoutDiv] = useState(false);
   const [isNavOpen, setIsNavOpen] = useState(false);
-  const [userData, setUserData] = useState({});
+  const userData = useSelector((state) => state.userData);
 
   const navbarRef = useRef(null);
   const auth = useAuth();
+  const dispatch = useDispatch();
   // console.log('nav auth', auth);
 
   const handleNavClick = () => {
@@ -64,13 +68,12 @@ const Navigation = (props) => {
     (async () => {
       try {
         const result = await fetchUserInfo2(tmfUser);
-        console.log('result', result);
-        setUserData(result);
+        dispatch(setUserData(result));
       } catch (error) {
         console.error(error);
       }
     })();
-  }, [auth.user]);
+  }, [auth.user, dispatch]);
 
   console.log('user data', userData);
 
@@ -169,43 +172,6 @@ const Navigation = (props) => {
               </div>
             ))}
           </ul>
-          {/* <ul
-            className={`main-list ${
-              isNavOpen ? 'main-list__opend' : 'main-list__closed'
-            }`}
-          >
-            {navigationLinks.map((link) => (
-              <li
-                key={link.name}
-                className={
-                  activeLink === link.name ? 'main-link__active' : 'main-link'
-                }
-              >
-                <div style={{ display: 'flex' }}>
-                  <a href="#">{link.name}</a>
-                  <p>x</p>
-                </div>
-                {link.children.length > 0 && (
-                  <ul>
-                    {link.children.map(({ name, children, href }) => (
-                      <li key={name}>
-                        <div>
-                          <a href={href}>{name}</a>
-                          <p>x</p>
-                        </div>
-                        {children?.length > 0 &&
-                          children.map(({ name, href }) => (
-                            <li key={name}>
-                              <p>abc</p>
-                            </li>
-                          ))}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ))}
-          </ul> */}
         </nav>
         <div className="nav-icons">
           <div className="nav-icons__search">
@@ -217,19 +183,37 @@ const Navigation = (props) => {
             />
           </div>
           {auth.isAuthenticated ? (
-            <div className="account-authenticated">
-              <div className="account-circle">
-                <p className={gothamFont.className}>
-                  {userData && userData.given_name && userData.family_name
-                    ? `${userData.given_name.charAt(
-                        0
-                      )} ${userData.family_name.charAt(0)}`
-                    : ''}
-                </p>
+            <div style={{ position: 'relative' }}>
+              <div
+                className="account-authenticated"
+                onClick={() => setLogoutDiv((prevState) => !prevState)}
+              >
+                <div className="account-circle">
+                  <p className={gothamFont.className}>
+                    {userData && userData.given_name && userData.family_name
+                      ? `${userData.given_name.charAt(
+                          0
+                        )} ${userData.family_name.charAt(0)}`
+                      : ''}
+                  </p>
+                </div>
+                <span className={gothamFont.className}>
+                  HI, {userData?.given_name}
+                </span>
               </div>
-              <span className={gothamFont.className}>
-                HI, {userData?.given_name}
-              </span>
+              {logoutDiv && (
+                <div className="account">
+                  <a href="https://tmforumportaldev.mvine.com/my_profile">
+                    <p className={gothamFont.className}>My account</p>
+                  </a>
+                  <p
+                    className={gothamFont.className}
+                    onClick={() => void auth.removeUser()}
+                  >
+                    Log out
+                  </p>
+                </div>
+              )}
             </div>
           ) : (
             <div

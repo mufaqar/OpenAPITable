@@ -11,10 +11,10 @@ function MyApp({ Component, pageProps }) {
 
   const oidcConfig = {
     authority: 'https://tmforumhubdev.mvine.com/idp/oidc',
-    client_id: 'cc45d352-67aa-4af7-8478-4b0cc76c381e',
-    client_secret: 'a42535d3-b36f-42aa-9038-f556b6121bff',
+    client_id: process.env.CLIENT_ID,
+    client_secret: process.env.CLIENT_SECRET,
     redirect_uri: `https://devbeta.ipsphere.net/oda/open-apis/table/test/oauth2/callback`,
-    scope: 'openid profile email phone address tmf role',
+    scope: 'openid profile email phone address tmf',
   };
 
   useEffect(() => {
@@ -51,28 +51,21 @@ function MyApp({ Component, pageProps }) {
           </div>
           <Component {...pageProps} />
           <Script id="marketo-donwload" strategy="afterInteractive">
-            {`function trackclick(url,type,api,email){
- 
- var myForm = MktoForms2.allForms()[0];
- myForm.addHiddenFields({
- //These are the values which will be submitted to Marketo
- 'document type': type,
- title: api,
- 'strategic program': 'Open API Program',
- program: 'API Project',
- topic: 'API',
- app: 'Open API Table - Staging',
- permalink: url,
- Email: email
- });
- myForm.submit();
- 
-redirect(url);
-//alert('will redirect to ' + url);
-}
-function redirect(url){
- window.open(url);
-}`}
+            {`function trackclick(url,type,api,email){ 
+              var myForm = MktoForms2.allForms()[0];
+              myForm.addHiddenFields({
+                //These are the values which will be submitted to Marketo
+                'document type': type,
+                title: api,
+                'strategic program': 'Open API Program',
+                program: 'API Project',
+                topic: 'API',
+                app: 'Open API Table - Staging',
+                permalink: url,
+                Email: email
+                });
+                myForm.submit();                 
+              }`}
           </Script>
         </Layout>
       </AuthProvider>
