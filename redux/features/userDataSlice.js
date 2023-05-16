@@ -5,7 +5,8 @@ export const userDataSlice = createSlice({
   initialState: {},
   reducers: {
     setUserData: (state, { payload }) => {
-      state = payload;
+      console.log('payload', payload);
+      return (state = payload);
     },
   },
 });
