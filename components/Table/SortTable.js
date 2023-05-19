@@ -84,7 +84,7 @@ export default function SortTable(props) {
                         style={{
                           fontStyle: 'normal',
                           fontWeight: headCell.fontWeight,
-                          marginLeft: '25px',
+                          marginLeft: '16px',
                           fontSize: headCell.fontSize,
                         }}
                       >
