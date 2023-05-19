@@ -13,7 +13,7 @@ const Banner = () => {
               APIs
             </p>
             <h1 className={gothamFont.className}>
-              <span style={{ color: '#266ed9' }}>Open</span> API Table
+              <span style={{ color: '#266ed9' }}>Open</span> API table
             </h1>
             <h2 className={gothamFont.className}>
               60+ Open APIs tried, tested and de-risked.
@@ -23,8 +23,8 @@ const Banner = () => {
               sx={{
                 width: '150px',
                 backgroundColor: '#3577DA',
-                textTransform: 'capitalize',
                 borderRadius: '10px 0px',
+                textTransform: 'none',
               }}
               onClick={scrollToTable}
             >

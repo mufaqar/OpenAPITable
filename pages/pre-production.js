@@ -57,7 +57,7 @@ const Beta = (props) => {
               className={showList ? 'gray-btn-active' : 'gray-btn'}
               onClick={handleButtonClick}
             >
-              <span className={gothamFont.className}>Other Tables</span>
+              <span className={gothamFont.className}>Other tables</span>
             </button>
           </Box>
           {showList && (
