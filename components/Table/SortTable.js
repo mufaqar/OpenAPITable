@@ -70,6 +70,7 @@ export default function SortTable(props) {
                     sx={{
                       textAlign: headCell.align,
                       margin: 'auto',
+                      padding: '16px 0px',
                     }}
                   >
                     <TableSortLabel

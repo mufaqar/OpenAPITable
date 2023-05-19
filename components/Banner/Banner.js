@@ -28,7 +28,7 @@ const Banner = () => {
               }}
               onClick={scrollToTable}
             >
-              <span className={gothamFont.className}>View Table</span>
+              <span className={gothamFont.className}>View table</span>
             </Button>
           </Box>
         </Box>

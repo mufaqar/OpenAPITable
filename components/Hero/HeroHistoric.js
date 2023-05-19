@@ -6,7 +6,7 @@ const HeroHistoric = () => {
   return (
     <Box className="heroWrapper">
       <Box className="hero__left">
-        <h2 className={gothamFont.className}>Historic Open API Table</h2>
+        <h2 className={gothamFont.className}>Historic Open API table</h2>
         <p className={gothamFont.className}>
           This table contains Historic versions of the{' '}
           <span style={{ color: '#266ED9', fontWeight: 600 }}>Open APIs</span>.
@@ -21,7 +21,7 @@ const HeroHistoric = () => {
           .
         </p>
         <p className={gothamFont.className}>
-          If you have any questions regarding the content of the Open API Table
+          If you have any questions regarding the content of the Open API table
           please post them as discussion topics on the{' '}
           <Link
             target="_blank"

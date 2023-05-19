@@ -6,7 +6,7 @@ const HeroPreProduction = () => {
   return (
     <Box className="heroWrapper">
       <Box className="hero__left">
-        <h2 className={gothamFont.className}>Pre-production Open API Table</h2>
+        <h2 className={gothamFont.className}>Pre-production Open API table</h2>
         <p className={gothamFont.className}>
           This table contains APIs in the early adoption or still in
           development. For Production APIs please click{' '}
@@ -20,7 +20,7 @@ const HeroPreProduction = () => {
           .
         </p>
         <p className={gothamFont.className}>
-          If you have any questions regarding the content of the Open API Table
+          If you have any questions regarding the content of the Open API table
           please post them as discussion topics on the{' '}
           <Link
             target="_blank"

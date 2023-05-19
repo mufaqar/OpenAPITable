@@ -7,7 +7,7 @@ const HeroProduction = () => {
   return (
     <Box className="heroWrapper">
       <Box className="hero__left">
-        <h2 className={gothamFont.className}>Open API Table</h2>
+        <h2 className={gothamFont.className}>Open API table</h2>
         <p className={gothamFont.className}>
           This table contains the latest Production versions of the{' '}
           <span style={{ color: '#266ED9', fontWeight: 600 }}>Open APIs</span>,
@@ -32,7 +32,7 @@ const HeroProduction = () => {
           .
         </p>
         <p className={gothamFont.className}>
-          If you have any questions regarding the content of the Open API Table
+          If you have any questions regarding the content of the Open API table
           please post them as discussion topics on the{' '}
           <Link
             target="_blank"
@@ -49,7 +49,7 @@ const HeroProduction = () => {
       <Box className="hero__right">
         <Box className="hero__right__inside">
           <h2 className={gothamFont.className}>
-            Appears in the following playbooks
+            Appears in the following playbook
           </h2>
           <Link
             target="_blank"
@@ -69,9 +69,6 @@ const HeroProduction = () => {
               />
             </Box>
           </Link>
-          <Button sx={{ textTransform: 'inherit' }}>
-            <span className={gothamFont.className}>View more</span>
-          </Button>
         </Box>
       </Box>
     </Box>
