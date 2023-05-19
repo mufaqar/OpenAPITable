@@ -101,7 +101,10 @@ const Home = (props) => {
             </>
           )}
         </Box>
-        <SortTable data={searchTable(productionTableData, query)} />
+        <SortTable
+          data={searchTable(productionTableData, query)}
+          production={true}
+        />
       </Box>
     </Box>
   );

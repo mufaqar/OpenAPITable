@@ -20,7 +20,7 @@ import { useAuth } from 'react-oidc-context';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
 const Row = (props) => {
-  const { row, historic, beta = false } = props;
+  const { row, production = false, historic = false, beta = false } = props;
   const [open, setOpen] = useState(false);
   const auth = useAuth();
 
@@ -168,7 +168,7 @@ const Row = (props) => {
                         </Typography>
                       </TableCell>
                       <TableCell align="right" sx={{ width: '12%' }}>
-                        {beta && !auth.isAuthenticated ? (
+                        {(beta || production) && !auth.isAuthenticated ? (
                           <Box className="get-access">
                             <LockOutlinedIcon
                               fontSize="small"
@@ -183,7 +183,9 @@ const Row = (props) => {
                                   lineHeight: '16px',
                                 }}
                               >
-                                For Forum Members
+                                {production
+                                  ? 'Login or register'
+                                  : 'For Forum members'}
                               </p>
                               <p
                                 className={gothamFont.className}

@@ -26,7 +26,6 @@ const Navigation = (props) => {
   const navbarRef = useRef(null);
   const auth = useAuth();
   const dispatch = useDispatch();
-  // console.log('nav auth', auth);
 
   const handleNavClick = () => {
     setIsNavOpen((prevState) => !prevState);
