@@ -23,6 +23,18 @@ function MyApp({ Component, pageProps }) {
     }
   }, [formsLoaded]);
 
+  if (Component.getLayout) {
+    return Component.getLayout(
+      <Provider store={store}>
+        <AuthProvider {...oidcConfig}>
+          <div className="container">
+            <Component {...pageProps} />
+          </div>
+        </AuthProvider>
+      </Provider>
+    );
+  }
+
   return (
     <Provider store={store}>
       <AuthProvider {...oidcConfig}>
