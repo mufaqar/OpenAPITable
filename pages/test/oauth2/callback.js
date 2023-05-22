@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useAuth } from 'react-oidc-context';
 import { gothamFont } from '../../../helpers/gothamFont';
+import RelatedLink from '../../../components/RelatedLink/RelatedLink';
+import Footer from '../../../components/Footer/Footer';
 
 const Callback = () => {
   const auth = useAuth();
@@ -18,7 +20,7 @@ const Callback = () => {
     if (auth.isAuthenticated) {
       localStorage.setItem('tmfUser', JSON.stringify(auth.user));
     }
-    router.push(currentPage || '/');
+    // router.push(currentPage || '/');
   }, [auth, router]);
 
   return (
@@ -43,3 +45,12 @@ const Callback = () => {
 };
 
 export default Callback;
+
+Callback.getLayout = function getLayout(page) {
+  return (
+    <>
+      {page}
+      <Footer />
+    </>
+  );
+};
