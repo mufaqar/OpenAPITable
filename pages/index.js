@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { InputAdornment, Paper, TextField } from '@mui/material';
 import Box from '@mui/material/Box';
 import Banner from '../components/Banner/Banner';
@@ -10,10 +10,12 @@ import { searchTable } from '../helpers/searchTable';
 import SearchIcon from '@mui/icons-material/Search';
 import { gothamFont } from '../helpers/gothamFont';
 import { useAuth } from 'react-oidc-context';
+import { useRouter } from 'next/router';
 
 const Home = (props) => {
   const { productionTableData } = props;
   const auth = useAuth();
+  const router = useRouter();
   console.log('auth production', auth);
   const [showList, setShowList] = useState(false);
   const [query, setQuery] = useState('');
@@ -21,6 +23,10 @@ const Home = (props) => {
   const handleButtonClick = () => {
     setShowList((oldState) => !oldState);
   };
+
+  useEffect(() => {
+    localStorage.setItem('currentPage', router.pathname);
+  }, [router]);
 
   return (
     <Box>

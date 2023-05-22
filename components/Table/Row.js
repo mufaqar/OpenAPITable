@@ -18,11 +18,14 @@ import Image from 'next/image';
 import { gothamFont } from '../../helpers/gothamFont';
 import { useAuth } from 'react-oidc-context';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import { useSelector } from 'react-redux';
+import { transformForTrackClick } from '../../helpers/transformForTrackClick';
 
 const Row = (props) => {
   const { row, production = false, historic = false, beta = false } = props;
   const [open, setOpen] = useState(false);
   const auth = useAuth();
+  const userData = useSelector((state) => state.userData);
 
   const collapseRowBgColor = (i) => {
     if (historic) {
@@ -34,6 +37,11 @@ const Row = (props) => {
     return {
       backgroundColor: i % 2 ? '#F2F4F4' : '#F8F9F9',
     };
+  };
+
+  const checkExstension = (fileName) => {
+    const ext = fileName.split('.').pop();
+    return ext;
   };
 
   return (
@@ -212,21 +220,33 @@ const Row = (props) => {
                               className="download-btn"
                               onClick={() =>
                                 trackclick(
-                                  'https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/OpenApiTable/4.0.0/swagger/TMF666-Account-v4.0.0.swagger.json',
-                                  'Swagger',
-                                  'Account Management API',
-                                  'bpavlic@tmforum.org'
+                                  historyRow.download,
+                                  transformForTrackClick(historyRow.type),
+                                  row.api_name,
+                                  userData?.email || ''
                                 )
                               }
                             >
-                              <Image
-                                src="/oda/open-apis/table/images/download.svg"
-                                alt="download icon"
-                                width={18}
-                                height={18}
-                              />
+                              {checkExstension(historyRow.name) === 'zip' ? (
+                                <Image
+                                  src="/oda/open-apis/table/images/download.svg"
+                                  alt="download icon"
+                                  width={18}
+                                  height={18}
+                                />
+                              ) : (
+                                <Image
+                                  src="/oda/open-apis/table/images/launch-blue.svg"
+                                  alt="launch icon"
+                                  width={14}
+                                  height={14}
+                                />
+                              )}
+
                               <span className={gothamFont.className}>
-                                Download
+                                {checkExstension(historyRow.name) === 'zip'
+                                  ? 'Download'
+                                  : 'View'}
                               </span>
                             </button>
                           </Link>

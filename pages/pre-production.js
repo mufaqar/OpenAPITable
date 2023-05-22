@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { InputAdornment, Paper, TextField, Typography } from '@mui/material';
+import { InputAdornment, Paper, TextField } from '@mui/material';
 import { Box } from '@mui/system';
 import Link from 'next/link';
 import Banner from '../components/Banner/Banner';
@@ -9,15 +9,22 @@ import SearchIcon from '@mui/icons-material/Search';
 import { searchTable } from '../helpers/searchTable';
 import HeroPreProduction from '../components/Hero/HeroPreProduction';
 import { gothamFont } from '../helpers/gothamFont';
+import { useRouter } from 'next/router';
 
 const Beta = (props) => {
   const { betaTableData } = props;
+
+  const router = useRouter();
   const [showList, setShowList] = useState(false);
   const [query, setQuery] = useState('');
 
   const handleButtonClick = () => {
     setShowList((oldState) => !oldState);
   };
+
+  useEffect(() => {
+    localStorage.setItem('currentPage', router.pathname);
+  }, [router]);
 
   return (
     <Box>

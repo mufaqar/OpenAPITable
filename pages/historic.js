@@ -1,7 +1,7 @@
-import { InputAdornment, Paper, TextField, Typography } from '@mui/material';
+import { InputAdornment, Paper, TextField } from '@mui/material';
 import { Box } from '@mui/system';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Banner from '../components/Banner/Banner';
 import HeroHistoric from '../components/Hero/HeroHistoric';
 import SortTable from '../components/Table/SortTable';
@@ -10,9 +10,12 @@ import { fetchHistoricTableData } from '../services/TableData/api';
 import SearchIcon from '@mui/icons-material/Search';
 import { gothamFont } from '../helpers/gothamFont';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 const Historic = (props) => {
   const { historicTableData } = props;
+
+  const router = useRouter();
   const [showList, setShowList] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
   const [query, setQuery] = useState('');
@@ -20,6 +23,10 @@ const Historic = (props) => {
   const handleButtonClick = () => {
     setShowList((oldState) => !oldState);
   };
+
+  useEffect(() => {
+    localStorage.setItem('currentPage', router.pathname);
+  }, [router]);
 
   return (
     <Box>

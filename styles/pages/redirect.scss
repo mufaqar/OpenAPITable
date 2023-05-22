@@ -1,0 +1,18 @@
+.redirect-container {
+  max-width: 1512px;
+  margin: 30px auto;
+  height: 91vh;
+  border: 2px solid red;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.redirect-link {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #3577da;
+}
