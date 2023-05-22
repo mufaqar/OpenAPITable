@@ -72,7 +72,7 @@ const Navigation = (props) => {
         console.error(error);
       }
     })();
-  }, [auth.user, dispatch]);
+  }, [dispatch]);
 
   console.log('user data', userData);
 
