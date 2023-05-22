@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useAuth } from 'react-oidc-context';
-import { gothamFont } from '../../helpers/gothamFont';
+import { gothamFont } from '../../../helpers/gothamFont';
 
 const Callback = () => {
   const auth = useAuth();
