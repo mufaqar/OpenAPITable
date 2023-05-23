@@ -63,10 +63,20 @@ function MyApp({ Component, pageProps }) {
           </div>
           <Component {...pageProps} />
           <Script id="marketo-donwload" strategy="afterInteractive">
-            {`function trackclick(url,type,api,email,event){
+            {`
+        
+            
+            function trackclick(url,type,api,email,event){
               event.preventDefault();
               var myForm = MktoForms2.allForms()[0];     
+                myForm.onSuccess(function(vals,thanksURL){
+                
               
+                    return false;
+                
+                  });
+             
+            
             
               myForm.addHiddenFields({
                 //These are the values which will be submitted to Marketo
@@ -79,7 +89,9 @@ function MyApp({ Component, pageProps }) {
                 permalink: url,
                 Email: email
                 });
-                myForm.submit();                 
+                myForm.submit();  
+                
+                window.open(url, '_blank');
               }`}
           </Script>
         </Layout>
