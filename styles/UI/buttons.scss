@@ -57,12 +57,10 @@
   align-items: center;
   gap: 8px;
   padding: 8px;
-
   width: 116px;
   height: 44px;
   border: none;
   cursor: pointer;
-
   background: #ffffff;
   border-radius: 4px;
   color: #3577da;
@@ -96,18 +94,13 @@
 .pre-production-btn {
   padding: 4px 12px;
   gap: 6px;
-
   background: #b58203;
   border-radius: 6px;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 140%;
-  /* or 22px */
-
   text-align: center;
-  text-transform: capitalize;
-
   color: #ffffff;
   border: none;
 }
