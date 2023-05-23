@@ -218,12 +218,13 @@ const Row = (props) => {
                           >
                             <button
                               className="download-btn"
-                              onClick={() =>
+                              onClick={(e) =>
                                 trackclick(
                                   historyRow.download,
                                   transformForTrackClick(historyRow.type),
                                   row.api_name,
-                                  userData?.email || ''
+                                  userData?.email || '',
+                                  e
                                 )
                               }
                             >
