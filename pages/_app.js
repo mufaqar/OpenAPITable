@@ -69,15 +69,11 @@ function MyApp({ Component, pageProps }) {
             function trackclick(url,type,api,email,event){
               event.preventDefault();
               var myForm = MktoForms2.allForms()[0];     
-                myForm.onSuccess(function(vals,thanksURL){
-                
-              
-                    return false;
-                
-                  });
-             
-            
-            
+
+                myForm.onSuccess(function(vals,thanksURL){           
+                  return false;                
+                });       
+                        
               myForm.addHiddenFields({
                 //These are the values which will be submitted to Marketo
                 'document type': type,
