@@ -10,105 +10,9 @@ import TableSortLabel from '@mui/material/TableSortLabel';
 import Paper from '@mui/material/Paper';
 import { visuallyHidden } from '@mui/utils';
 import Row from './Row';
-
-const data = [
-  {
-    name: 'Account management API',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas volutpat nulla eu nulla facilisis, ac egestas massa cursus. Quisque vel orci eget est placerat aliquet quis ac ex.',
-    documentNumber: 'TMF662',
-    release: '21.5.0',
-    swaggerVersion: 'v4.1.0',
-    publicationDate: '10-Jan-2022',
-    odaDomain: 'EngagedParty, Customer',
-    options: [
-      {
-        icon: 'abc',
-        name: 'swagger (Apache 2.0 or RAND)',
-        version: '12.01.2022',
-        download: 'N/A',
-      },
-      {
-        icon: 'abc',
-        name: 'API User Guide Specification (RAND)',
-        version: '',
-        download: true,
-      },
-      {
-        icon: 'abc',
-        name: 'Conformance Profile (RAND)',
-        version: '12.01.2022',
-        download: 'N/A',
-      },
-      {
-        icon: 'abc',
-        name: 'CTK',
-        version: '12.01.2022',
-        download: true,
-      },
-      {
-        icon: 'abc',
-        name: 'Sample Implementation Code',
-        version: '',
-        download: 'N/A',
-      },
-      {
-        icon: 'abc',
-        name: 'Postman Collection',
-        version: '',
-        download: true,
-      },
-    ],
-  },
-  {
-    name: 'Account management API2',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas volutpat nulla eu nulla facilisis, ac egestas massa cursus. Quisque vel orci eget est placerat aliquet quis ac ex.',
-    documentNumber: 'TMF663',
-    release: '21.6.0',
-    swaggerVersion: 'v4.1.0.5.',
-    publicationDate: '10-Jan-2023',
-    odaDomain: 'EngagedParty, Customer',
-    options: [
-      {
-        icon: 'abc',
-        name: 'swagger (Apache 2.0 or RAND)',
-        version: '12.01.2022',
-        download: 'N/A',
-      },
-      {
-        icon: 'abc',
-        name: 'API User Guide Specification (RAND)',
-        version: '',
-        download: true,
-      },
-      {
-        icon: 'abc',
-        name: 'Conformance Profile (RAND)',
-        version: '12.01.2022',
-        download: 'N/A',
-      },
-      {
-        icon: 'abc',
-        name: 'CTK',
-        version: '12.01.2022',
-        download: true,
-      },
-      {
-        icon: 'abc',
-        name: 'Sample Implementation Code',
-        version: '',
-        download: 'N/A',
-      },
-      {
-        icon: 'abc',
-        name: 'Postman Collection',
-        version: '',
-        download: true,
-      },
-    ],
-  },
-];
+import { headCells } from './consts';
+import { gothamFont } from '../../helpers/gothamFont';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -138,54 +42,12 @@ function stableSort(array, comparator) {
   return stabilizedThis.map((el) => el[0]);
 }
 
-const headCells = [
-  {
-    id: 'name',
-    numeric: false,
-    disablePadding: true,
-    label: 'TM Forum Open APIs',
-  },
-  {
-    id: 'documentNumber',
-    numeric: true,
-    disablePadding: false,
-    label: 'Document number',
-  },
-  {
-    id: 'release',
-    numeric: true,
-    disablePadding: false,
-    label: 'Release',
-  },
-  {
-    id: 'swaggerVersion',
-    numeric: true,
-    disablePadding: false,
-    label: 'Swagger ver.',
-  },
-  {
-    id: 'publicationDate',
-    numeric: true,
-    disablePadding: false,
-    label: 'Publication date',
-  },
-  {
-    id: 'odaDomain',
-    numeric: true,
-    disablePadding: false,
-    label: 'ODA domain',
-  },
-];
-
-export default function SortTable() {
+export default function SortTable(props) {
+  const { data, production = false, historic = false, beta = false } = props;
   const [order, setOrder] = useState('asc');
-  const [orderBy, setOrderBy] = useState('calories');
+  const [orderBy, setOrderBy] = useState('api_name');
 
-  const createSortHandler = (property) => (event) => {
-    handleRequestSort(event, property);
-  };
-
-  const handleRequestSort = (_, property) => {
+  const handleRequestSort = (property) => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
     setOrderBy(property);
@@ -193,25 +55,41 @@ export default function SortTable() {
 
   return (
     <Box sx={{ maxWidth: '1550px', margin: '0 auto', marginTop: '40px' }}>
-      
       <Paper sx={{ width: '100%', mb: 2 }}>
         <TableContainer>
-          <Table sx={{ minWidth: 750 }} aria-labelledby="tableTitle">
+          <Table>
             <TableHead>
-              <TableRow>
-                <TableCell></TableCell>
+              <TableRow sx={{ background: '#F8F9F9' }}>
+                <TableCell />
                 {headCells.map((headCell) => (
                   <TableCell
                     key={headCell.id}
                     padding={headCell.disablePadding ? 'none' : 'normal'}
                     sortDirection={orderBy === headCell.id ? order : false}
+                    align={headCell.align}
+                    sx={{
+                      textAlign: headCell.align,
+                      margin: 'auto',
+                      padding: '16px 0px',
+                    }}
                   >
                     <TableSortLabel
                       active={orderBy === headCell.id}
                       direction={orderBy === headCell.id ? order : 'asc'}
-                      onClick={createSortHandler(headCell.id)}
+                      onClick={() => handleRequestSort(headCell.id)}
+                      IconComponent={ExpandMoreIcon}
                     >
-                      {headCell.label}
+                      <span
+                        className={gothamFont.className}
+                        style={{
+                          fontStyle: 'normal',
+                          fontWeight: headCell.fontWeight,
+                          marginLeft: '16px',
+                          fontSize: headCell.fontSize,
+                        }}
+                      >
+                        {headCell.label}
+                      </span>
                       {orderBy === headCell.id ? (
                         <Box component="span" sx={visuallyHidden}>
                           {order === 'desc'
@@ -225,8 +103,16 @@ export default function SortTable() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {stableSort(data, getComparator(order, orderBy)).map((row) => {
-                return <Row key={row.name} row={row} />;
+              {stableSort(data, getComparator(order, orderBy)).map((row, i) => {
+                return (
+                  <Row
+                    key={i}
+                    row={row}
+                    historic={historic}
+                    beta={beta}
+                    production={production}
+                  />
+                );
               })}
             </TableBody>
           </Table>

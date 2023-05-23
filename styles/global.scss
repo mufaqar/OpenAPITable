@@ -9,6 +9,11 @@ a {
   color: inherit;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 //mixins
 @import './mixin';
 
@@ -16,6 +21,8 @@ a {
 @import '../styles/variables';
 
 //UI
+@import './UI/buttons.scss';
+@import './UI/table-row.scss';
 
 //components
 @import '../components/Footer/footer';
@@ -23,6 +30,9 @@ a {
 @import '../components/Navigation/subNavigation';
 @import '../components/Banner/banner';
 @import '../components/Hero/hero';
+@import '../components/RelatedLink/relatedLink';
 
 //pages
-@import './pages/home';
+@import './pages/index';
+@import './pages/historic';
+@import './pages/redirect';

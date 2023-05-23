@@ -1,0 +1,45 @@
+export const headCells = [
+  {
+    id: 'api_name',
+    disablePadding: true,
+    label: 'TM Forum Open APIs',
+    align: 'left',
+    fontWeight: 600,
+    fontSize: '14px',
+  },
+  {
+    id: 'context',
+    label: 'ODA domain',
+    align: 'center',
+    fontWeight: 400,
+    fontSize: '13px',
+  },
+  {
+    id: 'document_number',
+    label: 'Document number',
+    align: 'center',
+    fontWeight: 400,
+    fontSize: '13px',
+  },
+  {
+    id: 'version_info',
+    label: 'Version',
+    align: 'center',
+    fontWeight: 400,
+    fontSize: '13px',
+  },
+  {
+    id: 'published_date',
+    label: 'Publication date',
+    align: 'center',
+    fontWeight: 400,
+    fontSize: '13px',
+  },
+  {
+    id: 'notes',
+    label: 'Notes',
+    align: 'center',
+    fontWeight: 400,
+    fontSize: '13px',
+  },
+];

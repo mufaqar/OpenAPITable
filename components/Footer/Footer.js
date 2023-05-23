@@ -8,7 +8,7 @@ const Footer = () => {
     <footer>
       <Box className="footer__wrapper">
         <Image
-          src="/images/logos/tmforum_logo.png"
+          src="/oda/open-apis/table/images/tmf-logo.svg"
           alt="tmforum logo"
           width={150}
           height={36}
@@ -108,7 +108,7 @@ const Footer = () => {
                 <Box>
                   <Image
                     className="footer__links__icon"
-                    src="/images/social/facebook.svg"
+                    src="/oda/open-apis/table/images/social/facebook.svg"
                     alt="facebook"
                     width={24}
                     height={24}
@@ -119,7 +119,7 @@ const Footer = () => {
                 <Box>
                   <Image
                     className="footer__links__icon"
-                    src="/images/social/twitter.svg"
+                    src="/oda/open-apis/table/images/social/twitter.svg"
                     alt="twitter"
                     width={24}
                     height={24}
@@ -133,7 +133,7 @@ const Footer = () => {
                 <Box>
                   <Image
                     className="footer__links__icon"
-                    src="/images/social/linkedin.svg"
+                    src="/oda/open-apis/table/images/social/linkedin.svg"
                     alt="linkedin"
                     width={24}
                     height={24}
@@ -147,7 +147,7 @@ const Footer = () => {
                 <Box>
                   <Image
                     className="footer__links__icon"
-                    src="/images/social/youtube.svg"
+                    src="/oda/open-apis/table/images/social/youtube.svg"
                     alt="youtube"
                     width={24}
                     height={24}

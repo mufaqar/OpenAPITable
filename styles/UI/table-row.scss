@@ -1,0 +1,42 @@
+.api-name {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  color: #1a2746;
+}
+
+.api-table-text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #000000;
+}
+
+.table-notes-text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  /* identical to box height, or 114% */
+
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.get-access {
+  background: #ffffff;
+  border-radius: 4px;
+  padding: 8px;
+  width: 220px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-right: 25px;
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
