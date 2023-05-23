@@ -84,7 +84,7 @@ const Home = (props) => {
                           color: 'black',
                         }}
                       >
-                        Pre-Production
+                        Pre-production
                       </span>
                     </Link>
                     <Link href="/historic">

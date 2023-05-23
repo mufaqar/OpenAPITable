@@ -145,7 +145,7 @@ const Historic = (props) => {
                           color: 'black',
                         }}
                       >
-                        Pre-Production
+                        Pre-production
                       </span>
                     </Link>
                   </Box>

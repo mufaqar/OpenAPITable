@@ -58,7 +58,7 @@ const Beta = (props) => {
           />
           <Box className="table-menu__btns">
             <button className="pre-production-btn">
-              <span className={gothamFont.className}>Pre-Production</span>
+              <span className={gothamFont.className}>Pre-production</span>
             </button>
             <button
               className={showList ? 'gray-btn-active' : 'gray-btn'}
