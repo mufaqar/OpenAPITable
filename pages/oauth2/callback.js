@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useAuth } from 'react-oidc-context';
-import { gothamFont } from '../../../helpers/gothamFont';
-import Footer from '../../../components/Footer/Footer';
+import { gothamFont } from '../../helpers/gothamFont';
+import Footer from '../../components/Footer/Footer';
 import Image from 'next/image';
 
 const Callback = () => {
