@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { useAuth } from 'react-oidc-context';
 import { gothamFont } from '../../../helpers/gothamFont';
 import Footer from '../../../components/Footer/Footer';
+import Image from 'next/image';
 
 const Callback = () => {
   const auth = useAuth();
@@ -24,6 +25,14 @@ const Callback = () => {
 
   return (
     <div className="redirect-container">
+      <Link href="https://www.tmforum.org/">
+        <Image
+          src={'/oda/open-apis/table/images/tmf-logo.svg'}
+          alt="logo"
+          width={135.99}
+          height={28.472}
+        />
+      </Link>
       <h1 className={gothamFont.className}>
         {auth?.error?.message
           ? `Oops... ${auth.error.message}`

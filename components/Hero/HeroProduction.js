@@ -10,8 +10,14 @@ const HeroProduction = () => {
         <h2 className={gothamFont.className}>Open API table</h2>
         <p className={gothamFont.className}>
           This table contains the latest Production versions of the{' '}
-          <span style={{ color: '#266ED9', fontWeight: 600 }}>Open APIs</span>,
-          for which TM Forum provides{' '}
+          <Link
+            href="https://www.tmforum.org/oda/open-apis/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span style={{ color: '#266ED9', fontWeight: 600 }}>Open APIs</span>
+          </Link>
+          , for which TM Forum provides{' '}
           <Link
             href="https://www.tmforum.org/conformance-certification/open-api-conformance/"
             target="_blank"
