@@ -208,7 +208,7 @@ const Row = (props) => {
                               </p>
                             </Box>
                           </Box>
-                        ) : beta && userData.role !== 'member' ? (
+                        ) : beta && userData?.role !== 'member' ? (
                           <Box className="get-access">
                             <LockOutlinedIcon
                               fontSize="small"
