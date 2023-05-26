@@ -9,7 +9,7 @@ function Test() {
 
 
   useEffect(() => {
-    auth.signinRedirect()
+    void auth.signinRedirect()
   }, []);
 
   return (
