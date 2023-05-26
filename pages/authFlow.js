@@ -9,7 +9,11 @@ function Test() {
 
 
   useEffect(() => {
-    void auth.signinRedirect()
+    const tmfUser = JSON.parse(localStorage.getItem('tmfUser'));
+    if (!tmfUser) {
+        void auth.signinRedirect()
+    }
+    
   }, []);
 
   return (
