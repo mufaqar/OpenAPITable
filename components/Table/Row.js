@@ -208,42 +208,7 @@ const Row = (props) => {
                               </p>
                             </Box>
                           </Box>
-                        ) : beta && userData.role === 'member' ? (
-                          <button
-                            className="download-btn"
-                            onClick={(e) =>
-                              trackclick(
-                                historyRow.download,
-                                transformForTrackClick(historyRow.type),
-                                row.api_name,
-                                userData?.email || '',
-                                e
-                              )
-                            }
-                          >
-                            {checkExstension(historyRow.name) === 'zip' ? (
-                              <Image
-                                src="/oda/open-apis/table/images/download.svg"
-                                alt="download icon"
-                                width={18}
-                                height={18}
-                              />
-                            ) : (
-                              <Image
-                                src="/oda/open-apis/table/images/launch-blue.svg"
-                                alt="launch icon"
-                                width={14}
-                                height={14}
-                              />
-                            )}
-
-                            <span className={gothamFont.className}>
-                              {checkExstension(historyRow.name) === 'zip'
-                                ? 'Download'
-                                : 'View'}
-                            </span>
-                          </button>
-                        ) : (
+                        ) : beta && userData.role !== 'member' ? (
                           <Box className="get-access">
                             <LockOutlinedIcon
                               fontSize="small"
@@ -280,6 +245,41 @@ const Row = (props) => {
                               </Link>
                             </Box>
                           </Box>
+                        ) : (
+                          <button
+                            className="download-btn"
+                            onClick={(e) =>
+                              trackclick(
+                                historyRow.download,
+                                transformForTrackClick(historyRow.type),
+                                row.api_name,
+                                userData?.email || '',
+                                e
+                              )
+                            }
+                          >
+                            {checkExstension(historyRow.name) === 'zip' ? (
+                              <Image
+                                src="/oda/open-apis/table/images/download.svg"
+                                alt="download icon"
+                                width={18}
+                                height={18}
+                              />
+                            ) : (
+                              <Image
+                                src="/oda/open-apis/table/images/launch-blue.svg"
+                                alt="launch icon"
+                                width={14}
+                                height={14}
+                              />
+                            )}
+
+                            <span className={gothamFont.className}>
+                              {checkExstension(historyRow.name) === 'zip'
+                                ? 'Download'
+                                : 'View'}
+                            </span>
+                          </button>
                         )}
                       </TableCell>
                     </TableRow>
