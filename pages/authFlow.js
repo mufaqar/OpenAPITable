@@ -6,29 +6,7 @@ function Test() {
 
   console.log('auth', auth);
 
-  switch (auth.activeNavigator) {
-    case 'signinSilent':
-      return <div style={{ margin: '200px' }}>Signing you in...</div>;
-    case 'signoutRedirect':
-      return <div style={{ margin: '200px' }}>Signing you out...</div>;
-  }
 
-  if (auth.isLoading) {
-    return <div style={{ margin: '200px' }}>Loading...</div>;
-  }
-
-  if (auth.error) {
-    return <div style={{ margin: '200px' }}>Oops... {auth.error.message}</div>;
-  }
-
-  if (auth.isAuthenticated) {
-    return (
-      <div style={{ margin: '200px' }}>
-        Hello {auth.user?.profile.sub}{' '}
-        <button onClick={() => void auth.removeUser()}>Log out</button>
-      </div>
-    );
-  }
 
   useEffect(() => {
     auth.signinRedirect()
