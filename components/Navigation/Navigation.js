@@ -9,9 +9,10 @@ import {
 import { gothamFont } from '../../helpers/gothamFont';
 import Link from 'next/link';
 import { useAuth } from 'react-oidc-context';
-import { fetchUserInfo, fetchUserInfo2 } from '../../services/userInfo/api';
+import { fetchUserInfo2 } from '../../services/userInfo/api';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUserData } from '../../redux/features/userDataSlice';
+import { useRouter } from 'next/router';
 
 const Navigation = (props) => {
   const { logoSrc, navigationLinks } = props;
@@ -26,6 +27,7 @@ const Navigation = (props) => {
   const navbarRef = useRef(null);
   const auth = useAuth();
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const handleNavClick = () => {
     setIsNavOpen((prevState) => !prevState);
@@ -45,6 +47,15 @@ const Navigation = (props) => {
       setActiveChild('');
     } else {
       setActiveChild(link);
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      await auth.removeUser();
+      router.push('/https://tmforumhubdev.mvine.com/idp/saml2/slo');
+    } catch (error) {
+      console.error('Logout failed:', error);
     }
   };
 
@@ -207,7 +218,7 @@ const Navigation = (props) => {
                   </a>
                   <p
                     className={gothamFont.className}
-                    onClick={() => void auth.removeUser()}
+                    onClick={() => handleLogout()}
                   >
                     Log out
                   </p>
