@@ -13,7 +13,8 @@ function MyApp({ Component, pageProps }) {
   const tagManagerArgs = {
     gtmId: process.env.NEXT_PUBLIC_GTM_ID,
   };
-  if (typeof window) {
+
+  if (process.browser) {
     TagManager.initialize(tagManagerArgs);
   }
 
