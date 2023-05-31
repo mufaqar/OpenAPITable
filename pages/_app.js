@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }) {
   const [formsLoaded, setFormsLoaded] = useState(false);
 
   const oidcConfig = {
-    authority: process.env.NEXT_PUBLIC_AUTHORITY,
+    authority: `${process.env.NEXT_PUBLIC_AUTHORITY}/idp/oidc`,
     client_id: process.env.NEXT_PUBLIC_CLIENT_ID,
     client_secret: process.env.CLIENT_SECRET,
     redirect_uri: process.env.NEXT_PUBLIC_REDIRECT_URI,

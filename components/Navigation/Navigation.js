@@ -54,7 +54,7 @@ const Navigation = (props) => {
     try {
       await auth.removeUser();
       localStorage.removeItem('tmfUser');
-      router.push('https://tmforumhubdev.mvine.com/idp/saml2/slo');
+      router.push(`${process.env.NEXT_PUBLIC_AUTHORITY}/idp/saml2/slo`);
     } catch (error) {
       console.error('Logout failed:', error);
     }
