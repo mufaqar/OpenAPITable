@@ -1,0 +1,35 @@
+.navigation-container {
+  background-color: #102338;
+  width: 100%;
+  height: 68px;
+  position: absolute;
+}
+
+.navigation__search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 10px;
+  max-width: 1512px;
+  width: 80%;
+  margin: 0 auto;
+  color: white;
+}
+
+.navigation__search__input {
+  flex: 1;
+}
+
+.navigation__search__icon {
+  background-color: white;
+  border-radius: 50%;
+  display: grid;
+  cursor: pointer;
+}
+
+@media (max-width: 1099px) {
+  .navigation-container {
+    margin-top: 23px;
+  }
+}
