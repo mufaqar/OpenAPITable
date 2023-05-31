@@ -85,8 +85,6 @@ const Navigation = (props) => {
     })();
   }, [dispatch]);
 
-  console.log('user data', userData);
-
   return (
     <div className="header-wrapper">
       <header>
