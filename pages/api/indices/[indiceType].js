@@ -10,24 +10,23 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json',
       },
     });
-    let data = process_github_index(indiceType, response.data.content);
-    res.status(200).json(data);
+    res.status(200).json(response.data.content);
   } catch (err) {
     res.status(500).json(err);
   }
 }
 
-function process_github_index(table, index) {
-  let index_json = JSON.parse(Buffer.from(index, 'base64').toString('ascii'));
-  let table_index = index_json[table];
-  let flat_index = [];
-  Object.values(table_index).forEach((api) => {
-    api.forEach((entry) => {
-      let description = entry.api_description;
-      delete entry.api_description;
-      flat_index.push({ ...description, ...entry });
-    });
-  });
+// function process_github_index(table, index) {
+//   let index_json = JSON.loads(index);
+//   let table_index = index_json[table];
+//   let flat_index = [];
+//   Object.values(table_index).forEach((api) => {
+//     api.forEach((entry) => {
+//       let description = entry.api_description;
+//       delete entry.api_description;
+//       flat_index.push({ ...description, ...entry });
+//     });
+//   });
 
-  return flat_index;
-}
+//   return flat_index;
+// }

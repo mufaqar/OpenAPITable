@@ -9,11 +9,8 @@ export default async function handler(req, res) {
     },
   })
     .then((r) => {
-      r.data.content = JSON.parse(
-        Buffer.from(r.data.content, 'base64').toString('ascii')
-      );
-      console.log(r.data);
       res.status(200).json(r.data);
+      
     })
     .catch((err) => {
       res.status(200).json(err);
