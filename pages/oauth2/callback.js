@@ -9,7 +9,6 @@ import Image from 'next/image';
 const Callback = () => {
   const auth = useAuth();
   const router = useRouter();
-  console.log('Callback auth: ', auth);
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);

@@ -16,7 +16,6 @@ const Home = (props) => {
   const { productionTableData } = props;
   const auth = useAuth();
   const router = useRouter();
-  console.log('auth production', auth);
   const [showList, setShowList] = useState(false);
   const [query, setQuery] = useState('');
 
