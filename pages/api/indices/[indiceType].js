@@ -5,22 +5,21 @@ export default async function handler(req, res) {
   try {
     const response = await axios({
       method: 'get',
-      url: `https://api.github.com/repos/tmforum-rand/api_table_docs/contents/index.json`,
+      url: `https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/Indexes/index.json`,
       headers: {
-        Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
         'Content-Type': 'application/json',
       },
     });
-    let data = process_github_index(indiceType, response.data.content);
+    let data = process_github_index(indiceType, response.data);
     res.status(200).json(data);
   } catch (err) {
-    res.status(500).json(err);
+    res.status(500).json(err.message);
   }
 }
 
 function process_github_index(table, index) {
-  let index_json = JSON.parse(Buffer.from(index, 'base64').toString('ascii'));
-  let table_index = index_json[table];
+ 
+  let table_index = index[table];
   let flat_index = [];
   Object.values(table_index).forEach((api) => {
     api.forEach((entry) => {

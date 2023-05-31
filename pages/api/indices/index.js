@@ -3,9 +3,8 @@ import axios from 'axios';
 export default async function handler(req, res) {
   axios({
     method: 'get',
-    url: `https://api.github.com/repos/tmforum-rand/api_table_docs/contents/table_generator/data/indexes/Beta_description_index.json`,
+    url: `https://tmf-open-api-table-documents.s3.eu-west-1.amazonaws.com/Indexes/index.json`,
     headers: {
-      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
       'Content-Type': 'application/json',
     },
   })
