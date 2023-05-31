@@ -207,9 +207,8 @@ const Navigation = (props) => {
                   <div className="account-circle">
                     <p className={gothamFont.className}>
                       {userData && userData.given_name && userData.family_name
-                        ? `${userData.given_name.charAt(
-                            0
-                          )} ${userData.family_name.charAt(0)}`
+                        ? userData.given_name.charAt(0) +
+                          userData.family_name.charAt(0)
                         : ''}
                     </p>
                   </div>
@@ -219,7 +218,7 @@ const Navigation = (props) => {
                 </div>
                 {logoutDiv && (
                   <div className="account">
-                    <a href="https://tmforumportaldev.mvine.com/my_profile">
+                    <a href={process.env.NEXT_PUBLIC_ACCOUNT_LINK}>
                       <p className={gothamFont.className}>My account</p>
                     </a>
                     <p
