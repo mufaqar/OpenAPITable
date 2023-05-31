@@ -10,10 +10,10 @@ function MyApp({ Component, pageProps }) {
   const [formsLoaded, setFormsLoaded] = useState(false);
 
   const oidcConfig = {
-    authority: 'https://tmforumhubdev.mvine.com/idp/oidc',
+    authority: process.env.NEXT_PUBLIC_AUTHORITY,
     client_id: process.env.NEXT_PUBLIC_CLIENT_ID,
     client_secret: process.env.CLIENT_SECRET,
-    redirect_uri: `https://devbeta.ipsphere.net/oda/open-apis/table/oauth2/callback`,
+    redirect_uri: process.env.NEXT_PUBLIC_REDIRECT_URI,
     scope: 'openid profile email phone address tmf',
   };
 
