@@ -14,6 +14,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setUserData } from '../../redux/features/userDataSlice';
 import { useRouter } from 'next/router';
 import NavigationSearch from './NavigationSearch';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import { config } from '@fortawesome/fontawesome-svg-core';
 
 const Navigation = (props) => {
   const { logoSrc, navigationLinks } = props;
@@ -30,6 +32,7 @@ const Navigation = (props) => {
   const auth = useAuth();
   const dispatch = useDispatch();
   const router = useRouter();
+  config.autoAddCss = false;
 
   const handleNavClick = () => {
     setIsNavOpen((prevState) => !prevState);
