@@ -77,15 +77,9 @@ const Row = (props) => {
                 flex: 0,
               }}
             >
-              <Link
-                href={{
-                  pathname: `apis/${row.document_number}`,
-                }}
-              >
-                <h2 variant="h6" className={`${gothamFont.className} api-name`}>
-                  {row.api_name}
-                </h2>
-              </Link>
+              <h2 variant="h6" className={`${gothamFont.className} api-name`}>
+                {row.api_name}
+              </h2>
               {historic && (
                 <Typography
                   className={gothamFont.className}

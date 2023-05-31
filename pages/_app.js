@@ -5,9 +5,18 @@ import { store } from '../redux/store/store';
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
 import { AuthProvider } from 'react-oidc-context';
+import TagManager from 'react-gtm-module';
 
 function MyApp({ Component, pageProps }) {
   const [formsLoaded, setFormsLoaded] = useState(false);
+
+  const tagManagerArgs = {
+    gtmId: process.env.NEXT_PUBLIC_GTM_ID,
+  };
+
+  if (process.browser) {
+    TagManager.initialize(tagManagerArgs);
+  }
 
   const oidcConfig = {
     authority: `${process.env.NEXT_PUBLIC_AUTHORITY}/idp/oidc`,
@@ -44,19 +53,6 @@ function MyApp({ Component, pageProps }) {
       <AuthProvider {...oidcConfig}>
         <Layout>
           <div className="container">
-            <Script
-              src="https://www.googletagmanager.com/gtag/js?id=G-W21R8NVK4E"
-              strategy="afterInteractive"
-            />
-            <Script id="google-analytics" strategy="afterInteractive">
-              {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){window.dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-W21R8NVK4E');
-        `}
-            </Script>
             <Script
               src="//app-ab16.marketo.com/js/forms2/js/forms2.min.js"
               strategy="afterInteractive"
