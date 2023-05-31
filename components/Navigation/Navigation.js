@@ -53,6 +53,7 @@ const Navigation = (props) => {
   const handleLogout = async () => {
     try {
       await auth.removeUser();
+      localStorage.removeItem('tmfUser');
       router.push('https://tmforumhubdev.mvine.com/idp/saml2/slo');
     } catch (error) {
       console.error('Logout failed:', error);
