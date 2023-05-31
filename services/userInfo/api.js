@@ -16,7 +16,7 @@ export const fetchUserInfo = async (token) => {
 export const fetchUserInfo2 = async (tmfUser) => {
   try {
     const res = await fetch(
-      `https://devbeta.ipsphere.net/oda/open-apis/table/api/user_info`,
+      `https://${process.env.NEXT_PUBLIC_HOST_DOMAIN}/oda/open-apis/table/api/user_info`,
       {
         method: 'POST',
         body: tmfUser,
