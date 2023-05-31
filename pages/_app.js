@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }) {
 
   const oidcConfig = {
     authority: 'https://tmforumhubdev.mvine.com/idp/oidc',
-    client_id: process.env.CLIENT_ID,
+    client_id: process.env.NEXT_PUBLIC_CLIENT_ID,
     client_secret: process.env.CLIENT_SECRET,
     redirect_uri: `https://devbeta.ipsphere.net/oda/open-apis/table/oauth2/callback`,
     scope: 'openid profile email phone address tmf',
