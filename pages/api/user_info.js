@@ -10,7 +10,7 @@ export default async function handler(req, res) {
   if (req.method === 'POST' && body?.access_token) {
     axios({
       method: 'GET',
-      url: `https://tmforumhubdev.mvine.com/idp/oidc/userinfo`,
+      url: `${process.env.NEXT_PUBLIC_AUTHORITY}/idp/oidc/userinfo`,
       headers: {
         Authorization: `Bearer ${body?.access_token}`,
       },
