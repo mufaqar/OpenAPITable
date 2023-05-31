@@ -248,7 +248,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Navigation logoSrc={logoSrc} navigationLinks={navigationLinks} />
-      <SubNavigation />
+      {/* <SubNavigation /> */}
       <main>{children}</main>
       <RelatedLink />
       <Footer />
