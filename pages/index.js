@@ -29,7 +29,17 @@ const Home = (props) => {
   return (
     <Box>
       <Head>
-        <title>Open API Table - Production</title>
+        <title>Open API table - Production</title>
+        <meta property="og:title" content="Open API table - Production" />
+        <meta name="description" content="Checkout our cool page" key="desc" />
+        <meta
+          property="og:description"
+          content="And a social description for our cool page"
+        />
+        <meta
+          property="og:image"
+          content="https://amartus.com/wp-content/uploads/2023/01/OpenAPIs_logo2018Badge.png"
+        />
       </Head>
       <Banner />
       <Box className="home">
