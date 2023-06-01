@@ -18,19 +18,6 @@ module.exports = {
         basePath: false,
         permanent: false,
       },
-      {
-        source: '/:path*',
-        has: [{ type: 'host', value: 'tmforum.org' }],
-        destination: 'https://www.tmforum.org/:path*',
-        permanent: true
-      },
-      {
-        source: '/:path*',
-        has: [{ type: 'host', value: 'open-api-table-git-staging-tm-forum.vercel.app' }],
-        destination: 'https://www.devbeta.ipsphere.net/:path*',
-        permanent: true
-      },
-
     ];
   },
 };
