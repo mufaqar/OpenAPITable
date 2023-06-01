@@ -17,13 +17,13 @@ export default async function handler(req, res) {
     })
       .then((r) => {
         res.setHeader('Access-Control-Allow-Credentials', true);
-        res.setHeader('Access-Control-Allow-Origin', '*');
+        res.setHeader(
+          'Access-Control-Allow-Origin',
+          `https://www.${process.env.NEXT_PUBLIC_HOST_DOMAIN}, https://${process.env.NEXT_PUBLIC_HOST_DOMAIN}`
+        );
         // another common pattern
         // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
-        res.setHeader(
-          'Access-Control-Allow-Methods',
-          'GET,OPTIONS,PATCH,DELETE,POST,PUT'
-        );
+        res.setHeader('Access-Control-Allow-Methods', 'POST');
         res.setHeader(
           'Access-Control-Allow-Headers',
           'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
