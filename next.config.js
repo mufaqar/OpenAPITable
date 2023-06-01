@@ -18,6 +18,29 @@ module.exports = {
         basePath: false,
         permanent: false,
       },
+      {
+        source: '/(.*)',
+        has: [
+          {
+            type: 'host',
+            value: 'tmforum.org',
+          },
+        ],
+        permanent: true,
+        destination: 'https://www.tmforum.org/$1',
+      },
+      {
+        source: '/(.*)',
+        has: [
+          {
+            type: 'host',
+            value: 'devbeta.ipsphere.net',
+          },
+        ],
+        permanent: true,
+        destination: 'https://www.devbeta.ipsphere.net/$1',
+      },
+
     ];
   },
 };
