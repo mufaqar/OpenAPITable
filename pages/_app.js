@@ -84,7 +84,7 @@ function MyApp({ Component, pageProps }) {
                 'strategic program': 'Open API Program',
                 program: 'API Project',
                 topic: 'API',
-                app: 'Open API Table - ${process.env.NEXT_PUBLIC_MARKETO_FORM_ID}',
+                app: 'Open API Table - ${process.env.NEXT_PUBLIC_ENVIRONMENT}',
                 permalink: url,
                 Email: email
                 });
