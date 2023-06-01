@@ -10,6 +10,7 @@ import { searchTable } from '../helpers/searchTable';
 import HeroPreProduction from '../components/Hero/HeroPreProduction';
 import { gothamFont } from '../helpers/gothamFont';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 const Beta = (props) => {
   const { betaTableData } = props;
@@ -28,6 +29,9 @@ const Beta = (props) => {
 
   return (
     <Box>
+      <Head>
+        <title>Open API Table - Pre-production</title>
+      </Head>
       <Banner />
       <Box className="home">
         <HeroPreProduction />

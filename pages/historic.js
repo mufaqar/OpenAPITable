@@ -11,6 +11,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { gothamFont } from '../helpers/gothamFont';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 const Historic = (props) => {
   const { historicTableData } = props;
@@ -30,6 +31,9 @@ const Historic = (props) => {
 
   return (
     <Box>
+      <Head>
+        <title>Open API Table - Historic</title>
+      </Head>
       <Banner />
       <Box className="home">
         <HeroHistoric />
