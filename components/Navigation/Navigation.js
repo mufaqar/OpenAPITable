@@ -34,6 +34,17 @@ const Navigation = (props) => {
   const router = useRouter();
   config.autoAddCss = false;
 
+  const getRegisterLink = () => {
+    const registerUrl = 'https://myaccount.tmforum.org/register';
+    const baseUrl = 'https://tmforum.org';
+    const currentPage = localStorage.getItem('currentPage'); // '/' | '/pre-production' | '/historic'
+    const encoded = encodeURIComponent(
+      `${baseUrl}/oda/open-apis/table${currentPage}`
+    );
+    const href = `${registerUrl}?spurl=${encoded}`;
+    return href;
+  };
+
   const handleNavClick = () => {
     setIsNavOpen((prevState) => !prevState);
   };
@@ -103,6 +114,7 @@ const Navigation = (props) => {
               className={`main-list ${
                 isNavOpen ? 'main-list__opend' : 'main-list__closed'
               }`}
+              style={auth.isAuthenticated ? { top: '86px' } : {}}
             >
               {navigationLinks.map((link) => (
                 <div
@@ -202,7 +214,10 @@ const Navigation = (props) => {
               />
             </div>
             {auth.isAuthenticated ? (
-              <div style={{ position: 'relative' }}>
+              <div
+                className="account-authenticated-container"
+                style={{ position: 'relative' }}
+              >
                 <div
                   className="account-authenticated"
                   onClick={() => setLogoutDiv((prevState) => !prevState)}
@@ -255,7 +270,9 @@ const Navigation = (props) => {
                 >
                   Log in
                 </p>
-                <p className={gothamFont.className}>Register</p>
+                <Link href={getRegisterLink()}>
+                  <p className={gothamFont.className}>Register</p>
+                </Link>
               </div>
             )}
             <div
