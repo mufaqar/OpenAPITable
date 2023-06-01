@@ -36,7 +36,7 @@ const Navigation = (props) => {
 
   const getRegisterLink = () => {
     const registerUrl = 'https://myaccount.tmforum.org/register';
-    const baseUrl = 'https://tmforum.org';
+    const baseUrl = `https://${process.env.NEXT_PUBLIC_HOST_DOMAIN}`; // devbeta.ipsphere.net | tmforum.org
     const currentPage = localStorage.getItem('currentPage'); // '/' | '/pre-production' | '/historic'
     const encoded = encodeURIComponent(
       `${baseUrl}/oda/open-apis/table${currentPage}`
