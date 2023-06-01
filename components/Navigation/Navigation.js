@@ -67,7 +67,6 @@ const Navigation = (props) => {
   };
 
   const handleLogin = () => {
-    localStorage.removeItem('state');
     void auth.signinRedirect();
   };
 
@@ -218,7 +217,7 @@ const Navigation = (props) => {
                 style={{ cursor: 'pointer' }}
               />
             </div>
-            {auth.isAuthenticated ? (
+            {!auth.isAuthenticated ? (
               <div
                 className="account-authenticated-container"
                 style={{ position: 'relative' }}
@@ -235,7 +234,7 @@ const Navigation = (props) => {
                         : ''}
                     </p>
                   </div>
-                  <span className={gothamFont.className}>
+                  <span id="greetings-text" className={gothamFont.className}>
                     HI, {userData?.given_name}
                   </span>
                 </div>
