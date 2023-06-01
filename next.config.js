@@ -26,7 +26,7 @@ module.exports = {
       },
       {
         source: '/:path*',
-        has: [{ type: 'host', value: 'devbeta.ipsphere.net' }],
+        has: [{ type: 'host', value: 'open-api-table-git-staging-tm-forum.vercel.app' }],
         destination: 'https://www.devbeta.ipsphere.net/:path*',
         permanent: true
       },
