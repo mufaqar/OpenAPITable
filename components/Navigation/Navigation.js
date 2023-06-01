@@ -217,7 +217,7 @@ const Navigation = (props) => {
                 style={{ cursor: 'pointer' }}
               />
             </div>
-            {!auth.isAuthenticated ? (
+            {auth.isAuthenticated ? (
               <div
                 className="account-authenticated-container"
                 style={{ position: 'relative' }}
