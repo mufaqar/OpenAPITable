@@ -19,26 +19,16 @@ module.exports = {
         permanent: false,
       },
       {
-        source: '/(.*)',
-        has: [
-          {
-            type: 'host',
-            value: 'tmforum.org',
-          },
-        ],
-        permanent: true,
-        destination: 'https://www.tmforum.org/$1',
+        source: '/:path*',
+        has: [{ type: 'host', value: 'tmforum.org' }],
+        destination: 'https://www.tmforum.org/:path*',
+        permanent: true
       },
       {
-        source: '/(.*)',
-        has: [
-          {
-            type: 'host',
-            value: 'devbeta.ipsphere.net',
-          },
-        ],
-        permanent: true,
-        destination: 'https://www.devbeta.ipsphere.net/$1',
+        source: '/:path*',
+        has: [{ type: 'host', value: 'devbeta.ipsphere.net' }],
+        destination: 'https://www.devbeta.ipsphere.net/:path*',
+        permanent: true
       },
 
     ];
