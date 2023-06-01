@@ -66,6 +66,11 @@ const Navigation = (props) => {
     }
   };
 
+  const handleLogin = () => {
+    localStorage.removeItem('state');
+    void auth.signinRedirect();
+  };
+
   const handleLogout = async () => {
     try {
       await auth.removeUser();
@@ -266,7 +271,7 @@ const Navigation = (props) => {
               <div className="account">
                 <p
                   className={gothamFont.className}
-                  onClick={() => void auth.signinRedirect()}
+                  onClick={() => handleLogin()}
                 >
                   Log in
                 </p>
