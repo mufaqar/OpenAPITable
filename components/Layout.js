@@ -7,6 +7,7 @@ const Layout = ({ children }) => {
   const logoSrc = '/oda/open-apis/table/images/tmf-logo.svg';
 
   const navigationLinks = [
+    //Knowledge
     {
       name: 'Knowledge',
       children: [
@@ -52,6 +53,7 @@ const Layout = ({ children }) => {
         },
       ],
     },
+    //Labs
     {
       name: 'Labs',
       children: [
@@ -90,6 +92,7 @@ const Layout = ({ children }) => {
         },
       ],
     },
+    //Code + frameworks
     {
       name: 'Code + frameworks',
       children: [
@@ -123,7 +126,32 @@ const Layout = ({ children }) => {
         {
           name: 'Open APIs',
           href: 'https://www.tmforum.org/oda/about-open-apis/',
-          children: [],
+          children: [
+            {
+              name: 'Open API Table',
+              href: 'https://tmforum.org/oda/open-apis/table',
+            },
+            {
+              name: 'Open API Conformance Certification',
+              href: 'https://www.tmforum.org/conformance-certification/open-api-conformance/',
+            },
+            {
+              name: 'Open API Project',
+              href: 'https://www.tmforum.org/collaboration/open-api-project/',
+            },
+            {
+              name: 'Open API Dashboard',
+              href: 'https://www.tmforum.org/oda/open-apis/open-api-dashboard/',
+            },
+            {
+              name: 'Open API Training',
+              href: 'https://www.tmforum.org/open-api-training-certification/',
+            },
+            {
+              name: 'Open API Stories',
+              href: 'https://www.tmforum.org/my-api-story/',
+            },
+          ],
         },
         {
           name: 'Open Digital Architecture (ODA)',
@@ -171,6 +199,7 @@ const Layout = ({ children }) => {
         },
       ],
     },
+    //Training + accreditation
     {
       name: 'Training + accreditation',
       children: [
@@ -209,6 +238,7 @@ const Layout = ({ children }) => {
         },
       ],
     },
+    //Events
     {
       name: 'Events',
       children: [
@@ -222,6 +252,7 @@ const Layout = ({ children }) => {
         },
       ],
     },
+    //Membership
     {
       name: 'Membership',
       children: [

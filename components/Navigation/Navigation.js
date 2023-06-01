@@ -14,6 +14,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setUserData } from '../../redux/features/userDataSlice';
 import { useRouter } from 'next/router';
 import NavigationSearch from './NavigationSearch';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import { config } from '@fortawesome/fontawesome-svg-core';
 
 const Navigation = (props) => {
   const { logoSrc, navigationLinks } = props;
@@ -30,6 +32,18 @@ const Navigation = (props) => {
   const auth = useAuth();
   const dispatch = useDispatch();
   const router = useRouter();
+  config.autoAddCss = false;
+
+  const getRegisterLink = () => {
+    const registerUrl = 'https://myaccount.tmforum.org/register';
+    const baseUrl = `https://${process.env.NEXT_PUBLIC_HOST_DOMAIN}`; // devbeta.ipsphere.net | tmforum.org
+    const currentPage = localStorage.getItem('currentPage'); // '/' | '/pre-production' | '/historic'
+    const encoded = encodeURIComponent(
+      `${baseUrl}/oda/open-apis/table${currentPage}`
+    );
+    const href = `${registerUrl}?spurl=${encoded}`;
+    return href;
+  };
 
   const handleNavClick = () => {
     setIsNavOpen((prevState) => !prevState);
@@ -100,6 +114,7 @@ const Navigation = (props) => {
               className={`main-list ${
                 isNavOpen ? 'main-list__opend' : 'main-list__closed'
               }`}
+              style={auth.isAuthenticated ? { top: '86px' } : {}}
             >
               {navigationLinks.map((link) => (
                 <div
@@ -199,7 +214,10 @@ const Navigation = (props) => {
               />
             </div>
             {auth.isAuthenticated ? (
-              <div style={{ position: 'relative' }}>
+              <div
+                className="account-authenticated-container"
+                style={{ position: 'relative' }}
+              >
                 <div
                   className="account-authenticated"
                   onClick={() => setLogoutDiv((prevState) => !prevState)}
@@ -207,9 +225,8 @@ const Navigation = (props) => {
                   <div className="account-circle">
                     <p className={gothamFont.className}>
                       {userData && userData.given_name && userData.family_name
-                        ? `${userData.given_name.charAt(
-                            0
-                          )} ${userData.family_name.charAt(0)}`
+                        ? userData.given_name.charAt(0) +
+                          userData.family_name.charAt(0)
                         : ''}
                     </p>
                   </div>
@@ -219,7 +236,7 @@ const Navigation = (props) => {
                 </div>
                 {logoutDiv && (
                   <div className="account">
-                    <a href="https://tmforumportaldev.mvine.com/my_profile">
+                    <a href={process.env.NEXT_PUBLIC_ACCOUNT_LINK}>
                       <p className={gothamFont.className}>My account</p>
                     </a>
                     <p
@@ -253,7 +270,9 @@ const Navigation = (props) => {
                 >
                   Log in
                 </p>
-                <p className={gothamFont.className}>Register</p>
+                <Link href={getRegisterLink()}>
+                  <p className={gothamFont.className}>Register</p>
+                </Link>
               </div>
             )}
             <div

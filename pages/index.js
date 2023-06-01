@@ -9,12 +9,11 @@ import Link from 'next/link';
 import { searchTable } from '../helpers/searchTable';
 import SearchIcon from '@mui/icons-material/Search';
 import { gothamFont } from '../helpers/gothamFont';
-import { useAuth } from 'react-oidc-context';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 const Home = (props) => {
   const { productionTableData } = props;
-  const auth = useAuth();
   const router = useRouter();
   const [showList, setShowList] = useState(false);
   const [query, setQuery] = useState('');
@@ -29,6 +28,9 @@ const Home = (props) => {
 
   return (
     <Box>
+      <Head>
+        <title>Open API Table - Production</title>
+      </Head>
       <Banner />
       <Box className="home">
         <HeroProduction />
