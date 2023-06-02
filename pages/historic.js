@@ -32,7 +32,22 @@ const Historic = (props) => {
   return (
     <Box>
       <Head>
-        <title>Open API Table - Historic</title>
+        <title>
+          60+ Open APIs tried, tested and de-risked - Historic table - TM Forum
+        </title>
+        <meta
+          property="og:title"
+          content="60+ Open APIs tried, tested and de-risked - Historic table - TM Forum"
+        />
+        <meta name="description" content="Checkout our cool page" key="desc" />
+        <meta
+          property="og:description"
+          content="The Open APIs shown on this table are not the latest APIs but are supported. You can click through to the latest APIs from this page."
+        />
+        <meta
+          property="og:image"
+          content="https://amartus.com/wp-content/uploads/2023/01/OpenAPIs_logo2018Badge.png"
+        />
       </Head>
       <Banner />
       <Box className="home">

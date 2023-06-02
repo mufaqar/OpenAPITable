@@ -30,7 +30,27 @@ const Beta = (props) => {
   return (
     <Box>
       <Head>
-        <title>Open API Table - Pre-production</title>
+        <title>
+          60+ Open APIs tried, tested and de-risked - Pre-production table - TM
+          Forum
+        </title>
+        <meta
+          property="og:title"
+          content="60+ Open APIs tried, tested and de-risked - Pre-production table - TM Forum"
+        />
+        <meta
+          name="description"
+          content="This table contains TM Forum APIs in the early adoption or still in development. These APIs are available to members only. You can also click through to the latest production APIs from this page."
+          key="desc"
+        />
+        <meta
+          property="og:description"
+          content="This table contains TM Forum APIs in the early adoption or still in development. These APIs are available to members only. You can also click through to the latest production APIs from this page"
+        />
+        <meta
+          property="og:image"
+          content="https://amartus.com/wp-content/uploads/2023/01/OpenAPIs_logo2018Badge.png"
+        />
       </Head>
       <Banner />
       <Box className="home">

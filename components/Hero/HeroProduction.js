@@ -7,7 +7,7 @@ const HeroProduction = () => {
   return (
     <Box className="heroWrapper">
       <Box className="hero__left">
-        <h2 className={gothamFont.className}>Open API table</h2>
+        <h1 className={gothamFont.className}>Open API table</h1>
         <p className={gothamFont.className}>
           This table contains the latest Production versions of the{' '}
           <Link

@@ -6,7 +6,7 @@ const HeroPreProduction = () => {
   return (
     <Box className="heroWrapper">
       <Box className="hero__left">
-        <h2 className={gothamFont.className}>Pre-production Open API table</h2>
+        <h1 className={gothamFont.className}>Pre-production Open API table</h1>
         <p className={gothamFont.className}>
           This table contains APIs in the early adoption or still in
           development. For Production APIs please click{' '}
