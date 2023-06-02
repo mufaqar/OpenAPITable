@@ -29,7 +29,24 @@ const Home = (props) => {
   return (
     <Box>
       <Head>
-        <title>Open API Table - Production</title>
+        <title>60+ Open APIs tried, tested and de-risked - TM Forum</title>
+        <meta
+          property="og:title"
+          content="60+ Open APIs tried, tested and de-risked - TM Forum"
+        />
+        <meta
+          name="description"
+          content="TM Forum members, including the world’s largest service providers and suppliers, are developing these production Open APIs to enable open digital ecosystems and provide critical management functionality to digital services."
+          key="desc"
+        />
+        <meta
+          property="og:description"
+          content="TM Forum members, including the world’s largest service providers and suppliers, are developing these production Open APIs to enable open digital ecosystems and provide critical management functionality to digital services."
+        />
+        <meta
+          property="og:image"
+          content="https://amartus.com/wp-content/uploads/2023/01/OpenAPIs_logo2018Badge.png"
+        />
       </Head>
       <Banner />
       <Box className="home">
