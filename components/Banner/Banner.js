@@ -1,6 +1,7 @@
 import { Box, Button, Typography } from '@mui/material';
 import { gothamFont } from '../../helpers/gothamFont';
 import { scrollToTable } from '../../helpers/scrollToTable';
+import Link from 'next/link';
 
 const Banner = () => {
   return (
@@ -9,8 +10,10 @@ const Banner = () => {
         <Box className="banner">
           <Box className="banner__left">
             <p className={gothamFont.className} id="breadcrumbs">
-              <span>Home</span> {'>'} <span>Code + frameworks</span> {'>'} Open
-              APIs
+              <Link href={process.env.NEXT_PUBLIC_HOST_DOMAIN || ''}>
+                <span>Home</span>{' '}
+              </Link>{' '}
+              {'>'} <span>Code + frameworks</span> {'>'} Open APIs
             </p>
             <h1 className={gothamFont.className}>
               <span style={{ color: '#266ed9' }}>Open</span> API table
