@@ -77,7 +77,11 @@ const Row = (props) => {
                 flex: 0,
               }}
             >
-              <h2 variant="h6" className={`${gothamFont.className} api-name`}>
+              <h2
+                variant="h6"
+                className={`${gothamFont.className} api-name`}
+                onClick={() => setOpen(!open)}
+              >
                 {row.api_name}
               </h2>
               {historic && (
