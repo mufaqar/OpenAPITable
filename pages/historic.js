@@ -32,12 +32,17 @@ const Historic = (props) => {
   return (
     <Box>
       <Head>
-        <title>Open API table - Historic</title>
-        <meta property="og:title" content="Open API table - Historic" />
+        <title>
+          60+ Open APIs tried, tested and de-risked - Historic table - TM Forum
+        </title>
+        <meta
+          property="og:title"
+          content="60+ Open APIs tried, tested and de-risked - Historic table - TM Forum"
+        />
         <meta name="description" content="Checkout our cool page" key="desc" />
         <meta
           property="og:description"
-          content="And a social description for our cool page"
+          content="The Open APIs shown on this table are not the latest APIs but are supported. You can click through to the latest APIs from this page."
         />
         <meta
           property="og:image"

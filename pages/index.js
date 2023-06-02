@@ -29,12 +29,19 @@ const Home = (props) => {
   return (
     <Box>
       <Head>
-        <title>Open API table - Production</title>
-        <meta property="og:title" content="Open API table - Production" />
-        <meta name="description" content="Checkout our cool page" key="desc" />
+        <title>60+ Open APIs tried, tested and de-risked - TM Forum</title>
+        <meta
+          property="og:title"
+          content="60+ Open APIs tried, tested and de-risked - TM Forum"
+        />
+        <meta
+          name="description"
+          content="TM Forum members, including the world’s largest service providers and suppliers, are developing these production Open APIs to enable open digital ecosystems and provide critical management functionality to digital services."
+          key="desc"
+        />
         <meta
           property="og:description"
-          content="And a social description for our cool page"
+          content="TM Forum members, including the world’s largest service providers and suppliers, are developing these production Open APIs to enable open digital ecosystems and provide critical management functionality to digital services."
         />
         <meta
           property="og:image"

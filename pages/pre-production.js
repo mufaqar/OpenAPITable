@@ -30,12 +30,22 @@ const Beta = (props) => {
   return (
     <Box>
       <Head>
-        <title>Open API table - Pre-production</title>
-        <meta property="og:title" content="Open API table - Pre-production" />
-        <meta name="description" content="Checkout our cool page" key="desc" />
+        <title>
+          60+ Open APIs tried, tested and de-risked - Pre-production table - TM
+          Forum
+        </title>
+        <meta
+          property="og:title"
+          content="60+ Open APIs tried, tested and de-risked - Pre-production table - TM Forum"
+        />
+        <meta
+          name="description"
+          content="This table contains TM Forum APIs in the early adoption or still in development. These APIs are available to members only. You can also click through to the latest production APIs from this page."
+          key="desc"
+        />
         <meta
           property="og:description"
-          content="And a social description for our cool page"
+          content="This table contains TM Forum APIs in the early adoption or still in development. These APIs are available to members only. You can also click through to the latest production APIs from this page"
         />
         <meta
           property="og:image"
