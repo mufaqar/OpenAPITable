@@ -10,7 +10,9 @@ const Banner = () => {
         <Box className="banner">
           <Box className="banner__left">
             <p className={gothamFont.className} id="breadcrumbs">
-              <Link href={process.env.NEXT_PUBLIC_HOST_DOMAIN || ''}>
+              <Link
+                href={'https://' + process.env.NEXT_PUBLIC_HOST_DOMAIN || ''}
+              >
                 <span>Home</span>{' '}
               </Link>{' '}
               {'>'} <span>Code + frameworks</span> {'>'} Open APIs
