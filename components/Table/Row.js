@@ -44,7 +44,7 @@ const Row = (props) => {
     return ext;
   };
 
-  const getButton = () => {
+  const getButton = (historyRow) => {
     if ((production || historic) && !auth.isAuthenticated) {
       return (
         <Box className="get-access">
@@ -418,7 +418,7 @@ const Row = (props) => {
                             </span>
                           </button>
                         )} */}
-                        {getButton()}
+                        {getButton(historyRow)}
                       </TableCell>
                     </TableRow>
                   ))}
