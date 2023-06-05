@@ -45,11 +45,6 @@ const Row = (props) => {
   };
 
   const getButton = (historyRow) => {
-    console.log('production', production);
-    console.log('historic', historic);
-    console.log('beta', beta);
-    console.log('auth.isAuthenticated', auth.isAuthenticated);
-
     if ((production || historic) && !auth.isAuthenticated) {
       return (
         <Box className="get-access">
@@ -84,34 +79,36 @@ const Row = (props) => {
     }
 
     if (beta && !auth.isAuthenticated) {
-      <Box className="get-access">
-        <LockOutlinedIcon fontSize="small" sx={{ color: '#3577DA' }} />
-        <Box className="get-access__text">
-          <p
-            className={gothamFont.className}
-            style={{
-              fontSize: '14px',
-              color: '#000000',
-              lineHeight: '16px',
-            }}
-          >
-            For Forum members
-          </p>
-          <p
-            className={gothamFont.className}
-            onClick={() => void auth.signinRedirect()}
-            style={{
-              fontSize: '14px',
-              color: '#3577DA',
-              lineHeight: '16px',
-              textDecorationLine: 'underline',
-              cursor: 'pointer',
-            }}
-          >
-            Get access
-          </p>
+      return (
+        <Box className="get-access">
+          <LockOutlinedIcon fontSize="small" sx={{ color: '#3577DA' }} />
+          <Box className="get-access__text">
+            <p
+              className={gothamFont.className}
+              style={{
+                fontSize: '14px',
+                color: '#000000',
+                lineHeight: '16px',
+              }}
+            >
+              For Forum members
+            </p>
+            <p
+              className={gothamFont.className}
+              onClick={() => void auth.signinRedirect()}
+              style={{
+                fontSize: '14px',
+                color: '#3577DA',
+                lineHeight: '16px',
+                textDecorationLine: 'underline',
+                cursor: 'pointer',
+              }}
+            >
+              Get access
+            </p>
+          </Box>
         </Box>
-      </Box>;
+      );
     }
 
     if (beta && auth.isAuthenticated && userData?.role !== 'member') {
@@ -318,111 +315,6 @@ const Row = (props) => {
                         </Typography>
                       </TableCell>
                       <TableCell align="right" sx={{ width: '12%' }}>
-                        {/* {!auth.isAuthenticated ? (
-                          <Box className="get-access">
-                            <LockOutlinedIcon
-                              fontSize="small"
-                              sx={{ color: '#3577DA' }}
-                            />
-                            <Box className="get-access__text">
-                              <p
-                                className={gothamFont.className}
-                                style={{
-                                  fontSize: '14px',
-                                  color: '#000000',
-                                  lineHeight: '16px',
-                                }}
-                              >
-                                Login or register
-                              </p>
-                              <p
-                                className={gothamFont.className}
-                                onClick={() => void auth.signinRedirect()}
-                                style={{
-                                  fontSize: '14px',
-                                  color: '#3577DA',
-                                  lineHeight: '16px',
-                                  textDecorationLine: 'underline',
-                                  cursor: 'pointer',
-                                }}
-                              >
-                                Get access
-                              </p>
-                            </Box>
-                          </Box>
-                        ) : beta && userData?.role !== 'member' ? (
-                          <Box className="get-access">
-                            <LockOutlinedIcon
-                              fontSize="small"
-                              sx={{ color: '#3577DA' }}
-                            />
-                            <Box className="get-access__text">
-                              <p
-                                className={gothamFont.className}
-                                style={{
-                                  fontSize: '14px',
-                                  color: '#000000',
-                                  lineHeight: '16px',
-                                }}
-                              >
-                                For Forum members
-                              </p>
-                              <Link
-                                href="https://www.tmforum.org/membership/how-to-join/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                <p
-                                  className={gothamFont.className}
-                                  style={{
-                                    fontSize: '14px',
-                                    color: '#3577DA',
-                                    lineHeight: '16px',
-                                    textDecorationLine: 'underline',
-                                    cursor: 'pointer',
-                                  }}
-                                >
-                                  Get access
-                                </p>
-                              </Link>
-                            </Box>
-                          </Box>
-                        ) : (
-                          <button
-                            className="download-btn"
-                            onClick={(e) =>
-                              trackclick(
-                                historyRow.download,
-                                transformForTrackClick(historyRow.type),
-                                row.api_name,
-                                userData?.email || '',
-                                e
-                              )
-                            }
-                          >
-                            {checkExstension(historyRow.name) === 'zip' ? (
-                              <Image
-                                src="/oda/open-apis/table/images/download.svg"
-                                alt="download icon"
-                                width={18}
-                                height={18}
-                              />
-                            ) : (
-                              <Image
-                                src="/oda/open-apis/table/images/launch-blue.svg"
-                                alt="launch icon"
-                                width={14}
-                                height={14}
-                              />
-                            )}
-
-                            <span className={gothamFont.className}>
-                              {checkExstension(historyRow.name) === 'zip'
-                                ? 'Download'
-                                : 'View'}
-                            </span>
-                          </button>
-                        )} */}
                         {getButton(historyRow)}
                       </TableCell>
                     </TableRow>
