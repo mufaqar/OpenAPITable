@@ -45,6 +45,11 @@ const Row = (props) => {
   };
 
   const getButton = (historyRow) => {
+    console.log('production', production);
+    console.log('historic', historic);
+    console.log('beta', beta);
+    console.log('auth.isAuthenticated', auth.isAuthenticated);
+
     if ((production || historic) && !auth.isAuthenticated) {
       return (
         <Box className="get-access">
