@@ -38,7 +38,7 @@ const Home = (props) => {
         membership_status: userData?.role ? userData?.role : 'non-member',
         login_status: auth.isAuthenticated ? 'logged in' : 'not logged in',
         website: 'https://www.tmforum.org',
-        sf_contact_id: userData?.contactid,
+        sf_contact_id: userData?.contactid ? userData?.contactid : 'unknown',
         user_engagement_status: 'low',
         oda_member: 'no',
         csp: 'other',
