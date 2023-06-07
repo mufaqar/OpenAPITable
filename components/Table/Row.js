@@ -171,10 +171,10 @@ const Row = (props) => {
               link_id: 'unknown',
               link_text:
                 checkExstension(historyRow.name) === 'zip'
-                  ? 'Download'
-                  : 'View',
+                  ? 'download'
+                  : 'view',
               file_extension: checkExstension(historyRow.name),
-              item_id: row.document_number,
+              item_id: row.document_number.toLowerCase(), //TODO: check this
               resource_availibility: beta ? 'member' : 'all',
               resource_version: row.version_info.replace('v', ''), //check this
               resource_status: beta ? 'team approved' : 'tm forum approved',
