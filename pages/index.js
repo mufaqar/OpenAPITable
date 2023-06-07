@@ -11,16 +11,57 @@ import SearchIcon from '@mui/icons-material/Search';
 import { gothamFont } from '../helpers/gothamFont';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import TagManager from 'react-gtm-module';
+import { useSelector } from 'react-redux';
+
+const tagManagerArgs = {
+  gtmId: process.env.NEXT_PUBLIC_GTM_ID,
+  events: {
+    page_view: 'Page View',
+    file_download: 'File Download',
+  },
+};
 
 const Home = (props) => {
   const { productionTableData } = props;
   const router = useRouter();
   const [showList, setShowList] = useState(false);
   const [query, setQuery] = useState('');
+  const userData = useSelector((state) => state.userData);
 
   const handleButtonClick = () => {
     setShowList((oldState) => !oldState);
   };
+
+  useEffect(() => {
+    TagManager.initialize(tagManagerArgs);
+    TagManager.dataLayer({
+      dataLayer: {
+        event: 'page_view',
+        sf_account_id: userData?.accountid,
+        user_country: 'ireland',
+        user_region: 'europe',
+        user_job_title: 'head of labs and tooling',
+        membership_status: 'member',
+        login_status: 'logged_in',
+        website: 'https://www.tmforum.org',
+        sf_contact_id: userData?.contactid,
+        // user_engagement_status: 'e. vhigh 43+',
+        // oda_member: 'no',
+        // csp: 'other',
+        // account_level: 'corporate d',
+        // account_type: 'platinum',
+        // company_industry: 'association/forum',
+        // communication_opt_in: 'opt-out',
+        // job_function: 'unknown',
+        page_url: window.location.href,
+        page_title: 'Open API table - TM Forum',
+        page_business_unit: 'open-api-table',
+        page_value: 'open api table',
+        page_topics: 'open apis',
+      },
+    });
+  }, [userData?.accountid, userData?.contactid]);
 
   useEffect(() => {
     localStorage.setItem('currentPage', router.pathname);
