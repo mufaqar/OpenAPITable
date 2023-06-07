@@ -13,14 +13,7 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import TagManager from 'react-gtm-module';
 import { useSelector } from 'react-redux';
-
-const tagManagerArgs = {
-  gtmId: process.env.NEXT_PUBLIC_GTM_ID,
-  events: {
-    page_view: 'Page View',
-    file_download: 'File Download',
-  },
-};
+import { useAuth } from 'react-oidc-context';
 
 const Home = (props) => {
   const { productionTableData } = props;
@@ -28,40 +21,46 @@ const Home = (props) => {
   const [showList, setShowList] = useState(false);
   const [query, setQuery] = useState('');
   const userData = useSelector((state) => state.userData);
+  const auth = useAuth();
 
   const handleButtonClick = () => {
     setShowList((oldState) => !oldState);
   };
 
   useEffect(() => {
-    TagManager.initialize(tagManagerArgs);
     TagManager.dataLayer({
       dataLayer: {
         event: 'page_view',
-        sf_account_id: userData?.accountid,
-        user_country: 'ireland',
-        user_region: 'europe',
-        user_job_title: 'head of labs and tooling',
-        membership_status: 'member',
-        login_status: 'logged_in',
+        sf_account_id: userData?.accountid ? userData?.accountid : 'unknown',
+        user_country: 'unknown',
+        user_region: 'unknown',
+        user_job_title: 'unknown',
+        membership_status: userData?.role ? userData?.role : 'non-member',
+        login_status: auth.isAuthenticated ? 'logged in' : 'not logged in',
         website: 'https://www.tmforum.org',
         sf_contact_id: userData?.contactid,
-        // user_engagement_status: 'e. vhigh 43+',
-        // oda_member: 'no',
-        // csp: 'other',
-        // account_level: 'corporate d',
-        // account_type: 'platinum',
-        // company_industry: 'association/forum',
-        // communication_opt_in: 'opt-out',
-        // job_function: 'unknown',
+        user_engagement_status: 'low',
+        oda_member: 'no',
+        csp: 'other',
+        account_level: 'unknown',
+        account_type: 'unknown',
+        communication_opt_in: 'opt-out',
+        job_function: 'unknown',
+        company_industry_1: 'unknown',
+        company_industry_2: 'unknown',
         page_url: window.location.href,
-        page_title: 'Open API table - TM Forum',
+        page_title: 'open api table - tm forum',
         page_business_unit: 'open-api-table',
         page_value: 'open api table',
         page_topics: 'open apis',
       },
     });
-  }, [userData?.accountid, userData?.contactid]);
+  }, [
+    auth.isAuthenticated,
+    userData?.accountid,
+    userData?.contactid,
+    userData?.role,
+  ]);
 
   useEffect(() => {
     localStorage.setItem('currentPage', router.pathname);

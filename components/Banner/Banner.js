@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { gothamFont } from '../../helpers/gothamFont';
 import { scrollToTable } from '../../helpers/scrollToTable';
 import Link from 'next/link';
@@ -22,7 +22,7 @@ const Banner = () => {
                   ''
                 }
               >
-                <span>Open Digital Architecture</span>
+                <span>ODA</span>
               </Link>{' '}
               {'>'} Open APIs
             </p>

@@ -10,6 +10,18 @@ import TagManager from 'react-gtm-module';
 function MyApp({ Component, pageProps }) {
   const [formsLoaded, setFormsLoaded] = useState(false);
 
+  const tagManagerArgs = {
+    gtmId: process.env.NEXT_PUBLIC_GTM_ID,
+    events: {
+      page_view: 'Page View',
+      file_download: 'File Download',
+    },
+  };
+
+  if (process.browser) {
+    TagManager.initialize(tagManagerArgs);
+  }
+
   const oidcConfig = {
     authority: `${process.env.NEXT_PUBLIC_AUTHORITY}/idp/oidc`,
     client_id: process.env.NEXT_PUBLIC_CLIENT_ID,
@@ -82,12 +94,12 @@ function MyApp({ Component, pageProps }) {
                 });
                 myForm.submit();  
 
-                // const link = document.createElement('a');
-                // link.href = url;
-                // link.setAttribute('rel', 'noopener noreferrer');
-                // link.setAttribute('target', '_blank');
-                // document.body.appendChild(link);
-                // link.click();                
+                const link = document.createElement('a');
+                link.href = url;
+                link.setAttribute('rel', 'noopener noreferrer');
+                link.setAttribute('target', '_blank');
+                document.body.appendChild(link);
+                link.click();                
                 
               }`}
           </Script>
