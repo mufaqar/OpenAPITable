@@ -12,6 +12,10 @@ function MyApp({ Component, pageProps }) {
 
   const tagManagerArgs = {
     gtmId: process.env.NEXT_PUBLIC_GTM_ID,
+    events: {
+      page_view: 'Page View',
+      file_download: 'File Download',
+    },
   };
 
   if (process.browser) {
@@ -89,8 +93,14 @@ function MyApp({ Component, pageProps }) {
                 Email: email
                 });
                 myForm.submit();  
+
+                const link = document.createElement('a');
+                link.href = url;
+                link.setAttribute('rel', 'noopener noreferrer');
+                link.setAttribute('target', '_blank');
+                document.body.appendChild(link);
+                link.click();                
                 
-                window.open(url, '_blank');
               }`}
           </Script>
         </Layout>

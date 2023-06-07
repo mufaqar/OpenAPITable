@@ -20,12 +20,13 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 37px;
+    gap: 40px;
     padding: 37px 60px 0 0px;
     color: white;
     width: 700px;
     background-color: #102338;
     margin-right: 154px;
+    margin-top: 14px;
 
     #breadcrumbs {
       font-size: 14px;
@@ -45,12 +46,19 @@
     }
 
     h2 {
-      height: 72px;
       font-style: normal;
       font-weight: 400;
       font-size: 24px;
       line-height: 150%;
       color: #ffffff;
+    }
+
+    h3 {
+      color: #dc6526;
+      font-weight: 700;
+      font-size: 30px;
+      line-height: 1.1;
+      margin-bottom: 10px;
     }
   }
 
@@ -100,12 +108,16 @@
     font-size: 16px;
   }
 
+  .banner__left h3 {
+    font-size: 16px;
+  }
+
   .banner__right {
     background-position: right;
     background-size: contain !important;
     height: 167px;
     flex: unset;
-    margin-top: 61px;
+    margin-top: 17px;
   }
 
   #breadcrumbs {
@@ -116,17 +128,6 @@
 @media only screen and (min-width: 816px) and (max-width: 1553px) {
   .banner__right {
     background-position: unset;
-  }
-}
-
-@media (max-width: 439px) {
-  .banner__right {
-    margin-top: 37px;
-  }
-}
-@media (max-width: 438px) {
-  .banner__right {
-    margin-top: 61px;
   }
 }
 

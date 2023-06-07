@@ -20,6 +20,7 @@ import { useAuth } from 'react-oidc-context';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { useSelector } from 'react-redux';
 import { transformForTrackClick } from '../../helpers/transformForTrackClick';
+import TagManager from 'react-gtm-module';
 
 const Row = (props) => {
   const { row, production = false, historic = false, beta = false } = props;
@@ -152,15 +153,63 @@ const Row = (props) => {
     return (
       <button
         className="download-btn"
-        onClick={(e) =>
+        onClick={(e) => {
           trackclick(
             historyRow.download,
             transformForTrackClick(historyRow.type),
             row.api_name,
             userData?.email || '',
             e
-          )
-        }
+          );
+
+          TagManager.dataLayer({
+            dataLayer: {
+              event: 'file_download',
+              link_classes:
+                'button MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium',
+              link_domain: 'www.tmforum.org',
+              link_id: 'unknown',
+              link_text:
+                checkExstension(historyRow.name) === 'zip'
+                  ? 'download'
+                  : 'view',
+              file_extension: checkExstension(historyRow.name),
+              item_id: row.document_number.toLowerCase(),
+              resource_availibility: beta ? 'member' : 'all',
+              resource_version: row.version_info.replace('v', ''),
+              resource_status: beta ? 'team approved' : 'tm forum approved',
+              resource_document_type: historyRow.type,
+              resource_publication_date: row.published_date,
+              page_topics: 'open apis',
+              resource_maturity_level: 'general availability (ga)',
+              resource_author: 'open api project',
+              sf_account_id: userData?.accountid
+                ? userData?.accountid
+                : 'unknown',
+              user_country: 'unknown',
+              user_region: 'unknown',
+              user_job_title: 'unknown',
+              membership_status: userData?.role ? userData?.role : 'non-member',
+              login_status: 'logged_in',
+              website: 'https://www.tmforum.org',
+              sf_contact_id: userData?.contactid
+                ? userData?.contactid
+                : 'unknown',
+              user_engagement_status: 'low',
+              oda_member: 'no',
+              csp: 'other',
+              account_level: 'unknown',
+              account_type: 'unknown',
+              company_industry_1: 'unknown',
+              company_industry_2: 'unknown',
+              communication_opt_in: 'opt-out',
+              job_function: 'unknown',
+              Outbound: 'TRUE',
+              file_name: row.api_name.toLowerCase(),
+              link_url: historyRow.download,
+            },
+          });
+        }}
       >
         {checkExstension(historyRow.name) === 'zip' ? (
           <Image

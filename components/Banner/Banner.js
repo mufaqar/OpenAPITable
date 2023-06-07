@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { gothamFont } from '../../helpers/gothamFont';
 import { scrollToTable } from '../../helpers/scrollToTable';
 import Link from 'next/link';
@@ -18,18 +18,22 @@ const Banner = () => {
               {'>'}{' '}
               <Link
                 href={
-                  'https://' +
-                    process.env.NEXT_PUBLIC_HOST_DOMAIN +
-                    '/code-frameworks/' || ''
+                  'https://' + process.env.NEXT_PUBLIC_HOST_DOMAIN + '/oda/' ||
+                  ''
                 }
               >
-                <span>Code + frameworks</span>
+                <span>ODA</span>
               </Link>{' '}
               {'>'} Open APIs
             </p>
-            <h1 className={gothamFont.className}>
-              <span style={{ color: '#266ed9' }}>Open</span> API table
-            </h1>
+            <Box>
+              <h3 className={gothamFont.className}>
+                Open Digital Architecture
+              </h3>
+              <h1 className={gothamFont.className}>
+                <span style={{ color: '#266ed9' }}>Open</span> API table
+              </h1>
+            </Box>
             <h2 className={gothamFont.className}>
               60+ Open APIs tried, tested and de-risked.
             </h2>
