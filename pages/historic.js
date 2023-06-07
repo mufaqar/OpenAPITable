@@ -12,18 +12,59 @@ import { gothamFont } from '../helpers/gothamFont';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+import TagManager from 'react-gtm-module';
+import { useAuth } from 'react-oidc-context';
+import { useSelector } from 'react-redux';
 
 const Historic = (props) => {
   const { historicTableData } = props;
 
-  const router = useRouter();
   const [showList, setShowList] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
   const [query, setQuery] = useState('');
 
+  const auth = useAuth();
+  const router = useRouter();
+  const userData = useSelector((state) => state.userData);
+
   const handleButtonClick = () => {
     setShowList((oldState) => !oldState);
   };
+
+  useEffect(() => {
+    TagManager.dataLayer({
+      dataLayer: {
+        event: 'page_view',
+        sf_account_id: userData?.accountid ? userData?.accountid : 'unknown',
+        user_country: 'unknown',
+        user_region: 'unknown',
+        user_job_title: 'unknown',
+        membership_status: userData?.role ? userData?.role : 'non-member',
+        login_status: auth.isAuthenticated ? 'logged in' : 'not logged in',
+        website: 'https://www.tmforum.org',
+        sf_contact_id: userData?.contactid,
+        user_engagement_status: 'low',
+        oda_member: 'no',
+        csp: 'other',
+        account_level: 'unknown',
+        account_type: 'unknown',
+        communication_opt_in: 'opt-out',
+        job_function: 'unknown',
+        company_industry_1: 'unknown',
+        company_industry_2: 'unknown',
+        page_url: window.location.href,
+        page_title: 'open api table historic - tm forum',
+        page_business_unit: 'open-api-table',
+        page_value: 'open api table historic',
+        page_topics: 'open apis',
+      },
+    });
+  }, [
+    auth.isAuthenticated,
+    userData?.accountid,
+    userData?.contactid,
+    userData?.role,
+  ]);
 
   useEffect(() => {
     localStorage.setItem('currentPage', router.pathname);
@@ -122,7 +163,7 @@ const Historic = (props) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   href={
-                    'https://projects.tmforum.org/wiki/display/API/Open+API+Table+-+Previous+%28N-2%29+Versions'
+                    'https://projects.tmforum.org/wiki/display/API/Open+API+Table+-+Previous+%28N-2%29+Versions/'
                   }
                 >
                   <span
