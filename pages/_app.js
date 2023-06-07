@@ -76,12 +76,12 @@ function MyApp({ Component, pageProps }) {
             function trackclick(url,type,api,email,event){
               event.preventDefault();
 
-              const link = document.createElement('a');
-              link.href = url;
-              link.setAttribute('rel', 'noopener noreferrer');
-              link.setAttribute('target', '_blank');
-              document.body.appendChild(link);
-              link.click();       
+                const link = document.createElement('a');
+                link.href = url;
+                link.setAttribute('rel', 'noopener noreferrer');
+                link.setAttribute('target', '_blank');
+                document.body.appendChild(link);
+                link.click();       
 
               var myForm = MktoForms2.allForms()[0];     
 
