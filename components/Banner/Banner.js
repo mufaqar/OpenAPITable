@@ -22,13 +22,18 @@ const Banner = () => {
                   ''
                 }
               >
-                <span>ODA</span>
+                <span>Open Digital Architecture</span>
               </Link>{' '}
               {'>'} Open APIs
             </p>
-            <h1 className={gothamFont.className}>
-              <span style={{ color: '#266ed9' }}>Open</span> API table
-            </h1>
+            <Box>
+              <h3 className={gothamFont.className}>
+                Open Digital Architecture
+              </h3>
+              <h1 className={gothamFont.className}>
+                <span style={{ color: '#266ed9' }}>Open</span> API table
+              </h1>
+            </Box>
             <h2 className={gothamFont.className}>
               60+ Open APIs tried, tested and de-risked.
             </h2>
