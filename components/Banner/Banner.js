@@ -22,9 +22,9 @@ const Banner = () => {
                   ''
                 }
               >
-                <span>ODA</span>
+                <span>Open Digital Architecture</span>
               </Link>{' '}
-              {'>'} Open APIs
+              {'>'} <span>Open APIs</span>
             </p>
             <Box>
               <h3 className={gothamFont.className}>
