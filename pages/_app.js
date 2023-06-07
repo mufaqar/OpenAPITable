@@ -82,12 +82,12 @@ function MyApp({ Component, pageProps }) {
                 });
                 myForm.submit();  
 
-                // const link = document.createElement('a');
-                // link.href = url;
-                // link.setAttribute('rel', 'noopener noreferrer');
-                // link.setAttribute('target', '_blank');
-                // document.body.appendChild(link);
-                // link.click();                
+                const link = document.createElement('a');
+                link.href = url;
+                link.setAttribute('rel', 'noopener noreferrer');
+                link.setAttribute('target', '_blank');
+                document.body.appendChild(link);
+                link.click();                
                 
               }`}
           </Script>
