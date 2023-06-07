@@ -1,6 +1,6 @@
 import Layout from '../components/Layout';
 import '../styles/global.scss';
-import { Provider } from 'react-redux';
+import { Provider, useSelector } from 'react-redux';
 import { store } from '../redux/store/store';
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
@@ -9,14 +9,6 @@ import TagManager from 'react-gtm-module';
 
 function MyApp({ Component, pageProps }) {
   const [formsLoaded, setFormsLoaded] = useState(false);
-
-  const tagManagerArgs = {
-    gtmId: process.env.NEXT_PUBLIC_GTM_ID,
-  };
-
-  if (process.browser) {
-    TagManager.initialize(tagManagerArgs);
-  }
 
   const oidcConfig = {
     authority: `${process.env.NEXT_PUBLIC_AUTHORITY}/idp/oidc`,
@@ -89,8 +81,14 @@ function MyApp({ Component, pageProps }) {
                 Email: email
                 });
                 myForm.submit();  
+
+                // const link = document.createElement('a');
+                // link.href = url;
+                // link.setAttribute('rel', 'noopener noreferrer');
+                // link.setAttribute('target', '_blank');
+                // document.body.appendChild(link);
+                // link.click();                
                 
-                window.open(url, '_blank');
               }`}
           </Script>
         </Layout>
