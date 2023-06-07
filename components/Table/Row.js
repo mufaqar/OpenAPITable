@@ -174,9 +174,9 @@ const Row = (props) => {
                   ? 'download'
                   : 'view',
               file_extension: checkExstension(historyRow.name),
-              item_id: row.document_number.toLowerCase(), //TODO: check this
+              item_id: row.document_number.toLowerCase(),
               resource_availibility: beta ? 'member' : 'all',
-              resource_version: row.version_info.replace('v', ''), //check this
+              resource_version: row.version_info.replace('v', ''),
               resource_status: beta ? 'team approved' : 'tm forum approved',
               resource_document_type: historyRow.type,
               resource_publication_date: row.published_date,
@@ -205,7 +205,7 @@ const Row = (props) => {
               communication_opt_in: 'opt-out',
               job_function: 'unknown',
               Outbound: 'TRUE',
-              file_name: row.api_name.toLowerCase(), //check this
+              file_name: row.api_name.toLowerCase(),
               link_url: historyRow.download,
             },
           });

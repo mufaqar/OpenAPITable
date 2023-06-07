@@ -1,6 +1,6 @@
 import Layout from '../components/Layout';
 import '../styles/global.scss';
-import { Provider, useSelector } from 'react-redux';
+import { Provider } from 'react-redux';
 import { store } from '../redux/store/store';
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
