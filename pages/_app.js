@@ -82,8 +82,9 @@ function MyApp({ Component, pageProps }) {
                 link.setAttribute('target', '_blank');
                 document.body.appendChild(link);
                 link.click();       
+                
 
-              var myForm = MktoForms2.allForms()[0];     
+              var myForm = MktoForms2.allForms()[0];    
 
                 myForm.onSuccess(function(vals,thanksURL){           
                   return false;                
