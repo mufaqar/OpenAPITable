@@ -18,12 +18,11 @@ const Banner = () => {
               {'>'}{' '}
               <Link
                 href={
-                  'https://' +
-                    process.env.NEXT_PUBLIC_HOST_DOMAIN +
-                    '/code-frameworks/' || ''
+                  'https://' + process.env.NEXT_PUBLIC_HOST_DOMAIN + '/oda/' ||
+                  ''
                 }
               >
-                <span>Code + frameworks</span>
+                <span>ODA</span>
               </Link>{' '}
               {'>'} Open APIs
             </p>
