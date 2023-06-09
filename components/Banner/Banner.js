@@ -24,7 +24,17 @@ const Banner = () => {
               >
                 <span>Open Digital Architecture</span>
               </Link>{' '}
-              {'>'} <span>Open APIs</span>
+              {'> '}
+              <Link
+                href={
+                  'https://' +
+                    process.env.NEXT_PUBLIC_HOST_DOMAIN +
+                    '/oda/open-apis/' || ''
+                }
+              >
+                <span>Open APIs</span>
+              </Link>
+              {'> '}API table
             </p>
             <Box>
               <h3 className={gothamFont.className}>
