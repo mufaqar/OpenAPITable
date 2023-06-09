@@ -22,9 +22,19 @@ const Banner = () => {
                   ''
                 }
               >
-                <span>ODA</span>
+                <span>Open Digital Architecture</span>
               </Link>{' '}
-              {'>'} Open APIs
+              {'> '}
+              <Link
+                href={
+                  'https://' +
+                    process.env.NEXT_PUBLIC_HOST_DOMAIN +
+                    '/oda/open-apis/' || ''
+                }
+              >
+                <span>Open APIs</span>
+              </Link>
+              {'> '}API table
             </p>
             <Box>
               <h3 className={gothamFont.className}>
