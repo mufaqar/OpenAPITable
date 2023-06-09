@@ -34,7 +34,7 @@ const Banner = () => {
               >
                 <span>Open APIs</span>
               </Link>
-              {'> '}API table
+              {' > '}API table
             </p>
             <Box>
               <h3 className={gothamFont.className}>
