@@ -190,7 +190,7 @@ const Row = (props) => {
               user_region: 'unknown',
               user_job_title: 'unknown',
               membership_status: userData?.role ? userData?.role : 'non-member',
-              login_status: 'logged_in',
+              login_status: 'logged in',
               website: 'https://www.tmforum.org',
               sf_contact_id: userData?.contactid
                 ? userData?.contactid
