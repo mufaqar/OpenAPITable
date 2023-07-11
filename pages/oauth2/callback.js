@@ -22,11 +22,10 @@ const Callback = () => {
       localStorage.setItem('tmfUser', JSON.stringify(auth.user));
     }
 
-    router.push(
+    window.location.href =
       currentPage ||
-        process.env.NEXT_PUBLIC_HOST_DOMAIN ||
-        'https://www.tmforum.org/'
-    );
+      process.env.NEXT_PUBLIC_HOST_DOMAIN ||
+      'https://www.tmforum.org/';
   }, [auth, router]);
 
   return (
