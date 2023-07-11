@@ -9,22 +9,23 @@ import Image from 'next/image';
 const Callback = () => {
   const auth = useAuth();
   const router = useRouter();
+  const currentPage = localStorage.getItem('currentPage');
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const stateValue = urlParams.get('state');
     localStorage.setItem('state', stateValue);
-    const currentPage = localStorage.getItem('currentPage');
 
     if (auth.isAuthenticated) {
       localStorage.setItem('tmfUser', JSON.stringify(auth.user));
     }
+
     router.push(
       currentPage ||
         process.env.NEXT_PUBLIC_HOST_DOMAIN ||
         'https://www.tmforum.org/'
     );
-  }, [auth, router]);
+  }, [auth, currentPage, router]);
 
   return (
     <div className="redirect-container">
