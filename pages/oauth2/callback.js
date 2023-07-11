@@ -9,12 +9,14 @@ import Image from 'next/image';
 const Callback = () => {
   const auth = useAuth();
   const router = useRouter();
-  const currentPage = localStorage.getItem('currentPage');
+  const [pageUrl, setPageUrl] = useState('');
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const stateValue = urlParams.get('state');
     localStorage.setItem('state', stateValue);
+    const currentPage = localStorage.getItem('currentPage');
+    setPageUrl(currentPage);
 
     if (auth.isAuthenticated) {
       localStorage.setItem('tmfUser', JSON.stringify(auth.user));
@@ -25,7 +27,7 @@ const Callback = () => {
         process.env.NEXT_PUBLIC_HOST_DOMAIN ||
         'https://www.tmforum.org/'
     );
-  }, [auth, currentPage, router]);
+  }, [auth, router]);
 
   return (
     <div className="redirect-container">
@@ -50,7 +52,7 @@ const Callback = () => {
         <Link
           className="redirect-link"
           href={
-            currentPage ||
+            pageUrl ||
             process.env.NEXT_PUBLIC_HOST_DOMAIN ||
             'https://www.tmforum.org/'
           }
