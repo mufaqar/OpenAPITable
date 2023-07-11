@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }) {
     },
   };
 
-  if (process.browser) {
+  if (typeof window !== 'undefined') {
     TagManager.initialize(tagManagerArgs);
   }
 

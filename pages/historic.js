@@ -10,7 +10,6 @@ import { fetchHistoricTableData } from '../services/TableData/api';
 import SearchIcon from '@mui/icons-material/Search';
 import { gothamFont } from '../helpers/gothamFont';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
 import Head from 'next/head';
 import TagManager from 'react-gtm-module';
 import { useAuth } from 'react-oidc-context';
@@ -24,7 +23,6 @@ const Historic = (props) => {
   const [query, setQuery] = useState('');
 
   const auth = useAuth();
-  const router = useRouter();
   const userData = useSelector((state) => state.userData);
 
   const handleButtonClick = () => {
@@ -67,8 +65,8 @@ const Historic = (props) => {
   ]);
 
   useEffect(() => {
-    localStorage.setItem('currentPage', router.pathname);
-  }, [router]);
+    localStorage.setItem('currentPage', window.location.href);
+  }, []);
 
   return (
     <Box>

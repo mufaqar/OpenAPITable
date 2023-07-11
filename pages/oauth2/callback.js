@@ -19,7 +19,11 @@ const Callback = () => {
     if (auth.isAuthenticated) {
       localStorage.setItem('tmfUser', JSON.stringify(auth.user));
     }
-    router.push(currentPage || '/');
+    router.push(
+      currentPage ||
+        process.env.NEXT_PUBLIC_HOST_DOMAIN ||
+        'https://www.tmforum.org/'
+    );
   }, [auth, router]);
 
   return (
@@ -42,7 +46,14 @@ const Callback = () => {
       </p>
       <p className={gothamFont.className}>
         If you are not redirected, click{' '}
-        <Link className="redirect-link" href={'/'}>
+        <Link
+          className="redirect-link"
+          href={
+            currentPage ||
+            process.env.NEXT_PUBLIC_HOST_DOMAIN ||
+            'https://www.tmforum.org/'
+          }
+        >
           here
         </Link>
         .
