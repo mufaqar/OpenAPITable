@@ -50,8 +50,6 @@ const Callback = () => {
         <Link
           className="redirect-link"
           href={
-            pageUrl ||
-            process.env.NEXT_PUBLIC_HOST_DOMAIN ||
             'https://www.tmforum.org/'
           }
         >
