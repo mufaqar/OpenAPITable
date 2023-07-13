@@ -24,7 +24,7 @@ const Callback = () => {
         currentPage ||
         process.env.NEXT_PUBLIC_HOST_DOMAIN ||
         'https://www.tmforum.org/';
-    }, 1);
+    }, 1000);
   }, [auth, router]);
 
   return (
