@@ -16,19 +16,30 @@ const Callback = () => {
     const stateValue = urlParams.get('state');
     localStorage.setItem('state', stateValue);
     const currentPage = localStorage.getItem('currentPage');
+    const saveUserInfo = async () => {
+      if (auth.isAuthenticated) {
+        localStorage.setItem('tmfUser', JSON.stringify(auth.user));
+        await sleep(1000);
+        window.location.href =
+        currentPage ||
+        process.env.NEXT_PUBLIC_HOST_DOMAIN ||
+        'https://www.tmforum.org/';
+      }
+      else {
+        window.location.href =
+        currentPage ||
+        process.env.NEXT_PUBLIC_HOST_DOMAIN ||
+        'https://www.tmforum.org/';
+      }
+    };
 
-    if (auth.isAuthenticated) {
-      localStorage.setItem('tmfUser', JSON.stringify(auth.user));
-    }
-    await sleep(1000);
+    saveUserInfo()
     setPageUrl(currentPage);
+    
 
 
 
-    window.location.href =
-      currentPage ||
-      process.env.NEXT_PUBLIC_HOST_DOMAIN ||
-      'https://www.tmforum.org/';
+
   }, [auth, router]);
 
   return (
