@@ -20,6 +20,7 @@ const Callback = () => {
     if (auth.isAuthenticated) {
       localStorage.setItem('tmfUser', JSON.stringify(auth.user));
     }
+    await sleep(1000);
     setPageUrl(currentPage);
 
 
