@@ -16,11 +16,13 @@ const Callback = () => {
     const stateValue = urlParams.get('state');
     localStorage.setItem('state', stateValue);
     const currentPage = localStorage.getItem('currentPage');
-    setPageUrl(currentPage);
 
     if (auth.isAuthenticated) {
       localStorage.setItem('tmfUser', JSON.stringify(auth.user));
     }
+    setPageUrl(currentPage);
+
+
 
     window.location.href =
       currentPage ||
