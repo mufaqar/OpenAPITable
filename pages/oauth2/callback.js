@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useAuth } from 'react-oidc-context';
@@ -9,25 +9,17 @@ import Image from 'next/image';
 const Callback = () => {
   const auth = useAuth();
   const router = useRouter();
-  const [pageUrl, setPageUrl] = useState('');
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const stateValue = urlParams.get('state');
     localStorage.setItem('state', stateValue);
     const currentPage = localStorage.getItem('currentPage');
-    setPageUrl(currentPage);
 
     if (auth.isAuthenticated) {
       localStorage.setItem('tmfUser', JSON.stringify(auth.user));
     }
-
-    setTimeout(() => {
-      window.location.href =
-        currentPage ||
-        process.env.NEXT_PUBLIC_HOST_DOMAIN ||
-        'https://www.tmforum.org/';
-    }, 1);
+    router.push(currentPage || '/');
   }, [auth, router]);
 
   return (
@@ -50,14 +42,7 @@ const Callback = () => {
       </p>
       <p className={gothamFont.className}>
         If you are not redirected, click{' '}
-        <Link
-          className="redirect-link"
-          href={
-            pageUrl ||
-            process.env.NEXT_PUBLIC_HOST_DOMAIN ||
-            'https://www.tmforum.org/'
-          }
-        >
+        <Link className="redirect-link" href={'/'}>
           here
         </Link>
         .
