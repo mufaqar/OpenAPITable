@@ -9,7 +9,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import { searchTable } from '../helpers/searchTable';
 import HeroPreProduction from '../components/Hero/HeroPreProduction';
 import { gothamFont } from '../helpers/gothamFont';
-import { useRouter } from 'next/router';
 import Head from 'next/head';
 import { useAuth } from 'react-oidc-context';
 import { useSelector } from 'react-redux';
@@ -22,7 +21,6 @@ const Beta = (props) => {
   const [query, setQuery] = useState('');
 
   const auth = useAuth();
-  const router = useRouter();
   const userData = useSelector((state) => state.userData);
 
   const handleButtonClick = () => {
@@ -65,8 +63,8 @@ const Beta = (props) => {
   ]);
 
   useEffect(() => {
-    localStorage.setItem('currentPage', router.pathname);
-  }, [router]);
+    localStorage.setItem('currentPage', window.location.href);
+  }, []);
 
   return (
     <Box>

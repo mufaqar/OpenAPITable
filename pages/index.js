@@ -9,7 +9,6 @@ import Link from 'next/link';
 import { searchTable } from '../helpers/searchTable';
 import SearchIcon from '@mui/icons-material/Search';
 import { gothamFont } from '../helpers/gothamFont';
-import { useRouter } from 'next/router';
 import Head from 'next/head';
 import TagManager from 'react-gtm-module';
 import { useSelector } from 'react-redux';
@@ -17,7 +16,6 @@ import { useAuth } from 'react-oidc-context';
 
 const Home = (props) => {
   const { productionTableData } = props;
-  const router = useRouter();
   const [showList, setShowList] = useState(false);
   const [query, setQuery] = useState('');
   const userData = useSelector((state) => state.userData);
@@ -63,8 +61,8 @@ const Home = (props) => {
   ]);
 
   useEffect(() => {
-    localStorage.setItem('currentPage', router.pathname);
-  }, [router]);
+    localStorage.setItem('currentPage', window.location.href);
+  }, []);
 
   return (
     <Box>
