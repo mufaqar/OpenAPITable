@@ -63,22 +63,8 @@ const Layout = ({ children }) => {
           children: [],
         },
         {
-          name: 'Catalyst Program',
-          href: 'https://www.tmforum.org/catalyst-program/',
-          children: [
-            {
-              name: 'Open Innovation Catalyst',
-              href: 'https://www.tmforum.org/catalyst-program/open-innovation-catalyst-program/',
-            },
-            {
-              name: 'Moonshot Catalyst',
-              href: 'https://www.tmforum.org/catalyst-program/moonshot-catalyst-program/',
-            },
-            {
-              name: 'Catalyst projects',
-              href: 'https://myaccount.tmforum.org/catalysts?_ga=2.197462447.1084475829.1681218920-178524392.1673272693&_gl=1*s61ihf*_ga*MTc4NTI0MzkyLjE2NzMyNzI2OTM.*_ga_W21R8NVK4E*MTY4MTI5NjU5OS42NC4xLjE2ODEyOTk4NjkuMC4wLjA.*_ga_KQXXW9EY6Y*MTY4MTI5OTMwNy4zOS4xLjE2ODEyOTk4NTguMC4wLjA.',
-            },
-          ],
+          name: 'Co-creating solutions (Catalysts)',
+          href: 'https://www.tmforum.org/catalysts/'
         },
         {
           name: 'Member projects',
