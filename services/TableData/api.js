@@ -9,7 +9,8 @@ export const fetchProductionTableData = async () => {
       current_url + `/oda/open-apis/table/api/indices/OpenApiTable`
     );
     const data = await res.json();
-    return data;
+    const returnData = data.filter((item) => item.options.length === 6)
+    return returnData;
   } catch (error) {
     console.log(error);
   }
