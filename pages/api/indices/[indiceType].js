@@ -28,6 +28,11 @@ function process_github_index(table, index) {
       flat_index.push({ ...description, ...entry });
     });
   });
-
+  console.log(table);
+  console.log(flat_index.length);
+  if (table === 'OpenApiTable') {
+    flat_index = flat_index.filter((item) => item.options.length === 6);
+  }
+  console.log(flat_index.length);
   return flat_index;
 }
