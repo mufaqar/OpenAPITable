@@ -5,7 +5,7 @@ const nextConfig = {
     return [
       {
         source: "/",
-        destination: "/oda/open-apis/partners/camara",
+        destination: "/oda/open-apis",
         basePath: false,
         permanent: false,
       },
