@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: "Gotham";
+  src:
+    url(/oda/open-apis/fonts/gotham/gotham-light.woff2) format("woff2"),
+    url(/oda/open-apis/fonts/gotham/gotham-light.woff) format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gotham";
+  src:
+    url(/oda/open-apis/fonts/gotham/gotham-book.woff2) format("woff2"),
+    url(/oda/open-apis/fonts/gotham/gotham-book.woff) format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gotham";
+  src:
+    url(/oda/open-apis/fonts/gotham/gotham-medium.woff2) format("woff2"),
+    url(/oda/open-apis/fonts/gotham/gotham-medium.woff) format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gotham";
+  src:
+    url(/oda/open-apis/fonts/gotham/gotham-bold.woff2) format("woff2"),
+    url(/oda/open-apis/fonts/gotham/gotham-bold.woff) format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+.accordion-content-markdown {
+  @apply text-core-blue max-w-[828px];
+}
+.accordion-content-markdown a {
+  @apply underline;
+}
+.accordion-content-markdown h3 {
+  @apply text-h3 text-core-blue mb-3;
+}
+.accordion-content-markdown h4 {
+  @apply text-h4 text-core-blue mb-3;
+}
+.accordion-content-markdown p {
+  @apply text-p2 text-core-blue mb-8;
+}
+.accordion-content-markdown ul {
+  @apply text-p2 text-core-blue mb-8 space-y-3;
+}
+.accordion-content-markdown ul li {
+  @apply text-p2 text-core-blue pl-6 relative before:content-[''] before:absolute before:left-0 before:bg-core-lightBlue before:w-3 before:h-3 before:flex-shrink-0 before:mr-2 before:rounded-tr-[4px] before:rounded-bl-[4px] before:top-1;
+}
+.accordion-content-markdown ul li ul {
+  @apply mt-5;
+}
+.accordion-content-markdown img {
+  @apply py-8;
+}
