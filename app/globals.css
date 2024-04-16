@@ -67,3 +67,5 @@ body {
 .accordion-content-markdown img {
   @apply py-8;
 }
+
+.slick-list{padding:0 !important}

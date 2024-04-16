@@ -1,8 +1,9 @@
+'use client'
 import { twMerge } from "tailwind-merge";
 
 interface IButtonProps {
   children: React.ReactNode;
-  icon?: React.ReactNode;
+  icon?: React.ReactNode | any;
   size?: "sm" | "md" | "full";
   color?: "primary" | "secondary" | "white";
   iconPosition?: "left" | "right";
@@ -34,10 +35,11 @@ export const Button = ({
     white: "bg-white text-[#3577DA] border-2 border-[#3577DA]",
   };
 
+
   return (
     <button
       className={twMerge(
-        "rounded-tl-[10px] rounded-br-[10px] p-3 flex items-center justify-center space-x-[6px]",
+        `rounded-tl-[10px] rounded-br-[10px] p-3 flex items-center justify-center space-x-[6px] ${iconPosition === 'right' && 'gap-1.5 flex-row-reverse'}`,
         sizes[size],
         colors[color],
         className,

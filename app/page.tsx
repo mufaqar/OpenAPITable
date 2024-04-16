@@ -1,3 +1,9 @@
+import { OpenAI } from "@/components/templates";
+
 export default function Home() {
-  return <div></div>;
+  return (
+    <>
+      <OpenAI/>
+    </>
+  )
 }

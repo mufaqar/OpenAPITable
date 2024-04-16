@@ -1,1 +1,3 @@
 export * from "./Partners";
+export { default as OpenAI } from './OpenAI'
+
