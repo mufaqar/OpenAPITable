@@ -1,6 +1,6 @@
 "use client";
 import { TableFilter } from "@/components/molecules";
-import { Hero } from "@/components/organisms";
+import { APIComponentsMap, Hero } from "@/components/organisms";
 import { useState } from "react";
 
 export const Table = () => {
@@ -24,6 +24,10 @@ export const Table = () => {
           onGridClick={() => setActiveView("grid")}
           onListClick={() => setActiveView("list")}
         />
+      </div>
+
+      <div className="my-8 2xl:max-w-[1344px] mx-auto w-full max-2xl:px-4">
+        <APIComponentsMap />
       </div>
     </div>
   );
