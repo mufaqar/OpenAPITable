@@ -1,8 +1,15 @@
-interface IBreadcrumb {
-  activeItem: string;
+import Link from "next/link";
+
+export interface BreadcrumbItem {
+  title: string;
+  href: string;
 }
 
-export const Breadcrumb = ({ activeItem }: IBreadcrumb) => {
+interface IBreadcrumbProps {
+  items: BreadcrumbItem[];
+}
+
+export const Breadcrumb = ({ items }: IBreadcrumbProps) => {
   return (
     <ul className="flex items-center gap-1 sm:gap-6 text-white text-sm flex-wrap">
       <li className="border-white border-b-[.5px] rounded-e-md pr-3 pb-2 font-light">
@@ -15,9 +22,14 @@ export const Breadcrumb = ({ activeItem }: IBreadcrumb) => {
         Open APIs
       </li>
 
-      <li className="border-white border-b-[.5px] rounded-e-md pr-3 pb-2 uppercase">
-        {activeItem}
-      </li>
+      {items?.map((item, index) => (
+        <li
+          key={index}
+          className="border-white border-b-[.5px] rounded-e-md pr-3 pb-2"
+        >
+          <Link href={item.href || ""}>{item.title}</Link>
+        </li>
+      ))}
     </ul>
   );
 };
