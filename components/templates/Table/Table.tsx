@@ -3,10 +3,14 @@ import { TableFilter } from "@/components/molecules";
 import { APIComponentsMap, Hero } from "@/components/organisms";
 import { APIComponentsList } from "@/components/organisms/APIComponentsList";
 import { useState } from "react";
+import { parseAsString, useQueryState } from "next-usequerystate";
 
 export const Table = () => {
   const [searchValue, setSearchValue] = useState("");
-  const [activeView, setActiveView] = useState<"map" | "list">("map");
+  const [activeView, setActiveView] = useQueryState(
+    "type",
+    parseAsString.withDefault("map"),
+  );
 
   return (
     <div>
