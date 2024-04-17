@@ -4,7 +4,7 @@ import React, { Suspense } from 'react'
 const OpenAPITablePage = () => {
   return (
     <>
-       <Suspense> <OpenAPITable/></Suspense>
+      <Suspense> <OpenAPITable /></Suspense>
     </>
   )
 }
