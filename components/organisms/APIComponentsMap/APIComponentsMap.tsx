@@ -40,7 +40,9 @@ const renderBlock = ({
       <div
         className={twJoin(
           "gap-3",
-          isTwoColumns ? "grid grid-cols-2" : "flex items-center flex-wrap",
+          isTwoColumns
+            ? "grid grid-cols-1 md:grid-cols-2"
+            : "flex items-center flex-wrap",
         )}
       >
         {data.map((card, index) => (
