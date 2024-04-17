@@ -1,11 +1,12 @@
 "use client";
 import { TableFilter } from "@/components/molecules";
 import { APIComponentsMap, Hero } from "@/components/organisms";
+import { APIComponentsList } from "@/components/organisms/APIComponentsList";
 import { useState } from "react";
 
 export const Table = () => {
   const [searchValue, setSearchValue] = useState("");
-  const [activeView, setActiveView] = useState<"grid" | "list">("grid");
+  const [activeView, setActiveView] = useState<"map" | "list">("map");
 
   return (
     <div>
@@ -19,15 +20,21 @@ export const Table = () => {
         <TableFilter
           searchValue={searchValue}
           setSearchValue={(val) => setSearchValue(val)}
-          isGridActive={activeView === "grid"}
+          isGridActive={activeView === "map"}
           isListActive={activeView === "list"}
-          onGridClick={() => setActiveView("grid")}
+          onGridClick={() => setActiveView("map")}
           onListClick={() => setActiveView("list")}
         />
       </div>
 
-      <div className="my-8 2xl:max-w-[1344px] mx-auto w-full max-2xl:px-4">
-        <APIComponentsMap />
+      <div className="my-8">
+        {activeView === "map" ? (
+          <div className="my-8 2xl:max-w-[1344px] mx-auto w-full max-2xl:px-4">
+            <APIComponentsMap />
+          </div>
+        ) : (
+          <APIComponentsList />
+        )}
       </div>
     </div>
   );

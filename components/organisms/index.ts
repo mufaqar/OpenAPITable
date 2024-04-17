@@ -6,3 +6,4 @@ export * from "./MainLayout";
 export * from "./Navigation";
 export * from "./OverviewSection";
 export * from "./APIComponentsMap";
+export * from "./APIComponentsList";

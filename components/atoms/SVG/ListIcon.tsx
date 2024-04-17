@@ -13,7 +13,7 @@ export const ListIcon = ({ active, ...rest }: IconType) => {
       fill="none"
       {...rest}
     >
-      <g opacity="0.4">
+      <g opacity="1">
         <path
           d="M8 1H23"
           stroke={activeColor}
