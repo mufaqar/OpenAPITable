@@ -4,3 +4,4 @@ export * from "./HeroNavigation";
 export * from "./TableFilter";
 export * from "./APICard";
 export * from "./Alphabet";
+export * from "./Search";

@@ -54,6 +54,7 @@ const config: Config = {
         h5: ["18px", "30px"],
         p1: ["20px", "30px"],
         p2: ["16px", "24px"],
+        p3: ["14px", "21px"],
         "eyebrow-large": ["14px", "19.6px"],
       },
 

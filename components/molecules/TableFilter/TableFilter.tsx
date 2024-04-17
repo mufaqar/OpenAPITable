@@ -1,5 +1,6 @@
-import { Search, TableListButton } from "@/components/atoms";
+import { TableListButton } from "@/components/atoms";
 import React from "react";
+import { Search } from "../Search";
 
 interface ITableFilter {
   searchValue: string;
@@ -25,6 +26,7 @@ export const TableFilter = ({
           placeholder="Find an API"
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
+          menuData={searchMenuData}
         />
       </div>
 
@@ -36,4 +38,18 @@ export const TableFilter = ({
       />
     </div>
   );
+};
+
+const searchMenuData = {
+  Bundle: ["Wholesale broadband", "5G slice", "Set-top box", "Camara"],
+  Domain: [
+    "Business Partner APIs",
+    "Common APIs",
+    "Customer APIs",
+    "Marketing and sales APIs",
+    "Product APIs",
+    "Resource APIs",
+    "Service APIs",
+  ],
+  "Production status": ["Pre Production", "Production"],
 };
