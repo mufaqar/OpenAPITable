@@ -1,10 +1,10 @@
 import { OpenAPITable } from '@/components/templates'
-import React from 'react'
+import React, { Suspense } from 'react'
 
 const OpenAPITablePage = () => {
   return (
     <>
-        <OpenAPITable/>
+       <Suspense> <OpenAPITable/></Suspense>
     </>
   )
 }
