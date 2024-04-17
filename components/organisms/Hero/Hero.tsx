@@ -6,7 +6,7 @@ interface IHeroProps {
   activeItem?: string,
   title: string,
   imageURL?: string,
-  navigation: boolean,
+  navigation?: boolean,
 }
 
 export const Hero = (props: IHeroProps) => {
@@ -33,7 +33,8 @@ export const Hero = (props: IHeroProps) => {
           }
 
         </div>
-        <HeroNavigation />
+        <HeroNavigation navigation={navigation}/>
+        
       </div>
     </section>
   );

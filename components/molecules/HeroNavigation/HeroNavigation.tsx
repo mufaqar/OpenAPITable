@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import { twJoin } from "tailwind-merge";
 import { useState } from "react";
 
-export const HeroNavigation = () => {
+export const HeroNavigation = ({navigation}:any) => {
   const router = useRouter()
   const [activeNavigation, setActiveNavigation] = useState<string>('#overview')
   const handleNavigation = (href:string) => {
@@ -12,7 +12,7 @@ export const HeroNavigation = () => {
   }
 
   return (
-    <nav className="flex items-center sm:justify-center space-x-3 sm:space-x-7 md:space-x-10 text-white text-xs sm:text-sm flex-wrap">
+    <nav className={`flex items-center sm:justify-center space-x-3 sm:space-x-7 md:space-x-10 text-white text-xs sm:text-sm flex-wrap ${!navigation && 'invisible'}`}>
       {items.map((item) => (
         <button
           key={item.id}

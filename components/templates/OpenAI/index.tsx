@@ -5,7 +5,8 @@ import {
   IntroductionAPI,
   ContextSpecificBundles,
   OpenAPITranning,
-  CatalystProjects
+  CatalystProjects,
+  RelatedArticles
 } from '@/components/organisms'
 import React from 'react'
 
@@ -22,6 +23,7 @@ const OpenAI = () => {
       <ContextSpecificBundles />
       <OpenAPITranning />
       <CatalystProjects/>
+      <RelatedArticles/>
     </>
   )
 }
