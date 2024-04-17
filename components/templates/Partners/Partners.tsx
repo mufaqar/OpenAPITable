@@ -2,13 +2,14 @@ import {
   AssetSection,
   FAQSection,
   Hero,
-  OverviewSection,
+
 } from "@/components/organisms";
+import { OverviewSection } from "@/components/organisms/OverviewSection/OverviewSection";
 
 export const Partners = () => {
   return (
     <>
-      <Hero />
+      <Hero title="" />
       <OverviewSection />
       <AssetSection />
       <FAQSection />
