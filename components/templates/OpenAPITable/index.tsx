@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { Suspense } from 'react'
 import OpenAPITableGrid from './OpenAPITableGrid'
 import useSelectApiTableStyle from '@/hooks/useSelectApiTableStyle'
 import OpenAPITableList from './OpenAPITableList'
@@ -13,9 +13,12 @@ const OpenAPITable = () => {
       <Hero
         title="Open API Table"
       />
-      <SearchAPI />
-      { tableStyle === 'grid' ? <OpenAPITableGrid /> : <OpenAPITableList /> }
-
+      <Suspense><SearchAPI /></Suspense>
+      <section className='bg-light-grey'>
+        <div className='container pb-20 pt-5'>
+          {tableStyle === 'grid' ? <OpenAPITableGrid /> : <OpenAPITableList />}
+        </div>
+      </section>
     </>
   )
 }
