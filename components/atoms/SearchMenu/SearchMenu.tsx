@@ -1,4 +1,3 @@
-import Link from "next/link";
 import React from "react";
 import { twJoin } from "tailwind-merge";
 
@@ -16,6 +15,7 @@ export const SearchMenu = ({ data, onClick }: ISearchMenuProps) => {
       <div className="grid grid-cols-1 lg:grid-cols-3 max-lg:flex-wrap">
         {Object.keys(data)?.map((key, index) => (
           <div
+            key={key}
             className={twJoin(
               "pl-6 pr-9 pb-4 pt-3",
               index === 1 && "px-6 pl-0 pr-0",
@@ -37,6 +37,7 @@ export const SearchMenu = ({ data, onClick }: ISearchMenuProps) => {
             >
               {data[key].map((item) => (
                 <li
+                  key={item}
                   className="text-p3 text-core-blue cursor-pointer"
                   onClick={() => onClick(item)}
                 >

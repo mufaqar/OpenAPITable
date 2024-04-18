@@ -1,6 +1,10 @@
 import { Table } from "@/components/templates";
-import React from "react";
+import React, { Suspense } from "react";
 
 export default function OpenAPITable() {
-  return <Table />;
+  return (
+    <Suspense>
+      <Table />
+    </Suspense>
+  );
 }
