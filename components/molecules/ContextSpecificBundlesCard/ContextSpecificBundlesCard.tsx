@@ -36,7 +36,7 @@ export const ContextSpecificBundlesCard: FC<IContextSpecificBundlesCardProps> = 
           size='full'
           icon={<HiOutlineCloudDownload />}
           color='white'
-          className="!bg-transparent !text-white border-white"
+          className="!bg-transparent !text-white border-white py-2"
         >
           Download bundle
         </Button>
@@ -44,6 +44,7 @@ export const ContextSpecificBundlesCard: FC<IContextSpecificBundlesCardProps> = 
           size='sm'
           icon={<HiArrowNarrowRight />}
           iconPosition='right'
+          className='py-2'
         >
           View
         </Button>

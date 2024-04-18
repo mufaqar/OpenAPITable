@@ -1,8 +1,11 @@
+import { ApiBundle } from '@/components/templates'
 import React from 'react'
 
 const APIBundlePage = () => {
   return (
-    <div>APIBundlePage</div>
+    <>
+    <ApiBundle/>
+    </>
   )
 }
 

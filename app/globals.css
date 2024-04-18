@@ -98,3 +98,9 @@ body {
 .slick-dots li.slick-active{
   margin-right: 8px !important;
 }
+
+.text-gradient {
+  background: -webkit-linear-gradient(#860000, #E0121D  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
