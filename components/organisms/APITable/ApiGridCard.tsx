@@ -11,7 +11,7 @@ interface IDataProps {
     data: IOpenAPITableData
 }
 
-const ApiGridCard: FC<IDataProps> = ({ data }) => {
+export const ApiGridCard: FC<IDataProps> = ({ data }) => {
     return (
         <div className='bg-white px-2 py-3 flex gap-3 items-center justify-between rounded-xl flex-1'>
             <div className='flex items-center gap-3'>
@@ -32,5 +32,3 @@ const ApiGridCard: FC<IDataProps> = ({ data }) => {
         </div>
     )
 }
-
-export default ApiGridCard
