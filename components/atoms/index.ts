@@ -7,3 +7,4 @@ export * from "./CloseButton";
 export * from "./Headings";
 export * from "./TableListButton";
 export * from "./Badge";
+export * from "./Ship";

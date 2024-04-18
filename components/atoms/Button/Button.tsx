@@ -5,7 +5,7 @@ interface IButtonProps {
   children: React.ReactNode;
   icon?: React.ReactNode | undefined;
   size?: "sm" | "md" | "full";
-  color?: "primary" | "secondary" | "white";
+  color?: "primary" | "secondary" | "white" ;
   iconPosition?: "left" | "right";
   type?: "button" | "submit" | "reset";
   className?: string;
@@ -47,8 +47,9 @@ export const Button = ({
       type={type}
       onClick={onClick}
     >
-      {icon}
+      {iconPosition === "left" && icon}
       <span className="font-bold">{children}</span>
+      {iconPosition === "right" && icon}
     </button>
   );
 };
