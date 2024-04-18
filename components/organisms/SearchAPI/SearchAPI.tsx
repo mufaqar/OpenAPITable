@@ -6,7 +6,7 @@ import { PiListDashesBold } from "react-icons/pi";
 import useSelectApiTableStyle from '@/hooks/useSelectApiTableStyle';
 
 
-const SearchAPI = () => {
+export const SearchAPI = () => {
     const { handleTableStyle, tableStyle } = useSelectApiTableStyle()
 
     return (
@@ -30,4 +30,3 @@ const SearchAPI = () => {
     )
 }
 
-export default SearchAPI

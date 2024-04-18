@@ -4,7 +4,7 @@ import React from 'react'
 import { HiOutlineArrowSmRight } from "react-icons/hi";
 
 
-const OpenAPITranning = () => {
+export const OpenAPITranning = () => {
     return (
         <section className="container mx-auto md:flex gap-10 mb-20 text-core-blue">
             <aside className="max-w-[250px] mb-6">
@@ -34,4 +34,3 @@ const OpenAPITranning = () => {
     )
 }
 
-export default OpenAPITranning

@@ -1,9 +1,23 @@
+import { IImageProps } from '@/util/interfaces';
 import Image from 'next/image'
-import React from 'react'
+import React, { FC } from 'react'
 
 import { FaRegFileAlt } from "react-icons/fa";
 
-const ArticleCard = ({ data }: any) => {
+interface IArticleProps {
+  data:IArticleCard
+}
+
+interface IArticleCard {
+  title: string
+  image: IImageProps
+  category: string
+  author: string
+}
+
+
+export const ArticleCard:FC<IArticleProps> = ({ data }) => {
+  console.log("🚀 ~ data:", data)
   return (
     <div className='px-2'>
       <div>
@@ -23,4 +37,3 @@ const ArticleCard = ({ data }: any) => {
   )
 }
 
-export default ArticleCard

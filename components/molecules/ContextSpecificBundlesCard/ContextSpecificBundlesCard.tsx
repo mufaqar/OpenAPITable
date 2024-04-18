@@ -1,17 +1,26 @@
-import { IContextSpecificBundlesProps } from '@/util/types/contextSpecificBundleTypes'
+
 import React, { FC } from 'react'
 import globIcon from '../../../public/icons/glob.svg'
 import Image from 'next/image'
 import { Button } from '@/components/atoms'
 
-import { 
-  HiOutlineCloudDownload, 
-  HiArrowNarrowRight 
+import {
+  HiOutlineCloudDownload,
+  HiArrowNarrowRight
 } from "react-icons/hi";
+import { IImageProps } from '@/util/interfaces'
 
+interface IContextSpecificBundlesCardProps {
+  data: {
+    name: string
+    tag: string
+    info: string
+    downloadBundleFile: IImageProps,
+    href: string
+  }
+}
 
-
-const ContextSpecificBundlesCard: FC<any> = ({ data }) => {
+export const ContextSpecificBundlesCard: FC<IContextSpecificBundlesCardProps> = ({ data }) => {
   return (
     <div className="bg-white/50 border border-gray-300 rounded-tl-3xl rounded-br-3xl p-4">
       <div className="flex items-center justify-between">
@@ -43,4 +52,3 @@ const ContextSpecificBundlesCard: FC<any> = ({ data }) => {
   )
 }
 
-export default ContextSpecificBundlesCard

@@ -10,7 +10,7 @@ import {
 } from '@/components/organisms'
 import React from 'react'
 
-const OpenAI = () => {
+export const OpenAI = () => {
   return (
     <>
       <Hero
@@ -28,4 +28,3 @@ const OpenAI = () => {
   )
 }
 
-export default OpenAI

@@ -1,43 +1,39 @@
-import { Button } from '@/components/atoms'
-import React from 'react'
 
-import { HiArrowNarrowRight } from "react-icons/hi";
-
-import projectImageOne from '../../../public/images/Project-image-1.png'
-import projectImageTwo from '../../../public/images/Project-image-2.png'
-import projectImageThree from '../../../public/images/Project-image-3.png'
+import { Button } from '@/components/atoms';
+import React from 'react';
+import { HiArrowNarrowRight } from 'react-icons/hi';
+import projectImageOne from '../../../public/images/Project-image-1.png';
+import projectImageTwo from '../../../public/images/Project-image-2.png';
+import projectImageThree from '../../../public/images/Project-image-3.png';
 import { CatalystProjectCard } from '@/components/molecules';
+import { ICatalystProjects } from '@/util/interfaces';
 
-const CatalystProjects = () => {
+export const CatalystProjects: React.FC = () => {
   return (
     <section className="bg-light-grey py-12">
       <div className="container mx-auto">
-        <div className="flex flex-col md:flex-row gap-3 md:items-center md:justify-between ">
+        <div className="flex flex-col md:flex-row gap-3 md:items-center md:justify-between">
           <h3 className="text-2xl md:text-[32px] text-core-blue font-bold">Related Catalyst projects</h3>
           <Button
             icon={<HiArrowNarrowRight />}
-            iconPosition='right'
-            size='md'
+            iconPosition="right"
+            size="md"
           >
             View all projects
           </Button>
         </div>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8'>
-            {
-              catalystProjectsData?.map((item,idx)=>(
-                <CatalystProjectCard data={item} key={idx}/>
-              ))
-            }
+          {catalystProjectsData?.map((item, idx: number) => (
+            <CatalystProjectCard data={item} key={idx} />
+          ))}
         </div>
       </div>
     </section>
-  )
-}
-
-export default CatalystProjects
+  );
+};
 
 
-const catalystProjectsData = [
+const catalystProjectsData: ICatalystProjects[] = [
   {
     title: 'Lorum ipsum dolor sit amet',
     slug: '#',
@@ -59,4 +55,4 @@ const catalystProjectsData = [
     image: projectImageThree,
     tag: 'finalist'
   }
-]
+];

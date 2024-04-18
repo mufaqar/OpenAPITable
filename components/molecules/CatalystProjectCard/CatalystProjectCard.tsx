@@ -1,11 +1,15 @@
+import { ICatalystProjects } from '@/util/interfaces';
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { FC } from 'react'
 
 import { FaArrowRight } from "react-icons/fa6";
 
+export interface ICatalystProjectsProps {
+    data: ICatalystProjects
+}
 
-const CatalystProjectCard = ({ data }: any) => {
+export const CatalystProjectCard:FC<ICatalystProjectsProps> = ({ data }) => {
     return (
         <div className='shadow-card rounded-tl-[40px] rounded-br-[40px] overflow-hidden'>
             <figure className='relative'>
@@ -25,4 +29,3 @@ const CatalystProjectCard = ({ data }: any) => {
     )
 }
 
-export default CatalystProjectCard

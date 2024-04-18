@@ -6,7 +6,7 @@ const NavigationSearch = () => {
   const router = useRouter();
   const [value, setValue] = useState("");
 
-  const handleFormSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
+  const handleFormSubmit = (e:any) => {
     e.preventDefault();
     router.push(`https://www.tmforum.org/?s=${value}`);
   };
@@ -36,7 +36,7 @@ const NavigationSearch = () => {
         <div>
           <div
             className="navigation__search__icon"
-            onClick={(e: any) => handleFormSubmit(e)}
+            onClick={(e) => handleFormSubmit(e)}
           >
             <Image
               src="/oda/open-apis/icons/tmf-search-icon-white.svg"

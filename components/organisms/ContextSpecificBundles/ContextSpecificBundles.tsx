@@ -1,3 +1,4 @@
+
 import { MainHeading } from '@/components/atoms'
 import React from 'react'
 import downloadFile from '../../../public/images/IntroductionAPI.png'
@@ -6,7 +7,7 @@ import { IContextSpecificBundlesProps } from '@/util/types/contextSpecificBundle
 
 
 
-const ContextSpecificBundles = () => {
+export const ContextSpecificBundles = () => {
     return (
         <section className="bg-core-blue py-16 text-white mb-20">
             <div className="container mx-auto">
@@ -24,7 +25,6 @@ const ContextSpecificBundles = () => {
     )
 }
 
-export default ContextSpecificBundles
 
 
 const bundles = [

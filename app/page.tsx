@@ -1,4 +1,4 @@
-import { OpenAI } from "@/components/templates";
+import { OpenAI } from "@/components/templates/OpenAI/OpenAI";
 
 export default function Home() {
   return (

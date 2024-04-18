@@ -3,7 +3,7 @@ import { twMerge } from "tailwind-merge";
 
 interface IButtonProps {
   children: React.ReactNode;
-  icon?: React.ReactNode | any;
+  icon?: React.ReactNode | undefined;
   size?: "sm" | "md" | "full";
   color?: "primary" | "secondary" | "white";
   iconPosition?: "left" | "right";

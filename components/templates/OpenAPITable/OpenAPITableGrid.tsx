@@ -5,7 +5,7 @@ import { IOpenAPITableProps } from '@/util/types/ApiTable'
 import React, { FC } from 'react'
 
 
-const OpenAPITableGrid: FC<IOpenAPITableProps> = ({
+export const OpenAPITableGrid: FC<IOpenAPITableProps> = ({
   MarketingSalesAPIs,
   CustomerAPIs,
   ProductAPIs
@@ -46,5 +46,3 @@ const OpenAPITableGrid: FC<IOpenAPITableProps> = ({
     </>
   )
 }
-
-export default OpenAPITableGrid

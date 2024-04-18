@@ -1,7 +1,7 @@
 import { MainHeading } from '@/components/atoms'
 import React from 'react'
 
-const APIOverview = () => {
+export const APIOverview = () => {
   return (
     <section className="bg-light-grey">
       <div className="max-w-[1030px] w-full mx-auto py-20 text-center " id="overview">
@@ -14,4 +14,3 @@ const APIOverview = () => {
   )
 }
 
-export default APIOverview

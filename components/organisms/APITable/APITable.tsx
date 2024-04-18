@@ -5,7 +5,7 @@ import { APITablesettings } from '@/util/helpers/sliderSettings';
 import React from 'react'
 import Slider from "react-slick";
 
-const APITable = () => {
+export const APITable = () => {
    
     return (
         <section className="pb-20 bg-light-grey">
@@ -13,7 +13,7 @@ const APITable = () => {
             <div className="overflow-x-hidden">
                 <Slider {...APITablesettings}>
                     {
-                        tables?.map((item, idx: any) => (
+                        tables?.map((item, idx: number) => (
                             <APITableCard data={item} key={idx} id={idx + 1} />
                         ))
                     }
@@ -23,7 +23,6 @@ const APITable = () => {
     )
 }
 
-export default APITable
 
 
 const tables = [

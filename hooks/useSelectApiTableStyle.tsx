@@ -5,9 +5,9 @@ import { useEffect, useState } from "react"
 
 const useSelectApiTableStyle = () => {
     const router = useRouter()
-    const [tableStyle, setTableStyle] = useState('grid')
-    const params:any = useSearchParams()
-    const style = params.get('style')
+    const [tableStyle, setTableStyle] = useState<string | null>('grid')
+    const searchParams: URLSearchParams = useSearchParams();
+    const style: string | null = searchParams.get('style');
 
     const handleTableStyle = (style: string) => {
         router.push(`?style=${style}`)

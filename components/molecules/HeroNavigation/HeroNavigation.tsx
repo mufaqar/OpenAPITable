@@ -1,9 +1,13 @@
 "use client"
 import { useRouter } from "next/navigation";
 import { twJoin } from "tailwind-merge";
-import { useState } from "react";
+import { FC, useState } from "react";
 
-export const HeroNavigation = ({navigation}:any) => {
+interface IHeroNavigationProps {
+  navigation?: boolean
+}
+
+export const HeroNavigation:FC<IHeroNavigationProps> = ({navigation}) => {
   const router = useRouter()
   const [activeNavigation, setActiveNavigation] = useState<string>('#overview')
   const handleNavigation = (href:string) => {

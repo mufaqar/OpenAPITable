@@ -3,7 +3,7 @@ import Image from 'next/image'
 import React from 'react'
 import IntroductionAPIImage from '../../../public/images/IntroductionAPI.png'
 
-const IntroductionAPI = () => {
+export const IntroductionAPI = () => {
     return (
         <section className="container mx-auto py-20">
             <div className="">
@@ -34,4 +34,3 @@ const IntroductionAPI = () => {
     )
 }
 
-export default IntroductionAPI

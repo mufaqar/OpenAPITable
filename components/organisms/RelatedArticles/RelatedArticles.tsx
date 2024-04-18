@@ -17,7 +17,7 @@ import aricleImageThree from '../../../public/images/related-article-3.png'
 import aricleImageFour from '../../../public/images/related-article-4.png'
 import aricleImageFive from '../../../public/images/related-article-5.png'
 
-const RelatedArticles = () => {
+export const RelatedArticles = () => {
   return (
     <section className="bg-light-grey py-12 pb-20 articles">
       <div className="container mx-auto">
@@ -42,7 +42,7 @@ const RelatedArticles = () => {
         <div className='mt-8'>
         <Slider {...ProductsSetting}>
                     {
-                        articles?.map((item, idx: any) => (
+                        articles?.map((item, idx: number) => (
                             <ArticleCard data={item} key={idx}/>
                         ))
                     }
@@ -52,8 +52,6 @@ const RelatedArticles = () => {
     </section>
   )
 }
-
-export default RelatedArticles
 
 
 const articles = [

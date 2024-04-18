@@ -1,11 +1,10 @@
 'use client'
 import React from 'react'
-import OpenAPITableGrid from './OpenAPITableGrid'
 import useSelectApiTableStyle from '@/hooks/useSelectApiTableStyle'
-import OpenAPITableList from './OpenAPITableList'
 import { Hero, SearchAPI } from '@/components/organisms'
+import { OpenAPITableGrid, OpenAPITableList } from '@/components/templates'
 
-const OpenAPITable = () => {
+export const OpenAPITable = () => {
   const { tableStyle } = useSelectApiTableStyle()
 
   return (
@@ -29,7 +28,6 @@ const OpenAPITable = () => {
   )
 }
 
-export default OpenAPITable
 
 
 const MarketingSalesAPIs = [

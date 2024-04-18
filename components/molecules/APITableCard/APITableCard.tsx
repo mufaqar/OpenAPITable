@@ -1,11 +1,14 @@
 import React from 'react'
 
 interface IAPITableCardProps {
-    data: any,
+    data: {
+        content: string
+    },
     id: number
 }
 
-const APITableCard = ({ data, id }: IAPITableCardProps) => {
+
+export const APITableCard = ({ data, id }: IAPITableCardProps) => {
     return (
         <div className="text-white px-2 md:px-6">
             <div className="bg-core-blue p-6 rounded-tl-[40px] rounded-br-[40px] flex flex-col md:flex-row gap-6">
@@ -15,5 +18,3 @@ const APITableCard = ({ data, id }: IAPITableCardProps) => {
         </div>
     )
 }
-
-export default APITableCard
