@@ -17,6 +17,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@headlessui/react": "^1.7.18",
     "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-accordion": "^1.1.2",
     "@reduxjs/toolkit": "^2.2.1",
     "next": "14.1.0",
     "next-usequerystate": "^1.17.1",

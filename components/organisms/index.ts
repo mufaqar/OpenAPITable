@@ -16,3 +16,4 @@ export * from "./APITable";
 export * from "./BroadbandScenarios";
 export * from "./APIComponentsMap";
 export * from "./APIComponentsList";
+export * from "./APIGroupSection";
