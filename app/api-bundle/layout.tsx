@@ -1,6 +1,6 @@
 import React from 'react'
 
-const OpenApiTableLayout = ({
+const ApiBundleLayout = ({
     children,
 }: Readonly<{
     children: React.ReactNode;
@@ -10,4 +10,4 @@ const OpenApiTableLayout = ({
     )
 }
 
-export default OpenApiTableLayout
+export default ApiBundleLayout
