@@ -1,12 +1,15 @@
 import {
   AssetSection,
   CodeReferenceSection,
+  ComponentsSection,
   ContextSection,
-  FAQSection,
+  UseCaseSection,
   Hero,
   OverviewSection,
   RecentCertificationsSection,
   VersionHistorySection,
+  TimeLineSection,
+  MemberProjectSection,
 } from "@/components/organisms";
 import { AssetListType } from "@/util/types";
 
@@ -20,8 +23,10 @@ export const APISingleRrest = () => {
       <VersionHistorySection />
       <ContextSection />
       <RecentCertificationsSection />
-
-      {/* <FAQSection /> */}
+      <ComponentsSection />
+      <UseCaseSection />
+      <TimeLineSection />
+      <MemberProjectSection />
     </>
   );
 };

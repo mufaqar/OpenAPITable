@@ -10,3 +10,6 @@ export * from "./TableFilter";
 export * from "./APICard";
 export * from "./Alphabet";
 export * from "./Search";
+export * from "./RecentCertificationCard";
+export * from "./ComponentSectionCard";
+export * from "./TimeLineCard";

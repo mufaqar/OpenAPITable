@@ -1,5 +1,5 @@
 import { Button } from "@/components/atoms";
-import { RecentCertificationCard } from "@/components/molecules/RecentCertificationCard";
+import { RecentCertificationCard } from "@/components/molecules";
 import Image from "next/image";
 
 export const RecentCertificationsSection = () => {

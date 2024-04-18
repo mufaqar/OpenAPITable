@@ -8,3 +8,5 @@ export * from "./Headings";
 export * from "./TableListButton";
 export * from "./Badge";
 export * from "./Ship";
+export * from "./ShipText";
+export * from "./IconsCard";
