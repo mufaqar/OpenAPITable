@@ -1,7 +1,8 @@
 import { MainHeading } from '@/components/atoms'
 import Image from 'next/image'
 import React from 'react'
-import IntroductionAPIImage from '../../../public/images/IntroductionAPI.png'
+
+var  IntroductionAPIImage = '/oda/open-apis/images/IntroductionAPI.png'
 
 export const IntroductionAPI = () => {
     return (
@@ -25,7 +26,7 @@ export const IntroductionAPI = () => {
                             <h6 className="uppercase font-medium text-sm">Vice President, Technology Strategy, Hansen.</h6>
                         </div>
                         <div className="absolute bg-white p-1 rounded-full md:-left-[140px] left-5 !-top-16 md:-top-28">
-                            <Image src={IntroductionAPIImage.src} alt="IntroductionAPI Pic" width={540} height={540} className="md:w-[200px] w-[120px] h-[120px] md:h-[200px] rounded-full object-cover" />
+                            <Image src={IntroductionAPIImage} alt="IntroductionAPI Pic" width={540} height={540} className="md:w-[200px] w-[120px] h-[120px] md:h-[200px] rounded-full object-cover" />
                         </div>
                     </div>
                 </div>

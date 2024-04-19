@@ -1,6 +1,5 @@
 
 import React, { FC } from 'react'
-import globIcon from '../../../public/icons/glob.svg'
 import Image from 'next/image'
 import { Button } from '@/components/atoms'
 
@@ -26,7 +25,7 @@ export const ContextSpecificBundlesCard: FC<IContextSpecificBundlesCardProps> = 
       <div className="flex items-center justify-between">
         <h5>{data.tag}</h5>
         <figure className="bg-core-lightBlue p-2 rounded-full">
-          <Image src={globIcon.src} className="" width={24} height={24} alt={data.name} />
+          <Image src="/oda/open-apis/icons/glob.svg" className="" width={24} height={24} alt={data.name} />
         </figure>
       </div>
       <h3 className="font-medium text-2xl mt-2 mb-1">{data.name}</h3>

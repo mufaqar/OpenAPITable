@@ -10,7 +10,7 @@ interface IArticleProps {
 
 interface IArticleCard {
   title: string
-  image: IImageProps
+  image: string
   category: string
   author: string
 }
@@ -22,7 +22,7 @@ export const ArticleCard:FC<IArticleProps> = ({ data }) => {
     <div className='px-2'>
       <div>
         <figure className='relative'>
-          <Image src={data.image.src} alt={data.title} width={500} height={300} className='h-[150px] object-cover w-full' />
+          <Image src={data.image} alt={data.title} width={500} height={300} className='h-[150px] object-cover w-full' />
           <span className='bg-[#B71A5D] text-core-blue p-3 absolute top-0 left-0 rounded-br-[16px]'>
             <FaRegFileAlt size={16}/>
           </span>

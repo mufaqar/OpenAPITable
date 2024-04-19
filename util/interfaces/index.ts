@@ -4,7 +4,7 @@ export interface ICatalystProjects{
     title: string
     slug: string
     info: string
-    image: IImageProps
+    image: string
     tag: string
 }
 

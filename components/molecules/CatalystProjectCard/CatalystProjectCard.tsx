@@ -13,7 +13,7 @@ export const CatalystProjectCard:FC<ICatalystProjectsProps> = ({ data }) => {
     return (
         <div className='shadow-card rounded-tl-[40px] rounded-br-[40px] overflow-hidden'>
             <figure className='relative'>
-                <Image src={data.image.src} alt={data.title} width={500} height={400} className='h-[183px] object-cover w-full' />
+                <Image src={data.image} alt={data.title} width={500} height={400} className='h-[183px] object-cover w-full' />
                 <button className='font-medium absolute text-xs p-2 uppercase bg-core-lightBlue text-white right-4 bottom-4 rounded-tl-[10px] rounded-br-[10px]'>{data?.tag}
                 </button>
             </figure>
