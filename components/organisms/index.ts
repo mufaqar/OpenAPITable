@@ -5,3 +5,5 @@ export * from "./Hero";
 export * from "./MainLayout";
 export * from "./Navigation";
 export * from "./OverviewSection";
+export * from "./ModalProvider";
+export * from "./ImageModal";

@@ -4,6 +4,7 @@ import { AuthProvider } from "react-oidc-context";
 import { Provider } from "react-redux";
 import Footer from "../Footer/Footer";
 import Navigation from "../Navigation/Navigation";
+import { ModalProvider } from "../ModalProvider";
 
 interface IMainLayout {
   children: React.ReactNode;
@@ -298,6 +299,8 @@ export const MainLayout = ({ children }: IMainLayout) => {
           {/* @ts-ignore */}
           <Navigation logoSrc={logoSrc} navigationLinks={navigationLinks} />
           <main>{children}</main>
+
+          <ModalProvider />
         </AuthProvider>
       </Provider>
       <Footer />
