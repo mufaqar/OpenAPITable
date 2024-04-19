@@ -11,12 +11,6 @@ import { FaFileAlt } from "react-icons/fa";
 import { IoVideocam } from "react-icons/io5";
 import { AiFillSound } from "react-icons/ai";
 
-import aricleImageOne from '../../../public/images/related-article-1.png'
-import aricleImageTwo from '../../../public/images/related-article-2.png'
-import aricleImageThree from '../../../public/images/related-article-3.png'
-import aricleImageFour from '../../../public/images/related-article-4.png'
-import aricleImageFive from '../../../public/images/related-article-5.png'
-
 export const RelatedArticles = () => {
   return (
     <section className="bg-light-grey py-12 pb-20 articles">
@@ -60,34 +54,34 @@ const articles = [
         slug:"#",
         author: "joanne taaffe",
         category: "IT TRANSFORMATION",
-        image: aricleImageOne
+        image: '/oda/open-apis/images/related-article-1.png'
     },
     {
         title:"Vodacom CIO plans for digital and financial service revenue growth",
         slug:"#",
         author: "joanne taaffe",
         category: "IT TRANSFORMATION",
-        image: aricleImageTwo
+        image: '/oda/open-apis/images/related-article-2.png'
     },
     {
         title:"The changing face of telecoms: A spotlight on Toni-Ann Grant, BT",
         slug:"#",
         author: "joanne taaffe",
         category: "IT TRANSFORMATION",
-        image: aricleImageThree
+        image: '/oda/open-apis/images/related-article-3.png'
     },
     {
         title:"Driving technological and cultural innovation",
         slug:"#",
         author: "joanne taaffe",
         category: "IT TRANSFORMATION",
-        image: aricleImageFour
+        image: '/oda/open-apis/images/related-article-4.png'
     },
     {
         title:"DTWS: Choosing your friends wisely",
         slug:"#",
         author: "joanne taaffe",
         category: "IT TRANSFORMATION",
-        image: aricleImageFive
+        image: '/oda/open-apis/images/related-article-5.png'
     }
 ]

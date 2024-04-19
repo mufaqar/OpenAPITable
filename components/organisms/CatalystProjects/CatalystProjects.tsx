@@ -38,21 +38,21 @@ const catalystProjectsData: ICatalystProjects[] = [
     title: 'Lorum ipsum dolor sit amet',
     slug: '#',
     info: 'Lorem ipsum dolor sit amet lacinia feugiat tempor. Tellus curabitur odio dictumst scelerisque sollicitudin rhoncus sapien.',
-    image: projectImageOne,
+    image: '/oda/open-apis/images/Project-image-1.png',
     tag: 'finalist'
   },
   {
     title: 'Lorum ipsum dolor sit amet',
     slug: '#',
     info: 'Lorem ipsum dolor sit amet lacinia feugiat tempor. Tellus curabitur odio dictumst scelerisque sollicitudin rhoncus sapien.',
-    image: projectImageTwo,
+    image: '/oda/open-apis/images/Project-image-2.png',
     tag: 'finalist'
   },
   {
     title: 'Lorum ipsum dolor sit amet',
     slug: '#',
     info: 'Lorem ipsum dolor sit amet lacinia feugiat tempor. Tellus curabitur odio dictumst scelerisque sollicitudin rhoncus sapien.',
-    image: projectImageThree,
+    image: '/oda/open-apis/images/Project-image-3.png',
     tag: 'finalist'
   }
 ];

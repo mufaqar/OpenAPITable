@@ -1,7 +1,6 @@
 
 import { MainHeading } from '@/components/atoms'
 import React from 'react'
-import downloadFile from '../../../public/images/IntroductionAPI.png'
 import { ContextSpecificBundlesCard } from '@/components/molecules'
 import { IContextSpecificBundlesProps } from '@/util/types/contextSpecificBundleTypes'
 
@@ -32,21 +31,21 @@ const bundles = [
         name: "Wholesale broadband",
         tag: "Contains 13 APIs",
         info: "Lorem ipsum dolor sit amet consectetur. Quis id sed imperdiet tempus netus enim morbi. Elementum fame",
-        downloadBundleFile: downloadFile,
+        downloadBundleFile: '/oda/open-apis/images/IntroductionAPI.png',
         href: "#"
     },
     {
         name: "5G slice",
         tag: "Contains XX APIs",
         info: "Lorem ipsum dolor sit amet consectetur. Quis id sed imperdiet tempus netus enim morbi. Elementum fame",
-        downloadBundleFile: downloadFile,
+        downloadBundleFile: '/oda/open-apis/images/IntroductionAPI.png',
         href: "#"
     },
     {
         name: "5G slice",
         tag: "Set-top box",
         info: "Lorem ipsum dolor sit amet consectetur. Quis id sed imperdiet tempus netus enim morbi. Elementum fame",
-        downloadBundleFile: downloadFile,
+        downloadBundleFile: '/oda/open-apis/images/IntroductionAPI.png',
         href: "#"
     }
 ]

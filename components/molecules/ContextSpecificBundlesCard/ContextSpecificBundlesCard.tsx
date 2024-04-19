@@ -8,14 +8,13 @@ import {
   HiOutlineCloudDownload,
   HiArrowNarrowRight
 } from "react-icons/hi";
-import { IImageProps } from '@/util/interfaces'
 
 interface IContextSpecificBundlesCardProps {
   data: {
     name: string
     tag: string
     info: string
-    downloadBundleFile: IImageProps,
+    downloadBundleFile: string,
     href: string
   }
 }
