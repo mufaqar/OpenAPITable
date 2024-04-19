@@ -4,16 +4,7 @@ export interface ICatalystProjects{
     title: string
     slug: string
     info: string
-    image: IImageProps
+    image: string
     tag: string
 }
 
-export interface IImageProps {
-    blurDataURL: string
-    blurHeight: number
-    blurWidth: number
-    height: number
-    src: string
-    width:number
-  }
-  

@@ -6,7 +6,7 @@ interface IHeroProps {
   title: string;
   imageSrc?: string;
   withNavigation?: boolean;
-  breadcrumbItems: BreadcrumbItem[];
+  breadcrumbItems?: BreadcrumbItem[];
 }
 
 export const Hero = ({

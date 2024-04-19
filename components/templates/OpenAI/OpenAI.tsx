@@ -15,7 +15,6 @@ export const OpenAI = () => {
     <>
       <Hero
         title="Open APIs"
-        navigation={true}
       />
       <APIOverview />
       <APITable />

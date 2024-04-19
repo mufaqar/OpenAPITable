@@ -15,8 +15,7 @@ export const ApiBundle = () => {
     return (
         <>
             <Hero
-                activeItem="Open API Bundle Name"
-                navigation={true}
+                breadcrumbItems={[{title:'Open API Bundle Name', href:'/'}]}
                 title='Wholesale broadband'
             />
             <ApiBundleOverview />
