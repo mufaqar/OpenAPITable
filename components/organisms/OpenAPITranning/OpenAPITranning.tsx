@@ -7,7 +7,8 @@ import { HiOutlineArrowSmRight } from "react-icons/hi";
 export const OpenAPITranning = () => {
     return (
         <section className="container mx-auto md:flex gap-10 mb-20 text-core-blue">
-            <aside className="max-w-[250px] mb-6">
+            <aside className="max-w-[250px] mb-6 ">
+                <div className='!sticky md:!top-24'>
                 <h3 className="font-bold text-lg relative">Sections
                     <span className="pt-[2px] w-[78px] -bottom-2 left-0 bg-core-blue absolute" />
                 </h3>
@@ -16,6 +17,7 @@ export const OpenAPITranning = () => {
                     <li className="mt-5">A growing industry-led community</li>
                     <li className="mt-5">Built by the members, for the members</li>
                 </ul>
+                </div>
             </aside>
             <div className="flex-1">
                 <h3 className="text-2xl font-medium">Leading the industry in Open API standards</h3>
@@ -31,6 +33,7 @@ export const OpenAPITranning = () => {
                 <p className="mt-5">This team creates a full set of Open API assets for members to implement Open APIs - from guidelines (REST API Design Guidelines), to specification, to usable code, through to the compliance test kits - see the Open API table for more details.</p>
             </div>
         </section>
+
     )
 }
 
