@@ -1,27 +1,32 @@
-"use client"
+"use client";
 import { useRouter } from "next/navigation";
 import { twJoin } from "tailwind-merge";
 import { FC, useState } from "react";
 
-interface IHeroNavigationProps {
-  navigation?: boolean
-}
+interface IHeroNavigationProps {}
 
-export const HeroNavigation:FC<IHeroNavigationProps> = ({navigation}) => {
-  const router = useRouter()
-  const [activeNavigation, setActiveNavigation] = useState<string>('#overview')
-  const handleNavigation = (href:string) => {
-    setActiveNavigation(href)
-    router.push(href)
-  }
+export const HeroNavigation: FC<IHeroNavigationProps> = ({}) => {
+  const router = useRouter();
+  const [activeNavigation, setActiveNavigation] = useState<string>("#overview");
+  const handleNavigation = (href: string) => {
+    setActiveNavigation(href);
+    router.push(href);
+  };
 
   return (
-    <nav className={`flex items-center sm:justify-center space-x-3 sm:space-x-7 md:space-x-10 text-white text-xs sm:text-sm flex-wrap ${!navigation && 'invisible'}`}>
+    <nav
+      className={`flex items-center sm:justify-center space-x-3 sm:space-x-7 md:space-x-10 text-white text-xs sm:text-sm flex-wrap`}
+    >
       {items.map((item) => (
         <button
           key={item.id}
-          onClick={()=>handleNavigation(item.href)}
-          className={twJoin("py-4 border-b uppercase", item.href === activeNavigation ? " border-b-white" : "border-transparent")}
+          onClick={() => handleNavigation(item.href)}
+          className={twJoin(
+            "py-4 border-b uppercase",
+            item.href === activeNavigation
+              ? " border-b-white"
+              : "border-transparent",
+          )}
         >
           {item.title}
         </button>

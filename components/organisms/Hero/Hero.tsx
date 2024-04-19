@@ -7,7 +7,6 @@ interface IHeroProps {
   imageSrc?: string;
   withNavigation?: boolean;
   breadcrumbItems: BreadcrumbItem[];
-  navigation?: any;
 }
 
 export const Hero = ({
@@ -15,7 +14,6 @@ export const Hero = ({
   imageSrc,
   withNavigation,
   breadcrumbItems,
-  navigation,
 }: IHeroProps) => {
   return (
     <section className="py-6 bg-core-blue lg:rounded-bl-[160px] mt-[62px]">
@@ -32,7 +30,7 @@ export const Hero = ({
           )}
         </div>
 
-        {withNavigation ?? <HeroNavigation navigation={navigation} />}
+        {withNavigation ?? <HeroNavigation />}
       </div>
     </section>
   );
