@@ -12,7 +12,6 @@ export * from "./ContextSpecificBundles/ContextSpecificBundles";
 export * from "./OpenAPITranning";
 export * from "./CatalystProjects";
 export * from "./RelatedArticles";
-export * from "./SearchAPI";
 export * from "./APITable";
 export * from "./BroadbandScenarios";
 export * from "./APIComponentsMap";
