@@ -1,16 +1,30 @@
+"use client"
+import { useRouter } from "next/navigation";
 import { twJoin } from "tailwind-merge";
+import { FC, useState } from "react";
 
-export const HeroNavigation = () => {
+interface IHeroNavigationProps {
+  navigation?: boolean
+}
+
+export const HeroNavigation:FC<IHeroNavigationProps> = ({navigation}) => {
+  const router = useRouter()
+  const [activeNavigation, setActiveNavigation] = useState<string>('#overview')
+  const handleNavigation = (href:string) => {
+    setActiveNavigation(href)
+    router.push(href)
+  }
+
   return (
-    <nav className="flex items-center justify-center space-x-10 text-white uppercase text-sm flex-wrap">
+    <nav className={`flex items-center sm:justify-center space-x-3 sm:space-x-7 md:space-x-10 text-white text-xs sm:text-sm flex-wrap ${!navigation && 'invisible'}`}>
       {items.map((item) => (
-        <a
+        <button
           key={item.id}
-          href={item.href}
-          className={twJoin("py-6", item.id === 1 && "border-b border-b-white")}
+          onClick={()=>handleNavigation(item.href)}
+          className={twJoin("py-4 border-b uppercase", item.href === activeNavigation ? " border-b-white" : "border-transparent")}
         >
           {item.title}
-        </a>
+        </button>
       ))}
     </nav>
   );

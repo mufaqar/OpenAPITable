@@ -67,3 +67,40 @@ body {
 .accordion-content-markdown img {
   @apply py-8;
 }
+
+
+/* slick slider  */
+.slick-list{padding:0 !important}
+/* slick dots  */
+.slick-dots li{
+  margin-top: 2rem !important;
+}
+.articles .slick-track{
+  padding-bottom: 2.5rem;
+}
+.slick-dots li{
+  margin: 0 0 !important
+}
+.slick-dots li button:before{
+  width: 10px !important;
+  height: 10px !important;
+  background: transparent;
+  border: 1px solid #3577DA;
+  border-radius: 100%;
+  opacity: 1 !important;
+  content: '' !important;
+}
+.slick-dots li.slick-active button:before{
+  background: #3577DA !important;
+  width: 20px !important;
+  border-radius: 10px !important;
+}
+.slick-dots li.slick-active{
+  margin-right: 8px !important;
+}
+
+.text-gradient {
+  background: -webkit-linear-gradient(#860000, #E0121D  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

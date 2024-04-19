@@ -11,3 +11,4 @@ export type AssetListType = {
   type: AssetTypeEnum;
   url: string;
 };
+
