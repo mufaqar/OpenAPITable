@@ -5,3 +5,5 @@ export * from "./DetailsCard";
 export * from "./SVG";
 export * from "./CloseButton";
 export * from "./Headings";
+export * from "./TableListButton";
+export * from "./Badge";

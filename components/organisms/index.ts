@@ -15,3 +15,5 @@ export * from "./RelatedArticles";
 export * from "./SearchAPI";
 export * from "./APITable";
 export * from "./BroadbandScenarios";
+export * from "./APIComponentsMap";
+export * from "./APIComponentsList";
