@@ -1,6 +1,4 @@
 import React, { FC } from 'react'
-import { ComponentMapCard } from '../ComponentMapCard'
-import { IComponentMapCardProps } from '@/util/interfaces'
 
 export const EngagementManagement = () => {
   return (
