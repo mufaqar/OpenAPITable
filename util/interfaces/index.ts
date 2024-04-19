@@ -17,3 +17,10 @@ export interface IImageProps {
     width:number
   }
   
+
+  export interface IComponentMapCardProps {
+    data: {
+      name: string
+      tag: string
+    }[]
+  }

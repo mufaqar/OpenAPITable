@@ -4,7 +4,8 @@ import {
     CatalystProjects,
     Hero,
     RelatedArticles,
-    BroadbandScenarios
+    BroadbandScenarios,
+    ComponentMap
 } from '@/components/organisms'
 import React from 'react'
 
@@ -22,13 +23,12 @@ export const ApiBundle = () => {
             <ApiBundleOverview />
             <APIConteent />
             <BroadbandScenarios/>
-
+             <ComponentMap/>   
             <CatalystProjects />
             <RelatedArticles />
         </>
     )
 }
-
 
 
 
