@@ -4,7 +4,7 @@ export interface ICatalystProjects{
     title: string
     slug: string
     info: string
-    image: IImageProps
+    image: string
     tag: string
 }
 
@@ -17,3 +17,10 @@ export interface IImageProps {
     width:number
   }
   
+
+  export interface IComponentMapCardProps {
+    data: {
+      name: string
+      tag: string
+    }[]
+  }
