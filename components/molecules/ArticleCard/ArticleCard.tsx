@@ -1,4 +1,4 @@
-import { IImageProps } from '@/util/interfaces';
+
 import Image from 'next/image'
 import React, { FC } from 'react'
 
@@ -17,7 +17,7 @@ interface IArticleCard {
 
 
 export const ArticleCard:FC<IArticleProps> = ({ data }) => {
-  console.log("🚀 ~ data:", data)
+ // console.log("🚀 ~ data:", data)
   return (
     <div className='px-2'>
       <div>
