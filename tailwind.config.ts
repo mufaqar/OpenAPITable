@@ -58,7 +58,6 @@ const config: Config = {
         p3: ["14px", "21px"],
         "eyebrow-large": ["14px", "19.6px"],
         cardHead: ["30px", "37.5px"],
-        p3: ["14px", "21px"],
         buttonLabel: ["16px", "20px"],
       },
 
