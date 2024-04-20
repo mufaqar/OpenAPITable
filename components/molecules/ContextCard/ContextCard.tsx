@@ -24,7 +24,7 @@ export const ContextCard = ({
         />
       </div>
       <p className="text-white pt-2 text-cardHead">{subTitle}</p>
-      <p className="text-white pt-2 text-label pb-6">{description}</p>
+      <p className="text-white pt-2 text-p3 pb-6">{description}</p>
       <div className="flex items-center justify-between w-[336px]">
         <Button
           icon={

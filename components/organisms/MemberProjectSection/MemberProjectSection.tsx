@@ -20,7 +20,6 @@ export const MemberProjectSection = () => {
               sapien.
             </p>
             <Button
-            
               iconPosition="right"
               icon={
                 <Image

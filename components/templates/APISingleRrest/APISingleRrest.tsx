@@ -10,6 +10,7 @@ import {
   VersionHistorySection,
   TimeLineSection,
   MemberProjectSection,
+  DiscussionSection,
 } from "@/components/organisms";
 import { AssetListType } from "@/util/types";
 
@@ -27,6 +28,7 @@ export const APISingleRrest = () => {
       <UseCaseSection />
       <TimeLineSection />
       <MemberProjectSection />
+      <DiscussionSection />
     </>
   );
 };

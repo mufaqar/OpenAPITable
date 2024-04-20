@@ -23,7 +23,7 @@ export const IconsCard: FC<IconsCardProps> = ({ iconPaths }) => {
       ))}
       {hiddenIconsCount > 0 && (
         <div className="relative w-12 h-12">
-          <p className="absolute inset-0 flex items-center justify-center bg-white shadow rounded-full text-core-blue font-bold text-label">
+          <p className="absolute inset-0 flex items-center justify-center bg-white shadow rounded-full text-core-blue font-bold text-p3">
             +{hiddenIconsCount}
           </p>
         </div>

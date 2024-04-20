@@ -29,8 +29,8 @@ export const ProjectCard = ({ title, description }: ProjectCardProps) => {
       <div className="bg-light-grey w-full h-[101px] mt-8 rounded-br-[40px]">
         <div className="flex p-8 justify-between items-center">
           <div className="flex">
-            <p className="font-bold text-core-blue text-label pr-1">URN:</p>
-            <p className="text-core-blue text-label">C23.5.451</p>
+            <p className="font-bold text-core-blue text-p3 pr-1">URN:</p>
+            <p className="text-core-blue text-p3">C23.5.451</p>
           </div>
           <Button
             iconPosition="right"

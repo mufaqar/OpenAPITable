@@ -24,3 +24,4 @@ export * from "./ComponentsSection";
 export * from "./UseCaseSection";
 export * from "./TimeLineSection";
 export * from "./MemberProjectSection";
+export * from "./DiscussionSection";

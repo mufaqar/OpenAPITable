@@ -1,4 +1,3 @@
-import { CircleVector } from "@/components/atoms/CircleVector";
 import { TimeLineCard } from "@/components/molecules";
 
 export const TimeLineSection = () => {

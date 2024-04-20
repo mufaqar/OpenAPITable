@@ -10,3 +10,6 @@ export * from "./Badge";
 export * from "./Ship";
 export * from "./ShipText";
 export * from "./IconsCard";
+export * from "./DiscussionCard";
+export * from "./ReplyCard";
+export * from "./PaginationComponent";
