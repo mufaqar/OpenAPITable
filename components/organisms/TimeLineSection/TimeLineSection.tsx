@@ -18,13 +18,13 @@ export const TimeLineSection = () => {
                   title={timeLine.title}
                   description={timeLine.description}
                   icon={timeLine.icon}
+                  index={index}
                 />
               </div>
             );
           })}
         </div>
-        <div className="h-[360px]">{/* <CircleVector/> */}</div>
-        <div className="flex flex-col xl:flex-row items-center gap-3 -ml-12">
+        <div className="flex -mt-[343px] -ml-[107px] flex-col xl:flex-row items-center gap-3">
           {timeLineCardList.map((timeLine, index) => {
             return (
               <div key={index}>
@@ -32,6 +32,8 @@ export const TimeLineSection = () => {
                   title={timeLine.title}
                   description={timeLine.description}
                   icon={timeLine.icon}
+                  index={index}
+                  linesOnTop={true}
                 />
               </div>
             );

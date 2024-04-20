@@ -10,3 +10,5 @@ export * from "./ClockIcon";
 export * from "./HotIcon";
 export * from "./PaginationLeftArrow";
 export * from "./PaginationRightArrow";
+export * from "./TimeLine/DashUpLine";
+export * from "./TimeLine/DashBottomLine";
