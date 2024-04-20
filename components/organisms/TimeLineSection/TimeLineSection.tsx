@@ -11,27 +11,29 @@ export const TimeLineSection = () => {
           events which will focus on this API.
         </p>
         <div className="flex flex-col xl:flex-row items-center gap-3 ml-12">
-          {timeLineCardList.map((timeLine) => {
+          {timeLineCardList.map((timeLine, index) => {
             return (
-              <TimeLineCard
-                title={timeLine.title}
-                description={timeLine.description}
-                icon={timeLine.icon}
-              />
+              <div key={index}>
+                <TimeLineCard
+                  title={timeLine.title}
+                  description={timeLine.description}
+                  icon={timeLine.icon}
+                />
+              </div>
             );
           })}
         </div>
-        <div className="h-[360px]">
-          {/* <CircleVector/> */}
-        </div>
+        <div className="h-[360px]">{/* <CircleVector/> */}</div>
         <div className="flex flex-col xl:flex-row items-center gap-3 -ml-12">
-          {timeLineCardList.map((timeLine) => {
+          {timeLineCardList.map((timeLine, index) => {
             return (
-              <TimeLineCard
-                title={timeLine.title}
-                description={timeLine.description}
-                icon={timeLine.icon}
-              />
+              <div key={index}>
+                <TimeLineCard
+                  title={timeLine.title}
+                  description={timeLine.description}
+                  icon={timeLine.icon}
+                />
+              </div>
             );
           })}
         </div>

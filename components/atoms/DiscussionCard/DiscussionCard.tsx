@@ -129,9 +129,12 @@ export const DiscussionCard = ({
       {showTagsRow && (
         <div className="flex items-center justify-between">
           <div className="flex">
-            {tagList.map((tag) => {
+            {tagList.map((tag, index) => {
               return (
-                <div className="h-[22px] py-1 px-2 rounded-tl-[8px] rounded-br-[8px] bg-[#e5e9ec] mr-[10px] text-[10px] text-[#333333]">
+                <div
+                  key={index}
+                  className="h-[22px] py-1 px-2 rounded-tl-[8px] rounded-br-[8px] bg-[#e5e9ec] mr-[10px] text-[10px] text-[#333333]"
+                >
                   {tag}
                 </div>
               );

@@ -17,7 +17,10 @@ import { AssetListType } from "@/util/types";
 export const APISingleRrest = () => {
   return (
     <>
-      <Hero />
+      <Hero
+        breadcrumbItems={[{ title: "Open APIS", href: "/" }]}
+        title="Product order management"
+      />
       <OverviewSection page={"APISingleRest"} items={apiSingleRrestItems} />
       <AssetSection page={"APISingleRest"} assets={assets} />
       <CodeReferenceSection />

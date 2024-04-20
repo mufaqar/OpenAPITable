@@ -14,8 +14,12 @@ export const VersionHistorySection = () => {
               dolor sit ametlorem
             </p>
             <div className="flex items-start">
-              {ships.map((ship) => {
-                return <Ship iconPath={ship.iconPath} text={ship.text} />;
+              {ships.map((ship, index) => {
+                return (
+                  <div key={index}>
+                    <Ship iconPath={ship.iconPath} text={ship.text} />
+                  </div>
+                );
               })}
             </div>
           </div>

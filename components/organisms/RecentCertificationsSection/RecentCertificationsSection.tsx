@@ -28,12 +28,14 @@ export const RecentCertificationsSection = () => {
           </div>
           <p className="max-w-[858px]">Providers who support this API</p>
           <div className={"flex flex-wrap gap-2"}>
-            {recentCertificationsList.map((recent) => {
+            {recentCertificationsList.map((recent, index) => {
               return (
-                <RecentCertificationCard
-                  title={recent.title}
-                  icon={recent.icon}
-                />
+                <div key={index}>
+                  <RecentCertificationCard
+                    title={recent.title}
+                    icon={recent.icon}
+                  />
+                </div>
               );
             })}
           </div>
