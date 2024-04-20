@@ -6,8 +6,8 @@ export const ContextSection = () => {
       <div className="container">
         <div className="flex gap-12 justify-between max-lg:flex-wrap max-lg:justify-center">
           <div>
-            <h2 className="text-h2 font-bold mb-[48px] text-white ">
-              Context specific <span>bundles</span>
+            <h2 className="text-[64px] leading-[80px] font-bold mb-[48px] text-white ">
+              Context specific <span className="font-normal">bundles</span>
             </h2>
             <p className="max-w-[886px] text-white pb-3">
               This API has context specific versions available in these Bundles.

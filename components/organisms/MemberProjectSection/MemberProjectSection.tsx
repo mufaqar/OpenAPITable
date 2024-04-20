@@ -11,7 +11,7 @@ export const MemberProjectSection = () => {
             <h2 className="text-h2 font-bold mb-8 text-core-blue">
               Member project
             </h2>
-            <p className="max-w-[550px]">
+            <p className="max-w-[550px] text-p1 text-core-blue">
               Participants from all of our member organisations work together to
               develop the OpenAPIs. Lorem ipsum dolor sit amet lacinia feugiat
               tempor. Tellus curabitur odio dictumst scelerisque sollicitudin
@@ -29,7 +29,7 @@ export const MemberProjectSection = () => {
                   alt="arrow right"
                 />
               }
-              className="w-[153px] mt-8 h-[38px]"
+              className="w-[160px] mt-8 h-[38px]"
             >
               View project
             </Button>

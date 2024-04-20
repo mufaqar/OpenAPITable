@@ -7,7 +7,7 @@ export const ComponentsSection = () => {
         <div className="flex-col gap-12 justify-between max-lg:flex-wrap max-lg:justify-center">
           <h2 className="text-h2 mb-8 font-bold text-core-blue">Components</h2>
 
-          <p className="max-w-[1200px] mb-10">
+          <p className="max-w-[1200px] text-p1 text-core-blue mb-10">
             Lorem ipsum dolor sit amet consectetur. Quisque sit a pulvinar velit
             nec dui id. Auctor morbi purus sed sit. At fames imperdiet amet
             elementum imperdiet. Lobortis curabitur mi arcu consectetur ac

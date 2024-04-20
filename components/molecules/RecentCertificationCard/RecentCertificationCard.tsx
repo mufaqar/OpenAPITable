@@ -18,7 +18,7 @@ export const RecentCertificationCard = ({
           height={35}
           alt="globe"
         />
-        <p className="pt-2 text-core-blue text-lap3bel pb-3">Products</p>
+        <p className="pt-2 text-core-blue text-p3 pb-3">Products</p>
         <div className="flex lg:min-w-[336px] items-center justify-between py-2 pl-3 pr-6 bg-[#f3f4f6] h-[65.26px] rounded-br-[12px] rounded-tl-[12px]">
           <div className="flex items-center">
             <Image

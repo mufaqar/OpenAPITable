@@ -14,7 +14,7 @@ export const OverviewSection: FC<OverviewSectionProps> = (props) => {
 
 
   const partnersOverView = (
-    <p className="max-w-[858px]">
+    <p className="max-w-[858px] text-p2">
       The GSMA Open Gateway initiative, spearheaded by TM Forum, GSMA, and
       CAMARA, offers a framework of universal APIs that provide seamless access
       to operator networks. By standardizing APIs and fostering collaboration
@@ -37,7 +37,7 @@ export const OverviewSection: FC<OverviewSectionProps> = (props) => {
     </p>
   );
   const apiSingleRrestOverView = (
-    <p className="max-w-[858px]">
+    <p className="max-w-[858px] text-p2">
       Provides a standardized mechanism for placing a product order with all the
       necessary order parameters. The API consists of a simple set of operations
       that interact with CRM/Order negotiation systems in a consistent manner. A

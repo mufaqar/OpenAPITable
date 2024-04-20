@@ -22,7 +22,7 @@ export const ProjectCard = ({ title, description }: ProjectCardProps) => {
         </button>
       </div>
       <div className="flex flex-col p-8">
-        <p className="text-h4 text-core-blue font-bold">{title}</p>
+        <h4 className="text-h4 text-core-blue font-bold">{title}</h4>
         <p className="text-p2 text-core-blue my-[30px]">{description}</p>
         <IconsCard iconPaths={iconPaths} />
       </div>

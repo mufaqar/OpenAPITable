@@ -10,7 +10,7 @@ export const CodeReferenceSection = () => {
             <h2 className="text-h2 font-bold mb-6 text-core-blue">
               Code reference
             </h2>
-            <p className="max-w-[858px]">
+            <p className="max-w-[858px] text-p2 text-core-blue">
               Lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum
               dolor sit ametlorem ipsum dolor sit ametLorem ipsum dolor sit amet
               lorem ipsum dolor sit amet lorem ipsum dolor sit ametlorem ipsum
@@ -31,7 +31,7 @@ export const CodeReferenceSection = () => {
                   alt="arrow right"
                 />
               }
-              className="w-56 mt-6"
+              className="w-[230px] mt-6"
             >
               Go to code reference
             </Button>

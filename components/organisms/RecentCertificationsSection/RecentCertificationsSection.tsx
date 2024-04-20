@@ -21,12 +21,12 @@ export const RecentCertificationsSection = () => {
                   alt="arrow right"
                 />
               }
-              className="w-[225px] h-10"
+              className="w-[232px] h-10"
             >
               View all certifications
             </Button>
           </div>
-          <p className="max-w-[858px]">Providers who support this API</p>
+          <p className="max-w-[858px] text-p2 text-core-blue">Providers who support this API</p>
           <div className={"flex flex-wrap gap-2"}>
             {recentCertificationsList.map((recent, index) => {
               return (
