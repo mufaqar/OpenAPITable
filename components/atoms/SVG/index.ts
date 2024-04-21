@@ -15,3 +15,4 @@ export * from "./TimeLine/DashBottomLine";
 export * from "./TimeLine/DashLeftLine";
 export * from "./Polygon";
 export * from "./TrashIcon";
+export * from "./SitemapIcon";
