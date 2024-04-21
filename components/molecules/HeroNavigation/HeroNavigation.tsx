@@ -5,7 +5,7 @@ import { FC, useState } from "react";
 import { HeroSubHeaderType } from "@/util/types/HeroSubHeaderType";
 
 interface IHeroNavigationProps {
-  subHeaders: HeroSubHeaderType;
+  subHeaders?: HeroSubHeaderType;
 }
 
 export const HeroNavigation: FC<IHeroNavigationProps> = ({subHeaders}) => {
@@ -20,7 +20,7 @@ export const HeroNavigation: FC<IHeroNavigationProps> = ({subHeaders}) => {
     <nav
       className={`flex items-center sm:justify-center space-x-3 sm:space-x-7 md:space-x-10 text-white text-xs sm:text-sm flex-wrap`}
     >
-      {subHeaders.map((item) => (
+      {subHeaders && subHeaders.map((item) => (
         <button
           key={item.id}
           onClick={() => handleNavigation(item.href)}

@@ -8,7 +8,7 @@ interface IHeroProps {
   imageSrc?: string;
   withNavigation?: boolean;
   breadcrumbItems?: BreadcrumbItem[];
-  subHeaders: HeroSubHeaderType;
+  subHeaders?: HeroSubHeaderType;
 }
 
 export const Hero = ({
