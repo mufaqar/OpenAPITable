@@ -1,11 +1,10 @@
 
 import { Button } from '@/components/atoms';
-import React from 'react';
+import React from 'react'
+
 import { HiArrowNarrowRight } from 'react-icons/hi';
-import projectImageOne from '../../../public/images/Project-image-1.png';
-import projectImageTwo from '../../../public/images/Project-image-2.png';
-import projectImageThree from '../../../public/images/Project-image-3.png';
 import { CatalystProjectCard } from '@/components/molecules';
+
 import { ICatalystProjects } from '@/util/interfaces';
 
 export const CatalystProjects: React.FC = () => {

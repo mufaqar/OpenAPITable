@@ -2,9 +2,6 @@ import { MainLayout } from "@/components/organisms";
 import type { Metadata } from "next";
 import "./globals.css";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
 export const metadata: Metadata = {
   title: "Open API's",
   description: "Open API's",

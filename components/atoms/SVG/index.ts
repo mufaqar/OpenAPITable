@@ -13,3 +13,5 @@ export * from "./PaginationRightArrow";
 export * from "./TimeLine/DashUpLine";
 export * from "./TimeLine/DashBottomLine";
 export * from "./TimeLine/DashLeftLine";
+export * from "./Polygon";
+export * from "./TrashIcon";

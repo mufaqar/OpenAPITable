@@ -13,3 +13,5 @@ export * from "./Search";
 export * from "./RecentCertificationCard";
 export * from "./ComponentSectionCard";
 export * from "./TimeLineCard";
+export * from "./ComponentMapCategories";
+export * from "./ComponentMapCard";
