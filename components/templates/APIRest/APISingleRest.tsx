@@ -14,7 +14,7 @@ import {
 } from "@/components/organisms";
 import { AssetListType } from "@/util/types";
 
-export const APISingleRrest = () => {
+export const APISingleRest = () => {
   return (
     <>
       <Hero
@@ -28,7 +28,7 @@ export const APISingleRrest = () => {
       />
       <AssetSection page={"APISingleRest"} assets={assets} />
       <CodeReferenceSection />
-      <VersionHistorySection />
+      <VersionHistorySection backgroundColor={"bg-light-grey"} />
       <ContextSection />
       <RecentCertificationsSection />
       <ComponentsSection />

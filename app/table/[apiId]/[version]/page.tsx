@@ -1,5 +1,5 @@
-import { APISingleRrest } from "@/components/templates";
+import { APISingleRest } from "@/components/templates";
 
-export default function APISingleRrestPage() {
-  return <APISingleRrest/>;
+export default function APISingleRestPage() {
+  return <APISingleRest/>;
 }

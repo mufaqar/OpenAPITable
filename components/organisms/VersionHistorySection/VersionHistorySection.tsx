@@ -1,8 +1,15 @@
 import { Ship } from "@/components/atoms";
 
-export const VersionHistorySection = () => {
+export const VersionHistorySection = ({
+  backgroundColor,
+}: {
+  backgroundColor: string;
+}) => {
   return (
-    <section id="version-history" className="py-8 lg:py-16 bg-light-grey">
+    <section
+      id="version-history"
+      className={`py-8 lg:py-16 ${backgroundColor}`}
+    >
       <div className="container">
         <div className="flex gap-12 justify-between max-lg:flex-wrap max-lg:justify-center">
           <div>
