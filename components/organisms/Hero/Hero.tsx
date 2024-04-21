@@ -1,5 +1,6 @@
 import { Breadcrumb, MainHeading, BreadcrumbItem } from "@/components/atoms";
 import { HeroNavigation } from "@/components/molecules";
+import { HeroSubHeaderType } from "@/util/types/HeroSubHeaderType";
 import Image from "next/image";
 
 interface IHeroProps {
@@ -7,6 +8,7 @@ interface IHeroProps {
   imageSrc?: string;
   withNavigation?: boolean;
   breadcrumbItems?: BreadcrumbItem[];
+  subHeaders?: HeroSubHeaderType;
 }
 
 export const Hero = ({
@@ -14,6 +16,7 @@ export const Hero = ({
   imageSrc,
   withNavigation,
   breadcrumbItems,
+  subHeaders,
 }: IHeroProps) => {
   return (
     <section className="py-6 bg-core-blue lg:rounded-bl-[160px] mt-[62px]">
@@ -30,7 +33,7 @@ export const Hero = ({
           )}
         </div>
 
-        {withNavigation ?? <HeroNavigation />}
+        {withNavigation ?? <HeroNavigation subHeaders={subHeaders} />}
       </div>
     </section>
   );
