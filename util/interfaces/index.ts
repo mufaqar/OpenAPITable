@@ -5,3 +5,10 @@ export interface ICatalystProjects {
   image: string;
   tag: string;
 }
+
+export interface IComponentMapCardProps {
+  data: {
+    name: string;
+    tag: string;
+  }[];
+}
