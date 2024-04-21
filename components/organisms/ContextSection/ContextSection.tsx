@@ -2,7 +2,7 @@ import { ContextCard } from "@/components/molecules/ContextCard";
 
 export const ContextSection = () => {
   return (
-    <section id="context-section" className="py-8 lg:py-16 bg-gradient-blue">
+    <section id="context-specific" className="py-8 lg:py-16 bg-gradient-blue">
       <div className="container">
         <div className="flex gap-12 justify-between max-lg:flex-wrap max-lg:justify-center">
           <div>

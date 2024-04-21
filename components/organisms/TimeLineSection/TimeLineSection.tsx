@@ -2,7 +2,7 @@ import { TimeLineCard } from "@/components/molecules";
 
 export const TimeLineSection = () => {
   return (
-    <section id="timeline" className="py-10 lg:py-[96px] bg-light-grey">
+    <section id="timeline-section" className="py-10 lg:py-[96px] bg-light-grey">
       <div className="container">
         <h2 className="text-h2 font-bold text-core-blue mb-[12px]">Timeline</h2>
         <p className="text-p1 text-core-blue max-w-[1200px] mb-16">

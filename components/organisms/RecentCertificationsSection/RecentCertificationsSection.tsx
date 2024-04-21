@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export const RecentCertificationsSection = () => {
   return (
-    <section id="code-reference" className="py-8 lg:py-16">
+    <section id="recent-certifications" className="py-8 lg:py-16">
       <div className="container">
         <div className="flex-col gap-12 justify-between max-lg:flex-wrap max-lg:justify-center">
           <div className="flex justify-between items-center mb-3">

@@ -16,7 +16,7 @@ export const DiscussionSection = () => {
     setCurrentPage(pageNumber);
   };
   return (
-    <section id="timeline" className="py-10 lg:pt-[96px] bg-light-grey">
+    <section id="discussion" className="py-10 lg:pt-[96px] bg-light-grey">
       <div className="container">
         <h2 className="text-h2 font-bold text-core-blue mb-[10px]">
           Discussion
