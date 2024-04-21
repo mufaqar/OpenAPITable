@@ -24,7 +24,7 @@ export const TimeLineSection = () => {
             );
           })}
         </div>
-        <div className="flex -mt-[343px] -ml-[107px] flex-col xl:flex-row items-center gap-3">
+        <div className="flex xl:-mt-[343px] -mt-[143px]  -ml-[107px] flex-col xl:flex-row items-center gap-3">
           {timeLineCardList.map((timeLine, index) => {
             return (
               <div key={index}>

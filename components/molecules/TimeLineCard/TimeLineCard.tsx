@@ -1,4 +1,4 @@
-import { DashBottomLine, DashUpLine } from "@/components/atoms";
+import { DashBottomLine, DashLeftLine, DashUpLine } from "@/components/atoms";
 import Image from "next/image";
 
 interface TimeLineCardProps {
@@ -19,17 +19,20 @@ export const TimeLineCard = ({
   return (
     <div className="flex flex-col items-center">
       {linesOnTop && (
-        <DashBottomLine
-          color={
-            index % 3 === 0
-              ? "#E0121D"
-              : index % 3 === 1
-                ? "#DC6526"
-                : "#662482"
-          }
-          month="December"
-          year="2024"
-        />
+        <div className="relative">
+          {index === 0 && <DashLeftLine />}
+          <DashBottomLine
+            color={
+              index % 3 === 0
+                ? "#E0121D"
+                : index % 3 === 1
+                  ? "#DC6526"
+                  : "#662482"
+            }
+            month="December"
+            year="2024"
+          />
+        </div>
       )}
       <div className="my-3 py-6 px-3 mr-3 w-[284px] h-[206px] bg-white shadow-card rounded-br-[24px] rounded-tl-[24px] flex flex-col items-center justify-center">
         {icon && (
