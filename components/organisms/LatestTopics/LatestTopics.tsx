@@ -41,7 +41,7 @@ export const LatestTopics = () => {
             size="auto"
             icon={topic.icon}
             className={twMerge(
-              "mr-[10px] h-[33px]",
+              "mr-[10px] mt-[10px] h-[33px]",
               openTab === index ? "text-white" : "text-[#A9ADB1] bg-[#e5e9ec]",
             )}
             textSpanStyle="font-normal text-xs"

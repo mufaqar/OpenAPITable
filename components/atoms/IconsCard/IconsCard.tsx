@@ -10,7 +10,7 @@ export const IconsCard: FC<IconsCardProps> = ({ iconPaths }) => {
   const hiddenIconsCount = iconPaths.length - 4;
 
   return (
-    <div className="flex w-[486px] h-[48px]">
+    <div className="flex w-[486px] h-[48px] pl-8">
       {visibleIcons.map((iconPath, index) => (
         <div key={index} className="relative w-12 h-12 mr-2">
           <Image

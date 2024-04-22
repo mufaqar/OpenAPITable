@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export const ReplyCard = () => {
   return (
-    <div className="ml-[160px] mt-6 py-[25px] px-[30px] rounded-tl-[20px] rounded-br-[20px] bg-white shadow-card">
+    <div className="ml-[60px] lg:ml-[160px] mt-6 py-[25px] px-[30px] rounded-tl-[20px] rounded-br-[20px] bg-white shadow-card">
       <p className="text-p3 text-core-blue mb-[15px]">
         <span className="font-bold text-p3 text-core-blue">@unkind</span>, Lorem ipsum dolor sit amet, consectetur
         adipiscing elit. Ornare rutrum amet, a nunc mi lacinia in iaculis.
