@@ -1,5 +1,10 @@
 import { Library } from "@/components/templates";
+import { Suspense } from "react";
 
 export default function LibraryPage() {
-  return <Library />;
+  return (
+    <Suspense>
+      <Library />
+    </Suspense>
+  );
 }
