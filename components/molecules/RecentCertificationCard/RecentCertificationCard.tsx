@@ -21,13 +21,8 @@ export const RecentCertificationCard = ({
         <p className="pt-2 text-core-blue text-p3 pb-3">Products</p>
         <div className="flex items-center justify-between max-h-16 py-2 pl-3 pr-6 bg-[#f3f4f6] rounded-br-[12px] rounded-tl-[12px]">
           <div className="flex items-center">
-            <Image
-              src={icon}
-              width={48}
-              height={49.26}
-              alt="globe"
-            />
-            <p className="px-3 text-core-blue">{title}</p>
+            <Image src={icon} width={48} height={49.26} alt="globe" />
+            <p className="px-3 text-p3 text-core-blue">{title}</p>
           </div>
           <Image
             src={`/oda/open-apis/icons/arrow-right-card.svg`}

@@ -1,1 +1,1 @@
-export * from "./APISingleRest";
+export * from "./APIRest";
