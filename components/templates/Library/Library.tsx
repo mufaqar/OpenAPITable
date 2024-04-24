@@ -21,7 +21,13 @@ export const Library = () => {
   );
   return (
     <>
-      <Hero title="Product order management code reference" />
+      <Hero
+        title="Product order management code reference"
+        breadcrumbItems={[
+          { title: "API name", href: "/" },
+          { title: "Code and docs", href: "/" },
+        ]}
+      />
       <div className="container">
         <TableFilter
           searchValue={searchValue}
