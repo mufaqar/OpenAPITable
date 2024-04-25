@@ -18,7 +18,10 @@ export const APISingleRest = () => {
   return (
     <>
       <Hero
-        breadcrumbItems={[{ title: "Open APIS", href: "/" }]}
+        breadcrumbItems={[
+          { title: "Open API table", href: "/table" },
+          { title: "Product order management", href: "/" },
+        ]}
         title="Product order management"
         subHeaders={items}
       />
