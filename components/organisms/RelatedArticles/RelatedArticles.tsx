@@ -13,7 +13,7 @@ import { AiFillSound } from "react-icons/ai";
 
 export const RelatedArticles = () => {
   return (
-    <section className="bg-light-grey py-12 pb-20 articles">
+    <section id="diagram" className="bg-light-grey py-12 pb-20 articles">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row gap-3 md:items-center md:justify-between ">
           <div className="flex items-center gap-3 md:gap-5">

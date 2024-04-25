@@ -27,8 +27,8 @@ export const ComponentsSection = () => {
                 ))}
               </div>
             </div>
-            <div className="flex-col lg:mr-[120px] ">
-              <p className="text-core-blue text-h5 mb-4">Dependant</p>
+            <div className="flex-col lg:mr-[120px]">
+              <p className="text-core-blue text-h5 my-4">Dependant</p>
               <div className="flex flex-wrap gap-2">
                 {componentsList.map((recent) => (
                   <ComponentSectionCard

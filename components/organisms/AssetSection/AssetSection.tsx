@@ -4,7 +4,7 @@ import { getAssetColor, getAssetFileType, getAssetIcon } from "@/util/helpers";
 import { AssetListType } from "@/util/types";
 import Image from "next/image";
 export interface AssetSectionProps {
-  page: "Partners" | "APISingleRest";
+  page: "Partners" | "APISingleRest" | "Library";
   assets: AssetListType[];
 }
 export const AssetSection: FC<AssetSectionProps> = (props) => {
