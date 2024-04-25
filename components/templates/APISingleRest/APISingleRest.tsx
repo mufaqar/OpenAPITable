@@ -14,11 +14,14 @@ import {
 } from "@/components/organisms";
 import { AssetListType } from "@/util/types";
 
-export const APISingleRrest = () => {
+export const APISingleRest = () => {
   return (
     <>
       <Hero
-        breadcrumbItems={[{ title: "Open APIS", href: "/" }]}
+        breadcrumbItems={[
+          { title: "Open API table", href: "/table" },
+          { title: "Product order management", href: "/" },
+        ]}
         title="Product order management"
         subHeaders={items}
       />
@@ -28,7 +31,7 @@ export const APISingleRrest = () => {
       />
       <AssetSection page={"APISingleRest"} assets={assets} />
       <CodeReferenceSection />
-      <VersionHistorySection />
+      <VersionHistorySection backgroundColor={"bg-light-grey"} />
       <ContextSection />
       <RecentCertificationsSection />
       <ComponentsSection />

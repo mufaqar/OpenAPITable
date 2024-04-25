@@ -7,7 +7,7 @@ export const RecentCertificationsSection = () => {
     <section id="recent-certifications" className="py-8 lg:py-16">
       <div className="container">
         <div className="flex-col gap-12 justify-between max-lg:flex-wrap max-lg:justify-center">
-          <div className="flex justify-between items-center mb-3">
+          <div className="flex flex-col items-start justify-between lg:flex-row  mb-3">
             <h2 className="text-h2 font-bold text-core-blue">
               Recent certifications
             </h2>
@@ -21,13 +21,15 @@ export const RecentCertificationsSection = () => {
                   alt="arrow right"
                 />
               }
-              className="w-[232px] h-10"
+              className="w-[232px]"
             >
               View all certifications
             </Button>
           </div>
-          <p className="max-w-[858px] text-p2 text-core-blue">Providers who support this API</p>
-          <div className={"flex flex-wrap gap-2"}>
+          <p className="max-w-[858px] text-p2 text-core-blue">
+            Providers who support this API
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
             {recentCertificationsList.map((recent, index) => {
               return (
                 <div key={index}>

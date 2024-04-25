@@ -30,7 +30,7 @@ export const ModalProvider = () => {
 
   return (
     <Dialog.Root open={isOpen}>
-      <Dialog.Trigger />
+      <Dialog.Trigger asChild />
       <Dialog.Portal>
         <Dialog.Overlay
           className="fixed inset-0 bg-black/70 z-[9999]"

@@ -8,7 +8,7 @@ interface ProjectCardProps {
 
 export const ProjectCard = ({ title, description }: ProjectCardProps) => {
   return (
-    <div className="w-[550px] h-[553px] bg-white shadow-card rounded-br-[40px] rounded-tl-[40px] flex flex-col items-center">
+    <div className="w-[340px] lg:w-[550px] bg-white shadow-card rounded-br-[40px] rounded-tl-[40px] flex flex-col">
       <div className="relative">
         <Image
           className="rounded-tl-[40px]"
@@ -21,11 +21,11 @@ export const ProjectCard = ({ title, description }: ProjectCardProps) => {
           FINALIST
         </button>
       </div>
-      <div className="flex flex-col p-8">
-        <h4 className="text-h4 text-core-blue font-bold">{title}</h4>
-        <p className="text-p2 text-core-blue my-[30px]">{description}</p>
-        <IconsCard iconPaths={iconPaths} />
-      </div>
+      <h4 className="text-h4 text-core-blue font-bold pt-8 pl-8">{title}</h4>
+      <p className="text-p2 text-core-blue my-[30px] pl-8">
+        {description}
+      </p>
+      <IconsCard iconPaths={iconPaths} />
       <div className="bg-light-grey w-full h-[101px] mt-8 rounded-br-[40px]">
         <div className="flex p-8 justify-between items-center">
           <div className="flex">

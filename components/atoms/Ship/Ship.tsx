@@ -11,11 +11,11 @@ export const Ship: FC<ShipProps> = (props) => {
   return (
     <div
       className={
-        "ml-3 border-2 rounded-tl-[10px] rounded-br-[10px] p-3 flex items-center justify-center space-x-[6px]"
+        "max-w-[121px] border-2 rounded-tl-[10px] rounded-br-[10px] p-3 flex items-center justify-center space-x-[6px]"
       }
     >
       <Image src={iconPath} width={18} height={18} alt="Ship" />
-      <span className="ml-[18px] text-core-blue">{text}</span>
+      <span className="text-core-blue">{text}</span>
     </div>
   );
 };

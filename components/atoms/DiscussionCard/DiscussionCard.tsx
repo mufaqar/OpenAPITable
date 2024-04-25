@@ -35,7 +35,7 @@ export const DiscussionCard = ({
   return (
     <div
       className={twMerge(
-        borderLeft && "ml-[104px] border-4 border-l-[#F09832]",
+        borderLeft && "ml-[10px] xl:ml-[104px] border-4 border-l-[#F09832]",
         "mt-6 py-[25px] px-[30px] rounded-tl-[20px] rounded-br-[20px] bg-white shadow-card",
       )}
     >
@@ -102,27 +102,31 @@ export const DiscussionCard = ({
             />
             <p className="text-[#A9ADB1] font-light text-xs">3</p>
           </div>
-          <div className="flex items-center">
-            <Image
-              className="mr-[5px]"
-              src={"/oda/open-apis/icons/two-arrow-up.svg"}
-              width={14}
-              height={14}
-              alt="arrow-up"
-            />
-            <button className="mr-[20px] bg-transparent text-core-lightBlue font-medium text-xs">
-              Hide All Replies (2)
-            </button>
-            <Image
-              className="mr-[7.3px]"
-              src={"/oda/open-apis/icons/corner-right.svg"}
-              width={14}
-              height={14}
-              alt="corner-right"
-            />
-            <button className="mr-[20px] bg-transparent text-core-lightBlue font-medium text-xs">
-              REPLY
-            </button>
+          <div className="flex flex-col justify-between lg:flex lg:flex-row gap-2">
+            <div className="flex items-center">
+              <Image
+                className="mr-[5px]"
+                src={"/oda/open-apis/icons/two-arrow-up.svg"}
+                width={14}
+                height={14}
+                alt="arrow-up"
+              />
+              <button className="mr-[20px] bg-transparent text-core-lightBlue font-medium text-xs">
+                Hide All Replies (2)
+              </button>
+            </div>
+            <div className="flex items-center">
+              <Image
+                className="mr-[7.3px]"
+                src={"/oda/open-apis/icons/corner-right.svg"}
+                width={14}
+                height={14}
+                alt="corner-right"
+              />
+              <button className="mr-[20px] bg-transparent text-core-lightBlue font-medium text-xs">
+                REPLY
+              </button>
+            </div>
           </div>
         </div>
       )}

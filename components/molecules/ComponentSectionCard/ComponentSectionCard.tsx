@@ -13,10 +13,10 @@ export const ComponentSectionCard = ({
   shipTitle,
 }: ComponentSectionCardProps) => {
   return (
-    <div className="shadow rounded flex min-w-[540px] items-center justify-between py-3 px-2 bg-white h-[64px] gap-3">
+    <div className="shadow-card rounded-[10px] flex w-full md:w-[540px] items-center justify-between py-3 px-2 bg-white gap-3">
       <div className="flex items-center">
         <Image src={icon} width={40} height={40} alt="globe" />
-        <div className="flex-col items-start pl-3">
+        <div className="flex-col items-start px-3">
           <p className="text-core-blue">{title}</p>
           <ShipText text={shipTitle} />
         </div>
@@ -25,7 +25,7 @@ export const ComponentSectionCard = ({
         src={`/oda/open-apis/icons/arrow-right-card.svg`}
         width={16}
         height={16}
-        alt="globe"
+        alt="arrow-righ"
       />
     </div>
   );
