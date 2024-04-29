@@ -2,20 +2,29 @@
 import { MainHeading } from "@/components/atoms";
 import { APITableCard } from "@/components/molecules";
 import { APITablesettings } from "@/util/helpers/sliderSettings";
-import React from "react";
+import React, { FC } from "react";
 import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-export const APITable = () => {
+interface IAPITableProps {
+  title: string
+  features: {
+    content : string
+    id: number
+    order: number
+  }[]
+}
+
+export const APITable:FC<IAPITableProps> = ({title, features}) => {
   return (
     <section id="api-table" className="pb-20 bg-light-grey">
-      <MainHeading className="text-center mb-7">Got it in 5</MainHeading>
+      <MainHeading className="text-center mb-7">{title}</MainHeading>
       <div className="overflow-x-hidden">
         <Slider {...APITablesettings}>
-          {tables?.map((item, idx: number) => (
-            <APITableCard data={item} key={idx} id={idx + 1} />
+          {features?.map((item, idx: number) => (
+            <APITableCard data={item} key={item.order} id={idx + 1} />
           ))}
         </Slider>
       </div>

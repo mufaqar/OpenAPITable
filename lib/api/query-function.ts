@@ -6,17 +6,23 @@ export async function fetchDataWithQS<T, K = any>(
   queryParams?: Record<string, any>,
   overriddenParams?: Record<string, any>,
 ) {
-  const fetchOptions = {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${process.env.NEXT_PUBLIC_APP_STRAPI_BEARER_TOKEN}`,
-    },
-    next: {
-      revalidate: Number(
-        process.env.NEXT_PUBLIC_REVALIDATE_TIME_IN_SECONDS || 10,
-      ),
-    },
-  };
+  var fetchOptions
+  overriddenParams?.method === 'GET' ?
+    fetchOptions = {
+      method: 'GET'
+    } :
+    fetchOptions = {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_APP_STRAPI_BEARER_TOKEN}`,
+      },
+      next: {
+        revalidate: Number(
+          process.env.NEXT_PUBLIC_REVALIDATE_TIME_IN_SECONDS || 10,
+        ),
+      },
+    };
 
   const baseUrl = getApiDataUrl();
 
@@ -26,12 +32,12 @@ export async function fetchDataWithQS<T, K = any>(
 
   console.log({ url });
 
-  const mergedOptions = overriddenParams
-    ? { ...fetchOptions, ...overriddenParams }
-    : fetchOptions;
+  // const mergedOptions = overriddenParams
+  //   ? { ...fetchOptions, ...overriddenParams }
+  //   : fetchOptions;
 
   try {
-    const response = await fetch(url, mergedOptions);
+    const response = await fetch(url, fetchOptions);
 
     if (response.status !== 200) {
       // @FIXME: need to add a generic result for objects too

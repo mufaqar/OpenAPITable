@@ -105,3 +105,25 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.intro h3, .intro h4{
+  font-size: 36px;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  padding: 0 1rem;
+  line-height: 2.8rem;
+}
+
+@media (max-width: 620px) {
+  .intro h3{
+    font-size: 20px;
+    line-height: auto
+  }
+}
+
+@media (min-width: 621px) and (max-width: 768px) {
+  .intro h3 {
+    font-size: 30px;
+    line-height: auto
+  }
+}

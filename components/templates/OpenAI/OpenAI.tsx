@@ -8,15 +8,29 @@ import {
   CatalystProjects,
   RelatedArticles,
 } from "@/components/organisms";
-import React from "react";
+import React, { FC } from "react";
+import {MainPageApi} from '@/util/interfaces'
 
-export const OpenAI = () => {
+interface OPenAIProps {
+  data: MainPageApi
+}
+
+export const OpenAI:FC<OPenAIProps> = ({data}) => {
   return (
     <>
       <Hero title="Open APIs" subHeaders={items} />
-      <APIOverview />
-      <APITable />
-      <IntroductionAPI />
+      <APIOverview 
+        title={data.title}
+        description={data.description}
+      />
+      <APITable 
+        title={data.featuresSection[0].title}
+        features={data.featuresSection[0].features}
+      />
+      <IntroductionAPI 
+        description={data?.whatItMeansSection}
+        caption={data?.whatItMeansSection.caption}
+      />
       <ContextSpecificBundles />
       <OpenAPITranning />
       <CatalystProjects />

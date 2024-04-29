@@ -1,8 +1,18 @@
 import { MainHeading } from "@/components/atoms";
 import Image from "next/image";
-import React from "react";
+import React, { FC } from "react";
 
-export const IntroductionAPI = () => {
+interface IIntroductionAPIProps{
+  description:string,
+  caption: {
+    author_name: string
+    content: string
+    author_info: string
+    id: number
+  }
+}
+
+export const IntroductionAPI:FC<IIntroductionAPIProps> = ({description, caption}) => {
   return (
     <section id="introducing-apis" className="container mx-auto py-20">
       <div className="">
@@ -32,16 +42,13 @@ export const IntroductionAPI = () => {
             <div className="mt-10 md:mt-0">
               <p className="block -mt-6 text-[72px]">“</p>
               <p className="md:text-2xl font-bold -mt-10">
-                We hope this becomes a de-facto part of the telco industry
-                certification programme… We can start insisting on this for our
-                third party systems integrators and contractors as well as
-                internal staff.
+                {caption.content}
               </p>
               <h6 className="uppercase font-medium text-sm mt-4">
-                Brian Cappellani
+                {caption?.author_name}
               </h6>
               <h6 className="uppercase font-medium text-sm">
-                Vice President, Technology Strategy, Hansen.
+              {caption?.author_info}
               </h6>
             </div>
             <div className="absolute bg-white p-1 rounded-full md:-left-[140px] left-5 !-top-16 md:-top-28">
